@@ -1,0 +1,68 @@
+.question_item {
+    margin-bottom: 1.5rem;
+}
+
+.question_item:last-child {
+    margin-bottom: 0;
+}
+
+.option {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.option:last-child {
+    margin-bottom: 0;
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.option label {
+    display: block;
+    cursor: pointer;
+
+}
+
+.option:hover label {
+    background-color: var(--Purple-P25);
+}
+
+.label_checked{
+    background-color: var(--Purple-P25);
+}
+
+.custom_radioBtn {
+    position: absolute;
+    top: 2.6px;
+    left: 0px;
+
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    border: #998DD9 solid 2px;
+    background-color: #fff;
+    cursor: pointer;
+
+}
+
+.option:hover input~.custom_radioBtn {
+    background-color: var(--Purple-P25);
+}
+
+.option input:checked~.custom_radioBtn {
+    border: #C0B6F2 solid 5px;
+    background-color: #403294;
+}

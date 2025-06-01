@@ -1,0 +1,43 @@
+.container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    transition: all 0.3s;
+    width: 8rem;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.1rem;
+    transform: translateY(-50%);
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/svg/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.select {
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid var(--Purple-P100);
+    padding: 0.25rem 0.5rem;
+    appearance: none;
+    background: var(--Neutral-White);
+    width: 100%;
+    color: var(--Blue-B500);
+    cursor: pointer;
+}
+
+.select:focus-visible {
+    outline: 0;
+}
+
+.select option {
+    color: var(--Blue-B500);
+}

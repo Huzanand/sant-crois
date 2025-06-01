@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1px;
+    width: fit-content;
+}
+
+.item {
+    width: 4px;
+    height: 17px;
+    border-radius: 6px;
+}

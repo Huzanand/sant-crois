@@ -1,0 +1,80 @@
+.content__container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: auto;
+}
+
+.content__main {
+    flex: 1;
+}
+
+.divider {
+    width: 1px;
+    background-color: var(--Purple-P75);
+}
+
+.content__description {
+    width: 380px;
+}
+
+.input__container {
+    display: inline-block;
+    position: relative;
+}
+
+.input {
+    width: 8rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--Purple-P100);
+    padding: 0.25rem 0.5rem;
+}
+
+.input:focus-visible {
+    outline: none;
+}
+
+.underline {
+    display: block;
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    width: 7rem;
+    height: 1px;
+    border-bottom: 1px solid var(--Blue-B400);
+    transition: all 0.7s ease;
+}
+
+.badge {
+    position: absolute;
+    right: -8px;
+    top: -10px;
+}
+
+.inputDescription {
+    width: 8rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--Red-r75);
+    padding: 0.25rem 0.5rem;
+}
+
+.inputDescription:focus-visible {
+    outline: none;
+}
+
+.description__ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.description {
+    height: 60%;
+    overflow-y: auto;
+
+}

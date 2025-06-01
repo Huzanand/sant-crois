@@ -1,0 +1,18 @@
+.content__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item__ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}

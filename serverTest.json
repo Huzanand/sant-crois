@@ -1,0 +1,136 @@
+{
+    "metaData": {
+        "totalCount": 4,
+        "page": 1,
+        "size": 12
+    },
+    "exercises": [
+        {
+            "id": "65e72f87e241b0d039b593f8",
+            "author": "Samuel L. Jackson",
+            "primaryTopics": [
+                "first topic",
+                "second topic",
+                "new topic"
+            ],
+            "secondaryTopics": null,
+            "tags": [
+                "Numbers",
+                "Winter clothes",
+                "Noch ein Tag"
+            ],
+            "languageLevel": "A1",
+            "targetAgeGroup": "KIDS",
+            "learningLanguage": "English",
+            "creationDateTime": "1999-10-12T23:00:00Z",
+            "views": 127,
+            "acceptance": 0.44,
+            "cover": "https://www.vec.ca/wp-content/uploads/2019/03/English-Language-Level-System.jpg",
+            "exerciseDescriptions": {
+                "English": "Some description...",
+                "Russian": "Какое-то описание..."
+            },
+            "rating": 0.0,
+            "header": "Updated Exercise header",
+            "tasks": [
+                {
+                    "taskId": "663a3cd627860c7f1fc83039",
+                    "taskType": "MEDIA_TASK",
+                    "taskDescriptions": {
+                        "English": "Media task description."
+                    },
+                    "content": {
+                        "contentType": "CHOOSE_TEMPLATE",
+                        "transcription": "Some transcriptiome transcriptiome transcriptiome transcriptiome transcriptiome transcriptiome transcription",
+                        "contentSource": "1. Herr Brandt ist {{#q}}{{#o}}beim, in, auf{{/o}}{{#a}}beim{{/a}}{{/q}} Arzt.\n2. Lucia ist {{#q}}{{#o}}in, im, aus{{/o}}{{#a}}in{{/a}}{{/q}} der Schule.\n3. Xavier und Christian sind zusammen {{#q}}{{#o}}in, im, aus{{/o}}{{#a}}im, in{{/a}}{{/q}} Schwimmbad.\n4. Katharina ist {{#q}}{{#o}}auf, zu, beim{{/o}}{{#a}}zu{{/a}}{{/q}} Hause.\n5. Frau Söder ist übers Wochenende {{#q}}{{#o}}vor, von, nach{{/o}}{{#a}}nach{{/a}}{{/q}} Hamburg.\n6. Colette ist {{#q}}{{#o}}auf, bei, for{{/o}}{{#a}}auf{{/a}}{{/q}} der Toilette."
+                    },
+                    "questions": null
+                },
+                {
+                    "taskId": "663a3cf927860c7f1fc8303a",
+                    "taskType": "CHOOSE_ANSWER",
+                    "taskDescriptions": {
+                        "English": "choose answer task description"
+                    },
+                    "content": null,
+                    "questions": [
+                        {
+                            "questionId": "663a3d7a27860c7f1fc8303c",
+                            "questionText": "first q",
+                            "options": [
+                                "не/зовсім зрозумілий",
+                                "зошит не/підписано",
+                                "не/всі з цим обізнані",
+                                "не/забутня подорож"
+                            ],
+                            "questionDescription": "Description task=2, questiion=1"
+                        },
+                        {
+                            "questionId": "663a3d9227860c7f1fc8303e",
+                            "questionText": "second",
+                            "options": [
+                                "не/зовсім зрозумілий",
+                                "зошит не/підписано",
+                                "не/всі з цим обізнані",
+                                "не/забутня подорож"
+                            ],
+                            "questionDescription": "Description task=2, questiion=2"
+                        }
+                    ]
+                },
+                {
+                    "taskId": "663a3d0427860c7f1fc8303b",
+                    "taskType": "CHOOSE_ANSWER",
+                    "taskDescriptions": {
+                        "English": "write answer task description."
+                    },
+                    "content": null,
+                    "questions": [
+                        {
+                            "questionId": "663a3da727860c7f1fc8303f",
+                            "questionText": null,
+                            "options": [
+                                "first option right answer",
+                                "second option right answer",
+                                "third option wrong answer"
+                            ],
+                            "questionDescription": "Description task=3, questiion=1"
+                        },
+                        {
+                            "questionId": "663a3db327860c7f1fc83040",
+                            "questionText": null,
+                            "options": null,
+                            "questionDescription": "Desription"
+                        }
+                    ]
+                },
+                {
+                    "taskId": "663b7c787723ef00003dd133",
+                    "taskType": "MEDIA_TASK",
+                    "taskDescriptions": {
+                        "English": "en"
+                    },
+                    "content": {
+                        "contentType": "FILL_TEMPLATE",
+                        "transcription": "1. Herr Brandt ist {{#q}}{{#a}}beim, in, auf{{/a}}{{/q}} Arzt.\n2. Lucia ist {{#a}}in{{/a}} der Schule.\n3. Xavier und Christian sind zusammen {{#a}}im, in{{/a}} Schwimmbad.\n4. Katharina ist {{#a}}zu{{/a}} Hause.\n5. Frau Söder ist übers Wochenende {{#a}}nach{{/a}} Hamburg.\n6. Colette ist {{#a}}auf{{/a}} der Toilette.",
+                        "contentSource": "1. Herr Brandt ist {{#q}}{{#a}}beim, in, auf{{/a}}{{/q}} Arzt. 2. Lucia ist {{#a}}in{{/a}} der Schule. 3. Xavier und Christian sind zusammen {{#a}}im, in{{/a}} Schwimmbad. 4. Katharina ist {{#a}}zu{{/a}} Hause. 5. Frau Söder ist übers Wochenende {{#a}}nach{{/a}} Hamburg. 6. Colette ist {{#a}}auf{{/a}} der Toilette."
+                    },
+                    "questions": null
+                },
+                {
+                    "taskId": "67c89659fbe45d0000b7a31a",
+                    "taskType": "MEDIA_TASK",
+                    "taskDescriptions": {
+                        "Ukrainian": "тестове відео"
+                    },
+                    "content": {
+                        "contentType": "VIDEO",
+                        "transcription": "",
+                        "contentSource": "https://www.youtube.com/embed/kAqqsypgDK0"
+                    },
+                    "questions": null
+                }
+            ]
+        }
+    ]
+}

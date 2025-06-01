@@ -1,0 +1,140 @@
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 320px;
+}
+
+.sideBar_main {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px 0px rgba(163, 148, 205, 0.34);
+    background-color: var(--Neutral-White);
+
+    transition: all 0.3s;
+}
+
+.content__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    width: 100%;
+    z-index: 0;
+    transition: all 0.3s;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    z-index: 1;
+}
+
+.burgerIcon {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.typeItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 0.5rem 0.625rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.typeItem:hover {
+    background: var(--Purple-P25, #f3f1ff);
+}
+
+.typeItem > * {
+    width: 24px;
+    height: 24px;
+}
+
+.typeItem span {
+    flex: 1;
+    color: #231e49;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 964px) {
+    .sideBar {
+        width: 100%;
+    }
+
+    .sideBar_main {
+        padding: 0 0 0.5rem;
+        border-radius: none;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .content__container {
+        gap: 0;
+    }
+
+    .burgerIcon {
+        display: block;
+    }
+
+    .logo {
+        z-index: 1;
+    }
+
+    .content {
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        transition: all 0.3s;
+        position: absolute;
+        z-index: 1;
+        /* background-color: grey; */
+    }
+
+    .typeItem {
+        padding: 2.4rem 0.625rem 1rem;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+
+    .filters {
+        flex-direction: row-reverse;
+        align-items: stretch;
+        justify-content: space-between;
+        min-width: 299px;
+    }
+
+    .filters__item:first-child {
+        width: 80%;
+    }
+
+    .filters__item:last-child {
+        width: 20%;
+    }
+}

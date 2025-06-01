@@ -1,0 +1,22 @@
+.sideBar_headings {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.headlines_title {
+    color: var(--Blue-B500, #231e49);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.headlines_subtitle {
+    color: var(--Blue-B400, #3f3a65);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.colorFFF {
+    color: var(--Neutral-White);
+}

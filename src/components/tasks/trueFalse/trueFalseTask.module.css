@@ -1,0 +1,86 @@
+.question_item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question_item:last-child {
+    margin-bottom: 0;
+}
+
+.option_container {
+    display: flex;
+    gap: 1rem;
+}
+
+.option {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 120px;
+    height: 73px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.option:last-child {
+    margin-bottom: 0;
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.option label {
+    display: block;
+    cursor: pointer;
+    padding-bottom: 56px;
+    width: 100%;
+}
+
+.custom_radioBtn {
+    position: absolute;
+    bottom: 8px;
+    left: calc(50% - 7px);
+    margin: 0 auto;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    border: #998dd9 solid 2px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.option:hover input ~ .custom_radioBtn {
+    background-color: var(--Purple-P25);
+}
+
+.option input:checked ~ .custom_radioBtn {
+    border: #c0b6f2 solid 5px;
+    background-color: #403294;
+}
+
+@media screen and (max-width: 670px) {
+    .question_item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .option_container {
+        flex-direction: column;
+    }
+}

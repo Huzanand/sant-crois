@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 10px;
+    background: var(--Neutral-White);
+    width: 100%;
+}
+
+.searchField {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.searchField input {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P75);
+    background: var(--Neutral-White);
+    padding: 0.55rem 1rem;
+    font-size: 16px;
+}
+
+.searchField input::placeholder {
+    color: var(--Purple-P100);
+}
+
+.searchField input:hover {
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P100);
+    background: var(--Purple-P25);
+}
+
+.searchField input:focus-visible {
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P300);
+    background: var(--neutral-white-10);
+    outline: none;
+}
+.searchField input:not(:placeholder-shown) {
+    border: 2px solid var(--Purple-P300);
+    background: var(--neutral-white-10);
+}
+
+.searchField span {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.list {
+    max-height: 152px;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.listItem {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+
+    width: 100%;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+}
+
+.listItem span {
+    color: var(--Blue-B500);
+    font-size: 14px;
+    font-weight: 200;
+    display: block;
+    min-height: 24px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 964px) {
+    .container {
+        background-color: var(--Purple-P25);
+    }
+
+    .list {
+        gap: 0;
+        max-height: 200px;
+    }
+
+    .listItem span {
+        height: 40px;
+        line-height: 40px;
+    }
+}

@@ -1,0 +1,80 @@
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 30, 73, 0.2);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.content__container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 32px;
+
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+    background: var(--Purple-P25);
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+
+    height: 100vh;
+    width: 320px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    transform: translateX(100%);
+    overflow-y: auto;
+}
+
+.open {
+    transform: translateX(0);
+    height: 100vh;
+}
+
+.headlines_title {
+    color: var(--Blue-B500, #231e49);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.headlines_subtitle {
+    color: var(--Blue-B400, #3f3a65);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.settingsMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media screen and (max-width: 400px) {
+    .content__container {
+        width: 100vw;
+    }
+}

@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 10px;
+    background: var(--Neutral-White);
+    width: 100%;
+}
+
+.list {
+    max-height: 152px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 248px;
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+}
+
+.listItem span {
+    color: var(--Blue-B500);
+    font-size: 14px;
+    font-weight: 200;
+    display: block;
+
+    height: 24px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 964px) {
+    .container {
+        background-color: var(--Purple-P25);
+    }
+
+    .listItem span {
+        height: 40px;
+        line-height: 40px;
+    }
+}

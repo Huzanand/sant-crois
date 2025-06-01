@@ -1,0 +1,55 @@
+.container {
+    display: inline;
+    position: relative;
+}
+
+.content__container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    margin: 0;
+    padding: 1rem 1rem 3.5rem;
+    border-radius: 0;
+    background: var(--Purple-P25);
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px 10px 0 0;
+
+    height: auto;
+    max-height: 66vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    transform: translateY(100%);
+    overflow-y: auto;
+}
+
+.open {
+    transform: translateY(0);
+}
+
+.closeIco {
+    width: 52px;
+    height: 52px;
+    align-self: flex-end;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 30, 73, 0.2);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}

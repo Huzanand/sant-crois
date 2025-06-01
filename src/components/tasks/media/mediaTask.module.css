@@ -1,0 +1,9 @@
+.video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
+.audio {
+    width: 100%;
+}

@@ -1,0 +1,158 @@
+/* @import "@atlaskit/css-reset"; */
+
+:root {
+    --Neutral-White: #fff;
+    --neutral-white-10: rgba(255, 255, 255, 0.1);
+    --Blue-B500: #231e49;
+    --Blue-B400: #3f3a65;
+    --Rose-R50: #ff7aaa;
+    --Purple-P25: #f3f1ff;
+    --Purple-P50: #eae6ff;
+    --Purple-P75: #c0b6f2;
+    --Purple-P100: #998dd9;
+    --Purple-P200: #8777d9;
+    --Purple-P300: #6554c0;
+    --Purple-P400: #5243aa;
+    --Purple-P500: #403294;
+    --Red-r500: #f60000;
+    --Red-r75: #f00000;
+    --green-g50: #94f78c;
+    --green-g75: #6ccf64;
+}
+
+.blue-b500 {
+    color: var(--Blue-B500);
+}
+
+* {
+    color: var(--Blue-B400);
+    font-size: 16px;
+    font-family: var(--e-Ukraine);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    background-color: var(--Neutral-White);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--Purple-P25);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--Purple-P75);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Purple-P100);
+}
+
+.headlines-l {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: var(--Blue-B500);
+}
+
+.headlines-m {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: var(--Blue-B500);
+}
+
+.headlines-s {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Blue-B500);
+}
+
+.body-l {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+}
+
+.body-m {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.body-m--underline {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    text-decoration-line: underline;
+}
+
+.body-s {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 120%;
+}
+
+.buttons-l {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 20px;
+    outline: none;
+    border: none;
+}
+
+.buttons-m {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: normal;
+    outline: none;
+    border: none;
+}
+
+.buttons-s {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    outline: none;
+    border: none;
+}
+
+.divider__dot {
+    display: inline-block;
+    background-color: var(--Rose-R50);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.text-align-r {
+    text-align: right;
+}
+
+.pos-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ln24 {
+    line-height: 24px;
+}
