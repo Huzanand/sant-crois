@@ -59,9 +59,9 @@ const Lesson = () => {
                                         content={
                                             (
                                                 lesson.tasks[index].content as {
-                                                    transcription: string;
+                                                    contentSource: string;
                                                 }
-                                            ).transcription
+                                            ).contentSource
                                         }
                                         index={index + 1}
                                     />

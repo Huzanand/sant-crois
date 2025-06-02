@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "json-server -w server.json -p 5000",
+    "server": "json-server -w server.json -p 8080",
     "server-test": "json-server -w serverTest.json -p 5000",
     "dev": "next dev",
     "build": "next build",

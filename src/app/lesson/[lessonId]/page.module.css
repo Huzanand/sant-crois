@@ -12,6 +12,7 @@
 
 .container {
     position: relative;
+    min-width: 100%;
 }
 
 .content {

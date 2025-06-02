@@ -131,13 +131,13 @@ export const Store = (
                         clearResults: () => set({ results: [] }),
 
                         sendUserAnswers: async (
-                            // lessonId
+                            lessonId
                         ) => {
                             const {
-                                // userAnswers 
+                                userAnswers
                             } = get();
                             const newResult = await postUserAnswers(
-                                // lessonId, userAnswers
+                                lessonId, userAnswers
                             );
                             set(() => ({
                                 results: newResult

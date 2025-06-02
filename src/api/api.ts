@@ -1,6 +1,5 @@
 import {
-    // IAnswer,
-    ICard, ICheckAnswers, IData, ILesson, IFiltersNullable
+    IAnswer, ICard, IData, ILesson, IFiltersNullable,
 } from "@/models";
 import { interceptorsStore } from "@/store/interceptorsStore";
 import axios from "axios";
@@ -10,7 +9,7 @@ if (!process.env.NEXT_PUBLIC_CONTENT_URL) {
 }
 
 const axiosInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_CONTENT_URL,
+    baseURL: process.env.NEXT_PUBLIC_CONTENT_URL || "http://localhost:8080/",
     headers: {
         "Content-Type": "application/json",
     },
@@ -57,7 +56,7 @@ export const getAllLessons = async (
     page: number
 ): Promise<IData> => {
 
-    const endpoint = '/content';
+    const endpoint = '/exercises';
 
     const queryParams = new URLSearchParams({
         page: String(page),
@@ -103,12 +102,8 @@ export const getAllLessons = async (
 
 
     try {
-        // const response = await axiosInstance.get("/exercises");
-        const [response1, response2] = await Promise.all([
-            axiosInstance.get("/metaData"),
-            axiosInstance.get("/content")
-        ]);
-        return { metaData: response1.data, lessons: response2.data, }
+        const response = await axiosInstance.get(endpoint);
+        return { metaData: response.data.metaData, lessons: response.data.content, }
     } catch (error) {
         console.error("Error fetching all lessons:", error);
         return { metaData: { totalCount: 0, page: 0, size: 0 }, lessons: [] }
@@ -118,7 +113,7 @@ export const getAllLessons = async (
 export const getLessonById = async (id: string): Promise<ILesson | null> => {
 
     try {
-        const response = await axiosInstance.get(`/content/${encodeURIComponent(id)}`);
+        const response = await axiosInstance.get(`/exercises/${encodeURIComponent(id)}`);
         return response.data;
     } catch (error) {
         console.error(`Error fetching lesson by ID: ${id}`, error);
@@ -137,464 +132,13 @@ export const getRecomendations = async (ids: string[]): Promise<ICard[]> => {
 };
 
 export const postUserAnswers = async (
-    // lessonId: string, 
-    // answers: IAnswer[]
+    lessonId: string,
+    answers: IAnswer[]
 ) => {
     try {
-        // const response = await axiosInstance.post(`/answers`, answers);
-        const simulatedResponse: ICheckAnswers[] = [
-            {
-                taskId: "666b16d5c196ad000000cc99",
-                questions: [
-                    {
-                        questionId: "0",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 1"],
-                        result: true,
-                    },
-                    {
-                        questionId: "1",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 2"],
-                        result: false,
-                    },
-                    {
-                        questionId: "2",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 3"],
-                        result: true,
-                    },
-                    {
-                        questionId: "3",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 4"],
-                        result: false,
-                    },
-                    {
-                        questionId: "4",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 5"],
-                        result: true,
-                    },
-                    {
-                        questionId: "5",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 6"],
-                        result: false,
-                    },
-                    {
-                        questionId: "6",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 7"],
-                        result: true,
-                    },
-                    {
-                        questionId: "7",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 8"],
-                        result: false,
-                    },
-                    {
-                        questionId: "8",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 9"],
-                        result: true,
-                    },
-                    {
-                        questionId: "9",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 10"],
-                        result: false,
-                    },
-                    {
-                        questionId: "10",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 11"],
-                        result: true,
-                    },
-                    {
-                        questionId: "11",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 12"],
-                        result: false,
-                    },
-                    {
-                        questionId: "12",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 13"],
-                        result: true,
-                    },
-                    {
-                        questionId: "13",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 14"],
-                        result: false,
-                    },
-                    {
-                        questionId: "14",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 15"],
-                        result: true,
-                    },
-                    {
-                        questionId: "15",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 16"],
-                        result: false,
-                    },
-                ],
-            },
-            {
-                taskId: "667fdb52f97d65000082ac45",
-                questions: [
-                    {
-                        questionId: "0",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 1"],
-                        result: true,
-                    },
-                    {
-                        questionId: "1",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 2"],
-                        result: false,
-                    },
-                    {
-                        questionId: "2",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 3"],
-                        result: true,
-                    },
-                    {
-                        questionId: "3",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 4"],
-                        result: false,
-                    },
-                    {
-                        questionId: "4",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 5"],
-                        result: true,
-                    },
-                    {
-                        questionId: "5",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 6"],
-                        result: false,
-                    },
-                    {
-                        questionId: "6",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 7"],
-                        result: true,
-                    },
-                    {
-                        questionId: "7",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 8"],
-                        result: false,
-                    },
-                    {
-                        questionId: "8",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 9"],
-                        result: true,
-                    },
-                    {
-                        questionId: "9",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 10"],
-                        result: false,
-                    },
-                    {
-                        questionId: "10",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 11"],
-                        result: true,
-                    },
-                    {
-                        questionId: "11",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 12"],
-                        result: false,
-                    },
-                    {
-                        questionId: "12",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 13"],
-                        result: true,
-                    },
-                    {
-                        questionId: "13",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 14"],
-                        result: false,
-                    },
-                    {
-                        questionId: "14",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 15"],
-                        result: true,
-                    },
-                    {
-                        questionId: "15",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 16"],
-                        result: false,
-                    },
-                ],
-            },
-            {
-                taskId: "666b16d5c196ad000000cf53",
-                questions: [
-                    {
-                        questionId: "0",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 1"],
-                        result: true,
-                    },
-                    {
-                        questionId: "1",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 2"],
-                        result: false,
-                    },
-                    {
-                        questionId: "2",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 3"],
-                        result: true,
-                    },
-                    {
-                        questionId: "3",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 4"],
-                        result: false,
-                    },
-                    {
-                        questionId: "4",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 5"],
-                        result: true,
-                    },
-                    {
-                        questionId: "5",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 6"],
-                        result: false,
-                    },
-                    {
-                        questionId: "6",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 7"],
-                        result: true,
-                    },
-                    {
-                        questionId: "7",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 8"],
-                        result: false,
-                    },
-                    {
-                        questionId: "8",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 9"],
-                        result: true,
-                    },
-                    {
-                        questionId: "9",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 10"],
-                        result: false,
-                    },
-                    {
-                        questionId: "10",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 11"],
-                        result: true,
-                    },
-                    {
-                        questionId: "11",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 12"],
-                        result: false,
-                    },
-                    {
-                        questionId: "12",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 13"],
-                        result: true,
-                    },
-                    {
-                        questionId: "13",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 14"],
-                        result: false,
-                    },
-                    {
-                        questionId: "14",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 15"],
-                        result: true,
-                    },
-                    {
-                        questionId: "15",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 16"],
-                        result: false,
-                    },
-                ],
-            },
-            {
-                taskId: "667fdb52f97d65000082a445",
-                questions: [
-                    {
-                        questionId: "0",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right option 1"],
-                        result: true,
-                    },
-                    {
-                        questionId: "1",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 2"],
-                        result: false,
-                    },
-                    {
-                        questionId: "2",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 3"],
-                        result: true,
-                    },
-                    {
-                        questionId: "3",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 4"],
-                        result: false,
-                    },
-                    {
-                        questionId: "4",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 5"],
-                        result: true,
-                    },
-                    {
-                        questionId: "5",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 6"],
-                        result: false,
-                    },
-                    {
-                        questionId: "6",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 7"],
-                        result: true,
-                    },
-                    {
-                        questionId: "7",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 8"],
-                        result: false,
-                    },
-                    {
-                        questionId: "8",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 9"],
-                        result: true,
-                    },
-                    {
-                        questionId: "9",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 10"],
-                        result: false,
-                    },
-                    {
-                        questionId: "10",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 11"],
-                        result: true,
-                    },
-                    {
-                        questionId: "11",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 12"],
-                        result: false,
-                    },
-                    {
-                        questionId: "12",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 13"],
-                        result: true,
-                    },
-                    {
-                        questionId: "13",
-                        questionDescription: "Question Description",
-                        rightAnswers: ["right 14"],
-                        result: false,
-                    },
-                    {
-                        questionId: "14",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["right 15"],
-                        result: true,
-                    },
-                    {
-                        questionId: "15",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["right 16"],
-                        result: false,
-                    },
-                ],
-            },
-            {
-                taskId: "66582402b98b3700005b929e",
-                questions: [
-                    {
-                        questionId: "665825ccb98b3700005b929e",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["right answer 1"],
-                        result: true,
-                    },
-                    {
-                        questionId: "665826ebb98b3700005b929f",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["right answer 2"],
-                        result: false,
-                    },
-                    {
-                        questionId: "66582743b98b3700005b92a0",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["right answer 3"],
-                        result: true,
-                    },
-                ],
-            }, {
-                taskId: "66582402b98b3555005b929d",
-                questions: [
-                    {
-                        questionId: "665825ccb98b3755005b929e",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["true"],
-                        result: true,
-                    },
-                    {
-                        questionId: "665826ebb98b3755005b929f",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["not specified"],
-                        result: false,
-                    },
-                    {
-                        questionId: "66582743b98b3755005b92a0",
-                        questionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat erat, feugiat porta arcu in, tincidunt cursus nisi. Nunc sem mauris, dictum at tortor hendrerit, luctus posuere ligula. Sed condimentum ligula sed dolor eleifend, id vehicula orci eleifend. Vestibulum ullamcorper ex laoreet mauris iaculis blandit. Suspendisse mattis, ipsum sed finibus.",
-                        rightAnswers: ["not specified"],
-                        result: true,
-                    },
-                ],
-            },
-        ];
-
-        return simulatedResponse;
+        const response = await axiosInstance.post(`/exercises/${lessonId}/answers`, answers);
+        console.log(response.data)
+        return response.data;
     } catch (error) {
         console.error(`Error sending user answers:`, error);
         throw error;
@@ -604,8 +148,7 @@ export const postUserAnswers = async (
 export const getAllFilters = async (): Promise<IFiltersNullable> => {
 
     try {
-        // const response = await axiosInstance.get("/exercises");
-        const filters = await axiosInstance.get("/filters")
+        const filters = await axiosInstance.get("exercises/filters")
         return filters.data
     } catch (error) {
         console.error("Error fetching all filters:", error);
