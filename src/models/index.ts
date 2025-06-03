@@ -110,6 +110,7 @@ export interface IState {
 }
 
 export interface IActions {
+    loadFromLocalStorage: () => void,
     fetchLessons: (size: number,
         activeTypeOfLesson: string,
         selectedLanguageLevel: string,

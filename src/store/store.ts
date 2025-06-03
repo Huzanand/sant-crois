@@ -46,14 +46,24 @@ export const Store = (
                 (set, get) => {
                     const initialStateWithLocalStorage = {
                         ...initState,
-                        selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage),
-                        selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage),
-                        selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel),
-                        results: getFromLocalStorage('results', initState.results),
+                        // selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage),
+                        // selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage),
+                        // selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel),
+                        // results: getFromLocalStorage('results', initState.results),
                     };
 
                     return {
                         ...initialStateWithLocalStorage,
+
+                        loadFromLocalStorage: () => {
+                            if (typeof window === 'undefined') return;
+                            set({
+                                selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage),
+                                selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage),
+                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel),
+                                results: getFromLocalStorage('results', initState.results),
+                            });
+                        },
 
                         fetchLessons: async (size,
                             activeTypeOfLesson,
@@ -228,12 +238,14 @@ export const Store = (
                 name: 'lesson-storage',
                 storage: {
                     getItem: (key) => {
+                        if (typeof window === 'undefined') return null;
                         const data = sessionStorage.getItem(key);
                         if (!data) return null;
                         const parsed = JSON.parse(data);
                         return { ...parsed, state: { ...parsed.state, size: parsed.state?.size || 12 } };
                     },
                     setItem: (key, value) => {
+                        if (typeof window === 'undefined') return;
                         const { state, ...rest } = JSON.parse(JSON.stringify(value));
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         const { size, ...persistedState } = state;
@@ -241,6 +253,7 @@ export const Store = (
                     },
 
                     removeItem: (key) => {
+                        if (typeof window === 'undefined') return;
                         sessionStorage.removeItem(key);
                     },
                 },

@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import animationData from "../../assets/animations/burger.json"; // Adjust path if needed
 import Lottie, { LottieRefCurrentProps } from "lottie-react";

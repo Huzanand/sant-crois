@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import ServerLayout from "./server-layout";
 import ClientLayout from "./client-layout";
+import { StrictMode } from "react";
 
 export default function RootLayout({
     children,
@@ -8,8 +9,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ServerLayout>
-            <ClientLayout>{children}</ClientLayout>
-        </ServerLayout>
+        <StrictMode>
+            <ServerLayout>
+                <ClientLayout>{children}</ClientLayout>
+            </ServerLayout>
+        </StrictMode>
     );
 }
