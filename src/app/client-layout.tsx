@@ -115,9 +115,13 @@ function LoadedContent({ children }: { children: React.ReactNode }) {
         <I18nextProvider i18n={i18n}>
             <div
                 className="min-h-screen flex flex-col"
-                style={{
-                    background: `url(${bg.src}) center/cover no-repeat`,
-                }}
+                style={
+                    typeof window !== "undefined"
+                        ? {
+                              background: `url(${bg.src}) center/cover no-repeat`,
+                          }
+                        : undefined
+                }
             >
                 <main className="flex-1">{children}</main>
                 <Footer />
