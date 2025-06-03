@@ -58,11 +58,10 @@
 
 "use client";
 
-import i18n from "@/i18n/i18n";
 import Footer from "@/components/footer/Footer";
 import { StoreProvider } from "@/store/storeProvider";
 import bg from "../assets/backgroundMain.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useOwnStore } from "@/store/storeProvider"; // Используем хук вместо прямого импорта Store
 import dynamic from "next/dynamic";
 
@@ -75,29 +74,6 @@ export default function ClientLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [isReady, setIsReady] = useState(false);
-
-    useEffect(() => {
-        const checkReady = () => {
-            if (i18n.isInitialized) {
-                setIsReady(true);
-            }
-        };
-
-        checkReady();
-
-        if (!i18n.isInitialized) {
-            i18n.on("initialized", checkReady);
-            return () => i18n.off("initialized", checkReady);
-        }
-    }, []);
-
-    if (!isReady) {
-        return (
-            <div className="fixed inset-0 flex items-center justify-center"></div>
-        );
-    }
-
     return (
         <StoreProvider>
             <LoadedContent>{children}</LoadedContent>
