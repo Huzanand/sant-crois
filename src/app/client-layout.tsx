@@ -59,12 +59,16 @@
 "use client";
 
 import i18n from "@/i18n/i18n";
-import { I18nextProvider } from "react-i18next";
 import Footer from "@/components/footer/Footer";
 import { StoreProvider } from "@/store/storeProvider";
 import bg from "../assets/backgroundMain.png";
 import { useEffect, useState } from "react";
 import { useOwnStore } from "@/store/storeProvider"; // Используем хук вместо прямого импорта Store
+import dynamic from "next/dynamic";
+
+const I18nWrapper = dynamic(() => import("@/i18n/i18nWrapper"), {
+    ssr: false,
+});
 
 export default function ClientLayout({
     children,
@@ -112,7 +116,7 @@ function LoadedContent({ children }: { children: React.ReactNode }) {
     }, [loadFromLocalStorage]);
 
     return (
-        <I18nextProvider i18n={i18n}>
+        <I18nWrapper>
             <div
                 className="min-h-screen flex flex-col"
                 style={
@@ -126,6 +130,6 @@ function LoadedContent({ children }: { children: React.ReactNode }) {
                 <main className="flex-1">{children}</main>
                 <Footer />
             </div>
-        </I18nextProvider>
+        </I18nWrapper>
     );
 }
