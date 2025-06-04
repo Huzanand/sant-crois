@@ -14,6 +14,7 @@ import { useMobile } from "@/utils/useMobile";
 import { useLanguageSync } from "@/utils/useLanguage";
 import useTranslatedOptions from "@/utils/useTranslatedOptions";
 import TruncateText from "@/utils/TrankateText";
+import dynamic from "next/dynamic";
 
 const AppSideBar = () => {
     const {
@@ -28,6 +29,10 @@ const AppSideBar = () => {
     const is425px = useMobile(425);
 
     const { t } = useLanguageSync();
+
+    const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
+        ssr: false,
+    });
 
     return (
         <div className={styles.sideBar}>
@@ -79,7 +84,7 @@ const AppSideBar = () => {
                 </div>
             )}
 
-            {/* {isMobile && <BurgerMenu mode={"home"} />} */}
+            {isMobile && <BurgerMenu mode={"home"} />}
 
             <div className={styles.filters}>
                 <div className={styles.filters__item}>
