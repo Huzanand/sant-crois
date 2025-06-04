@@ -3,7 +3,7 @@ import styles from "./lessonInfo.module.css";
 import { ArrowDownIco, SendTaskIco, StarIco } from "@/assets/svg/icons";
 import { useRouter } from "next/navigation";
 import Rating from "../rating/Rating";
-import BurgerMenu from "../burgerMenu/BurgerMenu";
+// import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { useLanguageSync } from "@/utils/useLanguage";
 
 const MobileViev = () => {
@@ -33,7 +33,7 @@ const MobileViev = () => {
     return (
         <div className={styles.container}>
             <div className={styles.mburger}>
-                <BurgerMenu mode={"lesson"} />
+                {/* <BurgerMenu mode={"lesson"} /> */}
             </div>
 
             <div className={styles.mnavigation}>
