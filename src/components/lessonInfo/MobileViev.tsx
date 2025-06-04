@@ -3,13 +3,17 @@ import styles from "./lessonInfo.module.css";
 import { ArrowDownIco, SendTaskIco, StarIco } from "@/assets/svg/icons";
 import { useRouter } from "next/navigation";
 import Rating from "../rating/Rating";
-// import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { useLanguageSync } from "@/utils/useLanguage";
+import dynamic from "next/dynamic";
 
 const MobileViev = () => {
     const { lesson, clearRecomendations, clearUserAnswers } = useOwnStore(
         (state) => state
     );
+
+    const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
+        ssr: false,
+    });
 
     const router = useRouter();
 
@@ -33,7 +37,7 @@ const MobileViev = () => {
     return (
         <div className={styles.container}>
             <div className={styles.mburger}>
-                {/* <BurgerMenu mode={"lesson"} /> */}
+                <BurgerMenu mode={"lesson"} />
             </div>
 
             <div className={styles.mnavigation}>
