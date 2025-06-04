@@ -15,6 +15,12 @@ interface BurgerProps {
 }
 
 const BurgerMenu: React.FC<BurgerProps> = ({ mode }) => {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     const burgerRef = useRef<LottieRefCurrentProps>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -87,6 +93,8 @@ const BurgerMenu: React.FC<BurgerProps> = ({ mode }) => {
                 return null;
         }
     };
+
+    if (!mounted) return null;
 
     return (
         <div>
