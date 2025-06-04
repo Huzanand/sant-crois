@@ -9,7 +9,7 @@ import Settings from "../settings/Settings";
 import Logo from "../logo/Logo";
 import SettingsSelect from "../settingsSelect/SettingsSelect";
 import Filters from "../filters/Filters";
-import BurgerMenu from "../burgerMenu/BurgerMenu";
+// import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { useMobile } from "@/utils/useMobile";
 import { useLanguageSync } from "@/utils/useLanguage";
 import useTranslatedOptions from "@/utils/useTranslatedOptions";
@@ -79,7 +79,7 @@ const AppSideBar = () => {
                 </div>
             )}
 
-            {isMobile && <BurgerMenu mode={"home"} />}
+            {/* {isMobile && <BurgerMenu mode={"home"} />} */}
 
             <div className={styles.filters}>
                 <div className={styles.filters__item}>
