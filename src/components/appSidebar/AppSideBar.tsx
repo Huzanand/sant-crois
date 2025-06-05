@@ -1,6 +1,6 @@
 import { useOwnStore } from "@/store/storeProvider";
 import styles from "./appSideBar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Divider from "@/components/divider/Divider";
 import { ArrowDownIco, SettingsIco, SortingIco } from "@/assets/svg/icons";
@@ -9,12 +9,16 @@ import Settings from "../settings/Settings";
 import Logo from "../logo/Logo";
 import SettingsSelect from "../settingsSelect/SettingsSelect";
 import Filters from "../filters/Filters";
-import BurgerMenu from "../burgerMenu/BurgerMenu";
+// import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { useMobile } from "@/utils/useMobile";
 import { useLanguageSync } from "@/utils/useLanguage";
 import useTranslatedOptions from "@/utils/useTranslatedOptions";
 import TruncateText from "@/utils/TrankateText";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
+
+const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
+    ssr: false,
+});
 
 const AppSideBar = () => {
     const {
@@ -30,9 +34,11 @@ const AppSideBar = () => {
 
     const { t } = useLanguageSync();
 
-    // const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
-    //     ssr: false,
-    // });
+    const [burgerMenuMounted, setBurgerMenuMounted] = useState(false);
+
+    useEffect(() => {
+        setBurgerMenuMounted(true);
+    }, []);
 
     return (
         <div className={styles.sideBar}>
@@ -84,7 +90,7 @@ const AppSideBar = () => {
                 </div>
             )}
 
-            {isMobile && <BurgerMenu mode={"home"} />}
+            {isMobile && burgerMenuMounted && <BurgerMenu mode={"home"} />}
 
             <div className={styles.filters}>
                 <div className={styles.filters__item}>
