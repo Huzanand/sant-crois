@@ -9,12 +9,12 @@ import Settings from "../settings/Settings";
 import Logo from "../logo/Logo";
 import SettingsSelect from "../settingsSelect/SettingsSelect";
 import Filters from "../filters/Filters";
-// import BurgerMenu from "../burgerMenu/BurgerMenu";
+import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { useMobile } from "@/utils/useMobile";
 import { useLanguageSync } from "@/utils/useLanguage";
 import useTranslatedOptions from "@/utils/useTranslatedOptions";
 import TruncateText from "@/utils/TrankateText";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 const AppSideBar = () => {
     const {
@@ -30,9 +30,9 @@ const AppSideBar = () => {
 
     const { t } = useLanguageSync();
 
-    const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
-        ssr: false,
-    });
+    // const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
+    //     ssr: false,
+    // });
 
     return (
         <div className={styles.sideBar}>
