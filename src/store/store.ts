@@ -21,7 +21,7 @@ export const initialState: IState = {
     languageLevelOptions: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
     selectedInterfaceLanguage: "ukrainian",
     interfaceLanguageOptions: [],
-    selectedLearningLanguage: 'Ukrainian',
+    selectedLearningLanguage: 'ukrainian',
     learningLanguageOptions: [],
     primaryTopics: [],
     selectedPrimaryTopics: [],
@@ -46,10 +46,6 @@ export const Store = (
                 (set, get) => {
                     const initialStateWithLocalStorage = {
                         ...initState,
-                        // selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage),
-                        // selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage),
-                        // selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel),
-                        // results: getFromLocalStorage('results', initState.results),
                     };
 
                     return {
@@ -58,9 +54,9 @@ export const Store = (
                         loadFromLocalStorage: () => {
                             if (typeof window === 'undefined') return;
                             set({
-                                selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage),
-                                selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage),
-                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel),
+                                selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage ? initState.selectedInterfaceLanguage : 'english'),
+                                selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage ? initState.selectedLearningLanguage : 'english'),
+                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel ? initState.selectedLanguageLevel : 'english'),
                                 results: getFromLocalStorage('results', initState.results),
                             });
                         },
