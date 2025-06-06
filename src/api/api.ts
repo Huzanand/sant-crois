@@ -124,6 +124,7 @@ export const getLessonById = async (id: string): Promise<ILesson | null> => {
 export const getRecomendations = async (ids: string[]): Promise<ICard[]> => {
     try {
         const recomendations: unknown[] = await Promise.all(ids.map(id => getLessonById(id)));
+        console.log('rec' + '  ' + recomendations.filter((recomendation): recomendation is ICard => recomendation !== null))
         return recomendations.filter((recomendation): recomendation is ICard => recomendation !== null);
     } catch (error) {
         console.error("Error fetching recomendations:", error);

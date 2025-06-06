@@ -6,14 +6,14 @@ import Rating from "../rating/Rating";
 import { useLanguageSync } from "@/utils/useLanguage";
 import dynamic from "next/dynamic";
 
+const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
+    ssr: false,
+});
+
 const MobileViev = () => {
     const { lesson, clearRecomendations, clearUserAnswers } = useOwnStore(
         (state) => state
     );
-
-    const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
-        ssr: false,
-    });
 
     const router = useRouter();
 
