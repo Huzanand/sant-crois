@@ -204,9 +204,7 @@ const Card: React.FC<ICard> = ({
                         {!recomendation && (
                             <div className={styled.language}>
                                 <span className="body-l">
-                                    {t(
-                                        `cardLearningLanguage.${learningLanguage}`
-                                    )}
+                                    {learningLanguage}
                                 </span>
                                 <div className="divider__dot" />
                                 <span

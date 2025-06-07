@@ -69,12 +69,6 @@
         "age": "Age",
         "data": "Data"
     },
-    "cardLearningLanguage": {
-        "en": "English",
-        "fr": "French",
-        "ua": "Ukrainian",
-        "ru": "Russian"
-    },
     "complexity": "Complexity",
     "filters": "Filters",
     "main theme": "Main theme",
