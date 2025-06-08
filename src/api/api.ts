@@ -4,12 +4,12 @@ import {
 import { interceptorsStore } from "@/store/interceptorsStore";
 import axios from "axios";
 
-if (!process.env.API_KEY) {
-    throw new Error("CONTENT_URL is not defined in environment variables");
+if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
+    throw new Error("NEXT_PUBLIC_API_BASE_URL is not defined in environment variables");
 }
 
 const axiosInstance = axios.create({
-    baseURL: process.env.API_KEY,
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     headers: {
         "Content-Type": "application/json",
     },
