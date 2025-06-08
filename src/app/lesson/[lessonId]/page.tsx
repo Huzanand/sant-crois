@@ -5,17 +5,12 @@ import { useEffect } from "react";
 import { useOwnStore } from "@/store/storeProvider";
 // import ProgressBar from "@/components/progressbar/ProgressBar";
 
-import MediaTask from "@/components/tasks/media/MediaTask";
-import ChooseTask from "@/components/tasks/choose/ChooseTask";
-import TrueFalseTask from "@/components/tasks/trueFalse/TrueFalse";
-import WriteTask from "@/components/tasks/write/WriteTask";
-import FillTextTask from "@/components/tasks/fillText/FillTextTask";
 import { useParams } from "next/navigation";
-import TextTask from "@/components/tasks/text/TextTask";
 import LessonInfo from "@/components/lessonInfo/LessonInfo";
 import { useRouter } from "next/navigation";
 import { makeFirstLetterUppercase } from "@/utils/makeFirstLetterUppercase";
 import { useLanguageSync } from "@/utils/useLanguage";
+import { RenderTasks } from "@/utils/RenderTasks";
 
 const Lesson = () => {
     const {
@@ -44,135 +39,6 @@ const Lesson = () => {
     }, [fetchRecomendations, lesson?.relatedContents, clearRecomendations]);
 
     // const progressBarData = new Array(lesson?.tasks.length).fill("0");
-
-    const renderTasks = () => {
-        if (lesson && lesson.tasks) {
-            const resultArr = [] as React.ReactNode[];
-            lesson.tasks.forEach((task, index) => {
-                switch (task.taskType) {
-                    case "MEDIA_TASK":
-                        switch (task.content?.contentType) {
-                            case "TEXT":
-                                resultArr.push(
-                                    <TextTask
-                                        key={index + task.taskId}
-                                        content={
-                                            (
-                                                lesson.tasks[index].content as {
-                                                    contentSource: string;
-                                                }
-                                            ).contentSource
-                                        }
-                                        index={index + 1}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        className={styles.divider}
-                                        key={"divider-" + index + 1}
-                                    />
-                                );
-                                break;
-                            case "VIDEO":
-                                resultArr.push(
-                                    <MediaTask
-                                        key={index + task.taskId}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        className={styles.divider}
-                                        key={"divider-" + index}
-                                    />
-                                );
-                                break;
-                            case "AUDIO":
-                                resultArr.push(
-                                    <MediaTask
-                                        key={index + task.taskId}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        className={styles.divider}
-                                        key={"divider-" + index}
-                                    />
-                                );
-                                break;
-                            case "FILL_TEMPLATE":
-                                resultArr.push(
-                                    <WriteTask
-                                        key={index + task.taskId}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        className={styles.divider}
-                                        key={"divider-" + index}
-                                    />
-                                );
-                                break;
-                            case "CHOOSE_TEMPLATE":
-                                resultArr.push(
-                                    <FillTextTask
-                                        key={index + task.taskId}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        className={styles.divider}
-                                        key={"divider-" + index}
-                                    />
-                                );
-                                break;
-
-                            default:
-                                break;
-                        }
-                        break;
-
-                    case "TRUE_FALSE":
-                        resultArr.push(
-                            <TrueFalseTask
-                                key={index + task.taskId}
-                                taskData={lesson.tasks[index]}
-                                index={index + 1}
-                            />
-                        );
-                        resultArr.push(
-                            <div className={styles.divider} key={index} />
-                        );
-                        break;
-
-                    case "CHOOSE_ANSWER":
-                        resultArr.push(
-                            <ChooseTask
-                                key={index + task.taskId}
-                                taskData={lesson.tasks[index]}
-                                index={index + 1}
-                            />
-                        );
-                        resultArr.push(
-                            <div className={styles.divider} key={index} />
-                        );
-                        break;
-
-                    default:
-                        break;
-                }
-            });
-
-            return <div>{resultArr}</div>;
-        } else return undefined;
-    };
 
     return (
         <div className={styles.wrapper}>
@@ -254,7 +120,9 @@ const Lesson = () => {
 
                     <div className={styles.divider} />
 
-                    {lesson && renderTasks()}
+                    {lesson && lesson.tasks && (
+                        <RenderTasks tasks={lesson.tasks} />
+                    )}
 
                     <div
                         style={{
