@@ -1,3 +1,5 @@
+"use client";
+
 import ChooseTask from "@/components/tasks/choose/ChooseTask";
 import FillTextTask from "@/components/tasks/fillText/FillTextTask";
 import MediaTask from "@/components/tasks/media/MediaTask";
