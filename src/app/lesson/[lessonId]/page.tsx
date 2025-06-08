@@ -8,14 +8,13 @@ import { useOwnStore } from "@/store/storeProvider";
 import { useParams } from "next/navigation";
 import LessonInfo from "@/components/lessonInfo/LessonInfo";
 import { useRouter } from "next/navigation";
-import { makeFirstLetterUppercase } from "@/utils/makeFirstLetterUppercase";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { RenderTasks } from "@/utils/RenderTasks";
+import { RenderHeaderOfLesson } from "@/utils/renderHeaderOfLesson/RenderHeaderOfLesson";
 
 const Lesson = () => {
     const {
         lesson,
-        selectedInterfaceLanguage,
         fetchLessonById,
         fetchRecomendations,
         clearRecomendations,
@@ -48,7 +47,7 @@ const Lesson = () => {
                 {/*<ProgressBar data={progressBarData} />*/}
 
                 <div className={styles.content}>
-                    <div className={styles.header}>
+                    {/* <div className={styles.header}>
                         <div
                             className={styles.header__item}
                             style={{
@@ -116,7 +115,9 @@ const Lesson = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+
+                    {lesson && <RenderHeaderOfLesson lesson={lesson} />}
 
                     <div className={styles.divider} />
 
