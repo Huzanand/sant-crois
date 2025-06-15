@@ -9,7 +9,8 @@ if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
 }
 
 const axiosInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    // baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    baseURL: 'http://localhost:8080',
     headers: {
         "Content-Type": "application/json",
     },
@@ -137,7 +138,6 @@ export const postUserAnswers = async (
 ) => {
     try {
         const response = await axiosInstance.post(`/exercises/${lessonId}/answers`, answers);
-        console.log(response.data)
         return response.data;
     } catch (error) {
         console.error(`Error sending user answers:`, error);
@@ -148,7 +148,7 @@ export const postUserAnswers = async (
 export const getAllFilters = async (): Promise<IFiltersNullable> => {
 
     try {
-        const filters = await axiosInstance.get("exercises/filters")
+        const filters = await axiosInstance.get("/exercises/filters")
         return filters.data
     } catch (error) {
         console.error("Error fetching all filters:", error);
