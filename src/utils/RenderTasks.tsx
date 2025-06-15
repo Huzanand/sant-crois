@@ -23,8 +23,6 @@ interface renderTaskProps {
 }
 
 export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
-    console.log(tasks);
-
     if (tasks) {
         const resultArr = [] as React.ReactNode[];
         tasks.forEach((task, index) => {
