@@ -1,980 +1,616 @@
 {
-  "metaData": {
-    "totalCount": 120,
-    "page": 1,
-    "size": 12
-  },
-  "content": [
-    {
-      "id": "6681b1ad3f8301b27aa90001",
-      "author": "Elena Didenko",
-      "relatedContents": [
-        "6681b1ad3f8301b27aa90001",
-        "6681b1ad3f8301b27aa90002",
-        "6681b1ad3f8301b27aa90003",
-        "6681b1ad3f8301b27aa90004",
-        "6681b1ad3f8301b27aa90005",
-        "6681b1ad3f8301b27aa90006",
-        "6681b1ad3f8301b27aa90007",
-        "6681b1ad3f8301b27aa90008",
-        "6681b1ad3f8301b27aa90009",
-        "6681b1ad3f8301b27aa90010",
-        "6681b1ad3f8301b27aa90011",
-        "6681b1ad3f8301b27aa90012",
-        "6681b1ad3f8301b27aa90013",
-        "6681b1ad3f8301b27aa90014",
-        "6681b1ad3f8301b27aa90015"
-      ],
+  "exercises": {
+    "metaData": {
+      "totalCount": 14,
+      "page": 1,
+      "size": 50
+    },
+    "content": [
+      {
+        "id": "676000000000000000000001",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Listening Skills",
+          "Conversations"
+        ],
+        "secondaryTopics": [
+          "Cafés",
+          "Ordering Food"
+        ],
+        "tags": [
+          "beginner",
+          "restaurant",
+          "daily-life"
+        ],
+        "languageLevel": "A2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "English",
+        "views": 164,
+        "acceptance": 0.1111111111111111,
+        "cover": "https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/pexels-jason-toevs-2068296.jpg",
+        "exerciseDescriptions": {
+          "English": "Practice your listening skills with an audio about ordering food.",
+          "French": "Entraînez-vous à écouter avec un audio sur la commande de nourriture.",
+          "Ukrainian": "Тренуйте аудіювання на прикладі аудіо про замовлення їжі."
+        },
+        "rating": 0.0,
+        "header": "At the Café"
+      },
+      {
+        "id": "676000000000000000000002",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Modal verbs",
+          "Sentence structure"
+        ],
+        "secondaryTopics": [
+          "School",
+          "Daily routine"
+        ],
+        "tags": [
+          "choose-template",
+          "modal-verbs",
+          "listening"
+        ],
+        "languageLevel": "B1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "English",
+        "views": 184,
+        "acceptance": 0.0,
+        "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmuaCyJ_1BBiscDaU6hRMKA5ZWz2TqQDkG3w&s",
+        "exerciseDescriptions": {
+          "English": "Select the correct options to complete the sentences.",
+          "French": "Choisissez les bonnes options pour compléter les phrases.",
+          "Ukrainian": "Виберіть правильні варіанти для завершення речень."
+        },
+        "rating": 0.0,
+        "header": "Modal Verbs in Action"
+      },
+      {
+        "id": "676000000000000000000003",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Prepositions",
+          "Cases"
+        ],
+        "secondaryTopics": [
+          "Directions",
+          "Travel"
+        ],
+        "tags": [
+          "fill-in-the-blanks",
+          "interactive"
+        ],
+        "languageLevel": "B1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "English",
+        "views": 180,
+        "acceptance": 0.15000000000000002,
+        "cover": "https://global.upenn.edu/gss/wp-content/uploads/sites/3/2025/02/ross-parmly-rf6ywHVkrlY-unsplash-scaled.jpg",
+        "exerciseDescriptions": {
+          "English": "Fill in the blanks with the correct prepositions.",
+          "French": "Complétez les blancs avec les prépositions correctes.",
+          "Ukrainian": "Заповніть пропуски правильними прийменниками."
+        },
+        "rating": 0.0,
+        "header": "Prepositions Practice"
+      },
+      {
+        "id": "676000000000000000000004",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Conditional Sentences",
+          "Grammar"
+        ],
+        "secondaryTopics": [
+          "Travel",
+          "Nature",
+          "Culture"
+        ],
+        "tags": [
+          "reading",
+          "conditionals",
+          "grammar"
+        ],
+        "languageLevel": "B2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "English",
+        "views": 189,
+        "acceptance": 0.140625,
+        "cover": "https://visitreykjavik.is/sites/default/files/styles/original_medium/public/header-image-block/GFG-Sumar-69.jpg.webp?itok=PMZLYYKx",
+        "exerciseDescriptions": {
+          "English": "Read the passage and complete the tasks.",
+          "French": "Lisez le passage et complétez les tâches.",
+          "Ukrainian": "Прочитайте уривок і виконайте завдання."
+        },
+        "rating": 0.0,
+        "header": "If I Had Known"
+      },
+      {
+        "id": "676000000000000000000005",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Past Continuous",
+          "Listening Practice"
+        ],
+        "secondaryTopics": [
+          "City life",
+          "Morning routine"
+        ],
+        "tags": [
+          "Urban scenes",
+          "Video comprehension"
+        ],
+        "languageLevel": "B1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "English",
+        "views": 182,
+        "acceptance": 0.26785714285714285,
+        "cover": "https://plus.unsplash.com/premium_photo-1661665434137-abae2c24c52f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2l0eSUyMGxpZmV8ZW58MHx8MHx8fDA%3D",
+        "exerciseDescriptions": {
+          "English": "Practice listening and understanding video content about a typical morning in the city.",
+          "French": "Exercice d’écoute basé sur une matinée typique en ville.",
+          "Ukrainian": "Вправа на аудіювання про типове ранкове життя в місті."
+        },
+        "rating": 0.0,
+        "header": "A Morning in the City"
+      },
+      {
+        "id": "68494fb5744514ecaa5e5af1",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Articles",
+          "Gender",
+          "Nominative case"
+        ],
+        "secondaryTopics": [
+          "Apartment",
+          "Household objects"
+        ],
+        "tags": [
+          "definite articles",
+          "beginner German",
+          "grammar basics",
+          "A1 level",
+          "kids German"
+        ],
+        "languageLevel": "A1",
+        "targetAgeGroup": "KIDS",
+        "learningLanguage": "German",
+        "views": 10,
+        "acceptance": 0.8666666666666667,
+        "cover": "https://emmalovesgerman.com/wp-content/uploads/2021/02/German-articles.jpg",
+        "exerciseDescriptions": {
+          "English": "This exercise is designed to introduce children to the German definite articles (der, die, das).",
+          "German": "In dieser Übung lernen Kinder bestimmte Artikel im Nominativ kennen: der, die, das.",
+          "Russian": "Это упражнение предназначено для знакомства с определёнными артиклями в немецком языке (der, die, das)."
+        },
+        "rating": 0.0,
+        "header": "Bestimmte Artikel im Nominativ"
+      },
+      {
+        "id": "684c0a83744514ecaa5e5af2",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Konjunktiv II",
+          "Wishes",
+          "Suggestions"
+        ],
+        "secondaryTopics": [
+          "Polite language",
+          "Grammar patterns"
+        ],
+        "tags": [
+          "Konjunktiv II",
+          "German grammar",
+          "A2 level",
+          "reading comprehension",
+          "polite expressions"
+        ],
+        "languageLevel": "A2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 22,
+        "acceptance": 0.4444444444444444,
+        "cover": "https://media.istockphoto.com/id/1193075176/photo/woman-blowing-out-her-birthday-candles-and-celebrating-birthday.jpg?s=612x612&w=0&k=20&c=mtSH2oLrSKmSbsvHmF3D2L-bdaYoFEglH8OPCaueO1s=",
+        "exerciseDescriptions": {
+          "English": "This reading exercise helps you understand how to use Konjunktiv II for expressing wishes and suggestions.",
+          "German": "Dieses Leseverständnis hilft dir, Konjunktiv II bei Wünschen und Vorschlägen zu verstehen.",
+          "Russian": "Это упражнение помогает понять, как использовать Konjunktiv II для выражения желаний и предложений."
+        },
+        "rating": 0.0,
+        "header": "Konjunktiv II – Wünsche und Vorschläge"
+      },
+      {
+        "id": "684c35e6744514ecaa5e5af3",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Perfekt tense",
+          "Gift-giving",
+          "Past events"
+        ],
+        "secondaryTopics": [
+          "Family",
+          "Adjectives",
+          "Everyday German"
+        ],
+        "tags": [
+          "perfekt",
+          "past tense",
+          "text analysis",
+          "gift vocabulary",
+          "reading A2"
+        ],
+        "languageLevel": "A2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 27,
+        "acceptance": 0.5,
+        "cover": "https://media.istockphoto.com/id/847049634/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D1%85-%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BE%D0%BA-%D0%BD%D0%B0-%D1%81%D0%B8%D0%BD%D0%B5%D0%BC-%D1%84%D0%BE%D0%BD%D0%B5.jpg?s=612x612&w=0&k=20&c=5BMhLNxHOhi__sPBITN3vK71mZnNpedHE3aAgpe4-V0=",
+        "exerciseDescriptions": {
+          "English": "In this text you will see how the perfect tense is used in everyday German.",
+          "German": "In diesem Text lernst du das Perfekt in Alltagssituationen kennen.",
+          "Russian": "В этом тексте ты узнаешь, как используется прошедшее время Perfekt в повседневных ситуациях."
+        },
+        "rating": 0.0,
+        "header": "Geschenke und Geschichten"
+      },
+      {
+        "id": "684c4074744514ecaa5e5af4",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Kinderkrippe",
+          "Familie",
+          "Elternschaft"
+        ],
+        "secondaryTopics": [
+          "Soziale Entwicklung",
+          "Karriere",
+          "Finanzierung"
+        ],
+        "tags": [
+          "Kindergarten",
+          "Audioverständnis",
+          "Diskussion",
+          "Eltern und Kinder",
+          "A2 Hörverstehen"
+        ],
+        "languageLevel": "B1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 9,
+        "acceptance": 0.0,
+        "cover": "https://kitakigazauberfloete.ch/wp-content/uploads/2023/07/two-toddlers-playing-with-balls-xylophone-sitting-floor-kindergarten-scaled.jpg",
+        "exerciseDescriptions": {
+          "English": "Discussion about pros and cons of childcare facilities.",
+          "German": "Diskussion über Vor- und Nachteile der Kinderkrippe.",
+          "Russian": "Обсуждение плюсов и минусов детских яслей."
+        },
+        "rating": 0.0,
+        "header": "Kinderkrippe: Ja oder Nein?"
+      },
+      {
+        "id": "684c466a744514ecaa5e5af5",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Feste",
+          "Freizeit",
+          "Erzählen in der Vergangenheit"
+        ],
+        "secondaryTopics": [
+          "Musik",
+          "Familie",
+          "Hobbys"
+        ],
+        "tags": [
+          "Perfekt",
+          "Verben in der Vergangenheit",
+          "Partizip II",
+          "Hörverstehen",
+          "B1 Audio"
+        ],
+        "languageLevel": "B1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 7,
+        "acceptance": 0.0,
+        "cover": "https://www.larsbrueggemann.de/fotos-busse6-630px/529ewd-haltestelle-halbmondsweg.jpg",
+        "exerciseDescriptions": {
+          "English": "Listen to a conversation about a party. Practice listening and understanding the perfect tense.",
+          "German": "Höre dir einen Dialog über ein Fest an. Trainiere dein Hörverstehen und dein Verständnis für Perfektformen.",
+          "Russian": "Послушай диалог о празднике. Развивай аудирование и понимание прошедших форм."
+        },
+        "rating": 0.0,
+        "header": "Das Fest und der Pianist"
+      },
+      {
+        "id": "684c4f73744514ecaa5e5af6",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Greetings",
+          "Formality",
+          "Time of Day"
+        ],
+        "secondaryTopics": [
+          "Small talk",
+          "Cultural norms"
+        ],
+        "tags": [
+          "A1",
+          "video comprehension",
+          "greetings",
+          "formality",
+          "time-related language"
+        ],
+        "languageLevel": "A1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 16,
+        "acceptance": 0.25,
+        "cover": "https://static.dw.com/image/62607263_401.png",
+        "exerciseDescriptions": {
+          "English": "Learn how to greet people in German depending on the time of day and how well you know them.",
+          "German": "Lerne verschiedene Begrüßungen im Deutschen – je nach Tageszeit und Beziehung.",
+          "Russian": "Изучите разные варианты приветствия в зависимости от времени суток и степени формальности."
+        },
+        "rating": 0.0,
+        "header": "Begrüßung und Höflichkeit"
+      },
+      {
+        "id": "684c551d744514ecaa5e5af7",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Orientation",
+          "Hotel and Transport",
+          "Spontaneous Reactions"
+        ],
+        "secondaryTopics": [
+          "Meetings",
+          "City Navigation",
+          "Emergency words"
+        ],
+        "tags": [
+          "arrival",
+          "transport",
+          "taxi",
+          "directions",
+          "german conversation"
+        ],
+        "languageLevel": "A1",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 5,
+        "acceptance": 0.0,
+        "cover": "https://yabla.b-cdn.net/media.yabla.com/media/programs/3529/720p.jpg?cache_break=20210427",
+        "exerciseDescriptions": {
+          "English": "In this video, you'll learn how to communicate in a taxi and react spontaneously in German.",
+          "German": "In diesem Video lernst du, wie man mit dem Taxi kommuniziert und spontan auf Situationen reagiert.",
+          "Russian": "В этом видео ты узнаешь, как говорить с водителем такси и реагировать в неожиданных ситуациях."
+        },
+        "rating": 0.0,
+        "header": "Mit dem Taxi zum Hotel"
+      },
+      {
+        "id": "684c6612744514ecaa5e5af8",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Prepositions",
+          "Sentence structure",
+          "Case use"
+        ],
+        "secondaryTopics": [
+          "Time",
+          "Movement",
+          "Location"
+        ],
+        "tags": [
+          "prepositions",
+          "grammar practice",
+          "choose template",
+          "A2",
+          "Verhältniswörter"
+        ],
+        "languageLevel": "A2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 10,
+        "acceptance": 0.2,
+        "cover": "https://media.istockphoto.com/id/1272269793/de/foto/silhouette-actionsport.jpg?s=612x612&w=0&k=20&c=bWJjKxqIi4LamfBTFKEtgMdEPSKElpbGI3WFviRIDqI=",
+        "exerciseDescriptions": {
+          "English": "In this exercise you will learn how to use prepositions correctly in German sentences.",
+          "German": "In dieser Übung lernst du, wie man Präpositionen korrekt im Satz verwendet.",
+          "Russian": "В этом упражнении ты научишься правильно использовать предлоги в немецких предложениях."
+        },
+        "rating": 0.0,
+        "header": "Präpositionen im Alltag"
+      },
+      {
+        "id": "684c7180744514ecaa5e5af9",
+        "author": "SantCrois",
+        "primaryTopics": [
+          "Local prepositions",
+          "Motion and location",
+          "Prepositional phrases"
+        ],
+        "secondaryTopics": [
+          "City navigation",
+          "Everyday situations"
+        ],
+        "tags": [
+          "lokale Präpositionen",
+          "FILL_TEMPLATE",
+          "durch, an, bis zu",
+          "A2",
+          "prepositions in context"
+        ],
+        "languageLevel": "A2",
+        "targetAgeGroup": "ADULT",
+        "learningLanguage": "German",
+        "views": 9,
+        "acceptance": 0.0,
+        "cover": "https://dy7glz37jgl0b.cloudfront.net/advice/images/3f64195ec17bf2d488a315987f4861e5-woman-smiles-while-crossing-the-street-in-a-city_l.jpg",
+        "exerciseDescriptions": {
+          "English": "Learn to use local prepositions in real-world situations.",
+          "German": "Lerne, wie man lokale Präpositionen in realen Situationen verwendet.",
+          "Russian": "Научись использовать локальные предлоги в реальных ситуациях."
+        },
+        "rating": 0.0,
+        "header": "Unterwegs in der Stadt"
+      }
+    ],
+    "filters": {
       "primaryTopics": [
-        "Повседневные разговоры разговоры разговоры",
-        "Основы грамматики",
-        "Деловой английский",
-        "Знакомство с культурой",
-        "Путешествия и туризм",
-        "Вопросы и ответы",
-        "Описание внешности и характера",
-        "Покупки и торговля",
-        "Ресторан и еда",
-        "Времена года и погода"
+        "Articles",
+        "Case use",
+        "Cases",
+        "Conditional Sentences",
+        "Conversations",
+        "Elternschaft",
+        "Erzählen in der Vergangenheit",
+        "Familie",
+        "Feste",
+        "Formality",
+        "Freizeit",
+        "Gender",
+        "Gift-giving",
+        "Grammar",
+        "Greetings",
+        "Hotel and Transport",
+        "Kinderkrippe",
+        "Konjunktiv II",
+        "Listening Practice",
+        "Listening Skills",
+        "Local prepositions",
+        "Modal verbs",
+        "Motion and location",
+        "Nominative case",
+        "Orientation",
+        "Past Continuous",
+        "Past events",
+        "Perfekt tense",
+        "Prepositional phrases",
+        "Prepositions",
+        "Sentence structure",
+        "Spontaneous Reactions",
+        "Suggestions",
+        "Time of Day",
+        "Wishes"
       ],
       "secondaryTopics": [
-        "Спорт Спорт Спорт Спорт Спорт Спорт Спорт Спорт Спорт Спорт Спорт",
-        "Здоровье",
-        "Технологии",
-        "Туризм",
-        "Культура",
-        "Образование",
-        "Хобби",
-        "Работа",
-        "Карьера",
-        "Экология"
+        "Adjectives",
+        "Apartment",
+        "Cafés",
+        "City Navigation",
+        "City life",
+        "City navigation",
+        "Cultural norms",
+        "Culture",
+        "Daily routine",
+        "Directions",
+        "Emergency words",
+        "Everyday German",
+        "Everyday situations",
+        "Familie",
+        "Family",
+        "Finanzierung",
+        "Grammar patterns",
+        "Hobbys",
+        "Household objects",
+        "Karriere",
+        "Location",
+        "Meetings",
+        "Morning routine",
+        "Movement",
+        "Musik",
+        "Nature",
+        "Ordering Food",
+        "Polite language",
+        "School",
+        "Small talk",
+        "Soziale Entwicklung",
+        "Time",
+        "Travel"
       ],
       "tags": [
-        "English",
-        "Present Simple",
-        "Beginer",
-        "A2"
+        "A1",
+        "A1 level",
+        "A2",
+        "A2 Hörverstehen",
+        "A2 level",
+        "Audioverständnis",
+        "B1 Audio",
+        "Diskussion",
+        "Eltern und Kinder",
+        "FILL_TEMPLATE",
+        "German grammar",
+        "Hörverstehen",
+        "Kindergarten",
+        "Konjunktiv II",
+        "Partizip II",
+        "Perfekt",
+        "Urban scenes",
+        "Verben in der Vergangenheit",
+        "Verhältniswörter",
+        "Video comprehension",
+        "arrival",
+        "beginner",
+        "beginner German",
+        "choose template",
+        "choose-template",
+        "conditionals",
+        "daily-life",
+        "definite articles",
+        "directions",
+        "durch, an, bis zu",
+        "fill-in-the-blanks",
+        "formality",
+        "german conversation",
+        "gift vocabulary",
+        "grammar",
+        "grammar basics",
+        "grammar practice",
+        "greetings",
+        "interactive",
+        "kids German",
+        "listening",
+        "lokale Präpositionen",
+        "modal-verbs",
+        "past tense",
+        "perfekt",
+        "polite expressions",
+        "prepositions",
+        "prepositions in context",
+        "reading",
+        "reading A2",
+        "reading comprehension",
+        "restaurant",
+        "taxi",
+        "text analysis",
+        "time-related language",
+        "transport",
+        "video comprehension"
       ],
-      "languageLevel": "A1",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.16676136363636335,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "answers": [],
-      "creationDateTime": "2024-10-12T23:00:00Z",
-      "tasks": [
-        {
-          "taskId": "667fdb52f97d65000082a443",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "TEXT",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdae2f97d65000082a444",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "ukrainian": "Продивися уважно відео"
-          },
-          "content": {
-            "contentType": "VIDEO",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "https://www.youtube.com/watch?v=2yoRWrc0MA0"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "AUDIO",
-            "transcription": "Some audio",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "66582402b98b3700005b929e",
-          "taskType": "CHOOSE_ANSWER",
-          "taskDescriptions": {
-            "Ukrainian": "Завдання на правопис частки не"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3700005b929e",
-              "questionText": "Частку не треба писати разом у варіанті",
-              "options": [
-                "не/зовсім зрозумілий",
-                "зошит не/підписано",
-                "не/всі з цим обізнані",
-                "не/забутня подорож"
-              ],
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3700005b929f",
-              "questionText": "(1) Навесні ми часто блукали сонячними пагорбами поміж торішнім листям визбируючи перші не/сміливі фіалки, вдихали міцний і п’янкий дух землі. (2) А коли забуяв зеленню травень, заквітчав широкі, не/приховані від людського ока луги ромашками, усе наче потонуло в білому морі, якому не/ має кінця-краю. (3) Ковтаєш трепетний запах квітів, і тебе вабить кудись у не/звідане. (4) А згори ніжно припікає сонечко, у чистому прозорому небі — ні хмаринки, тільки лине […] пісня жайворонка.\n\nОкремо в цьому тексті пишеться сполука слів",
-              "options": [
-                "не/сміливі",
-                "не/приховані",
-                "не/має",
-                "не/звідане"
-              ],
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3700005b92a0",
-              "questionText": "Частка не пишеться окремо у варіанті",
-              "options": [
-                "стало не/переливки",
-                "не/здужати всіх завдань",
-                "не/покоїтися через погоду",
-                "не/дооцінювати друзів",
-                "говорити не/правду"
-              ],
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "66582402b98b3555005b929d",
-          "taskType": "TRUE_FALSE",
-          "taskDescriptions": {
-            "Ukrainian": "Определите какое из утверждений верно:"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3755005b929e",
-              "questionText": "Is the town where the friends gathered called Meadowville?",
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3755005b929f",
-              "questionText": "Who suggested a run through the meadow?",
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3755005b92a0",
-              "questionText": "Who suggested a run through the meadow?",
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "666b16d5c196ad000000cf53",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "Ukrainian": "Прочитайте текст и заполните пропущенные слова"
-          },
-          "content": {
-            "contentType": "FILL_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        },
-        {
-          "taskId": "666b16d5c196ad000000cc99",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "Ukrainian": "Прочитайте текст и заполните пропущенные слова"
-          },
-          "content": {
-            "contentType": "FILL_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#a}}answer{{/a}}{{/q}} to London for the first time. \n I {{#q}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#a}}answer{{/a}}{{/q}} a play at the West End. \n It {{#q}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082ac45",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "English": "Media task description."
-          },
-          "content": {
-            "contentType": "CHOOSE_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. \n In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} in London for years.  \n She {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many photos. \n In the {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "English": "Media task description."
-          },
-          "content": {
-            "contentType": "CHOOSE_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        }
+      "learningLanguages": [
+        "German",
+        "English"
+      ],
+      "languageLevels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "targetAgeGroups": [
+        "ADULT",
+        "KIDS"
       ]
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90002",
-      "creationDateTime": "2024-9-12T23:00:00Z",
-      "author": "Elena Didenko",
-      "relatedContents": [
-        "6681b1ad3f8301b27aa90001",
-        "6681b1ad3f8301b27aa90002",
-        "6681b1ad3f8301b27aa90003",
-        "6681b1ad3f8301b27aa90004",
-        "6681b1ad3f8301b27aa90005",
-        "6681b1ad3f8301b27aa90006",
-        "6681b1ad3f8301b27aa90007",
-        "6681b1ad3f8301b27aa90008",
-        "6681b1ad3f8301b27aa90009",
-        "6681b1ad3f8301b27aa90010",
-        "6681b1ad3f8301b27aa90011",
-        "6681b1ad3f8301b27aa90012",
-        "6681b1ad3f8301b27aa90013",
-        "6681b1ad3f8301b27aa90014",
-        "6681b1ad3f8301b27aa90015"
-      ],
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.06676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": [
-        {
-          "taskId": "667fdb52f97d65000082a443",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "TEXT",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdae2f97d65000082a444",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "ukrainian": "Продивися уважно відео"
-          },
-          "content": {
-            "contentType": "VIDEO",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "AUDIO",
-            "transcription": "Some audio",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "66582402b98b3700005b929e",
-          "taskType": "CHOOSE_ANSWER",
-          "taskDescriptions": {
-            "Ukrainian": "Завдання на правопис частки не"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3700005b929e",
-              "questionText": "Частку не треба писати разом у варіанті",
-              "options": [
-                "не/зовсім зрозумілий",
-                "зошит не/підписано",
-                "не/всі з цим обізнані",
-                "не/забутня подорож"
-              ],
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3700005b929f",
-              "questionText": "(1) Навесні ми часто блукали сонячними пагорбами поміж торішнім листям визбируючи перші не/сміливі фіалки, вдихали міцний і п’янкий дух землі. (2) А коли забуяв зеленню травень, заквітчав широкі, не/приховані від людського ока луги ромашками, усе наче потонуло в білому морі, якому не/ має кінця-краю. (3) Ковтаєш трепетний запах квітів, і тебе вабить кудись у не/звідане. (4) А згори ніжно припікає сонечко, у чистому прозорому небі — ні хмаринки, тільки лине […] пісня жайворонка.\n\nОкремо в цьому тексті пишеться сполука слів",
-              "options": [
-                "не/сміливі",
-                "не/приховані",
-                "не/має",
-                "не/звідане"
-              ],
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3700005b92a0",
-              "questionText": "Частка не пишеться окремо у варіанті",
-              "options": [
-                "стало не/переливки",
-                "не/здужати всіх завдань",
-                "не/покоїтися через погоду",
-                "не/дооцінювати друзів",
-                "говорити не/правду"
-              ],
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "66582402b98b3555005b929d",
-          "taskType": "TRUE_FALSE",
-          "taskDescriptions": {
-            "Ukrainian": "Определите какое из утверждений верно:"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3755005b929e",
-              "questionText": "Is the town where the friends gathered called Meadowville?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3755005b929f",
-              "questionText": "Who suggested a run through the meadow?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3755005b92a0",
-              "questionText": "Who suggested a run through the meadow?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "Ukrainian": "Прочитайте текст и заполните пропущенные слова"
-          },
-          "content": {
-            "contentType": "FILL_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "English": "Media task description."
-          },
-          "content": {
-            "contentType": "CHOOSE_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        }
-      ]
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90003",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "B1",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.2667613636363633,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": [
-        {
-          "taskId": "667fdb52f97d65000082a443",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "TEXT",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdae2f97d65000082a444",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "ukrainian": "Продивися уважно відео"
-          },
-          "content": {
-            "contentType": "VIDEO",
-            "transcription": "**Matthew**: Hey, do you have a minute? <[I need some tips]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}> on writing emails in English. \n **Clyde**: Of course! I'd be happy to help. What specifically are you struggling with? \n **Matthew**: Well, I find it challenging to start and end formal emails appropriately. Any advice? \n **Clyde**: Absolutely. For a formal start, you can use \"Dear [Name]\" or \"To whom it may concern.\" To wrap it up, you can say \"Sincerely,\"\"Kind regards,\" or \"Best regards.\" \n **Matthew**: Thanks! What about the body of the email? How can I make it sound professional? \n **Clyde**: Keep it clear and concise. Start with a brief introduction, followed by the main content, and end with a polite closing statement. Also, use formal language and avoid slang. \n **Matthew**: Got it. And what about attachments? How do I mention them in the email? \n **Clyde**: If you have attachments, make sure to mention them in the body of the email. You can say something like, \"I have attached the document for your reference\" or \"Please find the attached file.\" \n **Matthew**: That's helpful. Any other tips I should <[keep in mind]{title=\"Subject Line\" content=\"The subject line of an email should be concise and to the point.\"}>? \n **Clyde**: Always proofread your emails for grammar and spelling errors. It's essential to present yourself professionally. And, of course, be mindful of the tone and formality based on the context and recipient. \n **Matthew**: Thanks a lot! I'll put these tips into practice. \n **Clyde**: You're welcome! If you have any more questions, feel free to ask. Good luck with your emails!",
-            "contentSource": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "english": "Media task description.",
-            "ukrainian": "Продивися уважно audio"
-          },
-          "content": {
-            "contentType": "AUDIO",
-            "transcription": "Some audio",
-            "contentSource": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-          },
-          "questions": null
-        },
-        {
-          "taskId": "66582402b98b3700005b929e",
-          "taskType": "CHOOSE_ANSWER",
-          "taskDescriptions": {
-            "Ukrainian": "Завдання на правопис частки не"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3700005b929e",
-              "questionText": "Частку не треба писати разом у варіанті",
-              "options": [
-                "не/зовсім зрозумілий",
-                "зошит не/підписано",
-                "не/всі з цим обізнані",
-                "не/забутня подорож"
-              ],
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3700005b929f",
-              "questionText": "(1) Навесні ми часто блукали сонячними пагорбами поміж торішнім листям визбируючи перші не/сміливі фіалки, вдихали міцний і п’янкий дух землі. (2) А коли забуяв зеленню травень, заквітчав широкі, не/приховані від людського ока луги ромашками, усе наче потонуло в білому морі, якому не/ має кінця-краю. (3) Ковтаєш трепетний запах квітів, і тебе вабить кудись у не/звідане. (4) А згори ніжно припікає сонечко, у чистому прозорому небі — ні хмаринки, тільки лине […] пісня жайворонка.\n\nОкремо в цьому тексті пишеться сполука слів",
-              "options": [
-                "не/сміливі",
-                "не/приховані",
-                "не/має",
-                "не/звідане"
-              ],
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3700005b92a0",
-              "questionText": "Частка не пишеться окремо у варіанті",
-              "options": [
-                "стало не/переливки",
-                "не/здужати всіх завдань",
-                "не/покоїтися через погоду",
-                "не/дооцінювати друзів",
-                "говорити не/правду"
-              ],
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "66582402b98b3555005b929d",
-          "taskType": "TRUE_FALSE",
-          "taskDescriptions": {
-            "Ukrainian": "Определите какое из утверждений верно:"
-          },
-          "content": null,
-          "questions": [
-            {
-              "questionId": "665825ccb98b3755005b929e",
-              "questionText": "Is the town where the friends gathered called Meadowville?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": null
-            },
-            {
-              "questionId": "665826ebb98b3755005b929f",
-              "questionText": "Who suggested a run through the meadow?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": "Прочитайте текст і виконайте завдання"
-            },
-            {
-              "questionId": "66582743b98b3755005b92a0",
-              "questionText": "Who suggested a run through the meadow?",
-              "options": [
-                "true",
-                "false",
-                "not specified"
-              ],
-              "questionDescription": null
-            }
-          ]
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "Ukrainian": "Прочитайте текст и заполните пропущенные слова"
-          },
-          "content": {
-            "contentType": "FILL_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        },
-        {
-          "taskId": "667fdb52f97d65000082a445",
-          "taskType": "MEDIA_TASK",
-          "taskDescriptions": {
-            "English": "Media task description."
-          },
-          "content": {
-            "contentType": "CHOOSE_TEMPLATE",
-            "transcription": "Some transcription",
-            "contentSource": "Yesterday, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to London for the first time. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many famous landmarks. In the morning, a stroll along  the River Thames.  Then, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} to visit the British Museum. As I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} through the museum I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} incredible artifacts from different cultures. I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} nearly two hours there. After that, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} lunch at a charming cafe nearby. Later, I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} my friend Emily, who {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} in London for years. She {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} me around and me  interesting  stories about  the city. We {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} the famous Tower of London and {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} many photos. In the {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} evening, we {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a play at the West End. It {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}} a fantastic day, and I how much I {{#q}}{{#o}}option0, option1, option2{{/o}}{{#a}}answer{{/a}}{{/q}}  exploring new places."
-          },
-          "questions": null
-        }
-      ]
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90004",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "B2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.36676136363636336,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90005",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "C1",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90006",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова",
-        "дієслова",
-        "дієслова",
-        "дієслова",
-        "дієслова",
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "C2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.5667613636363633,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90007",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.6667613636363633,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90008",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.7667613636363634,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90009",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.8667613636363634,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90010",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.9667613636363633,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90011",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90012",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90013",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90014",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
-    },
-    {
-      "id": "6681b1ad3f8301b27aa90015",
-      "author": "Elena Didenko",
-      "primaryTopics": [
-        "правопис не",
-        "частки"
-      ],
-      "secondaryTopics": [
-        "дієслова"
-      ],
-      "tags": null,
-      "languageLevel": "A2",
-      "targetAgeGroup": "ADULT",
-      "learningLanguage": "ua",
-      "views": 53,
-      "acceptance": 0.46676136363636334,
-      "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MeUJapyPS34bptqopWAuaHpfco5JwTTbdw&s",
-      "exerciseDescriptions": {
-        "Ukrainian": "А чи впевнені ви, що знаєте українську мову ідеально? Можливо, ви навіть знаєте, як правильно писати: немає чи не має, непотрібно чи не потрібно, нецікаво чи не цікаво? Слід розрізняти заперечну частку не, яка завжди пишеться окремо, і префікс не-, який завжди пишеться разом. "
-      },
-      "rating": 0.75,
-      "header": "Написання не з різними частинами мови",
-      "tasks": []
     }
-  ],
-  "answers": [],
-  "filters": {
-    "primaryTopics": [
-      "Повседневные разговоры",
-      "Основы грамматики",
-      "Деловой английский",
-      "Знакомство с культурой",
-      "Путешествия и туризм",
-      "Вопросы и ответы",
-      "Описание внешности и характера",
-      "Покупки и торговля",
-      "Ресторан и еда",
-      "Времена года и погода",
-      "Телефонные разговоры",
-      "Планирование дня",
-      "Медицинская терминология",
-      "Образование и учеба",
-      "Хобби и увлечения",
-      "Спорт и здоровье",
-      "Работа и карьера",
-      "Технологии и инновации",
-      "Экологические проблемы",
-      "Семейные отношения"
-    ],
-    "secondaryTopics": [
-      "Спорт",
-      "Здоровье",
-      "Технологии",
-      "Туризм",
-      "Культура",
-      "Образование",
-      "Хобби",
-      "Работа",
-      "Карьера",
-      "Экология",
-      "Еда",
-      "Рестораны",
-      "Шопинг",
-      "Путешествия",
-      "Погода",
-      "Времена года",
-      "Медицина",
-      "Семья",
-      "Разговоры",
-      "Грамматика"
-    ],
-    "tags": [
-      "English",
-      "Present Simple",
-      "A2",
-      "A1",
-      "B1",
-      "B2",
-      "C1",
-      "C2",
-      "Grammar",
-      "Vocabulary",
-      "Speaking",
-      "Listening",
-      "Reading",
-      "Writing",
-      "Basic Phrases",
-      "Everyday Conversations",
-      "Tenses",
-      "Introduction",
-      "Practice",
-      "Exercises",
-      "English Basics"
-    ],
-    "learningLanguages": [
-      "ENGLISH",
-      "FRENCH",
-      "RUSSIAN",
-      "UKRAINIAN"
-    ],
-    "targetAgeGroups": [
-      "ADULT",
-      "KIDS"
-    ]
   }
 }
