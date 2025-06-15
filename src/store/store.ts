@@ -19,10 +19,10 @@ export const initialState: IState = {
     activeTypeOfLesson: 'show all',
     selectedLanguageLevel: 'A1',
     languageLevelOptions: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-    selectedInterfaceLanguage: "ukrainian",
-    interfaceLanguageOptions: [],
-    selectedLearningLanguage: 'ukrainian',
-    learningLanguageOptions: [],
+    selectedInterfaceLanguage: "Ukrainian",
+    interfaceLanguageOptions: ["Ukrainian", "English", "French"],
+    selectedLearningLanguage: 'Ukrainian',
+    learningLanguageOptions: ["Ukrainian", "English", "French"],
     primaryTopics: [],
     selectedPrimaryTopics: [],
     secondaryTopics: [],
@@ -56,7 +56,7 @@ export const Store = (
                             set({
                                 selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage ? initState.selectedInterfaceLanguage : 'english'),
                                 selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage ? initState.selectedLearningLanguage : 'english'),
-                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel ? initState.selectedLanguageLevel : 'english'),
+                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel ? initState.selectedLanguageLevel : 'en'),
                                 results: getFromLocalStorage('results', initState.results),
                             });
                         },
@@ -92,8 +92,6 @@ export const Store = (
                             const data: IFiltersNullable = await getAllFilters();
                             if (data) {
                                 set(() => ({
-                                    interfaceLanguageOptions: data.learningLanguages.map((lang) => lang.toLowerCase()),
-                                    learningLanguageOptions: data.learningLanguages.map((lang) => lang.toLowerCase()),
                                     primaryTopics: data.primaryTopics,
                                     secondaryTopics: data.secondaryTopics,
                                     tags: data.tags,
