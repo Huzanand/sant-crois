@@ -1,19 +1,19 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import enTranslations from '@/locales/english.json';
-import uaTranslations from '@/locales/ukrainian.json';
-import ruTranslations from '@/locales/russian.json';
-import frTranslations from '@/locales/french.json';
+import enTranslations from '@/locales/English.json';
+import ukTranslations from '@/locales/Ukrainian.json';
+import ruTranslations from '@/locales/ru.json';
+import frTranslations from '@/locales/French.json';
 
 i18n.use(initReactI18next).init({
     resources: {
-        english: { translation: enTranslations },
-        ukrainian: { translation: uaTranslations },
-        russian: { translation: ruTranslations },
-        french: { translation: frTranslations },
+        English: { translation: enTranslations },
+        Ukrainian: { translation: ukTranslations },
+        ru: { translation: ruTranslations },
+        French: { translation: frTranslations },
     },
-    lng: 'english',
-    fallbackLng: 'english',
+    lng: 'English',
+    fallbackLng: 'English',
     interpolation: { escapeValue: false },
     react: {
         bindI18n: 'languageChanged',
