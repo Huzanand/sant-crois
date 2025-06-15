@@ -4,6 +4,7 @@ import { useOwnStore } from "@/store/storeProvider";
 import { makeFirstLetterUppercase } from "../makeFirstLetterUppercase";
 import styles from "./page.module.css";
 import { ILesson } from "@/models";
+import { useMemo } from "react";
 
 interface renderHeaderOfLessonProps {
     lesson: ILesson;
@@ -12,7 +13,27 @@ interface renderHeaderOfLessonProps {
 export const RenderHeaderOfLesson: React.FC<renderHeaderOfLessonProps> = ({
     lesson,
 }) => {
-    const { selectedInterfaceLanguage } = useOwnStore((store) => store);
+    const { selectedInterfaceLanguage, selectedLearningLanguage } = useOwnStore(
+        (store) => store
+    );
+
+    const renderExDesk = useMemo(() => {
+        if (!lesson?.exerciseDescriptions) return undefined;
+
+        if (lesson.exerciseDescriptions[selectedInterfaceLanguage]) {
+            return lesson.exerciseDescriptions[
+                makeFirstLetterUppercase(selectedInterfaceLanguage)
+            ];
+        } else {
+            return lesson.exerciseDescriptions[
+                makeFirstLetterUppercase(selectedLearningLanguage)
+            ];
+        }
+    }, [
+        lesson.exerciseDescriptions,
+        selectedInterfaceLanguage,
+        selectedLearningLanguage,
+    ]);
 
     return (
         <div className={styles.header}>
@@ -40,7 +61,7 @@ export const RenderHeaderOfLesson: React.FC<renderHeaderOfLessonProps> = ({
                     </p>
 
                     {lesson?.secondaryTopics && (
-                        <p className="body-s">{lesson.primaryTopics[0]}</p>
+                        <p className="body-s">{lesson.secondaryTopics[0]}</p>
                     )}
                 </div>
 
@@ -70,12 +91,7 @@ export const RenderHeaderOfLesson: React.FC<renderHeaderOfLessonProps> = ({
                             // marginBottom: "3rem",
                         }}
                     >
-                        {lesson?.exerciseDescriptions &&
-                            lesson.exerciseDescriptions[
-                                makeFirstLetterUppercase(
-                                    selectedInterfaceLanguage
-                                )
-                            ]}
+                        {renderExDesk}
                     </p>
                 </div>
             </div>
