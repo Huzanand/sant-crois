@@ -126,7 +126,7 @@
 
 .text {
     display: -webkit-box;
-    line-height: 120%;
+    line-height: 140%;
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 1;
