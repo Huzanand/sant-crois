@@ -124,14 +124,21 @@
     width: 100%;
 }
 
-.text {
+/* .text {
     display: -webkit-box;
-    line-height: 140%;
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 1;
     line-clamp: 1;
     text-overflow: ellipsis;
+    line-height: 140%;
+} */
+
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 140%;
 }
 .option:hover label {
     background-color: var(--Purple-P25);
