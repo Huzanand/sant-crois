@@ -63,7 +63,7 @@ const TypeOfLesson = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setActiveTypeOfLesson(
             event.target.value as
-                | "show all"
+                | "all"
                 | "video"
                 | "audio"
                 | "reading"
@@ -76,9 +76,9 @@ const TypeOfLesson = () => {
             <Button
                 icon={<ShowAllIco />}
                 activeIcon={<ShowAllIco fill="#fff" />}
-                label={t("show all")}
-                value="show all"
-                checked={activeTypeOfLesson === "show all"}
+                label={t("all")}
+                value="all"
+                checked={activeTypeOfLesson === "all"}
                 onChange={handleChange}
             />
             <Button
