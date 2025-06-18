@@ -88,7 +88,7 @@ export interface IState {
     lesson: ILesson | null;
     userAnswers: IAnswer[];
     results: ICheckAnswers[];
-    activeTypeOfLesson: "show all" | "video" | "audio" | "reading" | "grammar";
+    activeTypeOfLesson: "all" | "video" | "audio" | "reading" | "grammar";
     selectedLanguageLevel: string;
     languageLevelOptions: string[];
     selectedInterfaceLanguage: string;
@@ -138,7 +138,7 @@ export interface IActions {
     setSize: (inc: number) => void;
     resetSize: () => void;
     onSelectChange: (selectedLearningLanguage: string, value: string) => void;
-    setActiveTypeOfLesson: (newActiveType: "show all" | "video" | "audio" | "reading" | "grammar") => void;
+    setActiveTypeOfLesson: (newActiveType: "all" | "video" | "audio" | "reading" | "grammar") => void;
     setPage: (newPage: number) => void;
     toggleVirtualKeyboard: () => void;
 }
