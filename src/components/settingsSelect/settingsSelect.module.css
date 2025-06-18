@@ -124,16 +124,6 @@
     width: 100%;
 }
 
-/* .text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    text-overflow: ellipsis;
-    line-height: 140%;
-} */
-
 .text {
     padding: 5px 0;
     white-space: nowrap;
