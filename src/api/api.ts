@@ -65,7 +65,7 @@ export const getAllLessons = async (
     });
 
     if (activeTypeOfLesson) {
-        if (activeTypeOfLesson !== "ALL") queryParams.append('exerciseType', activeTypeOfLesson);
+        if (activeTypeOfLesson !== "all") queryParams.append('exerciseType', activeTypeOfLesson.toUpperCase());
     }
 
     if (selectedPrimaryTopics.length) {
@@ -90,10 +90,10 @@ export const getAllLessons = async (
     }
 
     if (selectedLearningLanguage) {
-        queryParams.append('learningLanguage', selectedLearningLanguage.toUpperCase());
+        queryParams.append('learningLanguage', selectedLearningLanguage);
     }
 
-    if (selectedSorting && selectedSorting !== 'Default') {
+    if (selectedSorting && selectedSorting !== 'default') {
         queryParams.append('sort', selectedSorting.toLowerCase())
     }
 
@@ -103,11 +103,12 @@ export const getAllLessons = async (
 
 
     try {
-        const response = await axiosInstance.get(endpoint);
+        // const response = await axiosInstance.get(endpoint);
+        const response = await axiosInstance.get(url);
         return { metaData: response.data.metaData, lessons: response.data.content, }
     } catch (error) {
         console.error("Error fetching all lessons:", error);
-        return { metaData: { totalCount: 0, page: 0, size: 0 }, lessons: [] }
+        return { metaData: { totalCount: 0, page: 1, size: 12 }, lessons: [] }
     }
 };
 
