@@ -1,6 +1,6 @@
 {
     "settings": "Настройки",
-    "show all": "Показать все",
+    "all": "Показать все",
     "video": "Видео",
     "audio": "Аудио",
     "grammar": "Грамматика",
@@ -28,25 +28,29 @@
         "English": "Английский",
         "Ukrainian": "Украинский",
         "French": "Французский",
-        "Russian": "Русский"
+        "Russian": "Русский",
+        "German": "Немецкий"
     },
     "learningLanguageOptions": {
         "English": "Английский",
         "Ukrainian": "Украинский",
         "French": "Французский",
-        "Russian": "Русский"
+        "Russian": "Русский",
+        "German": "Немецкий"
     },
     "selectedInterfaceLanguage": {
         "English": "Английский",
         "Ukrainian": "Украинский",
         "French": "Французский",
-        "Russian": "Русский"
+        "Russian": "Русский",
+        "German": "Немецкий"
     },
     "interfaceLanguageOptions": {
         "English": "Английский",
         "Ukrainian": "Украинский",
         "French": "Французский",
-        "Russian": "Русский"
+        "Russian": "Русский",
+        "German": "Немецкий"
     },
     "selectedSorting": {
         "default": "По умолчанию",

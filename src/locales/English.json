@@ -1,7 +1,7 @@
 {
     "settings": "Settings",
     "active type of lesson": "",
-    "show all": "Show all",
+    "all": "Show all",
     "video": "Video",
     "audio": "Audio",
     "grammar": "Grammar",
@@ -29,25 +29,29 @@
         "English": "English",
         "Ukrainian": "Ukrainian",
         "French": "French",
-        "Russian": "Russian"
+        "Russian": "Russian",
+        "German": "German"
     },
     "learningLanguageOptions": {
         "English": "English",
         "Ukrainian": "Ukrainian",
         "French": "French",
-        "Russian": "Russian"
+        "Russian": "Russian",
+        "German": "German"
     },
     "selectedInterfaceLanguage": {
         "English": "English",
         "Ukrainian": "Ukrainian",
         "French": "French",
-        "Russian": "Russian"
+        "Russian": "Russian",
+        "German": "German"
     },
     "interfaceLanguageOptions": {
         "English": "English",
         "Ukrainian": "Ukrainian",
         "French": "French",
-        "Russian": "Russian"
+        "Russian": "Russian",
+        "German": "German"
     },
     "selectedSorting": {
         "default": "Default",

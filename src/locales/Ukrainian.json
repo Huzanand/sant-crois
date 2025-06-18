@@ -1,7 +1,7 @@
 {
     "settings": "Налаштування",
     "active type of lesson": "",
-    "show all": "Показати все",
+    "all": "Показати все",
     "video": "Відео",
     "audio": "Аудио",
     "grammar": "Граматика",
@@ -29,25 +29,29 @@
         "English": "Англійска",
         "Ukrainian": "Українська",
         "French": "Французська",
-        "Russian": "Російська"
+        "Russian": "Російська",
+        "German": "Німецька"
     },
     "learningLanguageOptions": {
         "English": "Англійска",
         "Ukrainian": "Українська",
         "French": "Французська",
-        "Russian": "Російська"
+        "Russian": "Російська",
+        "German": "Німецька"
     },
     "selectedInterfaceLanguage": {
         "English": "Англійска",
         "Ukrainian": "Українська",
         "French": "Французська",
-        "Russian": "Російська"
+        "Russian": "Російська",
+        "German": "Німецька"
     },
     "interfaceLanguageOptions": {
         "English": "Англійска",
         "Ukrainian": "Українська",
         "French": "Французська",
-        "Russian": "Російська"
+        "Russian": "Російська",
+        "German": "Німецька"
     },
     "selectedSorting": {
         "default": "За замовчуванням",
