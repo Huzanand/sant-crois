@@ -9,6 +9,7 @@
     "level of language": "Sprachniveau",
     "interface languge": "Oberflächensprache",
     "selectedLanguageLevel": {
+        "All": "Alle anzeigen",
         "A1": "A1 (Anfänger)",
         "A2": "A2 (Grundlegende Kenntnisse)",
         "B1": "B1 (Mittelstufe)",
@@ -17,6 +18,7 @@
         "C2": "C2 (Annähernd muttersprachliche Kenntnisse)"
     },
     "languageLevelOptions": {
+        "All": "Alle anzeigen",
         "A1": "A1 (Anfänger)",
         "A2": "A2 (Grundlegende Kenntnisse)",
         "B1": "B1 (Mittelstufe)",
@@ -58,9 +60,9 @@
         "views": "Aufrufe",
         "acceptance": "Verfügbarkeit",
         "rating": "Bewertung",
-        "language level": "Schwierigkeitsgrad",
+        "languageLevel": "Schwierigkeitsgrad",
         "age": "Altersgruppe",
-        "data": "Datum"
+        "creationDateTime": "Datum"
     },
     "sortingOptions": {
         "default": "Standard",
@@ -68,9 +70,9 @@
         "views": "Aufrufe",
         "acceptance": "Verfügbarkeit",
         "rating": "Bewertung",
-        "language level": "Schwierigkeitsgrad",
+        "languageLevel": "Schwierigkeitsgrad",
         "age": "Alter",
-        "data": "Datum"
+        "creationDateTime": "Datum"
     },
     "complexity": "Schwierigkeit",
     "filters": "Filter",

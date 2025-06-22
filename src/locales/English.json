@@ -10,6 +10,7 @@
     "level of language": "Level of language",
     "interface languge": "Interface languge",
     "selectedLanguageLevel": {
+        "All": "Show all",
         "A1": "A1 (Beginner)",
         "A2": "A2 (Pre-intermediate)",
         "B1": "B1 (Intermediate)",
@@ -18,6 +19,7 @@
         "C2": "C2 (Mastery)"
     },
     "languageLevelOptions": {
+        "All": "Show all",
         "A1": "A1 (Beginner)",
         "A2": "A2 (Pre-intermediate)",
         "B1": "B1 (Intermediate)",
@@ -59,9 +61,9 @@
         "views": "Views",
         "acceptance": "Acceptance",
         "rating": "Rating",
-        "language level": "Language level",
+        "languageLevel": "Language level",
         "age": "Age",
-        "data": "Data"
+        "creationDateTime": "Date"
     },
     "sortingOptions": {
         "default": "Default",
@@ -69,9 +71,9 @@
         "views": "Views",
         "acceptance": "Acceptance",
         "rating": "Rating",
-        "language level": "Language level",
+        "languageLevel": "Language level",
         "age": "Age",
-        "data": "Data"
+        "creationDateTime": "Date"
     },
     "complexity": "Complexity",
     "filters": "Filters",
