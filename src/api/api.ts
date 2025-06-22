@@ -81,8 +81,10 @@ export const getAllLessons = async (
     }
 
     if (selectedLanguageLevel) {
-        const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
-        queryParams.append('languageLevel', languageLevelForBE);
+        if (selectedLanguageLevel !== 'All') {
+            const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
+            queryParams.append('languageLevel', languageLevelForBE);
+        }
     }
 
     if (selectedAgeGroup.length) {
@@ -93,9 +95,7 @@ export const getAllLessons = async (
         queryParams.append('learningLanguage', selectedLearningLanguage);
     }
 
-    if (selectedSorting && selectedSorting !== 'default') {
-        queryParams.append('sort', selectedSorting.toLowerCase())
-    }
+    queryParams.append('sort', `${selectedSorting}`)
 
     const url = `${endpoint}?${queryParams.toString()}`;
 
