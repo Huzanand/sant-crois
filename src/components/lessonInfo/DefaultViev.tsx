@@ -116,11 +116,8 @@ const DefaultViev = () => {
                     <div className={styles.column}>
                         <div className={styles.item}>
                             <span>{`${t("rating")}:`}</span>
-                            {lesson?.acceptance && (
-                                <Rating
-                                    rating={lesson.acceptance}
-                                    ICon={StarIco}
-                                />
+                            {lesson?.rating?.toString && (
+                                <Rating rating={lesson.rating} ICon={StarIco} />
                             )}
                         </div>
                         <div className={styles.item}>
@@ -152,12 +149,6 @@ const DefaultViev = () => {
                     </div>
 
                     <div className={styles.column}>
-                        <div className={styles.item}>
-                            <span>{`${t("SuccessfullyCompleted")}:`}</span>
-                            {/* /////////////// */}
-                            <div className={styles.content}>15</div>
-                        </div>
-
                         <button className={`buttons-l ${styles.btn}`}>
                             <SendTaskIco />
                             {t("assignStudent")}

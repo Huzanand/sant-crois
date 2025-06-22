@@ -236,7 +236,10 @@ const Card: React.FC<ICard> = ({
                         {!recomendation && (
                             <div className={styled.difficulty}>
                                 <p className="body-s">{t("complexity")}</p>
-                                <Rating rating={acceptance ? acceptance : 0} />
+                                <Rating
+                                    rating={acceptance ? acceptance : 0}
+                                    isComplexity
+                                />
                             </div>
                         )}
 

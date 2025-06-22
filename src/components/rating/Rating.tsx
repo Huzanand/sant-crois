@@ -6,11 +6,22 @@ interface RatingProps {
     ICon?: React.ComponentType<
         React.SVGProps<SVGSVGElement> & { fill?: string }
     >;
+    isComplexity?: boolean;
 }
 
-const Rating: React.FC<RatingProps> = ({ maxRating = 5, rating, ICon }) => {
-    const doAdpatationOfAcceptance = (acceptance: number) => {
-        const roundedAndDivided = Math.ceil(Math.ceil(acceptance * 10) / 2);
+const Rating: React.FC<RatingProps> = ({
+    maxRating = 5,
+    rating,
+    ICon,
+    isComplexity,
+}) => {
+    const doAdpatation = (value: number) => {
+        if (isComplexity) {
+            if (value === 0) return 5;
+        } else {
+            if (value === 0) return 1;
+        }
+        const roundedAndDivided = Math.ceil(Math.ceil(value * 10) / 2);
         return (roundedAndDivided - maxRating) * -1 + 1;
     };
 
@@ -21,11 +32,7 @@ const Rating: React.FC<RatingProps> = ({ maxRating = 5, rating, ICon }) => {
             const item = ICon ? (
                 <ICon
                     key={i}
-                    fill={
-                        doAdpatationOfAcceptance(rating) >= i + 1
-                            ? "#ff7aaa"
-                            : "#eae6ff"
-                    }
+                    fill={doAdpatation(rating) >= i + 1 ? "#ff7aaa" : "#eae6ff"}
                 />
             ) : (
                 <div
@@ -33,7 +40,7 @@ const Rating: React.FC<RatingProps> = ({ maxRating = 5, rating, ICon }) => {
                     className={styled.item}
                     style={{
                         backgroundColor:
-                            doAdpatationOfAcceptance(rating) >= i + 1
+                            doAdpatation(rating) >= i + 1
                                 ? "#ff7aaa"
                                 : "#eae6ff",
                     }}

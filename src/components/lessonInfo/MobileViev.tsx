@@ -34,6 +34,8 @@ const MobileViev = () => {
         else return "hard";
     };
 
+    console.log(lesson?.rating);
+
     return (
         <div className={styles.container}>
             <div className={styles.mburger}>
@@ -93,11 +95,8 @@ const MobileViev = () => {
 
                         <div className={styles.item}>
                             <span>{`${t("rating")}:`}</span>
-                            {lesson?.acceptance && (
-                                <Rating
-                                    rating={lesson.acceptance}
-                                    ICon={StarIco}
-                                />
+                            {lesson?.rating?.toString && (
+                                <Rating rating={lesson.rating} ICon={StarIco} />
                             )}
                         </div>
                         <div className={styles.item}>
@@ -129,11 +128,6 @@ const MobileViev = () => {
                             <span className={styles.content}>
                                 {lesson?.views}
                             </span>
-                        </div>
-
-                        <div className={styles.item}>
-                            <span>{`${t("SuccessfullyCompleted")}:`}</span>
-                            <span className={styles.content}>15</span>
                         </div>
                     </div>
                 </div>
