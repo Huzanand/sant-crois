@@ -27,7 +27,7 @@ export interface ILesson {
     primaryTopics: string[];
     secondaryTopics?: string[];
     tags?: string[] | null;
-    languageLevel: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'N1' | 'N2' | 'N3' | 'N4' | 'N5';
+    languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'N1' | 'N2' | 'N3' | 'N4' | 'N5';
     targetAgeGroup?: 'ADULT' | 'KIDS';
     learningLanguage: string;
     views?: number;
@@ -105,7 +105,7 @@ export interface IState {
     selectedAgeGroup: string[],
     virtualKeyboard: boolean;
     sortingOptions: string[],
-    selectedSorting: 'default' | 'author' | 'views' | 'acceptance' | 'rating' | 'language level' | 'age' | 'data',
+    selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime',
     relatedContents: (ICard | null)[],
 }
 

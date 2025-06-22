@@ -18,7 +18,7 @@ export const initialState: IState = {
     results: [],
     activeTypeOfLesson: 'all',
     selectedLanguageLevel: 'A1',
-    languageLevelOptions: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+    languageLevelOptions: ['All', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
     selectedInterfaceLanguage: "Ukrainian",
     interfaceLanguageOptions: ["Ukrainian", "English", "French", "German"],
     selectedLearningLanguage: 'Ukrainian',
@@ -32,8 +32,8 @@ export const initialState: IState = {
     targetAgeGroups: [],
     selectedAgeGroup: [],
     virtualKeyboard: false,
-    sortingOptions: ['default', 'author', 'views', 'acceptance', 'rating', 'language level', 'age', 'data'],
-    selectedSorting: 'default',
+    sortingOptions: ['rating', 'views', 'acceptance', 'languageLevel', 'creationDateTime'],
+    selectedSorting: 'rating',
     relatedContents: [],
 }
 
