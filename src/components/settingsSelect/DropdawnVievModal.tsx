@@ -111,7 +111,9 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
                         />
                         <span className={styles.custom_radioBtn} />
 
-                        <span className={styles.text}>{option.label}</span>
+                        <p className={styles.text} style={{ width: "230px" }}>
+                            {option.label}
+                        </p>
                     </label>
                 </div>
             );

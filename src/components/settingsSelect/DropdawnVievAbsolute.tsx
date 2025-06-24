@@ -106,7 +106,7 @@ const DropdownViewAbsolute: React.FC<DropdownProps> = ({
                                 checked={selectedOption === option.value}
                             />
                             <span className={styles.custom_radioBtn} />
-                            <span className={styles.text}>{option.label}</span>
+                            <p className={styles.text}>{option.label}</p>
                         </label>
                     </div>
                 ))}

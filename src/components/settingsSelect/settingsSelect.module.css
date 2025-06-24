@@ -98,7 +98,7 @@
     flex-direction: row;
     align-items: center;
     gap: 4px;
-    padding: 0.375rem 0 0.375rem 2.75rem;
+    padding: 0.375rem 0.375rem 0.375rem 2.75rem;
     width: 100%;
     cursor: pointer;
     background: var(--Neutral-White);
@@ -122,6 +122,7 @@
     display: block;
     cursor: pointer;
     width: 100%;
+    max-width: 228px;
 }
 
 .text {
@@ -130,7 +131,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 140%;
+    width: 200px;
 }
+
 .option:hover label {
     background-color: var(--Purple-P25);
 }
