@@ -74,7 +74,6 @@
     justify-content: center;
     gap: 4px;
     padding: 10px 24px;
-    max-width: 272px;
 }
 
 .mburger {
@@ -135,5 +134,9 @@
     .content {
         max-width: 140px;
         text-align: right;
+    }
+
+    .btn {
+        max-width: 272px;
     }
 }
