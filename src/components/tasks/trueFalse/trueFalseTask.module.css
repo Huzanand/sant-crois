@@ -77,6 +77,10 @@
         align-items: flex-start;
         gap: 1rem;
     }
+
+    .option {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 470px) {
