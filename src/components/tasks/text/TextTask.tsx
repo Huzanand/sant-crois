@@ -15,105 +15,131 @@ const TextTask: React.FC<{
     const { t } = useLanguageSync();
 
     if (content) {
-        const separatedContent = separatedText(content);
+        const safeContent = content.replace(/\\"/g, '"').replace(/\\n/g, "\n");
+        const separatedContent = separatedText(safeContent);
 
         const parseTextWithTooltips = (text: string[][]) => {
-            const tooltipRegex =
-                /<\[(.*?)\]\{title="(.*?)"\s*content="(.*?)"\}>/g;
+            const parsedText: React.JSX.Element[] = [];
             const boldRegex = /\*\*(.*?)\*\*/g;
 
-            const parsedText: React.JSX.Element[] = [];
+            const insertBoldAndTooltips = (raw: string, keyPrefix: string) => {
+                const tooltipRegex =
+                    /<\[(.+?)\]\{title="(.+?)"\s+content="(.+?)"\}>/g;
 
-            text.map((paragrafs, paragrafIndex) => {
-                const lineParsed: React.JSX.Element[] = [];
-
+                const parts: React.JSX.Element[] = [];
                 let lastIndex = 0;
+                let match;
+                let i = 0;
 
-                const insertBoldText = (text: string) => {
-                    let match;
-                    let currentIndex = 0;
-                    while ((match = boldRegex.exec(text)) !== null) {
-                        if (currentIndex < match.index) {
-                            lineParsed.push(
-                                <span key={lineParsed.length}>
-                                    {`${text.slice(
-                                        currentIndex,
-                                        match.index
-                                    )} `}
-                                </span>
-                            );
-                        }
-                        lineParsed.push(
-                            <span
-                                key={lineParsed.length}
-                                style={{ fontWeight: "bold" }}
-                            >
-                                {`${match[1]} `}
-                            </span>
-                        );
-                        currentIndex = boldRegex.lastIndex;
-                    }
+                while ((match = tooltipRegex.exec(raw)) !== null) {
+                    const before = raw.slice(lastIndex, match.index);
+                    const phrase = match[1];
+                    const title = match[2];
+                    const content = match[3];
 
-                    if (currentIndex < text.length) {
-                        lineParsed.push(
-                            <span className="body-m" key={lineParsed.length}>
-                                {`${text.slice(currentIndex)} `}
-                            </span>
+                    if (before) {
+                        parts.push(
+                            ...insertBold(before, `${keyPrefix}-pre-${i}`)
                         );
                     }
-                };
 
-                paragrafs.map((sentence: string) => {
-                    let match;
-                    while ((match = tooltipRegex.exec(sentence)) !== null) {
-                        if (lastIndex < match.index) {
-                            insertBoldText(
-                                sentence.slice(lastIndex, match.index)
-                            );
-                        }
+                    const tooltipElement = isMobile ? (
+                        <ModalMob
+                            key={`${keyPrefix}-tooltip-${i}`}
+                            title={title}
+                            content={<p className="body-s">{content}</p>}
+                            underline
+                        >
+                            <span className="body-m">{phrase}</span>
+                        </ModalMob>
+                    ) : (
+                        <Tooltip
+                            key={`${keyPrefix}-tooltip-${i}`}
+                            title={title}
+                            content={content}
+                            underline
+                        >
+                            <span className="body-m">{phrase}</span>
+                        </Tooltip>
+                    );
+                    parts.push(tooltipElement);
 
-                        const phrase = match[1];
-                        const title = match[2];
-                        const content = match[3];
+                    lastIndex = tooltipRegex.lastIndex;
+                    i++;
+                }
 
-                        if (isMobile) {
-                            lineParsed.push(
-                                <ModalMob
-                                    key={lineParsed.length}
-                                    title={title}
-                                    content={
-                                        <p className="body-s">{content}</p>
-                                    }
-                                    underline
-                                >
-                                    <span className="body-m">{phrase}</span>
-                                </ModalMob>
-                            );
-                        } else {
-                            lineParsed.push(
-                                <Tooltip
-                                    key={lineParsed.length}
-                                    title={title}
-                                    content={content}
-                                    underline
-                                >
-                                    <span className="body-m">{phrase}</span>
-                                </Tooltip>
-                            );
-                        }
+                if (lastIndex < raw.length) {
+                    parts.push(
+                        ...insertBold(raw.slice(lastIndex), `${keyPrefix}-post`)
+                    );
+                }
 
-                        lastIndex = tooltipRegex.lastIndex;
+                return parts;
+            };
+
+            const insertBold = (
+                text: string,
+                keyPrefix: string
+            ): React.JSX.Element[] => {
+                const result: React.JSX.Element[] = [];
+                let match;
+                let currentIndex = 0;
+                let i = 0;
+
+                while ((match = boldRegex.exec(text)) !== null) {
+                    if (currentIndex < match.index) {
+                        result.push(
+                            <span key={`${keyPrefix}-plain-${i}`}>
+                                {text.slice(currentIndex, match.index)}
+                            </span>
+                        );
                     }
+                    result.push(
+                        <span
+                            key={`${keyPrefix}-bold-${i}`}
+                            style={{ fontWeight: "bold" }}
+                        >
+                            {match[1]}
+                        </span>
+                    );
+                    currentIndex = boldRegex.lastIndex;
+                    i++;
+                }
 
-                    if (lastIndex < sentence.length) {
-                        insertBoldText(sentence.slice(lastIndex));
-                    }
+                if (currentIndex < text.length) {
+                    result.push(
+                        <span key={`${keyPrefix}-plain-last`}>
+                            {text.slice(currentIndex)}
+                        </span>
+                    );
+                }
+
+                return result;
+            };
+
+            text.map((paragraphSentences, paragraphIndex) => {
+                const paragraphElements: React.JSX.Element[] = [];
+
+                paragraphSentences.map((sentence, sentenceIndex) => {
+                    paragraphElements.push(
+                        <React.Fragment
+                            key={`p-${paragraphIndex}-s-${sentenceIndex}`}
+                        >
+                            {insertBoldAndTooltips(
+                                sentence,
+                                `p-${paragraphIndex}-s-${sentenceIndex}`
+                            )}{" "}
+                        </React.Fragment>
+                    );
                 });
 
                 parsedText.push(
-                    <React.Fragment key={paragrafIndex}>
-                        <div style={{ lineHeight: "150%" }}>{lineParsed}</div>
-                    </React.Fragment>
+                    <div
+                        key={`p-${paragraphIndex}`}
+                        style={{ lineHeight: "150%" }}
+                    >
+                        {paragraphElements}
+                    </div>
                 );
             });
 
