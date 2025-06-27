@@ -77,14 +77,14 @@
         align-items: flex-start;
         gap: 1rem;
     }
-
-    .option {
-        width: 100%;
-    }
 }
 
 @media screen and (max-width: 470px) {
     .option_container {
         flex-direction: column;
+        width: 100%;
+    }
+    .option {
+        width: 100%;
     }
 }
