@@ -15,135 +15,103 @@ const TextTask: React.FC<{
     const { t } = useLanguageSync();
 
     if (content) {
-        const safeContent = content.replace(/\\"/g, '"').replace(/\\n/g, "\n");
-        const separatedContent = separatedText(safeContent);
+        // const content = `<[Die verschiedenen Bierdeckel habe ich von meinem Bruder bekommen]{title="Perfekt" content="Fast alle Sätze im Text stehen im Perfekt! Erinnere dich: haben sein + Partizip II."}>, ich sammle ja Bierdeckel. <[Der grüne Schal]{title="Adjektivdeklination im Nominativ" content="Artikel + Adjektiv + Nomen: Der grüne Schal (maskulin, Nominativ)."}> ist von meiner Oma. Sie hat immer Sorge, dass ich friere. Meine Eltern haben mir das tolle Handy hier geschenkt. Das alte Handy ist mir leider runtergefallen und kaputtgegangen. Und mit der großen Uhr vergesse ich nun hoffentlich nie wieder die Zeit. Meine Freundin hat sie mir gekauft, weil ich immer zu spät komme.`;
 
-        const parseTextWithTooltips = (text: string[][]) => {
-            const parsedText: React.JSX.Element[] = [];
-            const boldRegex = /\*\*(.*?)\*\*/g;
+        const separatedContent = separatedText(content);
 
-            const insertBoldAndTooltips = (raw: string, keyPrefix: string) => {
-                const tooltipRegex =
-                    /<\[(.+?)\]\{title="(.+?)"\s+content="(.+?)"\}>/g;
+        type ParsedSegment =
+            | { type: "text"; value: string }
+            | { type: "tooltip"; text: string; title: string; content: string };
 
-                const parts: React.JSX.Element[] = [];
-                let lastIndex = 0;
-                let match;
-                let i = 0;
+        function parseTooltipSegments(input: string): ParsedSegment[] {
+            const result: ParsedSegment[] = [];
 
-                while ((match = tooltipRegex.exec(raw)) !== null) {
-                    const before = raw.slice(lastIndex, match.index);
-                    const phrase = match[1];
-                    const title = match[2];
-                    const content = match[3];
+            const regex = /<\[(.*?)\]\{(.*?)\}>/gs;
+            let lastIndex = 0;
 
-                    if (before) {
-                        parts.push(
-                            ...insertBold(before, `${keyPrefix}-pre-${i}`)
-                        );
-                    }
+            for (const match of input.matchAll(regex)) {
+                const [fullMatch, tooltipText, attrString] = match;
+                const matchStart = match.index!;
+                const matchEnd = matchStart + fullMatch.length;
 
-                    const tooltipElement = isMobile ? (
-                        <ModalMob
-                            key={`${keyPrefix}-tooltip-${i}`}
-                            title={title}
-                            content={<p className="body-s">{content}</p>}
-                            underline
-                        >
-                            <span className="body-m">{phrase}</span>
-                        </ModalMob>
-                    ) : (
-                        <Tooltip
-                            key={`${keyPrefix}-tooltip-${i}`}
-                            title={title}
-                            content={content}
-                            underline
-                        >
-                            <span className="body-m">{phrase}</span>
-                        </Tooltip>
-                    );
-                    parts.push(tooltipElement);
-
-                    lastIndex = tooltipRegex.lastIndex;
-                    i++;
+                if (matchStart > lastIndex) {
+                    result.push({
+                        type: "text",
+                        value: input.slice(lastIndex, matchStart),
+                    });
                 }
 
-                if (lastIndex < raw.length) {
-                    parts.push(
-                        ...insertBold(raw.slice(lastIndex), `${keyPrefix}-post`)
-                    );
+                const attrRegex = /(\w+)=("(?:[^"\\]|\\.)*?")/gs;
+                const attributes: Record<string, string> = {};
+
+                for (const attrMatch of attrString.matchAll(attrRegex)) {
+                    const [, key, rawValue] = attrMatch;
+                    attributes[key] = rawValue.slice(1, -1);
                 }
 
-                return parts;
-            };
-
-            const insertBold = (
-                text: string,
-                keyPrefix: string
-            ): React.JSX.Element[] => {
-                const result: React.JSX.Element[] = [];
-                let match;
-                let currentIndex = 0;
-                let i = 0;
-
-                while ((match = boldRegex.exec(text)) !== null) {
-                    if (currentIndex < match.index) {
-                        result.push(
-                            <span key={`${keyPrefix}-plain-${i}`}>
-                                {text.slice(currentIndex, match.index)}
-                            </span>
-                        );
-                    }
-                    result.push(
-                        <span
-                            key={`${keyPrefix}-bold-${i}`}
-                            style={{ fontWeight: "bold" }}
-                        >
-                            {match[1]}
-                        </span>
-                    );
-                    currentIndex = boldRegex.lastIndex;
-                    i++;
-                }
-
-                if (currentIndex < text.length) {
-                    result.push(
-                        <span key={`${keyPrefix}-plain-last`}>
-                            {text.slice(currentIndex)}
-                        </span>
-                    );
-                }
-
-                return result;
-            };
-
-            text.map((paragraphSentences, paragraphIndex) => {
-                const paragraphElements: React.JSX.Element[] = [];
-
-                paragraphSentences.map((sentence, sentenceIndex) => {
-                    paragraphElements.push(
-                        <React.Fragment
-                            key={`p-${paragraphIndex}-s-${sentenceIndex}`}
-                        >
-                            {insertBoldAndTooltips(
-                                sentence,
-                                `p-${paragraphIndex}-s-${sentenceIndex}`
-                            )}{" "}
-                        </React.Fragment>
-                    );
+                result.push({
+                    type: "tooltip",
+                    text: tooltipText,
+                    title: attributes.title,
+                    content: attributes.content,
                 });
 
-                parsedText.push(
-                    <div
-                        key={`p-${paragraphIndex}`}
-                        style={{ lineHeight: "150%" }}
-                    >
-                        {paragraphElements}
-                    </div>
-                );
+                lastIndex = matchEnd;
+            }
+
+            if (lastIndex < input.length) {
+                result.push({
+                    type: "text",
+                    value: input.slice(lastIndex),
+                });
+            }
+
+            return result;
+        }
+
+        const parseTextWithTooltips = (text: string[][]) => {
+            const result = [] as React.ReactNode[];
+
+            text.forEach((p, pIndex) => {
+                const newParagraf = [] as React.ReactNode[];
+
+                p.forEach((s) => {
+                    const segments = parseTooltipSegments(s);
+
+                    const newS = segments.map((seg, idx) => {
+                        if (seg.type === "text") {
+                            return <span key={idx}>{seg.value + " "}</span>;
+                        } else {
+                            return isMobile ? (
+                                <ModalMob
+                                    key={idx}
+                                    title={seg.title}
+                                    content={seg.content}
+                                    underline
+                                >
+                                    <span className="body-m">{seg.text}</span>
+                                </ModalMob>
+                            ) : (
+                                <Tooltip
+                                    key={idx}
+                                    title={seg.title}
+                                    content={seg.content}
+                                    underline
+                                >
+                                    <span className="body-m">{seg.text}</span>
+                                    <span> </span>
+                                </Tooltip>
+                            );
+                        }
+                    });
+
+                    newParagraf.push(newS);
+                });
+
+                result.push(<div key={`ttp-${pIndex}`}>{newParagraf}</div>);
             });
 
-            return parsedText;
+            return result;
         };
 
         return (
@@ -159,6 +127,7 @@ const TextTask: React.FC<{
                         display: "flex",
                         flexDirection: "column",
                         gap: "1rem",
+                        lineHeight: "200%",
                     }}
                 >
                     {parseTextWithTooltips(separatedContent)}

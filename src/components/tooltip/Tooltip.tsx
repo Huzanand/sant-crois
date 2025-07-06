@@ -17,13 +17,14 @@ const Tooltip: React.FC<TooltipProps> = ({
     title,
     content,
     style,
-    underline
+    underline,
 }) => {
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
 
     return (
         <div className={styles.tooltip_container}>
-            <span className={underline ? "body-m--underline" : "body-m"}
+            <span
+                className={underline ? "body-m--underline" : "body-m"}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
             >
@@ -36,11 +37,7 @@ const Tooltip: React.FC<TooltipProps> = ({
                 }`}
                 style={style}
             >
-                {title ? (
-                    <h4 className="headlines-s">
-                        {title}
-                    </h4>
-                ) : undefined}
+                {title ? <p className="headlines-s">{title}</p> : undefined}
                 {content ? <p className="body-s">{content}</p> : undefined}
             </div>
         </div>
