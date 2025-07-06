@@ -34,8 +34,6 @@ const MobileViev = () => {
         else return "hard";
     };
 
-    console.log(lesson?.rating);
-
     return (
         <div className={styles.container}>
             <div className={styles.mburger}>
