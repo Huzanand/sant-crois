@@ -224,7 +224,7 @@ const Pagination: React.FC<IPaginationProps> = ({
 
     return (
         <div className={styles.cell__container}>
-            {isMobile ? (
+            {isMobile && totalCount ? (
                 <div
                     className={`${styles.mob__button} buttons-s ${styles.loadMore}`}
                     key={"load more"}
