@@ -71,3 +71,11 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 1024px) {
+    .cellNum:hover,
+    .loadMore:hover {
+        background-color: var(--Purple-P75);
+        color: var(--Blue-B500);
+    }
+}

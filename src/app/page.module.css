@@ -36,6 +36,7 @@
     flex-direction: column;
     align-items: center;
     padding: 40px 0 0;
+    width: 100%;
 }
 
 .content_box {
