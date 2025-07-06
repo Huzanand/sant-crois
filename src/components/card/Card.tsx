@@ -142,9 +142,7 @@ const Card: React.FC<ICard> = ({
                                 </p>
                                 <div>
                                     <p className="body-s" key={"age group"}>
-                                        {`${makeFirstLetterUppercase(
-                                            ageGroup.toLowerCase()
-                                        )}.`}
+                                        {`${t(ageGroup.toUpperCase())}.`}
                                     </p>
                                 </div>
                             </div>
