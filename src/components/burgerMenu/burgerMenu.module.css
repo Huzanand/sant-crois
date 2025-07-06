@@ -31,8 +31,8 @@
     gap: 32px;
 
     margin: 0;
-    padding-bottom: 2rem;
     padding: 1rem;
+    padding-bottom: 4rem;
     border-radius: 0;
     background: var(--Purple-P25);
     box-shadow: none;
