@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { useOwnStore } from "@/store/storeProvider";
 import { useParams, useRouter } from "next/navigation";
 import Recomendations from "@/components/recomendations/Recomandations";
-import ResultsHeader from "@/components/resultsHeader/ResultsHeader";
+import ResultsHeader from "@/components/settingsSelect/resultsHeader/ResultsHeader";
 import { useEffect } from "react";
 import { interceptorsStore } from "@/store/interceptorsStore";
 import MultipleCheck from "@/components/checkAnswers/multipleCheck/MultipleCheck";
