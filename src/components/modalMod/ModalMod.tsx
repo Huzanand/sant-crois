@@ -94,8 +94,12 @@ const ModalMob: React.FC<ModalProps> = ({
                     <CloseModalIco />
                 </div>
                 <div className={styles.content}>
-                    {title && <h4 className="headlines-s">{title}</h4>}
-                    {content && content}
+                    {title && (
+                        <h4 className="body-l" style={{ marginBottom: "1rem" }}>
+                            {title}
+                        </h4>
+                    )}
+                    {content && <p className="body-m">{content}</p>}
                 </div>
             </div>
         </div>
