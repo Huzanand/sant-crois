@@ -166,7 +166,10 @@ const FillTextTask: React.FC<propsTypes> = ({ taskData, index }) => {
             <h2 className="headlines-m" style={{ marginBottom: "1.5rem" }}>
                 {`${t("exersice")} ${index}`}
             </h2>
-            <div className={`body-m ${styles.container}`}>
+            <div
+                className={`body-m ${styles.container}`}
+                style={{ lineHeight: "2.5rem" }}
+            >
                 {parseContent(content as string[][])}
             </div>
         </div>

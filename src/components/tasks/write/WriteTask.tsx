@@ -156,7 +156,7 @@ const WriteTask: React.FC<propsTypes> = ({ taskData, index }) => {
         return (
             <div
                 className="body-l"
-                style={{ display: "inline-block", lineHeight: "2.2rem" }}
+                style={{ display: "inline-block", lineHeight: "2.5rem" }}
             >
                 {resultText}
             </div>
