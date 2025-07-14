@@ -37,15 +37,11 @@ const Lesson = () => {
         }
     }, [fetchRecomendations, lesson?.relatedContents, clearRecomendations]);
 
-    // const progressBarData = new Array(lesson?.tasks.length).fill("0");
-
     return (
         <div className={styles.wrapper}>
             <LessonInfo />
 
             <div className={styles.container}>
-                {/*<ProgressBar data={progressBarData} />*/}
-
                 <div className={styles.content}>
                     {lesson && <RenderHeaderOfLesson lesson={lesson} />}
 
