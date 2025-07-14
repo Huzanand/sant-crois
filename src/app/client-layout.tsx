@@ -5,6 +5,7 @@ import { StoreProvider } from "@/store/storeProvider";
 import { useEffect, useState } from "react";
 import { useOwnStore } from "@/store/storeProvider"; // Используем хук вместо прямого импорта Store
 import dynamic from "next/dynamic";
+import Script from "next/script";
 
 const I18nWrapper = dynamic(() => import("@/i18n/i18nWrapper"), {
     ssr: false,
@@ -17,12 +18,26 @@ export default function ClientLayout({
 }) {
     return (
         <StoreProvider>
-            <LoadedContent>{children}</LoadedContent>
+            <LoadedContent>
+                {children}
+                <Script
+                    id="clarity-script"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "s8owkv8zjn");
+        `,
+                    }}
+                />
+            </LoadedContent>
         </StoreProvider>
     );
 }
 
-// Отдельный компонент для работы с состоянием ПОСЛЕ инициализации провайдера
 function LoadedContent({ children }: { children: React.ReactNode }) {
     const loadFromLocalStorage = useOwnStore(
         (state) => state.loadFromLocalStorage
@@ -39,7 +54,6 @@ function LoadedContent({ children }: { children: React.ReactNode }) {
     return (
         <I18nWrapper>
             <div
-                className="min-h-screen flex flex-col"
                 style={
                     typeof window !== "undefined"
                         ? {
