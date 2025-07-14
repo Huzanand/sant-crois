@@ -6,7 +6,7 @@ import { devtools } from "zustand/middleware";
 
 export const interceptorsStore = create<IInterceptorsStore>()(
     devtools((set) => ({
-        loading: false,
+        loading: true,
         error: false,
         setLoading: (loading: boolean) => set({ loading }),
         setError: (error: boolean) => set({ error }),
