@@ -15,30 +15,60 @@ const TextTask: React.FC<{
     const { t } = useLanguageSync();
 
     if (content) {
-        // const content = `<[Die verschiedenen Bierdeckel habe ich von meinem Bruder bekommen]{title="Perfekt" content="Fast alle Sätze im Text stehen im Perfekt! Erinnere dich: haben sein + Partizip II."}>, ich sammle ja Bierdeckel. <[Der grüne Schal]{title="Adjektivdeklination im Nominativ" content="Artikel + Adjektiv + Nomen: Der grüne Schal (maskulin, Nominativ)."}> ist von meiner Oma. Sie hat immer Sorge, dass ich friere. Meine Eltern haben mir das tolle Handy hier geschenkt. Das alte Handy ist mir leider runtergefallen und kaputtgegangen. Und mit der großen Uhr vergesse ich nun hoffentlich nie wieder die Zeit. Meine Freundin hat sie mir gekauft, weil ich immer zu spät komme.`;
-
         const separatedContent = separatedText(content);
 
         type ParsedSegment =
-            | { type: "text"; value: string }
+            | { type: "text"; value: string | JSX.Element }
             | { type: "tooltip"; text: string; title: string; content: string };
 
-        function parseTooltipSegments(input: string): ParsedSegment[] {
-            const result: ParsedSegment[] = [];
-
-            const regex = /<\[(.*?)\]\{(.*?)\}>/gs;
+        const parseBoldSegments = (text: string): ParsedSegment[] => {
+            const segments: ParsedSegment[] = [];
+            const boldRegex = /\*\*(.+?)\*\*/g;
             let lastIndex = 0;
 
-            for (const match of input.matchAll(regex)) {
+            for (const match of text.matchAll(boldRegex)) {
+                const matchStart = match.index!;
+                const matchEnd = matchStart + match[0].length;
+
+                if (matchStart > lastIndex) {
+                    segments.push({
+                        type: "text",
+                        value: text.slice(lastIndex, matchStart),
+                    });
+                }
+
+                segments.push({
+                    type: "text",
+                    value: <strong>{match[1]}</strong>,
+                });
+
+                lastIndex = matchEnd;
+            }
+
+            if (lastIndex < text.length) {
+                segments.push({
+                    type: "text",
+                    value: text.slice(lastIndex),
+                });
+            }
+
+            return segments;
+        };
+
+        const parseTooltipSegments = (input: string): ParsedSegment[] => {
+            const result: ParsedSegment[] = [];
+
+            const tooltipRegex = /<\[(.*?)\]\{(.*?)\}>/gs;
+            let lastIndex = 0;
+
+            for (const match of input.matchAll(tooltipRegex)) {
                 const [fullMatch, tooltipText, attrString] = match;
                 const matchStart = match.index!;
                 const matchEnd = matchStart + fullMatch.length;
 
                 if (matchStart > lastIndex) {
-                    result.push({
-                        type: "text",
-                        value: input.slice(lastIndex, matchStart),
-                    });
+                    const textPart = input.slice(lastIndex, matchStart);
+                    result.push(...parseBoldSegments(textPart));
                 }
 
                 const attrRegex = /(\w+)=("(?:[^"\\]|\\.)*?")/gs;
@@ -60,14 +90,12 @@ const TextTask: React.FC<{
             }
 
             if (lastIndex < input.length) {
-                result.push({
-                    type: "text",
-                    value: input.slice(lastIndex),
-                });
+                const remainingText = input.slice(lastIndex);
+                result.push(...parseBoldSegments(remainingText));
             }
 
             return result;
-        }
+        };
 
         const parseTextWithTooltips = (text: string[][]) => {
             const result = [] as React.ReactNode[];
@@ -80,7 +108,7 @@ const TextTask: React.FC<{
 
                     const newS = segments.map((seg, idx) => {
                         if (seg.type === "text") {
-                            return <span key={idx}>{seg.value + " "}</span>;
+                            return <span key={idx}>{seg.value}</span>;
                         } else {
                             return isMobile ? (
                                 <ModalMob
