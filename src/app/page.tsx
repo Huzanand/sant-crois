@@ -10,6 +10,8 @@ import Card from "@/components/card/Card";
 import Link from "next/link";
 import AppSideBar from "@/components/appSidebar/AppSideBar";
 import Pagination from "@/components/pagination/Pagination";
+import { interceptorsStore } from "@/store/interceptorsStore";
+import Skeleton from "@/components/skeleton/Skeleton";
 
 const Home = () => {
     const {
@@ -30,6 +32,9 @@ const Home = () => {
         totalCount,
         selectedSorting,
     } = useOwnStore((state) => state);
+
+    const loading = interceptorsStore((state) => state.loading);
+    const error = interceptorsStore((state) => state.error);
 
     useEffect(() => {
         fetchFilters();
@@ -63,6 +68,45 @@ const Home = () => {
         selectedSorting,
     ]);
 
+    const showContent = () => {
+        if (error || lessons === undefined) return <div>ERROERRRRR!!!!!</div>;
+        if (loading) {
+            return Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className={styles.content__item}>
+                    <Skeleton />
+                </div>
+            ));
+        }
+        return lessons.map((item: ILesson) => {
+            if (item) {
+                return (
+                    <div key={item.id} className={styles.content__item}>
+                        <Link
+                            key={"link" + item.id}
+                            href={`/lesson/${item.id}`}
+                            prefetch={false}
+                        >
+                            <Card
+                                id={item.id}
+                                header={item.header}
+                                cover={item.cover as string}
+                                primaryTopics={item.primaryTopics}
+                                secondaryTopics={item.secondaryTopics}
+                                learningLanguage={item.learningLanguage}
+                                languageLevel={item.languageLevel}
+                                acceptance={item.acceptance}
+                                rating={item.rating}
+                                views={item.views}
+                                ageGroup={item.targetAgeGroup}
+                            />
+                        </Link>
+                    </div>
+                );
+            }
+            return null;
+        });
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.sideBar}>
@@ -72,48 +116,8 @@ const Home = () => {
             </div>
 
             <div className={styles.content}>
-                <div className={styles.content_box}>
-                    {lessons !== undefined &&
-                        lessons.map((item: ILesson) => {
-                            if (item) {
-                                return (
-                                    <div
-                                        key={item.id}
-                                        className={styles.content__item}
-                                    >
-                                        <Link
-                                            key={"link" + item.id}
-                                            href={`/lesson/${item.id}`}
-                                            prefetch={false}
-                                        >
-                                            <Card
-                                                id={item.id}
-                                                header={item.header}
-                                                cover={item.cover as string}
-                                                primaryTopics={
-                                                    item.primaryTopics
-                                                }
-                                                secondaryTopics={
-                                                    item.secondaryTopics
-                                                }
-                                                learningLanguage={
-                                                    item.learningLanguage
-                                                }
-                                                languageLevel={
-                                                    item.languageLevel
-                                                }
-                                                acceptance={item.acceptance}
-                                                rating={item.rating}
-                                                views={item.views}
-                                                ageGroup={item.targetAgeGroup}
-                                            />
-                                        </Link>
-                                    </div>
-                                );
-                            }
-                            return null;
-                        })}
-                </div>
+                <div className={styles.content_box}>{showContent()}</div>
+
                 <Pagination
                     totalCount={totalCount}
                     size={12}
