@@ -28,7 +28,7 @@ const AppSideBar = () => {
     } = useOwnStore((state) => state);
 
     const [settingsIsOpen, setSettingsIsOpen] = useState<boolean>(false);
-    const isMobile = useMobile(965);
+    const isMobile = useMobile(1012);
     const is425px = useMobile(425);
 
     const { t } = useLanguageSync();

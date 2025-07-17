@@ -81,7 +81,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 964px) {
+@media screen and (max-width: 1012px) {
     .sideBar {
         width: 100%;
     }

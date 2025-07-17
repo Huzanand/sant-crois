@@ -5,19 +5,27 @@
     align-items: flex-start;
     gap: 1rem;
 
-    max-width: 1300px;
+    max-width: 1330px;
     min-width: 360px;
+
     margin: 0 auto;
     padding: 0 24px 72px;
     position: relative;
 }
 
 .sideBar {
-    width: 320px;
-    padding: 40px 0 0;
+    width: 334px;
+    min-height: 0px;
+    margin: 40px 0 0;
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    min-height: 0;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+    flex-shrink: 0;
+    scrollbar-gutter: stable;
 }
 
 .sidebar__topContent {
@@ -31,12 +39,13 @@
 }
 
 .content {
-    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 0 0;
     width: 100%;
+
+    flex: 1;
 }
 
 .content_box {
@@ -47,13 +56,13 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1330px) {
     .content_box {
         grid-template-columns: repeat(2, minmax(300px, 1fr));
     }
 }
 
-@media screen and (max-width: 964px) {
+@media screen and (max-width: 1012px) {
     .sideBar {
         padding: 0;
     }
@@ -76,7 +85,7 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 664px) {
     .content_box {
         grid-template-columns: repeat(1, minmax(300px, 1fr));
     }

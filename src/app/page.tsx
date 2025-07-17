@@ -3,7 +3,7 @@
 import styles from "./page.module.css";
 
 import { useOwnStore } from "@/store/storeProvider";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ILesson } from "@/models";
 import Card from "@/components/card/Card";
 
@@ -35,6 +35,27 @@ const Home = () => {
 
     const loading = interceptorsStore((state) => state.loading);
     const error = interceptorsStore((state) => state.error);
+
+    const contentRef = useRef<HTMLDivElement | null>(null);
+    const [contentHeight, setContentHeight] = useState<number | undefined>(
+        undefined
+    );
+
+    useEffect(() => {
+        const contentEl = contentRef.current;
+
+        if (!contentEl) return;
+
+        const resizeObserver = new ResizeObserver((entries) => {
+            const height = entries[0].contentRect.height;
+            console.log("Content height changed:", height);
+            setContentHeight(height);
+        });
+
+        resizeObserver.observe(contentEl);
+
+        return () => resizeObserver.disconnect();
+    });
 
     useEffect(() => {
         fetchFilters();
@@ -109,13 +130,18 @@ const Home = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.sideBar}>
+            <div
+                className={styles.sideBar}
+                style={{
+                    maxHeight: contentHeight ? `${contentHeight}px` : undefined,
+                }}
+            >
                 <div className={styles.sidebar__topContent}>
                     <AppSideBar />
                 </div>
             </div>
 
-            <div className={styles.content}>
+            <div className={styles.content} ref={contentRef}>
                 <div className={styles.content_box}>{showContent()}</div>
 
                 <Pagination
