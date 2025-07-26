@@ -143,6 +143,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 style={{
                     maxHeight: isOpen ? `${height}px` : "0px",
                     transition: "max-height 0.3s ",
+                    overflowY: "auto",
                 }}
             >
                 {isMobile && (
