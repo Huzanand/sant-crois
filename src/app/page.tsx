@@ -31,12 +31,14 @@ const Home = () => {
         setSize,
         totalCount,
         selectedSorting,
+        setHomePageContentHeight,
     } = useOwnStore((state) => state);
 
     const loading = interceptorsStore((state) => state.loading);
     const error = interceptorsStore((state) => state.error);
 
     const contentRef = useRef<HTMLDivElement | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [contentHeight, setContentHeight] = useState<number | undefined>(
         undefined
     );
@@ -48,14 +50,15 @@ const Home = () => {
 
         const resizeObserver = new ResizeObserver((entries) => {
             const height = entries[0].contentRect.height;
-            console.log("Content height changed:", height);
+
             setContentHeight(height);
+            setHomePageContentHeight(height);
         });
 
         resizeObserver.observe(contentEl);
 
         return () => resizeObserver.disconnect();
-    });
+    }, [setHomePageContentHeight]);
 
     useEffect(() => {
         fetchFilters();
@@ -130,12 +133,7 @@ const Home = () => {
 
     return (
         <div className={styles.container}>
-            <div
-                className={styles.sideBar}
-                style={{
-                    maxHeight: contentHeight ? `${contentHeight}px` : undefined,
-                }}
-            >
+            <div className={styles.sideBar}>
                 <div className={styles.sidebar__topContent}>
                     <AppSideBar />
                 </div>

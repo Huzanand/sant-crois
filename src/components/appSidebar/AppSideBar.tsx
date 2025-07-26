@@ -1,6 +1,6 @@
 import { useOwnStore } from "@/store/storeProvider";
 import styles from "./appSideBar.module.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Divider from "@/components/divider/Divider";
 import { ArrowDownIco, SettingsIco, SortingIco } from "@/assets/svg/icons";
@@ -25,6 +25,7 @@ const AppSideBar = () => {
         sortingOptions,
         selectedSorting,
         onSelectChange,
+        homePageContentHeight,
     } = useOwnStore((state) => state);
 
     const [settingsIsOpen, setSettingsIsOpen] = useState<boolean>(false);
@@ -33,10 +34,41 @@ const AppSideBar = () => {
 
     const { t } = useLanguageSync();
 
+    const sidebarRef = useRef<HTMLDivElement | null>(null);
+    const settingsRef = useRef<HTMLDivElement | null>(null);
+    const sortingRef = useRef<HTMLDivElement | null>(null);
+    const filtersRef = useRef<HTMLDivElement | null>(null);
+
+    const [filtersIsOpen, setFiltersIsOpen] = useState(false);
+    const [filtersHeightCulced, setFiltersHeightCulced] = useState<number>(0);
+
+    useEffect(() => {
+        const observer = new ResizeObserver(() => {
+            if (!sidebarRef.current || !filtersRef.current) return;
+
+            const sidebarHeight = sidebarRef.current.offsetHeight;
+            const contentHeight = homePageContentHeight;
+
+            const spareHeight = Math.max(
+                contentHeight -
+                    sidebarHeight +
+                    filtersRef.current?.offsetHeight -
+                    119 || 0,
+                280
+            );
+
+            setFiltersHeightCulced(spareHeight);
+        });
+
+        if (sidebarRef.current) observer.observe(sidebarRef.current);
+
+        return () => observer.disconnect();
+    }, [homePageContentHeight]);
+
     return (
-        <div className={styles.sideBar}>
+        <div className={styles.sideBar} ref={sidebarRef}>
             {!isMobile && (
-                <div className={styles.sideBar_main}>
+                <div className={styles.sideBar_main} ref={settingsRef}>
                     <div className={styles.content__container}>
                         <div className={styles.logo}>
                             <Logo />
@@ -86,7 +118,7 @@ const AppSideBar = () => {
             {isMobile && <BurgerMenu mode={"home"} />}
 
             <div className={styles.filters}>
-                <div className={styles.filters__item}>
+                <div className={styles.filters__item} ref={sortingRef}>
                     <SettingsSelect
                         mode={isMobile ? "modal" : "default"}
                         options={useTranslatedOptions(
@@ -112,8 +144,12 @@ const AppSideBar = () => {
                     />
                 </div>
 
-                <div className={styles.filters__item}>
-                    <Filters />
+                <div className={styles.filters__item} ref={filtersRef}>
+                    <Filters
+                        height={filtersHeightCulced}
+                        isOpen={filtersIsOpen}
+                        setIsOpen={setFiltersIsOpen}
+                    />
                 </div>
             </div>
         </div>

@@ -8,7 +8,13 @@ import { ArrowDownIco, FilterIco } from "@/assets/svg/icons";
 import { useWindowWidth } from "@/utils/useWindowWidth";
 import { useLanguageSync } from "@/utils/useLanguage";
 
-const Filters = () => {
+interface IFiltersProps {
+    height: number;
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     const primaryTopics = useOwnStore((state) => state.primaryTopics);
     const selectedPrimaryTopics = useOwnStore(
         (state) => state.selectedPrimaryTopics
@@ -38,7 +44,6 @@ const Filters = () => {
     const MOBILE_WIDTH = 965;
     const width = useWindowWidth();
     const isMobile = width <= MOBILE_WIDTH;
-    const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -81,20 +86,6 @@ const Filters = () => {
         const container = containerRef.current;
 
         if (container) {
-            if (!isMobile) {
-                if (isOpen) {
-                    const currentHeight = container.scrollHeight + "px";
-                    container.style.height = currentHeight;
-
-                    requestAnimationFrame(() => {
-                        container.style.height = "0px";
-                    });
-                } else {
-                    const scrollHeight = container.scrollHeight + "px";
-                    container.style.height = scrollHeight;
-                }
-            }
-
             setIsActive(!isActive);
             setIsOpen(!isOpen);
         }
@@ -102,13 +93,6 @@ const Filters = () => {
 
     const handleOverlayClick = () => {
         toggleDropdown();
-    };
-
-    const handleTransitionEnd = () => {
-        const container = containerRef.current;
-        if (container) {
-            container.style.height = isOpen ? "auto" : "0px";
-        }
     };
 
     return (
@@ -156,7 +140,10 @@ const Filters = () => {
                         : styles.content__container
                 }
                 ref={containerRef}
-                onTransitionEnd={isMobile ? undefined : handleTransitionEnd}
+                style={{
+                    maxHeight: isOpen ? `${height}px` : "0px",
+                    transition: "max-height 0.3s ",
+                }}
             >
                 {isMobile && (
                     <div
@@ -170,39 +157,43 @@ const Filters = () => {
                     </div>
                 )}
 
-                <SearchComponent
-                    label={t("main theme")}
-                    arr={primaryTopics}
-                    selectedFromArr={selectedPrimaryTopics}
-                    setFunc={setSelectedPrimaryTopics}
-                />
+                {isOpen && (
+                    <>
+                        <SearchComponent
+                            label={t("main theme")}
+                            arr={primaryTopics}
+                            selectedFromArr={selectedPrimaryTopics}
+                            setFunc={setSelectedPrimaryTopics}
+                        />
 
-                <Divider margin="16px 0" />
+                        <Divider margin="16px 0" />
 
-                <SearchComponent
-                    label={t("secondary theme")}
-                    arr={secondaryTopics}
-                    selectedFromArr={selectedSecondaryTopics}
-                    setFunc={setSelectedSecondaryTopics}
-                />
+                        <SearchComponent
+                            label={t("secondary theme")}
+                            arr={secondaryTopics}
+                            selectedFromArr={selectedSecondaryTopics}
+                            setFunc={setSelectedSecondaryTopics}
+                        />
 
-                <Divider margin="16px 0" />
+                        <Divider margin="16px 0" />
 
-                <SearchComponent
-                    label={t("tags")}
-                    arr={tags}
-                    selectedFromArr={selectedTags}
-                    setFunc={setSelectedTags}
-                />
+                        <SearchComponent
+                            label={t("tags")}
+                            arr={tags}
+                            selectedFromArr={selectedTags}
+                            setFunc={setSelectedTags}
+                        />
 
-                <Divider margin="16px 0" />
+                        <Divider margin="16px 0" />
 
-                <AgeFilter
-                    label={t("age group")}
-                    arr={targetAgeGroups}
-                    selectedFromArr={selectedAgeGroup}
-                    setFunc={setSelectedAgeGroup}
-                />
+                        <AgeFilter
+                            label={t("age group")}
+                            arr={targetAgeGroups}
+                            selectedFromArr={selectedAgeGroup}
+                            setFunc={setSelectedAgeGroup}
+                        />
+                    </>
+                )}
             </div>
         </div>
     );

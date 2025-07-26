@@ -107,6 +107,7 @@ export interface IState {
     sortingOptions: string[],
     selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime',
     relatedContents: (ICard | null)[],
+    homePageContentHeight: number,
 }
 
 export interface IActions {
@@ -141,6 +142,7 @@ export interface IActions {
     setActiveTypeOfLesson: (newActiveType: "all" | "video" | "audio" | "reading" | "grammar") => void;
     setPage: (newPage: number) => void;
     toggleVirtualKeyboard: () => void;
+    setHomePageContentHeight: (contentHeight: number) => void;
 }
 
 export interface IStore extends IState, IActions { }

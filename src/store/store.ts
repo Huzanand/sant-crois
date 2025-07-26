@@ -35,6 +35,7 @@ export const initialState: IState = {
     sortingOptions: ['rating', 'views', 'acceptance', 'languageLevel', 'creationDateTime'],
     selectedSorting: 'rating',
     relatedContents: [],
+    homePageContentHeight: 0
 }
 
 export const Store = (
@@ -227,6 +228,12 @@ export const Store = (
                                 set(JSON.parse(storedState));
                             }
                         },
+
+                        setHomePageContentHeight: (contentHeight) => {
+                            set(() => ({
+                                homePageContentHeight: contentHeight
+                            }))
+                        }
                     };
                 }, {
                 name: 'lesson-storage',
