@@ -20,6 +20,8 @@ const SearchComponent: React.FC<searchComponentProps> = ({
     const [selectedItems, setSelectedItems] =
         useState<string[]>(selectedFromArr);
 
+    const [numberOfOptions, setNumberOfOptions] = useState<number>(5);
+
     const { t } = useLanguageSync();
 
     const filteredOptions = useMemo(() => {
@@ -59,7 +61,7 @@ const SearchComponent: React.FC<searchComponentProps> = ({
         });
     };
 
-    const renderList = (options: string[]) => {
+    const renderList = (options: string[], numberOfOptions: number) => {
         if (options.length === 0) {
             return (
                 <li key={"no options"} className={styles.listItem}>
@@ -69,30 +71,63 @@ const SearchComponent: React.FC<searchComponentProps> = ({
                 </li>
             );
         }
-        return options.map((option) => (
-            <li key={option} className={styles.listItem}>
-                <div
-                    className={styles.checkboxContainer}
-                    onClick={() => handleCheckboxChange(option)}
-                >
-                    <div className={styles.checkbox}>
-                        {selectedItems.includes(option) ? (
-                            <CheckedIco />
-                        ) : (
-                            <UncheckedIco />
-                        )}
-                    </div>
-                    <span className="body-m">{option}</span>
-                </div>
-            </li>
-        ));
+        const list = [] as React.ReactNode[];
+
+        options.map((option, i) => {
+            if (i < numberOfOptions)
+                list.push(
+                    <li key={option} className={styles.listItem}>
+                        <div
+                            className={styles.checkboxContainer}
+                            onClick={() => handleCheckboxChange(option)}
+                        >
+                            <div className={styles.checkbox}>
+                                {selectedItems.includes(option) ? (
+                                    <CheckedIco />
+                                ) : (
+                                    <UncheckedIco />
+                                )}
+                            </div>
+                            <span className="body-m">{option}</span>
+                        </div>
+                    </li>
+                );
+        });
+
+        return (
+            <>
+                {list}
+                {numberOfOptions < options.length && (
+                    <li
+                        key={"load more button " + label}
+                        className={`${styles.listItem} `}
+                    >
+                        <div
+                            className={styles.checkboxContainer}
+                            onClick={() =>
+                                setNumberOfOptions(numberOfOptions + 5)
+                            }
+                        >
+                            <span
+                                className="buttons-m"
+                                style={{ color: "#403294", fontSize: "16px" }}
+                            >
+                                {t("loadMore")}
+                            </span>
+                        </div>
+                    </li>
+                )}
+            </>
+        );
     };
 
     return (
         <div className={styles.container}>
             <p
                 className="headlines-s"
-                style={{ alignSelf: "flex-start", margin: "0px 0px -8px" }}
+                style={{
+                    alignSelf: "flex-start",
+                }}
             >
                 {label}
             </p>
@@ -110,14 +145,8 @@ const SearchComponent: React.FC<searchComponentProps> = ({
                 </span>
             </div>
 
-            <ul
-                className={styles.list}
-                style={{
-                    overflowY: filteredOptions.length > 5 ? "auto" : "unset",
-                    paddingRight: filteredOptions.length > 5 ? "0px" : "17px",
-                }}
-            >
-                {renderList(filteredOptions)}
+            <ul className={styles.list}>
+                {renderList(filteredOptions, numberOfOptions)}
             </ul>
         </div>
     );
