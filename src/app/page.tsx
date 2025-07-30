@@ -25,8 +25,8 @@ const Home = () => {
         selectedSecondaryTopics,
         selectedTags,
         selectedAgeGroup,
-        page,
-        setPage,
+        offset,
+        setOffset,
         size,
         setSize,
         totalCount,
@@ -75,11 +75,11 @@ const Home = () => {
             selectedSecondaryTopics,
             selectedTags,
             selectedAgeGroup,
-            page,
+            offset,
             selectedSorting
         );
     }, [
-        page,
+        offset,
         activeTypeOfLesson,
         selectedLanguageLevel,
         selectedLearningLanguage,
@@ -132,24 +132,25 @@ const Home = () => {
     };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.sideBar}>
-                <div className={styles.sidebar__topContent}>
-                    <AppSideBar />
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
+                <div className={styles.sideBar}>
+                    <div className={styles.sidebar__topContent}>
+                        <AppSideBar />
+                    </div>
+                </div>
+
+                <div className={styles.content} ref={contentRef}>
+                    <div className={styles.content_box}>{showContent()}</div>
                 </div>
             </div>
-
-            <div className={styles.content} ref={contentRef}>
-                <div className={styles.content_box}>{showContent()}</div>
-
-                <Pagination
+            {/* <Pagination
                     totalCount={totalCount}
                     size={12}
-                    page={page}
-                    setPage={setPage}
+                    offset={offset}
+                    setOffset={setOffset}
                     setSize={setSize}
-                />
-            </div>
+                /> */}
         </div>
     );
 };

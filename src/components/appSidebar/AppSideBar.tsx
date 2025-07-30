@@ -49,12 +49,14 @@ const AppSideBar = () => {
             const sidebarHeight = sidebarRef.current.offsetHeight;
             const contentHeight = homePageContentHeight;
 
-            const spareHeight = Math.max(
-                contentHeight -
-                    sidebarHeight +
-                    filtersRef.current?.offsetHeight -
-                    119 || 0,
-                280
+            const spareHeight = Math.ceil(
+                Math.max(
+                    contentHeight -
+                        sidebarHeight +
+                        filtersRef.current?.offsetHeight -
+                        57 || 0,
+                    280
+                )
             );
 
             setFiltersHeightCulced(spareHeight);
