@@ -14,13 +14,13 @@ const axiosInstance = axios.create({
     headers: {
         "Content-Type": "application/json",
     },
+    timeout: 1000
 });
 
 axiosInstance.interceptors.request.use(
     (config) => {
         interceptorsStore.getState().setLoading(true);
         interceptorsStore.getState().setError(false);
-
 
         return config;
     },
@@ -35,6 +35,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
     (response) => {
         interceptorsStore.getState().setLoading(false);
+
         return response;
     },
     (error) => {
@@ -54,13 +55,13 @@ export const getAllLessons = async (
     selectedTags: string[],
     selectedAgeGroup: string[],
     selectedSorting: string,
-    page: number
+    offset: number
 ): Promise<IData> => {
 
     const endpoint = '/exercises';
 
     const queryParams = new URLSearchParams({
-        page: String(page),
+        offset: String(offset),
         size: String(size),
     });
 
@@ -103,12 +104,11 @@ export const getAllLessons = async (
 
 
     try {
-        // const response = await axiosInstance.get(endpoint);
         const response = await axiosInstance.get(url);
         return { metaData: response.data.metaData, lessons: response.data.content, }
     } catch (error) {
         console.error("Error fetching all lessons:", error);
-        return { metaData: { totalCount: 0, page: 1, size: 12 }, lessons: [] }
+        return { metaData: { totalCount: 0, offset: 0, size: 12 }, lessons: [] }
     }
 };
 
