@@ -193,7 +193,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
                         <div
                             className={styles.btn_container}
-                            style={{ paddingBottom: isMobile ? "2rem" : "" }}
+                            style={{ paddingBottom: isMobile ? "60px" : "" }}
                         >
                             <div className={styles.btn_block}>
                                 <button
