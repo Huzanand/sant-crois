@@ -7,7 +7,7 @@ export interface IData {
 
 export interface IMetadata {
     totalCount: number;
-    page: number;
+    offset: number;
     size: number;
 }
 
@@ -82,7 +82,7 @@ export interface ICheckAnswers {
 
 export interface IState {
     totalCount: number;
-    page: number;
+    offset: number;
     size: number;
     lessons: ILesson[];
     lesson: ILesson | null;
@@ -120,7 +120,7 @@ export interface IActions {
         selectedSecondaryTopics: string[],
         selectedTags: string[],
         selectedAgeGroup: string[],
-        page: number,
+        offset: number,
         selectedSorting: string) => void;
     fetchLessonById: (id: string) => void;
     fetchRecomendations: (ids: string[]) => void;
@@ -140,7 +140,7 @@ export interface IActions {
     resetSize: () => void;
     onSelectChange: (selectedLearningLanguage: string, value: string) => void;
     setActiveTypeOfLesson: (newActiveType: "all" | "video" | "audio" | "reading" | "grammar") => void;
-    setPage: (newPage: number) => void;
+    setOffset: (newPage: number) => void;
     toggleVirtualKeyboard: () => void;
     setHomePageContentHeight: (contentHeight: number) => void;
 }

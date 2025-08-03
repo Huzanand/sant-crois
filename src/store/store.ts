@@ -10,7 +10,7 @@ import { getFromLocalStorage, setToLocalStorage } from "./localStorageUtils"
 
 export const initialState: IState = {
     totalCount: 0,
-    page: 1,
+    offset: 0,
     size: 12,
     lessons: [],
     lesson: null,
@@ -71,7 +71,7 @@ export const Store = (
                             selectedTags,
                             selectedAgeGroup,
                             selectedSorting,
-                            page) => {
+                            offset) => {
                             const data: IData = await getAllLessons(size,
                                 activeTypeOfLesson,
                                 selectedLanguageLevel,
@@ -80,12 +80,12 @@ export const Store = (
                                 selectedSecondaryTopics,
                                 selectedTags,
                                 selectedAgeGroup,
-                                page,
+                                offset,
                                 selectedSorting);
                             set(() => ({
                                 lessons: data.lessons,
                                 totalCount: data.metaData.totalCount,
-                                page: data.metaData.page
+                                offset: data.metaData.offset
                             }));
                         },
 
@@ -174,9 +174,12 @@ export const Store = (
                         },
 
                         onSelectChange: (selectName, value) => {
+
                             set(() => ({
                                 [selectName]: value,
                             }));
+
+
 
                             if (selectName === 'selectedInterfaceLanguage') {
                                 setToLocalStorage('selectedInterfaceLanguage', value)
@@ -203,9 +206,16 @@ export const Store = (
 
 
                         setSize: (inc) => {
-                            set((state) => ({
-                                size: state.size + inc
-                            }))
+                            if (inc === 0) {
+                                set(() => ({
+                                    size: 12
+                                }))
+                            } else {
+                                set((state) => ({
+                                    size: state.size + inc
+                                }))
+                            }
+
                         },
 
                         resetSize: () => {
@@ -214,11 +224,11 @@ export const Store = (
                             }))
                         },
 
-                        setPage: (newPage) => {
+                        setOffset: (newOffset) => {
                             const { resetSize } = get();
                             resetSize();
                             set(() => ({
-                                page: newPage,
+                                offset: newOffset,
                             }));
                         },
 

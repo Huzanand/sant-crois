@@ -15,33 +15,29 @@ interface IFiltersProps {
 }
 
 const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
-    const primaryTopics = useOwnStore((state) => state.primaryTopics);
-    const selectedPrimaryTopics = useOwnStore(
-        (state) => state.selectedPrimaryTopics
-    );
-    const setSelectedPrimaryTopics = useOwnStore(
-        (state) => state.setSelectedPrimaryTopics
-    );
+    const {
+        fetchLessons,
+        activeTypeOfLesson,
+        selectedLanguageLevel,
+        selectedLearningLanguage,
+        selectedPrimaryTopics,
+        selectedSecondaryTopics,
+        selectedTags,
+        selectedAgeGroup,
+        offset,
+        size,
+        selectedSorting,
+        setSelectedAgeGroup,
+        setSelectedPrimaryTopics,
+        primaryTopics,
+        secondaryTopics,
+        setSelectedSecondaryTopics,
+        tags,
+        setSelectedTags,
+        targetAgeGroups,
+    } = useOwnStore((state) => state);
 
-    const secondaryTopics = useOwnStore((state) => state.secondaryTopics);
-    const selectedSecondaryTopics = useOwnStore(
-        (state) => state.selectedSecondaryTopics
-    );
-    const setSelectedSecondaryTopics = useOwnStore(
-        (state) => state.setSelectedSecondaryTopics
-    );
-
-    const tags = useOwnStore((state) => state.tags);
-    const selectedTags = useOwnStore((state) => state.selectedTags);
-    const setSelectedTags = useOwnStore((state) => state.setSelectedTags);
-
-    const targetAgeGroups = useOwnStore((state) => state.targetAgeGroups);
-    const selectedAgeGroup = useOwnStore((state) => state.selectedAgeGroup);
-    const setSelectedAgeGroup = useOwnStore(
-        (state) => state.setSelectedAgeGroup
-    );
-
-    const MOBILE_WIDTH = 965;
+    const MOBILE_WIDTH = 1012;
     const width = useWindowWidth();
     const isMobile = width <= MOBILE_WIDTH;
     const containerRef = useRef<HTMLDivElement>(null);
@@ -141,7 +137,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 }
                 ref={containerRef}
                 style={{
-                    maxHeight: isOpen ? `${height}px` : "0px",
+                    maxHeight: isOpen ? `${height - 69}px` : "0px",
+                    minHeight: isMobile ? "100vh" : "auto",
                     transition: "max-height 0.3s ",
                     overflowY: "auto",
                 }}
@@ -193,6 +190,35 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                             selectedFromArr={selectedAgeGroup}
                             setFunc={setSelectedAgeGroup}
                         />
+
+                        <div className={styles.btn_container}>
+                            <div className={styles.btn_block}>
+                                <button
+                                    className={`buttons-l ${styles.btn} ${styles.btn_apply}`}
+                                    onClick={() =>
+                                        fetchLessons(
+                                            size,
+                                            activeTypeOfLesson,
+                                            selectedLanguageLevel,
+                                            selectedLearningLanguage,
+                                            selectedPrimaryTopics,
+                                            selectedSecondaryTopics,
+                                            selectedTags,
+                                            selectedAgeGroup,
+                                            offset,
+                                            selectedSorting
+                                        )
+                                    }
+                                >
+                                    {t("apply")}
+                                </button>
+                            </div>
+                            <div className={styles.btn_block}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("reset")}
+                                </button>
+                            </div>
+                        </div>
                     </>
                 )}
             </div>

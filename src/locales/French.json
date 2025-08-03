@@ -120,5 +120,7 @@
     "mulCheckInfo": "Cliquez sur votre réponse pour obtenir plus d'informations !",
     "btnBack": "À toutes les leçons",
     "checkUnswersGreetings": "Tu es incroyable!",
-    "noOptions": "Aucun résultat trouvé"
+    "noOptions": "Aucun résultat trouvé",
+    "apply": "Appliquer",
+    "reset": "Réinitialiser"
 }

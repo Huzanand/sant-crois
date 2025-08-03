@@ -119,5 +119,7 @@
     "mulCheckInfo": "Klicken Sie auf die Antwort, um mehr Informationen zu erhalten!",
     "btnBack": "Zu allen Lektionen",
     "checkUnswersGreetings": "Sie sind unglaublich!",
-    "noOptions": "Nichts gefunden"
+    "noOptions": "Nichts gefunden",
+    "apply": "Übernehmen",
+    "reset": "Zurücksetzen"
 }

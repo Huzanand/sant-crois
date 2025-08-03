@@ -53,9 +53,8 @@ const AppSideBar = () => {
                 Math.max(
                     contentHeight -
                         sidebarHeight +
-                        filtersRef.current?.offsetHeight -
-                        57 || 0,
-                    280
+                        filtersRef.current?.offsetHeight || 0,
+                    380
                 )
             );
 

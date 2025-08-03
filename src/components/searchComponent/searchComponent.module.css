@@ -93,7 +93,7 @@
     line-height: 24px;
 }
 
-@media screen and (max-width: 964px) {
+@media screen and (max-width: 1012px) {
     .container {
         background-color: var(--Purple-P25);
     }

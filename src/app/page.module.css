@@ -1,3 +1,6 @@
+.wrapper {
+    padding-bottom: 72px;
+}
 .container {
     display: flex;
     flex-direction: row;
@@ -9,7 +12,7 @@
     min-width: 360px;
 
     margin: 0 auto;
-    padding: 0 24px 72px;
+    padding: 0 24px;
     position: relative;
 }
 
@@ -57,6 +60,15 @@
     justify-content: center;
 }
 
+.pagination_container {
+    max-width: 1330px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 1330px) {
     .content_box {
         grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -84,6 +96,10 @@
 
     .content {
         padding: 0;
+    }
+
+    .pagination_container {
+        flex-direction: column-reverse;
     }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import styles from "./page.module.css";
@@ -62,10 +63,37 @@ const Home = () => {
 
     useEffect(() => {
         fetchFilters();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const [datasetKey, setDatasetKey] = useState<string>("");
+
     useEffect(() => {
+        const newKey = JSON.stringify({
+            activeTypeOfLesson,
+            selectedLanguageLevel,
+            selectedLearningLanguage,
+            selectedPrimaryTopics,
+            selectedSecondaryTopics,
+            selectedTags,
+            selectedAgeGroup,
+            selectedSorting,
+        });
+
+        if (newKey !== datasetKey) {
+            setDatasetKey(newKey);
+            setOffset(0);
+            setSize(0);
+        }
+    }, [
+        activeTypeOfLesson,
+        selectedLanguageLevel,
+        selectedLearningLanguage,
+        selectedSorting,
+    ]);
+
+    useEffect(() => {
+        if (!datasetKey) return;
+
         fetchLessons(
             size,
             activeTypeOfLesson,
@@ -78,19 +106,7 @@ const Home = () => {
             offset,
             selectedSorting
         );
-    }, [
-        offset,
-        activeTypeOfLesson,
-        selectedLanguageLevel,
-        selectedLearningLanguage,
-        selectedPrimaryTopics,
-        selectedSecondaryTopics,
-        selectedTags,
-        selectedAgeGroup,
-        size,
-        fetchLessons,
-        selectedSorting,
-    ]);
+    }, [datasetKey, offset, size]);
 
     const showContent = () => {
         if (error || lessons === undefined) return <div>ERROERRRRR!!!!!</div>;
@@ -144,13 +160,22 @@ const Home = () => {
                     <div className={styles.content_box}>{showContent()}</div>
                 </div>
             </div>
-            {/* <Pagination
+            <div className={styles.pagination_container}>
+                <div
+                    style={{
+                        width: "346px",
+                        flexShrink: "0",
+                    }}
+                />
+                <Pagination
                     totalCount={totalCount}
-                    size={12}
+                    initialSize={12}
+                    size={size}
                     offset={offset}
                     setOffset={setOffset}
                     setSize={setSize}
-                /> */}
+                />
+            </div>
         </div>
     );
 };
