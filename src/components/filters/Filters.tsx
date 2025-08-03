@@ -191,7 +191,10 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                             setFunc={setSelectedAgeGroup}
                         />
 
-                        <div className={styles.btn_container}>
+                        <div
+                            className={styles.btn_container}
+                            style={{ paddingBottom: isMobile ? "2rem" : "" }}
+                        >
                             <div className={styles.btn_block}>
                                 <button
                                     className={`buttons-l ${styles.btn} ${styles.btn_apply}`}
@@ -214,7 +217,12 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                                 </button>
                             </div>
                             <div className={styles.btn_block}>
-                                <button className={`buttons-l ${styles.btn}`}>
+                                <button
+                                    className={`buttons-l ${styles.btn}`}
+                                    style={{
+                                        border: "2px solid #6554c0",
+                                    }}
+                                >
                                     {t("reset")}
                                 </button>
                             </div>
