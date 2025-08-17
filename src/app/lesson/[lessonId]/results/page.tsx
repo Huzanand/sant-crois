@@ -85,6 +85,7 @@ const Results = () => {
                         resultArr.push(
                             <SingleCheck
                                 key={index}
+                                type="CHOOSE_ANSWER"
                                 taskData={lesson.tasks[index]}
                                 index={index + 1}
                                 userAnswers={userAnswers}
@@ -102,6 +103,7 @@ const Results = () => {
                         resultArr.push(
                             <SingleCheck
                                 key={index}
+                                type="TRUE_FALSE"
                                 taskData={lesson.tasks[index]}
                                 index={index + 1}
                                 userAnswers={userAnswers}
