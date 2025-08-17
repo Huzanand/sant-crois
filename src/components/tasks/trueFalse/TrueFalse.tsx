@@ -18,6 +18,10 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
 
     const { t } = useLanguageSync();
 
+    useEffect(() => {
+        console.log("Current userAnswers:", userAnswers);
+    }, [userAnswers]);
+
     const initUserAnswers = () => {
         const initObject = {
             taskId: taskData.taskId,
@@ -89,7 +93,11 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
         setUserAnswers(questionList);
     };
 
-    const options = [t("true"), t("false"), t("not specified")];
+    const options = [
+        { label: t("true"), value: "true" },
+        { label: t("false"), value: "false" },
+        { label: t("not specified"), value: "not specified" },
+    ];
 
     return (
         <div>
@@ -119,11 +127,11 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
                                 return (
                                     <div className={styles.option} key={index}>
                                         <label className="body-l">
-                                            {option}
+                                            {option.label}
 
                                             <input
                                                 type="radio"
-                                                value={option}
+                                                value={option.value}
                                                 onChange={(e) =>
                                                     changeOption(
                                                         e,
@@ -141,7 +149,8 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
                                                             (q) =>
                                                                 q.questionId ===
                                                                 question.questionId
-                                                        )?.userAnswer === option
+                                                        )?.userAnswer ===
+                                                    option.value
                                                 }
                                             />
                                             <span
