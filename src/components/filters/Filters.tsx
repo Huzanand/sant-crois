@@ -35,6 +35,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
         tags,
         setSelectedTags,
         targetAgeGroups,
+        clearFilters,
     } = useOwnStore((state) => state);
 
     const MOBILE_WIDTH = 1012;
@@ -89,6 +90,13 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
     const handleOverlayClick = () => {
         toggleDropdown();
+    };
+
+    const [resetKey, setResetKey] = useState(0);
+
+    const handleClearFilters = () => {
+        clearFilters();
+        setResetKey((prev) => prev + 1); // This will force remount of child components
     };
 
     return (
@@ -158,6 +166,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 {isOpen && (
                     <>
                         <SearchComponent
+                            key={`primary-${resetKey}`}
                             label={t("main theme")}
                             arr={primaryTopics}
                             selectedFromArr={selectedPrimaryTopics}
@@ -167,6 +176,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <SearchComponent
+                            key={`secondary-${resetKey}`}
                             label={t("secondary theme")}
                             arr={secondaryTopics}
                             selectedFromArr={selectedSecondaryTopics}
@@ -176,6 +186,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <SearchComponent
+                            key={`tags-${resetKey}`}
                             label={t("tags")}
                             arr={tags}
                             selectedFromArr={selectedTags}
@@ -185,6 +196,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <AgeFilter
+                            key={`age-${resetKey}`}
                             label={t("age group")}
                             arr={targetAgeGroups}
                             selectedFromArr={selectedAgeGroup}
@@ -219,6 +231,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                             <div className={styles.btn_block}>
                                 <button
                                     className={`buttons-l ${styles.btn}`}
+                                    onClick={handleClearFilters}
                                     style={{
                                         border: "2px solid #6554c0",
                                     }}
