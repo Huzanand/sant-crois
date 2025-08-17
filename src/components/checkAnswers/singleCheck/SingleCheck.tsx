@@ -4,6 +4,7 @@ import { IAnswer, ICheckAnswers, ITaskData } from "@/models";
 import { useLanguageSync } from "@/utils/useLanguage";
 
 type propsTypes = {
+    type: "CHOOSE_ANSWER" | "TRUE_FALSE";
     taskData: ITaskData;
     index: number;
     userAnswers: IAnswer[];
@@ -11,6 +12,7 @@ type propsTypes = {
 };
 
 const SingleCheck: React.FC<propsTypes> = ({
+    type,
     index,
     taskData,
     userAnswers,
@@ -22,6 +24,12 @@ const SingleCheck: React.FC<propsTypes> = ({
         (answer) => answer.taskId === taskData.taskId
     )[0];
     const { t } = useLanguageSync();
+
+    const trueFalseDescr = new Map([
+        ["true", t("true")],
+        ["false", t("false")],
+        ["not specified", t("not specified")],
+    ]);
 
     return (
         <div className={styles.container}>
@@ -95,7 +103,12 @@ const SingleCheck: React.FC<propsTypes> = ({
                                                     : { color: "#F60000" }
                                             }
                                         >
-                                            {`"${questionAnswer.userAnswer}"`}
+                                            {/* {`"${questionAnswer.userAnswer}"`} */}
+                                            {type === "TRUE_FALSE"
+                                                ? trueFalseDescr.get(
+                                                      questionAnswer.userAnswer.toLowerCase()
+                                                  )
+                                                : `"${questionAnswer.userAnswer}"`}
                                         </p>
                                     </div>
                                 ) : (
