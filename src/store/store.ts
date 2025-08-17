@@ -243,7 +243,18 @@ export const Store = (
                             set(() => ({
                                 homePageContentHeight: contentHeight
                             }))
+                        },
+
+                        clearFilters: () => {
+                            set(() => ({
+                                selectedPrimaryTopics: [],
+                                selectedSecondaryTopics: [],
+                                selectedTags: [],
+                                selectedAgeGroup: [],
+                            }))
                         }
+
+
                     };
                 }, {
                 name: 'lesson-storage',

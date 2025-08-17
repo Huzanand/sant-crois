@@ -143,6 +143,7 @@ export interface IActions {
     setOffset: (newPage: number) => void;
     toggleVirtualKeyboard: () => void;
     setHomePageContentHeight: (contentHeight: number) => void;
+    clearFilters: () => void;
 }
 
 export interface IStore extends IState, IActions { }
