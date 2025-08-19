@@ -33,6 +33,7 @@
 }
 
 .content__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,16 +115,23 @@
     .open {
         height: 100vh;
         margin-top: 0;
-        padding: 1rem;
+        padding: 0 1rem 1rem;
         transform: translateX(0);
     }
 
     .modal_header {
+        position: sticky;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: var(--Purple-P25);
+
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
         margin-bottom: 2rem;
+        padding-top: 1rem;
         border-bottom: 1px solid var(--Purple-P25);
         width: 100%;
     }
@@ -181,6 +189,8 @@
 }
 
 .modal_title {
+    font-size: 20px;
+    font-weight: 500;
     height: 40px;
     line-height: 40px;
     margin: 0;

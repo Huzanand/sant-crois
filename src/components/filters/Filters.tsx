@@ -210,7 +210,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                             <div className={styles.btn_block}>
                                 <button
                                     className={`buttons-l ${styles.btn} ${styles.btn_apply}`}
-                                    onClick={() =>
+                                    onClick={() => {
                                         fetchLessons(
                                             size,
                                             activeTypeOfLesson,
@@ -222,8 +222,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                                             selectedAgeGroup,
                                             offset,
                                             selectedSorting
-                                        )
-                                    }
+                                        );
+                                        toggleDropdown();
+                                    }}
                                 >
                                     {t("apply")}
                                 </button>
@@ -231,7 +232,10 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                             <div className={styles.btn_block}>
                                 <button
                                     className={`buttons-l ${styles.btn}`}
-                                    onClick={handleClearFilters}
+                                    onClick={() => {
+                                        handleClearFilters();
+                                        toggleDropdown();
+                                    }}
                                     style={{
                                         border: "2px solid #6554c0",
                                     }}
