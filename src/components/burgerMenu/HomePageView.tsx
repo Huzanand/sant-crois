@@ -33,11 +33,13 @@ const HomePageView: React.FC<vievProps> = ({
                     <p className={styles.headlines_subtitle}>Let`s study!</p>
                 </div>
 
-                <TypeOfLesson />
+                <section style={{ padding: "0 1rem" }}>
+                    <TypeOfLesson />
 
-                <Divider />
+                    <Divider />
 
-                <Settings />
+                    <Settings />
+                </section>
             </div>
         </div>
     );

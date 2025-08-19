@@ -31,7 +31,7 @@
     gap: 32px;
 
     margin: 0;
-    padding: 0 1rem 1rem;
+    padding-bottom: 1rem;
     padding-bottom: 4rem;
     border-radius: 0;
     background: var(--Purple-P25);
@@ -61,7 +61,7 @@
     right: 0;
     z-index: 1;
     background-color: var(--Purple-P25);
-    padding-top: 1rem;
+    padding: 1rem 1rem 0;
 }
 
 .headlines_title {
