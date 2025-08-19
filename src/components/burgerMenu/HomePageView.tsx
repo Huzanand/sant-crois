@@ -16,7 +16,6 @@ const HomePageView: React.FC<vievProps> = ({
 }) => {
     return (
         <div className={styles.content}>
-            {/* Overlay for mobile */}
             <div
                 ref={overlayRef}
                 className={styles.overlay}
@@ -29,7 +28,7 @@ const HomePageView: React.FC<vievProps> = ({
                         : styles.content__container
                 }
             >
-                <div>
+                <div className={styles.header}>
                     <h6 className={styles.headlines_title}>French Book</h6>
                     <p className={styles.headlines_subtitle}>Let`s study!</p>
                 </div>

@@ -41,17 +41,14 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
         [isActive, isOpen]
     );
 
-    // Memoized handler for toggling dropdown
     const handleToggle = useCallback(() => {
         toggleDropdown(...dropdownToggleParams);
     }, [toggleDropdown, dropdownToggleParams]);
 
-    // Memoized handler for overlay click
     const handleOverlayClick = useCallback(() => {
         handleToggle();
     }, [handleToggle]);
 
-    // Effect for handling body scroll and click outside
     useEffect(() => {
         const handleBodyScroll = () => {
             document.body.style.overflow = isOpen ? "hidden" : "";
@@ -84,7 +81,6 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
         };
     }, [isOpen, handleToggle]);
 
-    // Memoized option click handler
     const createOptionClickHandler = useCallback(
         (option: string) => {
             return () => handleOptionClick(option, dropdownToggleParams);
@@ -92,7 +88,6 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
         [handleOptionClick, dropdownToggleParams]
     );
 
-    // Memoized options list rendering
     const renderOptions = useMemo(() => {
         return options.map((option, index) => {
             const isSelected = selectedOption === option.value;
@@ -120,7 +115,6 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
         });
     }, [options, selectedOption, createOptionClickHandler]);
 
-    // Dynamic class name building without clsx
     const getSelectContainerClass = () => {
         let className = styles.select_container;
         if (isActive) className += ` ${styles.active}`;
@@ -177,7 +171,12 @@ const DropdownViewModal: React.FC<DropdownProps> = ({
                     </h3>
                 </div>
 
-                <div className={styles.options_list}>{renderOptions}</div>
+                <div
+                    className={styles.options_list}
+                    // style={{ marginTop: "2rem" }}
+                >
+                    {renderOptions}
+                </div>
             </div>
         </div>
     );
