@@ -73,9 +73,9 @@ export const RenderHeaderOfLesson: React.FC<renderHeaderOfLessonProps> = ({
                             style={{
                                 color: "var(--Blue-B500)",
                                 textAlign: "center",
-                                padding: "0 4px",
                                 borderRadius: "4px",
                                 backgroundColor: "var(--Purple-P75)",
+                                padding: "4px 8px",
                             }}
                         >
                             {tag}
