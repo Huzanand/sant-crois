@@ -96,7 +96,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
     const handleClearFilters = () => {
         clearFilters();
-        setResetKey((prev) => prev + 1); // This will force remount of child components
+        setResetKey((prev) => prev + 1);
     };
 
     return (
