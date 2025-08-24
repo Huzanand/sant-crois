@@ -28,18 +28,16 @@
         "C2": "C2 (Proficiency)"
     },
     "selectedLearningLanguage": {
-        "English": "English",
-        "Ukrainian": "Ukrainian",
-        "French": "French",
-        "Russian": "Russian",
-        "German": "German"
+        "english": "English",
+        "ukrainian": "Ukrainian",
+        "french": "French",
+        "german": "German"
     },
     "learningLanguageOptions": {
-        "English": "English",
-        "Ukrainian": "Ukrainian",
-        "French": "French",
-        "Russian": "Russian",
-        "German": "German"
+        "english": "English",
+        "ukrainian": "Ukrainian",
+        "french": "French",
+        "german": "German"
     },
     "selectedInterfaceLanguage": {
         "English": "English",
@@ -126,5 +124,6 @@
     "checkAnswersGreetings": "You are amazing!",
     "noOptions": "Nothing found",
     "apply": "Apply",
-    "reset": "Reset"
+    "reset": "Reset",
+    "inDev": "We’re still working on this feature 🚀 It will be available soon!"
 }

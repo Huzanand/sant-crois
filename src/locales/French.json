@@ -28,18 +28,16 @@
         "C2": "C2 (Maîtrise)"
     },
     "selectedLearningLanguage": {
-        "English": "Anglais",
-        "Ukrainian": "Ukrainien",
-        "French": "Français",
-        "Russian": "Russe",
-        "German": "Allemand"
+        "english": "Anglais",
+        "ukrainian": "Ukrainien",
+        "french": "Français",
+        "german": "Allemand"
     },
     "learningLanguageOptions": {
-        "English": "Anglais",
-        "Ukrainian": "Ukrainien",
-        "French": "Français",
-        "Russian": "Russe",
-        "German": "Allemand"
+        "english": "Anglais",
+        "ukrainian": "Ukrainien",
+        "french": "Français",
+        "german": "Allemand"
     },
     "selectedInterfaceLanguage": {
         "English": "Anglais",
@@ -126,5 +124,6 @@
     "checkAnswersGreetings": "Vous êtes incroyables !",
     "noOptions": "Rien trouvé",
     "apply": "Appliquer",
-    "reset": "Réinitialiser"
+    "reset": "Réinitialiser",
+    "inDev": "Nous travaillons encore sur cette fonctionnalité 🚀 Elle sera disponible bientôt !"
 }

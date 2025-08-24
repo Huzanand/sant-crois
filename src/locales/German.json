@@ -28,25 +28,22 @@
         "C2": "C2 (Beherrschung)"
     },
     "selectedLearningLanguage": {
-        "English": "Englisch",
-        "Ukrainian": "Ukrainisch",
-        "French": "Französisch",
-        "Russian": "Russisch",
-        "German": "Deutsch"
+        "english": "Englisch",
+        "ukrainian": "Ukrainisch",
+        "french": "Französisch",
+        "german": "Deutsch"
     },
     "learningLanguageOptions": {
-        "English": "Englisch",
-        "Ukrainian": "Ukrainisch",
-        "French": "Französisch",
-        "Russian": "Russisch",
-        "German": "Deutsch"
+        "english": "Englisch",
+        "ukrainian": "Ukrainisch",
+        "french": "Französisch",
+        "german": "Deutsch"
     },
     "selectedInterfaceLanguage": {
-        "English": "Englisch",
-        "Ukrainian": "Ukrainisch",
-        "French": "Französisch",
-        "Russian": "Russisch",
-        "German": "Deutsch"
+        "english": "Englisch",
+        "ukrainian": "Ukrainisch",
+        "french": "Französisch",
+        "german": "Deutsch"
     },
     "interfaceLanguageOptions": {
         "English": "Englisch",
@@ -126,5 +123,6 @@
     "checkAnswersGreetings": "Ihr seid großartig!",
     "noOptions": "Nichts gefunden",
     "apply": "Anwenden",
-    "reset": "Zurücksetzen"
+    "reset": "Zurücksetzen",
+    "inDev": "Wir arbeiten noch an dieser Funktion 🚀 Sie wird in Kürze verfügbar sein!"
 }
