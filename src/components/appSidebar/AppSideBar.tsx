@@ -54,7 +54,7 @@ const AppSideBar = () => {
                     contentHeight -
                         sidebarHeight +
                         filtersRef.current?.offsetHeight || 0,
-                    380
+                    500
                 )
             );
 
