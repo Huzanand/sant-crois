@@ -1,0 +1,35 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 30, 73, 0.2);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: 100;
+    transition: opacity 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1247px;
+    margin: 0 1rem;
+    padding: 3rem 3rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px 0px rgba(232, 224, 229, 0.61);
+}
+
+.content {
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 2rem 0.5rem;
+    }
+}

@@ -22,7 +22,8 @@ export const initialState: IState = {
     selectedInterfaceLanguage: "Ukrainian",
     interfaceLanguageOptions: ["Ukrainian", "English", "French", "German"],
     selectedLearningLanguage: 'Ukrainian',
-    learningLanguageOptions: ["Ukrainian", "English", "French", "German"],
+    learningLanguageOptions: [],
+    // learningLanguageOptions: ["Ukrainian", "English", "French", "German"],
     primaryTopics: [],
     selectedPrimaryTopics: [],
     secondaryTopics: [],
@@ -35,7 +36,8 @@ export const initialState: IState = {
     sortingOptions: ['rating', '-rating', 'views', '-views', 'acceptance', '-acceptance', 'languageLevel', '-languageLevel', 'creationDateTime', '-creationDateTime'],
     selectedSorting: 'rating',
     relatedContents: [],
-    homePageContentHeight: 0
+    homePageContentHeight: 0,
+    openInDev: false
 }
 
 export const Store = (
@@ -97,6 +99,7 @@ export const Store = (
                                     secondaryTopics: data.secondaryTopics,
                                     tags: data.tags,
                                     targetAgeGroups: data.targetAgeGroups,
+                                    learningLanguageOptions: data.learningLanguages.map((lang) => lang.toLowerCase()),
                                 }));
                             }
                         },
@@ -251,6 +254,12 @@ export const Store = (
                                 selectedSecondaryTopics: [],
                                 selectedTags: [],
                                 selectedAgeGroup: [],
+                            }))
+                        },
+
+                        setOpenInDev: (newState) => {
+                            set(() => ({
+                                openInDev: newState
                             }))
                         }
 

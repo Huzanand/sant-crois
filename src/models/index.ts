@@ -108,6 +108,7 @@ export interface IState {
     selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime' | '-views' | '-acceptance' | '-rating' | '-languageLevel' | '-сreationDateTime',
     relatedContents: (ICard | null)[],
     homePageContentHeight: number,
+    openInDev: boolean,
 }
 
 export interface IActions {
@@ -144,6 +145,7 @@ export interface IActions {
     toggleVirtualKeyboard: () => void;
     setHomePageContentHeight: (contentHeight: number) => void;
     clearFilters: () => void;
+    setOpenInDev: (newState: boolean) => void
 }
 
 export interface IStore extends IState, IActions { }
