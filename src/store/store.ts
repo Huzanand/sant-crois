@@ -32,7 +32,7 @@ export const initialState: IState = {
     targetAgeGroups: [],
     selectedAgeGroup: [],
     virtualKeyboard: false,
-    sortingOptions: ['rating', 'views', 'acceptance', 'languageLevel', 'creationDateTime'],
+    sortingOptions: ['rating', '-rating', 'views', '-views', 'acceptance', '-acceptance', 'languageLevel', '-languageLevel', 'creationDateTime', '-creationDateTime'],
     selectedSorting: 'rating',
     relatedContents: [],
     homePageContentHeight: 0
