@@ -164,7 +164,7 @@ const FillTextTask: React.FC<propsTypes> = ({ taskData, index }) => {
     return (
         <div style={{ marginBottom: "1.5rem" }}>
             <h2 className="headlines-m" style={{ marginBottom: "1.5rem" }}>
-                {`${t("exersice")} ${index}`}
+                {`${t("exercise")} ${index}`}
             </h2>
             <div
                 className={`body-m ${styles.container}`}

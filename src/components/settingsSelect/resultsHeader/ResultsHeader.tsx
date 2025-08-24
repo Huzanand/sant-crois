@@ -9,7 +9,7 @@ const ResultsHeader = () => {
             <Logo />
 
             <div className={styles.content}>
-                <h2>{t("checkUnswersGreetings")} </h2>
+                <h2>{t("checkAnswersGreetings")} </h2>
             </div>
         </div>
     );

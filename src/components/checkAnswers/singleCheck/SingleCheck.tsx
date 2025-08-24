@@ -34,7 +34,7 @@ const SingleCheck: React.FC<propsTypes> = ({
     return (
         <div className={styles.container}>
             <h2 className="headlines-m" style={{ marginBottom: "1.5rem" }}>
-                {`${t("exersice")} ${index}`}
+                {`${t("exercise")} ${index}`}
             </h2>
 
             <div className={styles.content__container}>

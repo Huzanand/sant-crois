@@ -67,7 +67,7 @@ const Settings = () => {
             <div>
                 <SettingsSelect
                     mode="default"
-                    label={t("interface languge")}
+                    label={t("interface language")}
                     selectedOption={selectedInterfaceLanguage}
                     selectedOptionLabel={t(
                         `selectedInterfaceLanguage.${selectedInterfaceLanguage}`

@@ -99,7 +99,7 @@ const MultipleCheck: React.FC<propsTypes> = ({
             window.innerWidth - document.documentElement.clientWidth;
         document.body.style.paddingRight = `${scrollbarWidth}px`;
         document.body.style.overflow = "hidden";
-        setIsModalOpen(true); // Open modal on mobile
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
@@ -437,7 +437,7 @@ const MultipleCheck: React.FC<propsTypes> = ({
     return (
         <div>
             <h2 className="headlines-m" style={{ marginBottom: "1.5rem" }}>
-                {`${t("exersice")} ${taskIndex}`}
+                {`${t("exercise")} ${taskIndex}`}
             </h2>
 
             {isMobile && (
@@ -464,7 +464,7 @@ const MultipleCheck: React.FC<propsTypes> = ({
                             closeModal();
                             setSelectedSentence([]);
                         }}
-                        title={`${t("exersice")} ${taskIndex}`}
+                        title={`${t("exercise")} ${taskIndex}`}
                         content={renderDescription(selectedSentence)}
                     >
                         <span style={{ display: "none" }} />

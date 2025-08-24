@@ -166,7 +166,7 @@ const WriteTask: React.FC<propsTypes> = ({ taskData, index }) => {
     return (
         <div>
             <h2 className="headlines-m" style={{ margin: "1.5rem 0" }}>
-                {`${t("exersice")} ${index}`}
+                {`${t("exercise")} ${index}`}
             </h2>
             {content && addWriteField(content)}
         </div>

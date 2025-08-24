@@ -33,7 +33,7 @@ const MediaTask: React.FC<propsTypes> = ({ taskData, index }) => {
                 className="headlines-m"
                 style={{ margin: "1.5rem 0", color: "var(--Blue-B500)" }}
             >
-                {`${t("exersice")} ${index}`}
+                {`${t("exercise")} ${index}`}
             </h2>
 
             <p style={{ margin: "0 0 1.25rem", color: "var(--Blue-B500)" }}>
