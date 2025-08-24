@@ -104,9 +104,7 @@ const SearchComponent: React.FC<searchComponentProps> = ({
                     >
                         <div
                             className={styles.checkboxContainer}
-                            onClick={() =>
-                                setNumberOfOptions(numberOfOptions + 5)
-                            }
+                            onClick={() => setNumberOfOptions(options.length)}
                         >
                             <span
                                 className="buttons-m"
