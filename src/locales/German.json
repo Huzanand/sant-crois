@@ -124,5 +124,6 @@
     "noOptions": "Nichts gefunden",
     "apply": "Anwenden",
     "reset": "Zurücksetzen",
-    "inDev": "Wir arbeiten noch an dieser Funktion 🚀 Sie wird in Kürze verfügbar sein!"
+    "inDev": "Wir arbeiten noch an dieser Funktion 🚀 Sie wird in Kürze verfügbar sein!",
+    "loaderText": "Bitte warten Sie, Ihre Antworten werden verarbeitet"
 }

@@ -125,5 +125,6 @@
     "noOptions": "Rien trouvé",
     "apply": "Appliquer",
     "reset": "Réinitialiser",
-    "inDev": "Nous travaillons encore sur cette fonctionnalité 🚀 Elle sera disponible bientôt !"
+    "inDev": "Nous travaillons encore sur cette fonctionnalité 🚀 Elle sera disponible bientôt !",
+    "loaderText": "Veuillez patienter, vos réponses sont en cours de traitement"
 }

@@ -1,15 +1,15 @@
 import Lottie from "lottie-react";
 import styles from "./loader.module.css";
 import animationData from "../../assets/animations/loader.json";
+import { useLanguageSync } from "@/utils/useLanguage";
 
 const Loader = () => {
+    const { t } = useLanguageSync();
     return (
         <div className={`${styles.wrapper} pos-center`}>
             <div className={styles.container}>
                 <h2 className="headlines-m">Урок закончен</h2>
-                <h3 className="headlines-s">
-                    Подождите пожалуйста, идет обработка ваших ответов
-                </h3>
+                <h3 className="headlines-s">{t("loaderText")}</h3>
                 <div className={styles.loader__gif}>
                     <Lottie
                         animationData={animationData}
