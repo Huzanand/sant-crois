@@ -36,35 +36,6 @@ const BurgerMenu: React.FC<BurgerProps> = ({ mode }) => {
         setIsOpen(false);
     };
 
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         const scrollY = window.scrollY;
-
-    //         document.body.style.position = "fixed";
-    //         document.body.style.top = `-${scrollY}px`;
-    //         document.body.style.width = "100%";
-    //         document.body.style.overflow = "hidden";
-
-    //         if (overlayRef.current) {
-    //             overlayRef.current.style.opacity = "1";
-    //             overlayRef.current.style.pointerEvents = "auto";
-    //         }
-
-    //         return () => {
-    //             document.body.style.position = "";
-    //             document.body.style.top = "";
-    //             document.body.style.width = "";
-    //             document.body.style.overflow = "";
-
-    //             if (overlayRef.current) {
-    //                 overlayRef.current.style.opacity = "0";
-    //                 // eslint-disable-next-line react-hooks/exhaustive-deps
-    //                 overlayRef.current.style.pointerEvents = "none";
-    //             }
-    //         };
-    //     }
-    // }, [isOpen]);
-
     useEffect(() => {
         if (isOpen) {
             const scrollY = window.scrollY;
