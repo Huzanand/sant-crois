@@ -22,6 +22,7 @@ const DefaultViev = () => {
         interfaceLanguageOptions,
         clearRecomendations,
         clearUserAnswers,
+        setOpenInDev,
     } = useOwnStore((state) => state);
 
     const router = useRouter();
@@ -149,7 +150,10 @@ const DefaultViev = () => {
                     </div>
 
                     <div className={styles.column}>
-                        <button className={`buttons-l ${styles.btn}`}>
+                        <button
+                            className={`buttons-l ${styles.btn}`}
+                            onClick={() => setOpenInDev(true)}
+                        >
                             <SendTaskIco />
                             {t("assignStudent")}
                         </button>

@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { RenderTasks } from "@/utils/RenderTasks";
 import { RenderHeaderOfLesson } from "@/utils/renderHeaderOfLesson/RenderHeaderOfLesson";
+import InDev from "@/components/inDev/InDev";
 
 const Lesson = () => {
     const {
@@ -38,38 +39,41 @@ const Lesson = () => {
     }, [fetchRecomendations, lesson?.relatedContents, clearRecomendations]);
 
     return (
-        <div className={styles.wrapper}>
-            <LessonInfo />
+        <>
+            <InDev />
+            <div className={styles.wrapper}>
+                <LessonInfo />
 
-            <div className={styles.container}>
-                <div className={styles.content}>
-                    {lesson && <RenderHeaderOfLesson lesson={lesson} />}
+                <div className={styles.container}>
+                    <div className={styles.content}>
+                        {lesson && <RenderHeaderOfLesson lesson={lesson} />}
 
-                    <div className={styles.divider} />
+                        <div className={styles.divider} />
 
-                    {lesson && lesson.tasks && (
-                        <RenderTasks tasks={lesson.tasks} />
-                    )}
+                        {lesson && lesson.tasks && (
+                            <RenderTasks tasks={lesson.tasks} />
+                        )}
 
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            marginTop: "3rem",
-                        }}
-                    >
-                        <button
-                            className={styles.btnSend}
-                            onClick={() => {
-                                router.push(`/lesson/${lessonId}/results`);
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                marginTop: "3rem",
                             }}
                         >
-                            {t("finishLesson")}
-                        </button>
+                            <button
+                                className={styles.btnSend}
+                                onClick={() => {
+                                    router.push(`/lesson/${lessonId}/results`);
+                                }}
+                            >
+                                {t("finishLesson")}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
