@@ -26,7 +26,6 @@ const LessonPageView: React.FC<vievProps> = ({
 
     return (
         <div className={styles.content}>
-            {/* Overlay for mobile */}
             <div
                 ref={overlayRef}
                 className={styles.overlay}
@@ -39,30 +38,31 @@ const LessonPageView: React.FC<vievProps> = ({
                         : styles.content__container
                 }
             >
-                <div>
+                <div className={styles.header}>
                     <h6 className={styles.headlines_title}>French Book</h6>
                     <p className={styles.headlines_subtitle}>Let`s study!</p>
                 </div>
 
-                <div className={styles.settingsMenu}>
-                    <div>
-                        <SettingsSelect
-                            mode="default"
-                            selectedOption={selectedInterfaceLanguage}
-                            selectedOptionLabel={t(
-                                `selectedInterfaceLanguage.${selectedInterfaceLanguage}`
-                            )}
-                            options={useTranslatedOptions(
-                                interfaceLanguageOptions,
-                                "interfaceLanguageOptions"
-                            )}
-                            onChangeSelect={onSelectChange}
-                            changeField="selectedInterfaceLanguage"
-                            ico={<InterfaceLanguageIco />}
-                            activeIcon={<InterfaceLanguageIco fill="#fff" />}
-                            shadow
-                        />
-                    </div>
+                <div
+                    className={styles.settingsMenu}
+                    style={{ padding: "0 1rem" }}
+                >
+                    <SettingsSelect
+                        mode="default"
+                        selectedOption={selectedInterfaceLanguage}
+                        selectedOptionLabel={t(
+                            `selectedInterfaceLanguage.${selectedInterfaceLanguage}`
+                        )}
+                        options={useTranslatedOptions(
+                            interfaceLanguageOptions,
+                            "interfaceLanguageOptions"
+                        )}
+                        onChangeSelect={onSelectChange}
+                        changeField="selectedInterfaceLanguage"
+                        ico={<InterfaceLanguageIco />}
+                        activeIcon={<InterfaceLanguageIco fill="#fff" />}
+                        shadow
+                    />
                 </div>
             </div>
         </div>
