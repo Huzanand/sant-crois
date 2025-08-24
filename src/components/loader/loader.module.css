@@ -20,7 +20,8 @@
     gap: 1rem;
 
     padding: 32px 48px;
-    background: url("../../assets/popup.png") no-repeat center;
+    background: url("data:image/svg+xml, ");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='614' height='431' viewBox='0 0 614 431' fill='none'%3E%3Cg clip-path='url(%23clip0_10543_13490)'%3E%3Crect width='614' height='431' fill='white'/%3E%3Cellipse opacity='0.2' cx='567.5' cy='395' rx='63' ry='61.5' transform='rotate(-90 567.5 395)' fill='url(%23paint0_linear_10543_13490)'/%3E%3Cellipse opacity='0.2' cx='162' cy='162' rx='162' ry='162' transform='matrix(-1 0 -0.000783677 1 256.254 -73)' fill='url(%23paint1_linear_10543_13490)'/%3E%3Cpath style='mix-blend-mode:screen' d='M15.1794 422.641C6.54111 422.641 -0.461592 415.639 -0.461591 407C-0.46159 398.362 6.54111 391.359 15.1794 391.359C23.8176 391.359 30.8203 398.362 30.8203 407C30.8203 415.639 23.8176 422.641 15.1794 422.641Z' fill='url(%23paint2_linear_10543_13490)'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_10543_13490' x1='630.5' y1='395' x2='504.5' y2='395' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%236554C0'/%3E%3Cstop offset='1' stop-color='%23F3F1FF'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_10543_13490' x1='324' y1='162' x2='0' y2='162' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%236554C0'/%3E%3Cstop offset='1' stop-color='%23F3F1FF'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint2_linear_10543_13490' x1='2.22072' y1='398.061' x2='30.4406' y2='417.534' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23C795F8' stop-opacity='0.37'/%3E%3Cstop offset='0.96' stop-color='%23571E90' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_10543_13490'%3E%3Crect width='614' height='431' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
     max-width: 640px;
     max-height: 430px;
     border-radius: 10px;
