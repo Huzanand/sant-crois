@@ -55,7 +55,7 @@
     },
     "selectedSorting": {
         "views": "By views ᐱ",
-        "-views": "By views ᐯ",
+        "-views": "By views ᨆ",
         "acceptance": "Difficulty ᐱ",
         "-acceptance": "Difficulty ᐯ",
         "rating": "Rating ᐱ",
@@ -67,7 +67,7 @@
     },
     "sortingOptions": {
         "views": "By views ᐱ",
-        "-views": "By views ᐯ",
+        "-views": "By views ᨆ",
         "acceptance": "Difficulty ᐱ",
         "-acceptance": "Difficulty ᐯ",
         "rating": "Rating ᐱ",
@@ -126,5 +126,8 @@
     "apply": "Apply",
     "reset": "Reset",
     "inDev": "We’re still working on this feature 🚀 It will be available soon!",
-    "loaderText": "Please wait, your answers are being processed"
+    "loaderText": "Please wait, your answers are being processed",
+    "aboutUsContent1": "Saint Crois was born from a simple desire — to learn and share knowledge. We started with the idea of creating a place where teachers and students can quickly find the lessons they need. ",
+    "aboutUsContent2": "Today, it is growing into a platform that makes learning convenient, visual, and truly practical. Behind the project is a team of enthusiasts from different countries, united by a love for languages, design, and new ideas. We develop Saint Crois in our free time, learning new things while creating a space that helps others learn.",
+    "aboutUsContent3": "For us, Saint Crois is about care, simplicity, and the joy of learning. We are open to ideas, we love animals, and we believe that education should be accessible and understandable to everyone."
 }

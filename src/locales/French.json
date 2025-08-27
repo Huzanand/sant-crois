@@ -126,5 +126,8 @@
     "apply": "Appliquer",
     "reset": "Réinitialiser",
     "inDev": "Nous travaillons encore sur cette fonctionnalité 🚀 Elle sera disponible bientôt !",
-    "loaderText": "Veuillez patienter, vos réponses sont en cours de traitement"
+    "loaderText": "Veuillez patienter, vos réponses sont en cours de traitement",
+    "aboutUsContent1": "Saint Crois est né d’un simple désir : apprendre et partager le savoir. Nous avons commencé avec l’idée de créer un lieu où enseignants et apprenants peuvent rapidement trouver les leçons dont ils ont besoin.",
+    "aboutUsContent2": "Aujourd’hui, cela devient une plateforme qui rend l’apprentissage pratique, visuel et vraiment accessible. Derrière le projet se trouve une équipe de passionnés de différents pays, unis par l’amour des langues, du design et des nouvelles idées. Nous développons Saint Crois pendant notre temps libre, en apprenant de nouvelles choses tout en créant un espace qui aide les autres à apprendre.",
+    "aboutUsContent3": " Pour nous, Saint Crois, c’est le soin, la simplicité et la joie d’apprendre. Nous sommes ouverts aux idées, nous aimons les animaux et nous croyons que l’éducation doit être accessible et compréhensible pour tous."
 }

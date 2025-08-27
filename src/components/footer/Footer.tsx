@@ -2,10 +2,13 @@ import styles from "./footer.module.css";
 import { useRouter } from "next/navigation";
 import Logo from "../logo/Logo";
 import { useLanguageSync } from "@/utils/useLanguage";
+import Link from "next/link";
+import { useOwnStore } from "@/store/storeProvider";
 
 const Footer = () => {
     const router = useRouter();
     const { t } = useLanguageSync();
+    const { selectedInterfaceLanguage } = useOwnStore((state) => state);
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -23,13 +26,12 @@ const Footer = () => {
                                 {t("tgbot")}
                             </button>
                         </div>
-                        <div
-                            className={styles.leftLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-l ${styles.btn}`}>
-                                {t("aboutUs")}
-                            </button>
+                        <div className={styles.leftLinks__item}>
+                            <Link href={`/${selectedInterfaceLanguage}/about`}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("aboutUs")}
+                                </button>
+                            </Link>
                         </div>
                         <div
                             className={styles.leftLinks__item}
