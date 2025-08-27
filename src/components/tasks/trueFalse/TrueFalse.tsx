@@ -11,10 +11,9 @@ type propsTypes = {
     index: number;
 };
 
-const learningLanguage = "Ukrainian";
-
 const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
-    const { setUserAnswers, userAnswers } = useOwnStore((state) => state);
+    const { setUserAnswers, userAnswers, selectedInterfaceLanguage } =
+        useOwnStore((state) => state);
 
     const { t } = useLanguageSync();
 
@@ -106,7 +105,7 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
             </h2>
 
             <p className="headlines-m" style={{ margin: "0 0 1.25rem" }}>
-                {taskData?.taskDescriptions[learningLanguage]}
+                {taskData?.taskDescriptions[selectedInterfaceLanguage]}
             </p>
 
             <div className={styles.qustion_container}>

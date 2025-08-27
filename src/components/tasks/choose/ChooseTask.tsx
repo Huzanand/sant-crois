@@ -6,15 +6,14 @@ import { useOwnStore } from "@/store/storeProvider";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { useEffect } from "react";
 
-const learningLanguage = "Ukrainian";
-
 type propsTypes = {
     taskData: ITaskData;
     index: number;
 };
 
 const ChooseTask: React.FC<propsTypes> = ({ taskData, index }) => {
-    const { setUserAnswers, userAnswers } = useOwnStore((state) => state);
+    const { setUserAnswers, userAnswers, selectedInterfaceLanguage } =
+        useOwnStore((state) => state);
 
     const { t } = useLanguageSync();
 
@@ -93,7 +92,7 @@ const ChooseTask: React.FC<propsTypes> = ({ taskData, index }) => {
             </h2>
 
             <p className="headlines-m" style={{ margin: "0 0 1.25rem" }}>
-                {taskData?.taskDescriptions[learningLanguage]}
+                {taskData?.taskDescriptions[selectedInterfaceLanguage]}
             </p>
 
             <div className={styles.qustion_container}>
