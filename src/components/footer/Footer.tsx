@@ -18,13 +18,12 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.leftLinks}>
-                        <div
-                            className={styles.leftLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-l ${styles.btn}`}>
-                                {t("tgbot")}
-                            </button>
+                        <div className={styles.leftLinks__item}>
+                            <Link href={"https://t.me/stest1331_bot"}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("tgbot")}
+                                </button>
+                            </Link>
                         </div>
                         <div className={styles.leftLinks__item}>
                             <Link href={`/${selectedInterfaceLanguage}/about`}>
