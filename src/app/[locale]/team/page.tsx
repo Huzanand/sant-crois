@@ -41,7 +41,9 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Andrii Latyshev</h2>
-                        <h3 className="body-s">Founder & Product owner</h3>
+                        <h3 className="body-s">
+                            {t("Founder & Product owner")}
+                        </h3>
                     </div>
 
                     <div className={styles.card}>
@@ -52,7 +54,7 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Kateryna Ihnatova</h2>
-                        <h3 className="body-s">UX/UI designer</h3>
+                        <h3 className="body-s">{t("UX/UI designer")}</h3>
                     </div>
 
                     <div className={styles.card}>
@@ -63,7 +65,7 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Oleksii Domkin</h2>
-                        <h3 className="body-s">Front-end developer</h3>
+                        <h3 className="body-s">{t("Front-end developer")}</h3>
                     </div>
 
                     <div className={styles.card}>
@@ -74,7 +76,7 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Olena Didenko</h2>
-                        <h3 className="body-s">Back-end developer</h3>
+                        <h3 className="body-s">{t("Back-end developer")}</h3>
                     </div>
 
                     <div className={styles.card}>
@@ -85,7 +87,7 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Yevhen Zlobin</h2>
-                        <h3 className="body-s">Back-end developer</h3>
+                        <h3 className="body-s">{t("Back-end developer")}</h3>
                     </div>
 
                     <div className={styles.card}>
@@ -96,7 +98,7 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                             height={251}
                         />
                         <h2 className="body-l">Ivan</h2>
-                        <h3 className="body-s">Back-end developer</h3>
+                        <h3 className="body-s">{t("Back-end developer")}</h3>
                     </div>
                 </div>
             </div>
