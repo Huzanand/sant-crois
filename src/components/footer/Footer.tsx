@@ -32,13 +32,12 @@ const Footer = () => {
                                 </button>
                             </Link>
                         </div>
-                        <div
-                            className={styles.leftLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-l ${styles.btn}`}>
-                                {t("team")}
-                            </button>
+                        <div className={styles.leftLinks__item}>
+                            <Link href={`/${selectedInterfaceLanguage}/team`}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("team")}
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
