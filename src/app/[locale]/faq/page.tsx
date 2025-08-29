@@ -46,7 +46,12 @@ export default async function AboutPage({
 
                     <div className={styles.content_item}>
                         <p className="buttons-l">{t("faq.q5")}</p>
-                        <p className="body-l">{t("faq.a5")}</p>
+                        <p>
+                            <span className="body-l">{t("faq.a5")}</span>
+                            <a href="mailto:sant-crois@gmail.com">
+                                sant-crois@gmail.com
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
