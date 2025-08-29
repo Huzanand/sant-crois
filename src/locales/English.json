@@ -169,5 +169,31 @@
         "5-2": "5.2. Continued use of the platform after changes have been made means that the User agrees with the new terms.",
         "6": "6. Contact Information",
         "6-1": "For any questions related to this Agreement, you can contact us at: sant-crois@gmail.com"
+    },
+    "privacy": {
+        "1": "1. General Provisions",
+        "1-1": "1.1. This Privacy Policy (hereinafter — the «Policy») describes how the Sant Crois platform (hereinafter — «we», «our service») collects, uses, and protects users’ personal data (hereinafter — «you», «User»).",
+        "1-2": "1.2. By using our website, Telegram bot, or other services, you agree to the terms of this Policy.",
+        "2": "2. How We Use Data",
+        "2-1": "2.1. We use the collected data for:",
+        "2-2": "Providing and improving our services;",
+        "2-3": "Sending assignment results to teachers;",
+        "2-4": "Maintaining communication with users (e.g., for feedback);",
+        "2-5": "Analyzing and improving user experience.",
+        "3": "3. Data Sharing with Third Parties",
+        "3-1": "3.1. We do not share your personal data with third parties without your consent, except as required by law.",
+        "4": "4. Data Storage and Protection",
+        "4-1": "4.1. We take all necessary technical and organizational measures to protect your data from unauthorized access, alteration, or destruction.",
+        "4-2": "4.2. Data is stored only as long as necessary for the purposes specified in this Policy.",
+        "5": "5. User Rights",
+        "5-1": "5.1. You have the right to:",
+        "5-2": "Request access to your personal data;",
+        "5-3": "Request correction or deletion of your data;",
+        "5-4": "Withdraw your consent to data processing;",
+        "5-5": "File a complaint with the data protection authority.",
+        "6": "6. Changes to the Policy",
+        "6-1": "6.1. We may update this Policy. The current version is always available on our website.",
+        "7": "7. Contact Information",
+        "7-1": "If you have any questions about personal data processing, please contact us at: "
     }
 }
