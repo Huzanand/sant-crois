@@ -1,12 +1,10 @@
 import styles from "./footer.module.css";
-import { useRouter } from "next/navigation";
 import Logo from "../logo/Logo";
 import { useLanguageSync } from "@/utils/useLanguage";
 import Link from "next/link";
 import { useOwnStore } from "@/store/storeProvider";
 
 const Footer = () => {
-    const router = useRouter();
     const { t } = useLanguageSync();
     const { selectedInterfaceLanguage } = useOwnStore((state) => state);
     return (
@@ -72,21 +70,21 @@ const Footer = () => {
                                 </button>
                             </Link>
                         </div>
-                        <div
-                            className={styles.policyLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-m ${styles.btn}`}>
-                                {t("PrivacyPolicy")}
-                            </button>
+                        <div className={styles.policyLinks__item}>
+                            <Link
+                                href={`/${selectedInterfaceLanguage}/privacy`}
+                            >
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("PrivacyPolicy")}
+                                </button>
+                            </Link>
                         </div>
-                        <div
-                            className={styles.policyLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-m ${styles.btn}`}>
-                                {t("CookiePolicy")}
-                            </button>
+                        <div className={styles.policyLinks__item}>
+                            <Link href={`/${selectedInterfaceLanguage}/cookie`}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("CookiePolicy")}
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
