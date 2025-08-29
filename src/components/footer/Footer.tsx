@@ -42,13 +42,12 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.rightLinks}>
-                        <div
-                            className={styles.rightLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-l ${styles.btn}`}>
-                                {t("FAQ")}
-                            </button>
+                        <div className={styles.rightLinks__item}>
+                            <Link href={`/${selectedInterfaceLanguage}/faq`}>
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("FAQ")}
+                                </button>
+                            </Link>
                         </div>
                         <div
                             className={styles.rightLinks__item}
