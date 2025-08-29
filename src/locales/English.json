@@ -149,5 +149,25 @@
         "q5": "How can I suggest an idea or exercise for the platform?",
         "a5": "We are always open to new ideas. Please contact us by email at "
     },
-    "contactsContent": "Any questions, issues, or ideas? Write to us at "
+    "contactsContent": "Any questions, issues, or ideas? Write to us at ",
+    "termsOfUseContent": {
+        "1": "General Provisions",
+        "1-1": "1.1. This User Agreement (hereinafter — the «Agreement») regulates the relationship between the administration of the Sant Crois platform (hereinafter — the «Administration») and the user (hereinafter — the «User») regarding the use of the website, Telegram bot, and other Sant Crois services.",
+        "1-2": "1.2. By using Sant Crois services, the User confirms that they have read and accepted the terms of this Agreement in full.",
+        "2": "2. Use of the Platform",
+        "2-1": "2.1. Sant Crois provides access to educational materials, including lessons, exercises, and other resources designed for language learning.",
+        "2-2": "2.2. The User agrees to use the platform only for personal educational purposes, without violating the law or the rights of third parties.",
+        "2-3": "2.3. Teachers may use the platform to organize and conduct lessons, as well as to receive results of students’ assignments.",
+        "3": "3. Intellectual Property",
+        "3-1": "3.1. All materials posted on the Sant Crois platform, including texts, images, audio, and video materials, are copyrighted and belong to the Administration or third parties that have granted the corresponding rights.",
+        "3-2": "3.2. Copying, distribution, modification, or any other use of the materials is prohibited without prior written consent of the rights holder.",
+        "4": "4. Liability",
+        "4-1": "4.1. The Administration is not responsible for possible interruptions in the platform’s operation, data loss, or other damages resulting from the use or inability to use Sant Crois services.",
+        "4-2": "4.2. The User is fully responsible for all actions performed using the platform.",
+        "5": "5. Changes to the Agreement",
+        "5-1": "5.1. The Administration reserves the right to make changes to this Agreement at any time. Changes take effect from the moment they are published on the website.",
+        "5-2": "5.2. Continued use of the platform after changes have been made means that the User agrees with the new terms.",
+        "6": "6. Contact Information",
+        "6-1": "For any questions related to this Agreement, you can contact us at: sant-crois@gmail.com"
+    }
 }

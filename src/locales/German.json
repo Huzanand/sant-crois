@@ -148,5 +148,25 @@
         "q5": "Wie kann ich eine Idee oder Übung für die Plattform vorschlagen?",
         "a5": "Wir sind immer offen für neue Vorschläge. Bitte kontaktieren Sie uns per E-Mail unter "
     },
-    "contactsContent": "Haben Sie Fragen, Probleme oder Ideen? Schreiben Sie uns an "
+    "contactsContent": "Haben Sie Fragen, Probleme oder Ideen? Schreiben Sie uns an ",
+    "termsOfUseContent": {
+        "1": "Allgemeine Bestimmungen",
+        "1-1": "1.1. Diese Nutzungsvereinbarung (im Folgenden — «Vereinbarung») regelt die Beziehung zwischen der Verwaltung der Sant Crois Plattform (im Folgenden — «Verwaltung») und dem Nutzer (im Folgenden — «Nutzer») bezüglich der Nutzung der Website, des Telegram-Bots und anderer Sant Crois-Dienste.",
+        "1-2": "1.2. Durch die Nutzung der Dienste von Sant Crois bestätigt der Nutzer, dass er die Bedingungen dieser Vereinbarung gelesen hat und sie in vollem Umfang akzeptiert.",
+        "2": "2. Nutzung der Plattform",
+        "2-1": "2.1. Sant Crois bietet Zugang zu Lernmaterialien, einschließlich Lektionen, Übungen und anderen Ressourcen für das Sprachenlernen.",
+        "2-2": "2.2. Der Nutzer verpflichtet sich, die Plattform ausschließlich für persönliche Bildungszwecke zu verwenden, ohne gegen geltendes Recht oder die Rechte Dritter zu verstoßen.",
+        "2-3": "2.3. Lehrkräfte können die Plattform nutzen, um Unterricht zu organisieren und durchzuführen sowie um Ergebnisse der Schüleraufgaben zu erhalten.",
+        "3": "3. Geistiges Eigentum",
+        "3-1": "3.1. Alle auf der Sant Crois Plattform veröffentlichten Materialien, einschließlich Texte, Bilder, Audio- und Videoinhalte, sind urheberrechtlich geschützt und gehören der Verwaltung oder Dritten, die die entsprechenden Rechte eingeräumt haben.",
+        "3-2": "3.2. Das Kopieren, Verbreiten, Ändern oder jede andere Nutzung der Materialien ist ohne vorherige schriftliche Zustimmung des Rechteinhabers untersagt.",
+        "4": "4. Haftung",
+        "4-1": "4.1. Die Verwaltung übernimmt keine Haftung für mögliche Betriebsunterbrechungen der Plattform, Datenverluste oder andere Schäden, die durch die Nutzung oder Nichtnutzung der Sant Crois Dienste entstehen.",
+        "4-2": "4.2. Der Nutzer trägt die volle Verantwortung für Handlungen, die unter Verwendung der Plattform durchgeführt werden.",
+        "5": "5. Änderungen der Vereinbarung",
+        "5-1": "5.1. Die Verwaltung behält sich das Recht vor, diese Vereinbarung jederzeit zu ändern. Änderungen treten mit ihrer Veröffentlichung auf der Website in Kraft.",
+        "5-2": "5.2. Die fortgesetzte Nutzung der Plattform nach Änderungen bedeutet, dass der Nutzer die neuen Bedingungen akzeptiert.",
+        "6": "6. Kontaktinformationen",
+        "6-1": "Bei allen Fragen im Zusammenhang mit dieser Vereinbarung können Sie uns unter folgender E-Mail-Adresse kontaktieren: sant-crois@gmail.com"
+    }
 }

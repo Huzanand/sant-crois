@@ -149,5 +149,25 @@
         "q5": "Comment proposer une idée ou un exercice pour la plateforme ?",
         "a5": "Nous sommes toujours ouverts aux nouvelles propositions. Veuillez nous contacter par email à l’adresse suivante : "
     },
-    "contactsContent": "Des questions, des difficultés ou des idées ? Écrivez-nous à "
+    "contactsContent": "Des questions, des difficultés ou des idées ? Écrivez-nous à ",
+    "termsOfUseContent": {
+        "1": "Dispositions générales",
+        "1-1": "1.1. Le présent Contrat d’utilisation (ci-après — « Contrat ») régit les relations entre l’administration de la plateforme Sant Crois (ci-après — « Administration ») et l’utilisateur (ci-après — « Utilisateur ») concernant l’utilisation du site web, du bot Telegram et d’autres services de Sant Crois.",
+        "1-2": "1.2. En utilisant les services de Sant Crois, l’Utilisateur confirme avoir pris connaissance des conditions du présent Contrat et les accepter dans leur intégralité.",
+        "2": "2. Utilisation de la plateforme",
+        "2-1": "2.1. Sant Crois donne accès à des contenus éducatifs, y compris des leçons, des exercices et d’autres ressources destinées à l’apprentissage des langues.",
+        "2-2": "2.2. L’Utilisateur s’engage à utiliser la plateforme uniquement à des fins éducatives personnelles, sans enfreindre la loi ni les droits de tiers.",
+        "2-3": "2.3. Les enseignants peuvent utiliser la plateforme pour organiser et dispenser des cours, ainsi que pour obtenir les résultats des travaux des étudiants.",
+        "3": "3. Propriété intellectuelle",
+        "3-1": "3.1. Tous les contenus publiés sur la plateforme Sant Crois, y compris les textes, images, supports audio et vidéo, sont protégés par le droit d’auteur et appartiennent à l’Administration ou à des tiers ayant accordé les droits correspondants.",
+        "3-2": "3.2. La copie, la distribution, la modification ou toute autre utilisation des contenus est interdite sans l’accord écrit préalable du titulaire des droits.",
+        "4": "4. Responsabilité",
+        "4-1": "4.1. L’Administration n’est pas responsable des éventuelles interruptions de fonctionnement de la plateforme, de la perte de données ou d’autres dommages résultant de l’utilisation ou de l’impossibilité d’utiliser les services Sant Crois.",
+        "4-2": "4.2. L’Utilisateur assume l’entière responsabilité des actions effectuées via la plateforme.",
+        "5": "5. Modifications du Contrat",
+        "5-1": "5.1. L’Administration se réserve le droit d’apporter des modifications au présent Contrat à tout moment. Les modifications prennent effet dès leur publication sur le site.",
+        "5-2": "5.2. La poursuite de l’utilisation de la plateforme après l’introduction de modifications signifie que l’Utilisateur accepte les nouvelles conditions.",
+        "6": "6. Coordonnées",
+        "6-1": "Pour toute question relative au présent Contrat, vous pouvez nous contacter à l’adresse e-mail suivante : sant-crois@gmail.com"
+    }
 }
