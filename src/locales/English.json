@@ -135,5 +135,18 @@
     "Founder & Product owner": "Founder & Product owner",
     "UX/UI designer": "UX/UI designer",
     "Front-end developer": "Front-end developer",
-    "Back-end developer": "Back-end developer"
+    "Back-end developer": "Back-end developer",
+    "faq": {
+        "subtitle": "We are volunteers from different countries, united by the idea of making language learning convenient and lively. We learn ourselves and help others learn. We build everything from scratch — with care, inspiration, and love for what we do.",
+        "q1": "What is Sant Crois?",
+        "a1": "It is a platform for learning languages with a focus on practice and convenience for both learners and teachers.",
+        "q2": "Which languages are available?",
+        "a2": "Currently — English, German, and French. We plan to expand the list in the future.",
+        "q3": "Is registration required to take lessons?",
+        "a3": "No, you don’t need to register to use the service.",
+        "q4": "What types of exercises are available on the platform?",
+        "a4": "Listening, reading, grammar, and video.",
+        "q5": "How can I suggest an idea or exercise for the platform?",
+        "a5": "We are always open to new ideas. Please contact us by email at sain-crois@gmail.com."
+    }
 }

@@ -135,5 +135,18 @@
     "Founder & Product owner": "Fondateur et propriétaire du produit",
     "UX/UI designer": "Designeuse UX/UI",
     "Front-end developer": "Développeur Front-end",
-    "Back-end developer": "Développeur Back-end"
+    "Back-end developer": "Développeur Back-end",
+    "faq": {
+        "subtitle": "Nous sommes des bénévoles de différents pays, unis par l’idée de rendre l’apprentissage des langues pratique et vivant. Nous apprenons nous-mêmes et aidons les autres à apprendre. Nous créons tout à partir de zéro — avec soin, inspiration et amour pour ce que nous faisons.",
+        "q1": "Qu’est-ce que Sant Crois ?",
+        "a1": "C’est une plateforme d’apprentissage des langues axée sur la pratique et la simplicité, aussi bien pour les apprenants que pour les enseignants.",
+        "q2": "Quelles langues sont disponibles ?",
+        "a2": "Actuellement — l’anglais, l’allemand et le français. Nous prévoyons d’élargir la liste à l’avenir.",
+        "q3": "Faut-il s’inscrire pour suivre les leçons ?",
+        "a3": "Non, vous n’avez pas besoin de vous inscrire pour utiliser le service.",
+        "q4": "Quels types d’exercices sont disponibles sur la plateforme ?",
+        "a4": "Compréhension orale, lecture, grammaire et vidéo.",
+        "q5": "Comment proposer une idée ou un exercice pour la plateforme ?",
+        "a5": "Nous sommes toujours ouverts aux nouvelles propositions. Veuillez nous contacter par email à l’adresse suivante : sain-crois@gmail.com."
+    }
 }
