@@ -63,13 +63,14 @@ const Footer = () => {
 
                 <div className={styles.policy}>
                     <div className={styles.policyLinks}>
-                        <div
-                            className={styles.policyLinks__item}
-                            onClick={() => router.replace("/")}
-                        >
-                            <button className={`buttons-m ${styles.btn}`}>
-                                {t("TermsOfUse")}
-                            </button>
+                        <div className={styles.policyLinks__item}>
+                            <Link
+                                href={`/${selectedInterfaceLanguage}/term-of-use`}
+                            >
+                                <button className={`buttons-l ${styles.btn}`}>
+                                    {t("TermsOfUse")}
+                                </button>
+                            </Link>
                         </div>
                         <div
                             className={styles.policyLinks__item}
