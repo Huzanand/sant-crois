@@ -63,7 +63,7 @@ const Footer = () => {
                     <div className={styles.policyLinks}>
                         <div className={styles.policyLinks__item}>
                             <Link
-                                href={`/${selectedInterfaceLanguage}/term-of-use`}
+                                href={`/${selectedInterfaceLanguage}/terms-of-use`}
                             >
                                 <button className={`buttons-l ${styles.btn}`}>
                                     {t("TermsOfUse")}
