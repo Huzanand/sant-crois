@@ -74,8 +74,8 @@
         "-rating": "Рейтинг ᐯ",
         "languageLevel": "Рівень мови ᐱ",
         "-languageLevel": "Рівень мови ᐯ",
-        "creationDateTime": "Спочатку старіші",
-        "-creationDateTime": "Спочатку новіші"
+        "-creationDateTime": "Спочатку старіші",
+        "creationDateTime": "Спочатку новіші"
     },
     "complexity": "Складність",
     "filters": "Фільтри",

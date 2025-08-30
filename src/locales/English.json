@@ -74,8 +74,8 @@
         "-rating": "Rating ᐯ",
         "languageLevel": "Language level ᐱ",
         "-languageLevel": "Language level ᐯ",
-        "creationDateTime": "Oldest first",
-        "-creationDateTime": "Newest first"
+        "-creationDateTime": "Oldest first",
+        "creationDateTime": "Newest first"
     },
     "complexity": "Difficulty",
     "filters": "Filters",
