@@ -105,7 +105,7 @@ export interface IState {
     selectedAgeGroup: string[],
     virtualKeyboard: boolean;
     sortingOptions: string[],
-    selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime' | '-views' | '-acceptance' | '-rating' | '-languageLevel' | '-сreationDateTime',
+    selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime' | '-views' | '-acceptance' | '-languageLevel' | '-сreationDateTime',
     relatedContents: (ICard | null)[],
     homePageContentHeight: number,
     openInDev: boolean,
