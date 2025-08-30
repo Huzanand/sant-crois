@@ -110,7 +110,7 @@ const Home = () => {
     }, [datasetKey, offset, size]);
 
     const showContent = () => {
-        if (error || lessons === undefined) return <Error404 />;
+        if (error || lessons === undefined) return <Error404 page="home" />;
         if (loading) {
             return Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className={styles.content__item}>
