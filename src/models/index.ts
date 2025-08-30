@@ -109,6 +109,7 @@ export interface IState {
     relatedContents: (ICard | null)[],
     homePageContentHeight: number,
     openInDev: boolean,
+    resetFiltersIndex: number
 }
 
 export interface IActions {
@@ -145,7 +146,8 @@ export interface IActions {
     toggleVirtualKeyboard: () => void;
     setHomePageContentHeight: (contentHeight: number) => void;
     clearFilters: () => void;
-    setOpenInDev: (newState: boolean) => void
+    setOpenInDev: (newState: boolean) => void,
+    resetFilters: () => void;
 }
 
 export interface IStore extends IState, IActions { }

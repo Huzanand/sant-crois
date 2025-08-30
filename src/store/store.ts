@@ -36,7 +36,8 @@ export const initialState: IState = {
     selectedSorting: 'rating',
     relatedContents: [],
     homePageContentHeight: 0,
-    openInDev: false
+    openInDev: false,
+    resetFiltersIndex: 0
 }
 
 export const Store = (
@@ -259,6 +260,13 @@ export const Store = (
                         setOpenInDev: (newState) => {
                             set(() => ({
                                 openInDev: newState
+                            }))
+                        },
+
+                        resetFilters: () => {
+                            const { resetFiltersIndex } = get();
+                            set(() => ({
+                                resetFiltersIndex: resetFiltersIndex + 1
                             }))
                         }
 
