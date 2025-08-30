@@ -214,5 +214,11 @@
         "5-1": "5.1. Wir können diese Richtlinie aktualisieren. Änderungen treten mit der Veröffentlichung auf der Website in Kraft.",
         "6": "6. Kontakt",
         "6-1": "Wenn Sie Fragen zur Verwendung von Cookies haben, schreiben Sie uns an "
+    },
+    "maskot404": {
+        "header": "Ich konnte nichts finden...",
+        "text": "Versuchen Sie, die Filter anzupassen oder zurückzusetzen, um weitere Ergebnisse zu sehen.",
+        "resetFilters": "Filter zurücksetzen",
+        "homeButton": "Zur Startseite"
     }
 }

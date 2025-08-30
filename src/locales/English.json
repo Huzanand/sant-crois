@@ -215,5 +215,11 @@
         "5-1": "5.1. We may update this Policy. Changes take effect once published on the website.",
         "6": "6. Contacts",
         "6-1": "If you have any questions about the use of cookies, please contact us at "
+    },
+    "maskot404": {
+        "header": "I couldn’t find anything...",
+        "text": "Try adjusting or resetting the filters to see other results.",
+        "resetFilters": "Reset filters",
+        "homeButton": "Back to home"
     }
 }
