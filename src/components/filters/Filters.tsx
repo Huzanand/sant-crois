@@ -36,6 +36,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
         setSelectedTags,
         targetAgeGroups,
         clearFilters,
+        resetFilters,
+        resetFiltersIndex,
     } = useOwnStore((state) => state);
 
     const MOBILE_WIDTH = 1012;
@@ -92,12 +94,12 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
         toggleDropdown();
     };
 
-    const [resetKey, setResetKey] = useState(0);
-
     const handleClearFilters = () => {
         clearFilters();
-        setResetKey((prev) => prev + 1);
+        resetFilters();
     };
+
+    useEffect(() => {}, [resetFiltersIndex]);
 
     return (
         <div className={styles.container}>
@@ -166,7 +168,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 {isOpen && (
                     <>
                         <SearchComponent
-                            key={`primary-${resetKey}`}
+                            key={`primary-${resetFiltersIndex}`}
                             label={t("main theme")}
                             arr={primaryTopics}
                             selectedFromArr={selectedPrimaryTopics}
@@ -176,7 +178,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <SearchComponent
-                            key={`secondary-${resetKey}`}
+                            key={`secondary-${resetFiltersIndex}`}
                             label={t("secondary theme")}
                             arr={secondaryTopics}
                             selectedFromArr={selectedSecondaryTopics}
@@ -186,7 +188,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <SearchComponent
-                            key={`tags-${resetKey}`}
+                            key={`tags-${resetFiltersIndex}`}
                             label={t("tags")}
                             arr={tags}
                             selectedFromArr={selectedTags}
@@ -196,7 +198,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                         <Divider margin="16px 0" />
 
                         <AgeFilter
-                            key={`age-${resetKey}`}
+                            key={`age-${resetFiltersIndex}`}
                             label={t("age group")}
                             arr={targetAgeGroups}
                             selectedFromArr={selectedAgeGroup}
