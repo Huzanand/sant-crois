@@ -13,6 +13,7 @@ import AppSideBar from "@/components/appSidebar/AppSideBar";
 import Pagination from "@/components/pagination/Pagination";
 import { interceptorsStore } from "@/store/interceptorsStore";
 import Skeleton from "@/components/skeleton/Skeleton";
+import Error404 from "@/components/error404/Error404";
 
 const Home = () => {
     const {
@@ -109,7 +110,7 @@ const Home = () => {
     }, [datasetKey, offset, size]);
 
     const showContent = () => {
-        if (error || lessons === undefined) return <div>ERROERRRRR!!!!!</div>;
+        if (error || lessons === undefined) return <Error404 />;
         if (loading) {
             return Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className={styles.content__item}>
@@ -117,34 +118,38 @@ const Home = () => {
                 </div>
             ));
         }
-        return lessons.map((item: ILesson) => {
-            if (item) {
-                return (
-                    <div key={item.id} className={styles.content__item}>
-                        <Link
-                            key={"link" + item.id}
-                            href={`/lesson/${item.id}`}
-                            prefetch={false}
-                        >
-                            <Card
-                                id={item.id}
-                                header={item.header}
-                                cover={item.cover as string}
-                                primaryTopics={item.primaryTopics}
-                                secondaryTopics={item.secondaryTopics}
-                                learningLanguage={item.learningLanguage}
-                                languageLevel={item.languageLevel}
-                                acceptance={item.acceptance}
-                                rating={item.rating}
-                                views={item.views}
-                                ageGroup={item.targetAgeGroup}
-                            />
-                        </Link>
-                    </div>
-                );
-            }
-            return null;
-        });
+        return (
+            <div className={styles.content_box}>
+                {lessons.map((item: ILesson) => {
+                    if (item) {
+                        return (
+                            <div key={item.id} className={styles.content__item}>
+                                <Link
+                                    key={"link" + item.id}
+                                    href={`/lesson/${item.id}`}
+                                    prefetch={false}
+                                >
+                                    <Card
+                                        id={item.id}
+                                        header={item.header}
+                                        cover={item.cover as string}
+                                        primaryTopics={item.primaryTopics}
+                                        secondaryTopics={item.secondaryTopics}
+                                        learningLanguage={item.learningLanguage}
+                                        languageLevel={item.languageLevel}
+                                        acceptance={item.acceptance}
+                                        rating={item.rating}
+                                        views={item.views}
+                                        ageGroup={item.targetAgeGroup}
+                                    />
+                                </Link>
+                            </div>
+                        );
+                    }
+                    return null;
+                })}
+            </div>
+        );
     };
 
     return (
@@ -157,7 +162,7 @@ const Home = () => {
                 </div>
 
                 <div className={styles.content} ref={contentRef}>
-                    <div className={styles.content_box}>{showContent()}</div>
+                    {showContent()}
                 </div>
             </div>
             <div className={styles.pagination_container}>
