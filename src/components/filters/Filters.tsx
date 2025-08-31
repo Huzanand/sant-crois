@@ -238,9 +238,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                                         handleClearFilters();
                                         toggleDropdown();
                                     }}
-                                    style={{
-                                        border: "2px solid #6554c0",
-                                    }}
+                                    // style={{
+                                    //     border: "2px solid #6554c0",
+                                    // }}
                                 >
                                     {t("reset")}
                                 </button>

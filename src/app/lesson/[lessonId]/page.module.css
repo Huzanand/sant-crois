@@ -40,17 +40,31 @@
     padding: 0.5rem 1rem;
 
     max-width: 299px;
-    width: 70%;
+    min-width: 299px;
+    width: 80%;
     height: 43px;
     border-radius: 10px;
-    background: #5448a0;
+    background: var(--Purple-P400);
     border: 0;
     margin: 0 auto;
 }
 
+.btnSend:hover {
+    background: var(--Purple-P500);
+}
+
+.btnSend:focus {
+    background: var(--Purple-P200);
+}
+
+@media screen and (max-width: 1030px) {
+    .btnSend:hover {
+        background: var(--Purple-P400);
+    }
+}
+
 @media screen and (max-width: 964px) {
     .wrapper {
-        /* padding: 0 16px 72px; */
         padding: 24px 16px 72px;
     }
 }
@@ -58,5 +72,9 @@
 @media screen and (max-width: 760px) {
     .content {
         padding: 1.5rem 1em 3rem;
+    }
+
+    .btnSend {
+        max-width: 100%;
     }
 }

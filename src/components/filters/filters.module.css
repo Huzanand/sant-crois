@@ -101,7 +101,7 @@
         box-shadow: none;
         transition: all 0.3s ease-in-out;
 
-        height: 100dvh;
+        height: 100vh;
         width: 320px;
         position: fixed;
         top: 0;
@@ -113,7 +113,7 @@
     }
 
     .open {
-        height: 100dvh;
+        height: 100vh;
         margin-top: 0;
         padding: 0 1rem 1rem;
         transform: translateX(0);
@@ -216,9 +216,38 @@
     color: var(--Blue-B500);
 }
 
+.btn:hover {
+    border: 2px solid var(--Purple-P500);
+}
+
+.btn:focus {
+    border: 2px solid var(--Purple-P200);
+}
+
 .btn_apply {
     border: none;
     background: var(--Purple-P400);
     color: var(--Neutral-White);
     margin-bottom: 1.5rem;
+    border: none;
+}
+
+.btn_apply:hover {
+    border: none;
+    background: var(--Purple-P500);
+}
+
+.btn_apply:focus {
+    background: var(--Purple-P200);
+}
+
+@media screen and (max-width: 1030px) {
+    .btn:hover {
+        border: 2px solid var(--Purple-P300);
+    }
+
+    .btn_apply:hover {
+        border: none;
+        background: var(--Purple-P300);
+    }
 }

@@ -8,7 +8,7 @@
 }
 
 .container {
-    padding: 24px;
+    padding: 24px 16px;
     border-radius: 10px;
     box-shadow: 0 6px 18px 0 rgba(232, 224, 229, 0.61);
     background: var(--Neutral-White);
@@ -29,10 +29,32 @@
     line-height: 20px;
     padding: 0.5rem 1rem;
 
-    width: 299px;
+    max-width: 299px;
+    min-width: 299px;
+    width: 80%;
     height: 43px;
     border-radius: 10px;
     background: #5448a0;
     border: 0;
     margin: 0 auto;
+}
+
+.btnHome:hover {
+    background: var(--Purple-P500);
+}
+
+.btnHome:focus {
+    background: var(--Purple-P200);
+}
+
+@media screen and (max-width: 1030px) {
+    .btnHome:hover {
+        background: var(--Purple-P400);
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .btnHome {
+        max-width: 100%;
+    }
 }

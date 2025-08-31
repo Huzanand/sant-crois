@@ -28,13 +28,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--Purple-P300);
+    border: 2px solid var(--Purple-P400);
     border-radius: 10px;
     padding: 10px 4px;
     width: 44px;
     height: 44px;
     background: transparent;
     transform: rotate(90deg);
+}
+
+.btnBack:hover {
+    border: 2px solid var(--Purple-P500);
+}
+
+.btnBack:focus {
+    border: 2px solid var(--Purple-P200);
 }
 
 .content__container {
@@ -76,6 +84,14 @@
     padding: 10px 24px;
 }
 
+.btn:hover {
+    background: var(--Purple-P500);
+}
+
+.btn:focus {
+    background: var(--Purple-P200);
+}
+
 .mburger {
     padding-bottom: 20px;
 }
@@ -97,6 +113,16 @@
 
 .dotDiv {
     display: block;
+}
+
+@media screen and (max-width: 1030px) {
+    .btnBack:hover {
+        border: 2px solid var(--Purple-P400);
+    }
+
+    .btn:hover {
+        background: var(--Purple-P400);
+    }
 }
 
 @media screen and (max-width: 1024px) {

@@ -30,8 +30,22 @@
     padding: 12px 5px;
 }
 
+.btn:hover {
+    background: var(--Purple-P500);
+}
+
+.btn:focus {
+    background: var(--Purple-P200);
+}
+
 .btn span {
     color: var(--Neutral-White);
+}
+
+@media screen and (max-width: 1030px) {
+    .btn:hover {
+        background: var(--Purple-P400);
+    }
 }
 
 @media screen and (max-width: 700px) {
