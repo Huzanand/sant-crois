@@ -3,6 +3,7 @@ import { PrevPage } from "@/assets/svg/icons";
 import { useWindowWidth } from "@/utils/useWindowWidth";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { useEffect, useState } from "react";
+import { useOwnStore } from "@/store/storeProvider";
 
 type IPaginationProps = {
     totalCount: number;
@@ -21,9 +22,30 @@ const Pagination: React.FC<IPaginationProps> = ({
     setOffset,
     setSize,
 }) => {
+    const {
+        activeTypeOfLesson,
+        selectedLanguageLevel,
+        selectedLearningLanguage,
+        selectedPrimaryTopics,
+        selectedSecondaryTopics,
+        selectedTags,
+        selectedAgeGroup,
+        selectedSorting,
+    } = useOwnStore((state) => state);
+
     useEffect(() => {
         setLoadedPages([offset]);
-    }, [offset]);
+    }, [
+        activeTypeOfLesson,
+        selectedLanguageLevel,
+        selectedLearningLanguage,
+        selectedPrimaryTopics,
+        selectedSecondaryTopics,
+        selectedTags,
+        selectedAgeGroup,
+        selectedSorting,
+        offset,
+    ]);
 
     const MOBILE_WIDTH = 650;
 
@@ -41,6 +63,10 @@ const Pagination: React.FC<IPaginationProps> = ({
             setLoadMoreDisabled(true);
         } else setLoadMoreDisabled(false);
     }, [offset, size, initialSize, totalCount]);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [offset]);
 
     const incPage = () => {
         if (
