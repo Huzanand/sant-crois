@@ -1,6 +1,12 @@
 const Skeleton = () => {
     return (
-        <div style={{ marginBottom: "1rem" }}>
+        <div
+            style={{
+                marginBottom: "1rem",
+                minWidth: "299px",
+                maxWidth: "100%",
+            }}
+        >
             <div
                 style={{
                     boxShadow: "0 4px 12px 0 rgba(163, 148, 205, 0.34)",

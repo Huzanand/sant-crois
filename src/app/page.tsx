@@ -112,11 +112,15 @@ const Home = () => {
     const showContent = () => {
         if (error || lessons === undefined) return <Error404 page="home" />;
         if (loading) {
-            return Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className={styles.content__item}>
-                    <Skeleton />
+            return (
+                <div className={styles.content_box}>
+                    {Array.from({ length: 6 }).map((_, i) => (
+                        <div key={i} className={styles.content__item}>
+                            <Skeleton />
+                        </div>
+                    ))}
                 </div>
-            ));
+            );
         }
         return (
             <div className={styles.content_box}>
