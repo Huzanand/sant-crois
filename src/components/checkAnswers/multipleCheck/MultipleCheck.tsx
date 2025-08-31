@@ -80,7 +80,10 @@ const MultipleCheck: React.FC<propsTypes> = ({
         const findedTask = userAnswers.find((task) => task.taskId === taskId);
         if (!findedTask) return;
 
-        const tempAnswers = findedTask.questions.map((q) => q.userAnswer || "");
+        // const tempAnswers = findedTask.questions.map((q) => q.userAnswer || "");
+        const tempAnswers = findedTask.questions.map((q) =>
+            q.userAnswer === "null" ? "" : q.userAnswer || ""
+        );
         setAnswers(tempAnswers);
     }, [userAnswers, taskId]);
 
