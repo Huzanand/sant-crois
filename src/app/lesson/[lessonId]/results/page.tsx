@@ -12,6 +12,7 @@ import SingleCheck from "@/components/checkAnswers/singleCheck/SingleCheck";
 import { ILesson } from "@/models";
 import Loader from "@/components/loader/Loader";
 import { useLanguageSync } from "@/utils/useLanguage";
+import Error404 from "@/components/error404/Error404";
 
 const Results = () => {
     const {
@@ -129,40 +130,52 @@ const Results = () => {
 
     return (
         <div className={styles.wrapper}>
-            {loading && !error && <Loader />}
+            {!lesson ? (
+                <Error404 page="check" />
+            ) : (
+                <>
+                    {loading && !error && <Loader />}
 
-            {!loading && !error && (
-                <div>
-                    <ResultsHeader />
+                    {!loading && !error && (
+                        <div>
+                            <ResultsHeader />
 
-                    <div className={styles.container}>
-                        {lesson && renderTasks(lesson)}
+                            <div className={styles.container}>
+                                {lesson && renderTasks(lesson)}
 
-                        {relatedContents && relatedContents.length > 0 && (
-                            <Recomendations content={relatedContents as []} />
-                        )}
+                                {relatedContents &&
+                                    relatedContents.length > 0 && (
+                                        <Recomendations
+                                            content={relatedContents as []}
+                                        />
+                                    )}
 
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                marginTop: "3rem",
-                            }}
-                        >
-                            <button
-                                className={`${styles.btnHome}`}
-                                onClick={() => {
-                                    clearRecomendations();
-                                    clearUserAnswers();
-                                    clearResults();
-                                    setTimeout(() => router.replace(`/`), 0);
-                                }}
-                            >
-                                {t("btnBack")}
-                            </button>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        marginTop: "3rem",
+                                    }}
+                                >
+                                    <button
+                                        className={`${styles.btnHome}`}
+                                        onClick={() => {
+                                            clearRecomendations();
+                                            clearUserAnswers();
+                                            clearResults();
+                                            setTimeout(
+                                                () => router.replace(`/`),
+                                                0
+                                            );
+                                        }}
+                                    >
+                                        {t("btnBack")}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    )}
+                </>
             )}
         </div>
     );

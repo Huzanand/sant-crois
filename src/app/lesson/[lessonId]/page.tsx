@@ -12,6 +12,8 @@ import { useLanguageSync } from "@/utils/useLanguage";
 import { RenderTasks } from "@/utils/RenderTasks";
 import { RenderHeaderOfLesson } from "@/utils/renderHeaderOfLesson/RenderHeaderOfLesson";
 import InDev from "@/components/inDev/InDev";
+import { interceptorsStore } from "@/store/interceptorsStore";
+import Error404 from "@/components/error404/Error404";
 
 const Lesson = () => {
     const {
@@ -20,6 +22,9 @@ const Lesson = () => {
         fetchRecomendations,
         clearRecomendations,
     } = useOwnStore((store) => store);
+
+    const error = interceptorsStore((state) => state.error);
+
     const { lessonId } = useParams();
     const router = useRouter();
 
@@ -39,41 +44,48 @@ const Lesson = () => {
     }, [fetchRecomendations, lesson?.relatedContents, clearRecomendations]);
 
     return (
-        <>
-            <InDev />
-            <div className={styles.wrapper}>
-                <LessonInfo />
+        <div className={styles.wrapper}>
+            {error ? (
+                <Error404 page="lesson" />
+            ) : (
+                <>
+                    <InDev />
 
-                <div className={styles.container}>
-                    <div className={styles.content}>
-                        {lesson && <RenderHeaderOfLesson lesson={lesson} />}
+                    <LessonInfo />
 
-                        <div className={styles.divider} />
+                    <div className={styles.container}>
+                        <div className={styles.content}>
+                            {lesson && <RenderHeaderOfLesson lesson={lesson} />}
 
-                        {lesson && lesson.tasks && (
-                            <RenderTasks tasks={lesson.tasks} />
-                        )}
+                            <div className={styles.divider} />
 
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                marginTop: "3rem",
-                            }}
-                        >
-                            <button
-                                className={styles.btnSend}
-                                onClick={() => {
-                                    router.push(`/lesson/${lessonId}/results`);
+                            {lesson && lesson.tasks && (
+                                <RenderTasks tasks={lesson.tasks} />
+                            )}
+
+                            <div
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    marginTop: "3rem",
                                 }}
                             >
-                                {t("finishLesson")}
-                            </button>
+                                <button
+                                    className={styles.btnSend}
+                                    onClick={() => {
+                                        router.push(
+                                            `/lesson/${lessonId}/results`
+                                        );
+                                    }}
+                                >
+                                    {t("finishLesson")}
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </>
+                </>
+            )}
+        </div>
     );
 };
 
