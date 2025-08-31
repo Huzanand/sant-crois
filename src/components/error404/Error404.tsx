@@ -23,7 +23,13 @@ const Error404: React.FC<errorProps> = ({ page }) => {
     const { t } = useLanguageSync();
 
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            style={{
+                justifyContent:
+                    page === "home" ? "space-between" : "space-around",
+            }}
+        >
             <div className={styles.text_content}>
                 <h2 className="headlines-l">{t("maskot404.header")}</h2>
                 {page === "home" ? (
