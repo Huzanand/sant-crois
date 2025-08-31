@@ -148,7 +148,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 ref={containerRef}
                 style={{
                     maxHeight: isOpen ? `${height - 69}px` : "0px",
-                    minHeight: isMobile ? "100vh" : "auto",
+                    minHeight: isMobile ? "100dvh" : "auto",
                     transition: "max-height 0.3s ",
                     overflowY: "auto",
                 }}
