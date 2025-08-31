@@ -101,7 +101,7 @@
         box-shadow: none;
         transition: all 0.3s ease-in-out;
 
-        height: 100vh;
+        height: 100dvh;
         width: 320px;
         position: fixed;
         top: 0;
@@ -113,7 +113,7 @@
     }
 
     .open {
-        height: 100vh;
+        height: 100dvh;
         margin-top: 0;
         padding: 0 1rem 1rem;
         transform: translateX(0);
