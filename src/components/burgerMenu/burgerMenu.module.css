@@ -38,7 +38,7 @@
     box-shadow: none;
     transition: all 0.3s ease-in-out;
 
-    min-height: 100vh;
+    min-height: 100dvh;
     height: 100%;
     width: 320px;
     position: fixed;
@@ -52,7 +52,7 @@
 
 .open {
     transform: translateX(0);
-    height: 100vh;
+    height: 100dvh;
 }
 
 .header {
