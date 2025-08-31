@@ -65,7 +65,7 @@ const Footer = () => {
                             <Link
                                 href={`/${selectedInterfaceLanguage}/terms-of-use`}
                             >
-                                <button className={`buttons-l ${styles.btn}`}>
+                                <button className={`buttons-m ${styles.btn}`}>
                                     {t("TermsOfUse")}
                                 </button>
                             </Link>
@@ -74,14 +74,14 @@ const Footer = () => {
                             <Link
                                 href={`/${selectedInterfaceLanguage}/privacy`}
                             >
-                                <button className={`buttons-l ${styles.btn}`}>
+                                <button className={`buttons-m ${styles.btn}`}>
                                     {t("PrivacyPolicy")}
                                 </button>
                             </Link>
                         </div>
                         <div className={styles.policyLinks__item}>
                             <Link href={`/${selectedInterfaceLanguage}/cookie`}>
-                                <button className={`buttons-l ${styles.btn}`}>
+                                <button className={`buttons-m ${styles.btn}`}>
                                     {t("CookiePolicy")}
                                 </button>
                             </Link>
