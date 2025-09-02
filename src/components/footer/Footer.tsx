@@ -1,3 +1,4 @@
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import styles from "./footer.module.css";
 import Logo from "../logo/Logo";
 import { useLanguageSync } from "@/utils/useLanguage";
@@ -17,7 +18,7 @@ const Footer = () => {
 
                     <div className={styles.leftLinks}>
                         <div className={styles.leftLinks__item}>
-                            <Link href={"https://t.me/stest1331_bot"}>
+                            <Link href={"https://t.me/sant_crois_library_bot"}>
                                 <button className={`buttons-l ${styles.btn}`}>
                                     {t("tgbot")}
                                 </button>
@@ -89,7 +90,16 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.designedBy}>
-                        <p className="body-s">{t("designedBy")}</p>
+                        <p style={{ marginBottom: "0.5rem" }}>
+                            <span className="body-s" style={{ color: "#fff" }}>
+                                {t("designedBy")}
+                            </span>
+                            <span className="fi fi-ua"></span>{" "}
+                            <span className="fi fi-ch"></span>{" "}
+                            <span className="fi fi-de"></span>{" "}
+                            <span className="fi fi-pl"></span>{" "}
+                        </p>
+                        <p className="body-s">© Sant Crois 2024-2025</p>
                     </div>
                 </div>
             </div>
