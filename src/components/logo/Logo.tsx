@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 const Logo = ({ footer = false }) => {
     const router = useRouter();
     return (
-        <div className={styles.sideBar_headings}>
-            <div onClick={() => router.push("/")}>
+        <div className={styles.sideBar_headings} style={{ cursor: "pointer" }}>
+            <div onClick={() => router.back()}>
                 {footer ? (
                     <Image src={logoBottom.src} alt="" width={98} height={68} />
                 ) : (
