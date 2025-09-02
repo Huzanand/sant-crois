@@ -8,7 +8,7 @@ const Logo = ({ footer = false }) => {
     const router = useRouter();
     return (
         <div className={styles.sideBar_headings} style={{ cursor: "pointer" }}>
-            <div onClick={() => router.back()}>
+            <div onClick={() => router.push("/")}>
                 {footer ? (
                     <Image src={logoBottom.src} alt="" width={98} height={68} />
                 ) : (
