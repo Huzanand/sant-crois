@@ -53,15 +53,15 @@
         "German": "Deutsch"
     },
     "selectedSorting": {
-        "views": "Nach Aufrufen ᐱ",
-        "-views": "Nach Aufrufen ᐯ",
-        "acceptance": "Schwierigkeit ᐱ",
-        "-acceptance": "Schwierigkeit ᐯ",
-        "rating": "Bewertung ᐱ",
-        "languageLevel": "Sprachniveau ᐱ",
-        "-languageLevel": "Sprachniveau ᐯ",
-        "creationDateTime": "Älteste zuerst",
-        "-creationDateTime": "Neueste zuerst"
+        "views": "Nach Aufrufen (mehr)",
+        "-views": "Nach Aufrufen (weniger)",
+        "acceptance": "Schwierigkeit (höher)",
+        "-acceptance": "Schwierigkeit (niedriger)",
+        "rating": "Bewertung",
+        "languageLevel": "Sprachniveau (höher)",
+        "-languageLevel": "Sprachniveau (niedriger)",
+        "-creationDateTime": "Älteste zuerst",
+        "creationDateTime": "Neueste zuerst"
     },
     "sortingOptions": {
         "views": "Nach Aufrufen (mehr)",
