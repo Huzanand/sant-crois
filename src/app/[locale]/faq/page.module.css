@@ -31,3 +31,16 @@
     margin-bottom: 1rem;
     font-weight: bold;
 }
+
+.content_item ul li p {
+    font-weight: normal !important;
+}
+
+.content_item li {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content_item li:last-child {
+    margin-bottom: 0;
+}

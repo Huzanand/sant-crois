@@ -27,8 +27,27 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                     <h1 className="headlines-l">{t("team")}</h1>
 
                     <div className={styles.header_content}>
-                        <p className="body-l">{t("teamContent1")}</p>
-                        <p className="body-l">{t("teamContent2")}</p>
+                        <p className="body-l">{t("teamContent.1")}</p>
+                        <p className="body-l">{t("teamContent.2")}</p>
+                        <p className="body-l">{t("teamContent.3")}</p>
+                        <ul>
+                            <li>
+                                <p className="body-l">{t("teamContent.4")}</p>
+                            </li>
+                            <li>
+                                <p className="body-l">{t("teamContent.5")}</p>
+                            </li>
+                            <li>
+                                <p className="body-l">{t("teamContent.6")}</p>
+                            </li>
+                            <li>
+                                <p className="body-l">{t("teamContent.7")}</p>
+                            </li>
+                            <li>
+                                <p className="body-l">{t("teamContent.8")}</p>
+                            </li>
+                        </ul>
+                        <p className="body-l">{t("teamContent.9")}</p>
                     </div>
                 </div>
 

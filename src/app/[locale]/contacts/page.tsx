@@ -19,10 +19,13 @@ export default async function AboutPage({
             <div className={styles.container}>
                 <h1 className="headlines-l">{t("contacts")}</h1>
                 <div className={styles.content}>
-                    <span className="body-l">{t("contactsContent")}</span>
-                    <a href="mailto:sant-crois@gmail.com">
-                        sant-crois@gmail.com
-                    </a>
+                    <p>
+                        <span className="body-l">{t("contactsContent.1")}</span>
+                        <a href="mailto:santcrois.suport@gmail.com.">
+                            santcrois.suport@gmail.com.
+                        </a>
+                    </p>
+                    <p className="body-l">{t("contactsContent.2")}</p>
                 </div>
             </div>
         </div>
