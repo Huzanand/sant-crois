@@ -17,6 +17,7 @@
     "@types/i18next": "^13.0.0",
     "@types/react-i18next": "^8.1.0",
     "axios": "^1.7.7",
+    "flag-icons": "^7.5.0",
     "i18next": "^25.0.2",
     "json-server": "^1.0.0-beta.2",
     "lottie-react": "^2.4.1",
