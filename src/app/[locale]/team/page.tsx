@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { getServerTranslation } from "@/utils/getServerTranslations";
 import Latyshev from "../../../assets/developers/LatyshevA.png";
+import Latysheva from "../../../assets/developers/LatyshevaK.png";
 import Ihnatova from "../../../assets/developers/IhnatovaK.png";
 import Domkin from "../../../assets/developers/DomkinO.png";
 import Didenko from "../../../assets/developers/DidenkoO.png";
@@ -118,6 +119,17 @@ export default async function TeamPage({ params: { locale } }: TeamPageProps) {
                         />
                         <h2 className="body-l">Ivan</h2>
                         <h3 className="body-s">{t("Back-end developer")}</h3>
+                    </div>
+
+                    <div className={styles.card}>
+                        <Image
+                            src={Latysheva.src}
+                            alt="Karyna Latysheva"
+                            width={267}
+                            height={251}
+                        />
+                        <h2 className="body-l">Karyna Latysheva</h2>
+                        <h3 className="body-s">{t("Content manager")}</h3>
                     </div>
                 </div>
             </div>
