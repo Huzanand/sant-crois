@@ -11,8 +11,9 @@ const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
 });
 
 const MobileViev = () => {
-    const { lesson, clearRecomendations, clearUserAnswers, setOpenInDev } =
-        useOwnStore((state) => state);
+    const { lesson, clearRecomendations, clearUserAnswers } = useOwnStore(
+        (state) => state
+    );
 
     const router = useRouter();
 
@@ -54,7 +55,7 @@ const MobileViev = () => {
 
                 <button
                     className={`buttons-l ${styles.btn}`}
-                    onClick={() => setOpenInDev(true)}
+                    onClick={() => router.push(`/lesson/${lesson?.id}/modal`)}
                 >
                     <SendTaskIco />
                     {t("assignStudent")}

@@ -22,7 +22,6 @@ const DefaultViev = () => {
         interfaceLanguageOptions,
         clearRecomendations,
         clearUserAnswers,
-        setOpenInDev,
     } = useOwnStore((state) => state);
 
     const router = useRouter();
@@ -152,7 +151,9 @@ const DefaultViev = () => {
                     <div className={styles.column}>
                         <button
                             className={`buttons-l ${styles.btn}`}
-                            onClick={() => setOpenInDev(true)}
+                            onClick={() =>
+                                router.push(`/lesson/${lesson?.id}/modal`)
+                            }
                         >
                             <SendTaskIco />
                             {t("assignStudent")}
