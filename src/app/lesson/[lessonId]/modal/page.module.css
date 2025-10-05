@@ -97,7 +97,7 @@
     color: var(--Red-r500);
 }
 
-.form button {
+.btn {
     display: block;
     margin: 0 auto;
     border-radius: 10px;
@@ -115,8 +115,61 @@
     border: 0;
 }
 
-.form button:focus {
+.btn:focus {
     background: var(--Purple-P200);
+}
+
+.input_container {
+    min-width: 100%;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: var(--Purple-P25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.input {
+    width: 100%;
+    border: 2px solid var(--Purple-P75);
+    padding: 0.375rem 0.5rem;
+    border-radius: 10px;
+}
+
+.input:focus-visible {
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P75);
+
+    outline: none;
+}
+.input:not(:placeholder-shown) {
+    border: 2px solid var(--Purple-P75);
+}
+
+.input_copyBtn {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 0.375rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.input_copyBtn:focus {
+    background: var(--Purple-P200);
+}
+
+.copyIco {
+    color: #292d32;
+}
+
+.input_copyBtn:focus .copyIco {
+    color: var(--Neutral-White);
 }
 
 @media screen and (min-width: 600px) {
@@ -138,11 +191,16 @@
         background: var(--Purple-P25);
     }
 
-    .form button:hover {
+    .input_copyBtn:hover {
+        border-radius: 10px;
         background: var(--Purple-P500);
     }
 
-    .form button {
+    .input_copyBtn:hover .copyIco {
+        color: var(--Neutral-White);
+    }
+
+    .btn {
         max-width: 300px;
     }
 }

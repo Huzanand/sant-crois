@@ -5,6 +5,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useOwnStore } from "@/store/storeProvider";
+import { CopyIco } from "@/assets/svg/icons";
+import { useRouter } from "next/navigation";
 
 const schema = z.object({
     creatorEmail: z.string().email("Invalid email address"),
@@ -23,6 +25,8 @@ const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
         handleSubmit,
         formState: { errors },
     } = useForm<IFormData>({ resolver: zodResolver(schema) });
+
+    const router = useRouter();
 
     const { lesson } = useOwnStore((state) => state);
 
@@ -54,14 +58,10 @@ const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
                 throw new Error("Something went wrong");
             }
 
-            // Wait for backend confirmation
-            await res;
-            // await res.json;
-
-            setRoomId(res as unknown as string);
-            setRoomId("68dc1107a1271961250e6ace");
+            const responce = await res.json();
 
             // ✅ Move to step 2
+            setRoomId(responce.roomId);
             setStage("stage2");
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
@@ -69,6 +69,12 @@ const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleCopy = async () => {
+        await navigator.clipboard.writeText(
+            `sant-crois.vercel.app/rooms/${roomId}`
+        );
     };
 
     return (
@@ -79,95 +85,140 @@ const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
                 paddingBottom: nopadding ? "" : "2rem",
             }}
         >
-            {stage === "stage1" && (
-                <div className={style.container}>
-                    <div className={style.header}>
+            <div className={style.container}>
+                {stage === "stage1" && (
+                    <>
+                        <div className={style.header}>
+                            <h1 className="headlines-m">
+                                Создание виртуальной комнаты
+                            </h1>
+                            <h2 className="headlines-s">
+                                Для создания комнаты заполните поля ниже.
+                            </h2>
+                            <h2 className="headlines-s">
+                                После того, как комната будет создана, вы
+                                получите ссылку для прохождения урока вашим
+                                учеником.
+                            </h2>
+                        </div>
+
+                        <form
+                            className={style.form}
+                            onSubmit={handleSubmit(handleSubmitStage1)}
+                        >
+                            <div className={style.form_item}>
+                                <p className={`body-m ${style.form_descr}`}>
+                                    Для получения результатов введите адрес
+                                    вашей электронной почты
+                                </p>
+                                <label>Ваш электронный адресс</label>
+                                <input
+                                    type="text"
+                                    placeholder="name@mail.com"
+                                    {...register("creatorEmail")}
+                                />
+                                {errors.creatorEmail && (
+                                    <p className={style.errorMessage}>
+                                        {errors.creatorEmail.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className={style.form_item}>
+                                <p className={`body-m ${style.form_descr}`}>
+                                    Напишите имя ученика. Это поможет вам понять
+                                    чей результат вы получили
+                                </p>
+                                <label className={style.nameLabel}>
+                                    Ученик увидит имя, которое вы указали
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="student`s name"
+                                    {...register("challengerName")}
+                                />
+                                {errors.challengerName && (
+                                    <p className={style.errorMessage}>
+                                        {errors.challengerName.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <button className={style.btn} type="submit">
+                                    {loading
+                                        ? "Creating a room..."
+                                        : "Create VR room"}
+                                </button>
+                                {error && (
+                                    <p className={style.errorMessage}>
+                                        {error}
+                                    </p>
+                                )}
+                            </div>
+                        </form>
+                    </>
+                )}
+
+                {stage === "stage2" && (
+                    <>
                         <h1 className="headlines-m">
-                            Создание виртуальной комнаты
+                            Комната успешно создана!
                         </h1>
                         <h2 className="headlines-s">
-                            Для создания комнаты заполните поля ниже.
+                            Теперь вы можете поделиться уроком
                         </h2>
-                        <h2 className="headlines-s">
-                            После того, как комната будет создана, вы получите
-                            ссылку для прохождения урока вашим учеником.
-                        </h2>
-                    </div>
-
-                    <form
-                        className={style.form}
-                        onSubmit={handleSubmit(handleSubmitStage1)}
-                    >
-                        <div className={style.form_item}>
-                            <p className={`body-m ${style.form_descr}`}>
-                                Для получения результатов введите адрес вашей
-                                электронной почты
-                            </p>
-                            <label>Ваш электронный адресс</label>
-                            <input
-                                type="text"
-                                placeholder="name@mail.com"
-                                {...register("creatorEmail")}
-                            />
-                            {errors.creatorEmail && (
-                                <p className={style.errorMessage}>
-                                    {errors.creatorEmail.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className={style.form_item}>
-                            <p className={`body-m ${style.form_descr}`}>
-                                Напишите имя ученика. Это поможет вам понять чей
-                                результат вы получили
-                            </p>
-                            <label className={style.nameLabel}>
-                                Ученик увидит имя, которое вы указали
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="student`s name"
-                                {...register("challengerName")}
-                            />
-                            {errors.challengerName && (
-                                <p className={style.errorMessage}>
-                                    {errors.challengerName.message}
-                                </p>
-                            )}
-                        </div>
+                        <p className="body-m">
+                            Скопируйте ссылку и отправте ученику
+                        </p>
 
                         <div>
-                            <button type="submit">
-                                {loading
-                                    ? "Creating a room..."
-                                    : "Create VR room"}
-                            </button>
-                            {error && (
-                                <p className={style.errorMessage}>{error}</p>
-                            )}
-                        </div>
-                    </form>
-                </div>
-            )}
+                            <div className={style.input_container}>
+                                <input
+                                    className={style.input}
+                                    type="text"
+                                    readOnly
+                                    value={`sant-crois.vercel.app/rooms/${roomId}`}
+                                />
+                                <button
+                                    onClick={handleCopy}
+                                    className={style.input_copyBtn}
+                                >
+                                    <CopyIco className={style.copyIco} />
+                                </button>
+                            </div>
 
-            {stage === "stage2" && (
-                <div className={style.container}>
-                    <h1>VR room created sucsessfuly!</h1>
-                    <h2>Now you can share this room to your student</h2>
-                    <p>Copy the link and send it your student</p>
-
-                    <div>
-                        <div>
-                            <input
-                                type="text"
-                                readOnly
-                                value={`sant-crois.vercel.app/rooms/${roomId}`}
-                            />
+                            <p className="headlines-s red-r500">
+                                Комната будет доступна в течении 7 дней
+                            </p>
                         </div>
-                        <div>$$</div>
-                    </div>
-                </div>
-            )}
+
+                        <button
+                            onClick={() => setStage("stage3")}
+                            className={style.btn}
+                        >
+                            Ready
+                        </button>
+                    </>
+                )}
+
+                {stage === "stage3" && (
+                    <>
+                        <h1 className="headlines-m">Готово</h1>
+                        <p className="body-l">
+                            Вы получите результаты на указанную почту,когда
+                            студент закончит выполнение урока
+                        </p>
+
+                        <button
+                            onClick={() => router.back()}
+                            className={style.btn}
+                        >
+                            Закрыть
+                        </button>
+                    </>
+                )}
+            </div>
         </div>
     );
 };
