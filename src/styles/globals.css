@@ -21,7 +21,11 @@
 }
 
 .blue-b500 {
-    color: var(--Blue-B500);
+    color: var(--Blue-B500) !important;
+}
+
+.red-r500 {
+    color: var(--Red-r500) !important;
 }
 
 * {
