@@ -39,7 +39,6 @@ const CreateVRForm = () => {
         setError(null);
 
         try {
-            // ✅ Send to API (or use server action if you want)
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/exercises/${lesson?.id}/rooms`,
                 {
@@ -55,7 +54,6 @@ const CreateVRForm = () => {
 
             const responce = await res.json();
 
-            // ✅ Move to step 2
             setRoomId(responce.roomId);
             setStage("stage2");
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
