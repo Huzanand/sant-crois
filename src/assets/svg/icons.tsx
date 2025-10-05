@@ -5,7 +5,7 @@
 // SortingIco, ShowAllIco, BageTrueIco, BageFalseIco,
 // IncorrectIco, CorrectIco, LearningLanguageIco, InterfaceLanguageIco,
 // LanguageLevelIco, FilterIco, CaruselArrowRightIco, CaruselArrowLeftIco
-// CloseModalIco
+// CloseModalIco, CopyIco
 
 export const ArrowDownIco = ({ fill = "#231E49" }) => (
     <svg
@@ -735,6 +735,25 @@ export const CloseModalIco = ({ fill = "#6554C0" }) => (
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
+        />
+    </svg>
+);
+
+export const CopyIco = ({ className }: { className?: string }) => (
+    <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M17 13.4V16.4C17 20.4 15.4 22 11.4 22H7.6C3.6 22 2 20.4 2 16.4V12.6C2 8.6 3.6 7 7.6 7H10.6M17 13.4H13.8C11.4 13.4 10.6 12.6 10.6 10.2V7M17 13.4L10.6 7M11.6 2H15.6M7 5C7 3.34 8.34 2 10 2H12.62M22 8V14.19C22 15.74 20.74 17 19.19 17M22 8H19C16.75 8 16 7.25 16 5V2L22 8Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={className}
         />
     </svg>
 );
