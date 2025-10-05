@@ -15,7 +15,7 @@ const schema = z.object({
 
 type IFormData = z.infer<typeof schema>;
 
-const CreateVRForm = ({ nopadding }: { nopadding?: boolean }) => {
+const CreateVRForm = () => {
     const {
         register,
         handleSubmit,
@@ -41,8 +41,7 @@ const CreateVRForm = ({ nopadding }: { nopadding?: boolean }) => {
         try {
             // ✅ Send to API (or use server action if you want)
             const res = await fetch(
-                // `${process.env.NEXT_PUBLIC_API_BASE_URL}/exercises/${lesson?.id}/rooms`,
-                `http://localhost:8080/exercises/${lesson?.id}/rooms`,
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/exercises/${lesson?.id}/rooms`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -74,13 +73,7 @@ const CreateVRForm = ({ nopadding }: { nopadding?: boolean }) => {
     };
 
     return (
-        <div
-            className={style.wrapper}
-            style={{
-                paddingTop: nopadding ? "" : "2rem",
-                paddingBottom: nopadding ? "" : "2rem",
-            }}
-        >
+        <div className={style.wrapper}>
             <div className={style.container}>
                 {stage === "stage1" && (
                     <>
@@ -218,12 +211,4 @@ const CreateVRForm = ({ nopadding }: { nopadding?: boolean }) => {
         </div>
     );
 };
-
-export default function Page({
-    searchParams,
-}: {
-    searchParams?: { nopadding?: string };
-}) {
-    const nopadding = searchParams?.nopadding === "true";
-    return <CreateVRForm nopadding={nopadding} />;
-}
+export default CreateVRForm;
