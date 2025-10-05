@@ -21,8 +21,8 @@ export default function LessonModal() {
     return (
         <div className={style.wrapper} onClick={handleClick}>
             <div
+                className={style.container}
                 onClick={(e) => e.stopPropagation()}
-                style={{ display: "inline-block" }}
             >
                 <CreateVRForm nopadding />
             </div>
