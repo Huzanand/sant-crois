@@ -15,11 +15,7 @@ const schema = z.object({
 
 type IFormData = z.infer<typeof schema>;
 
-type CreateVRFormProps = {
-    nopadding?: boolean;
-};
-
-const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
+const CreateVRForm = ({ nopadding }: { nopadding?: boolean }) => {
     const {
         register,
         handleSubmit,
@@ -222,4 +218,12 @@ const CreateVRForm = ({ nopadding }: CreateVRFormProps) => {
         </div>
     );
 };
-export default CreateVRForm;
+
+export default function Page({
+    searchParams,
+}: {
+    searchParams?: { nopadding?: string };
+}) {
+    const nopadding = searchParams?.nopadding === "true";
+    return <CreateVRForm nopadding={nopadding} />;
+}

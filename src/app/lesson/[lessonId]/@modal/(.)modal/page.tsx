@@ -24,7 +24,7 @@ export default function LessonModal() {
                 className={style.container}
                 onClick={(e) => e.stopPropagation()}
             >
-                <CreateVRForm nopadding />
+                <CreateVRForm />
             </div>
         </div>
     );
