@@ -9,9 +9,10 @@ import { useEffect } from "react";
 type propsTypes = {
     taskData: ITaskData;
     index: number;
+    readonly?: boolean;
 };
 
-const ChooseTask: React.FC<propsTypes> = ({ taskData, index }) => {
+const ChooseTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
     const { setUserAnswers, userAnswers, selectedInterfaceLanguage } =
         useOwnStore((state) => state);
 
@@ -39,7 +40,10 @@ const ChooseTask: React.FC<propsTypes> = ({ taskData, index }) => {
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(initUserAnswers, []);
+    useEffect(() => {
+        if (!userAnswers.some((answer) => answer.taskId === taskData.taskId))
+            initUserAnswers();
+    });
 
     const changeOption = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -134,6 +138,7 @@ const ChooseTask: React.FC<propsTypes> = ({ taskData, index }) => {
                                             <input
                                                 type="radio"
                                                 value={option}
+                                                disabled={readonly}
                                                 onChange={(e) =>
                                                     changeOption(
                                                         e,

@@ -9,9 +9,10 @@ import { useLanguageSync } from "@/utils/useLanguage";
 type propsTypes = {
     taskData: ITaskData;
     index: number;
+    readonly?: boolean;
 };
 
-const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
+const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
     const { setUserAnswers, userAnswers, selectedInterfaceLanguage } =
         useOwnStore((state) => state);
 
@@ -42,11 +43,10 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
         setUserAnswers(initObject as IAnswer);
     };
 
-    useEffect(initUserAnswers, [
-        setUserAnswers,
-        taskData.questions,
-        taskData.taskId,
-    ]);
+    useEffect(() => {
+        if (!userAnswers.some((answer) => answer.taskId === taskData.taskId))
+            initUserAnswers();
+    });
 
     const changeOption = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -75,7 +75,10 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
             } else {
                 updatedQuestions = [
                     ...existingAnswer.questions,
-                    { questionId: newQuestionId, userAnswer: selectedOption },
+                    {
+                        questionId: newQuestionId,
+                        userAnswer: selectedOption,
+                    },
                 ];
             }
         } else {
@@ -131,6 +134,7 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index }) => {
                                             <input
                                                 type="radio"
                                                 value={option.value}
+                                                disabled={readonly}
                                                 onChange={(e) =>
                                                     changeOption(
                                                         e,
