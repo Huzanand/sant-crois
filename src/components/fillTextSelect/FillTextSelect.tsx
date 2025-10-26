@@ -5,6 +5,7 @@ interface ISelectProps {
     handleChange: (index: number, value: string) => void;
     options: string[];
     currentOption: string;
+    readonly?: boolean;
 }
 
 const FillTextSelect: React.FC<ISelectProps> = ({
@@ -12,6 +13,7 @@ const FillTextSelect: React.FC<ISelectProps> = ({
     handleChange,
     options,
     currentOption,
+    readonly,
 }) => {
     return (
         <span className={styles.container}>
@@ -19,6 +21,7 @@ const FillTextSelect: React.FC<ISelectProps> = ({
                 className={styles.select}
                 key={selectIndex}
                 value={currentOption}
+                disabled={readonly}
                 onChange={(e) => handleChange(selectIndex, e.target.value)}
             >
                 <option value="null" key={"nullOption" + selectIndex}></option>

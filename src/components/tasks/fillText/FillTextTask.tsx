@@ -12,9 +12,10 @@ import React from "react";
 type propsTypes = {
     taskData: ITaskData;
     index: number;
+    readonly?: boolean;
 };
 
-const FillTextTask: React.FC<propsTypes> = ({ taskData, index }) => {
+const FillTextTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
     const taskId = taskData.taskId;
     const content =
         taskData.content?.contentSource &&
@@ -132,6 +133,7 @@ const FillTextTask: React.FC<propsTypes> = ({ taskData, index }) => {
                                 handleChange={handleSelectChange}
                                 options={options}
                                 currentOption={answers[answerIndex] || ""}
+                                readonly={readonly}
                             />
                         );
 
