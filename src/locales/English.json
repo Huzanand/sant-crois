@@ -267,5 +267,10 @@
         "text": "Try adjusting or resetting the filters to see other results.",
         "resetFilters": "Reset filters",
         "homeButton": "Back to home"
+    },
+    "vr": {
+        "welcome": "Welcome",
+        "keepAliweTime": "Room has existed: ",
+        "seeResults": "View results"
     }
 }

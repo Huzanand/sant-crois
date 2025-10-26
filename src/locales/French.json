@@ -267,5 +267,10 @@
         "text": "Essayez de modifier ou de réinitialiser les filtres pour voir d’autres résultats.",
         "resetFilters": "Réinitialiser les filtres",
         "homeButton": "Retour à l’accueil"
+    },
+    "vr": {
+        "welcome": "Bienvenue",
+        "keepAliweTime": "La salle existe depuis : ",
+        "seeResults": "Voir les résultats"
     }
 }

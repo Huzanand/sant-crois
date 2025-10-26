@@ -266,5 +266,10 @@
         "text": "Versuchen Sie, die Filter anzupassen oder zurückzusetzen, um weitere Ergebnisse zu sehen.",
         "resetFilters": "Filter zurücksetzen",
         "homeButton": "Zur Startseite"
+    },
+    "vr": {
+        "welcome": "Willkommen",
+        "keepAliweTime": "Der Raum existiert seit: ",
+        "seeResults": "Ergebnisse anzeigen"
     }
 }
