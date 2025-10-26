@@ -10,9 +10,10 @@ import separatedText from "@/utils/separatedText";
 type propsTypes = {
     taskData: ITaskData;
     index: number;
+    readonly?: boolean;
 };
 
-const WriteTask: React.FC<propsTypes> = ({ taskData, index }) => {
+const WriteTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
     const { t } = useLanguageSync();
 
     const { taskId } = taskData;
@@ -122,6 +123,7 @@ const WriteTask: React.FC<propsTypes> = ({ taskData, index }) => {
                             <input
                                 className={styles.input}
                                 value={answers[answerIndex] || ""}
+                                disabled={readonly}
                                 onChange={(e) =>
                                     handleInputChange(
                                         answerIndex,
