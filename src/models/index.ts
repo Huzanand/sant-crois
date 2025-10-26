@@ -27,7 +27,7 @@ export interface ILesson {
     primaryTopics: string[];
     secondaryTopics?: string[];
     tags?: string[] | null;
-    languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'N1' | 'N2' | 'N3' | 'N4' | 'N5';
+    languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
     targetAgeGroup?: 'ADULT' | 'KIDS';
     learningLanguage: string;
     views?: number;
@@ -39,6 +39,32 @@ export interface ILesson {
     tasks: ITaskData[];
     relatedContents: string[],
     creationDateTime: Date
+}
+
+export interface IVirtualRoom {
+    roomExerciseDto: {
+        id: string;
+        author?: string;
+        primaryTopics: string[];
+        secondaryTopics?: string[];
+        tags?: string[] | null;
+        languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+        targetAgeGroup?: 'ADULT' | 'KIDS';
+        learningLanguage: string;
+        views?: number;
+        acceptance?: number;
+        cover?: string;
+        exerciseDescriptions?: ILessonDescriptions;
+        rating?: number;
+        header?: string;
+        tasks: ITaskData[];
+        relatedContents: string[],
+        creationDateTime: Date,
+    },
+    challengerName: string,
+    keepAliveTime: number,
+    isExpired: boolean,
+    finished: boolean
 }
 
 export interface ILessonDescriptions {
@@ -68,6 +94,9 @@ export interface IQuestion {
     questionText?: string;
     options?: string[] | null;
     questionDescription?: string | null;
+    result?: boolean;
+    rightAnswers?: string[],
+    userAnswer?: string
 }
 
 export interface ICheckAnswers {
@@ -86,6 +115,7 @@ export interface IState {
     size: number;
     lessons: ILesson[];
     lesson: ILesson | null;
+    virtualRoom: IVirtualRoom | null;
     userAnswers: IAnswer[];
     results: ICheckAnswers[];
     activeTypeOfLesson: "all" | "video" | "audio" | "reading" | "grammar";
@@ -125,6 +155,7 @@ export interface IActions {
         offset: number,
         selectedSorting: string) => void;
     fetchLessonById: (id: string) => void;
+    setVirtualRoom: (newVR: IVirtualRoom) => void;
     fetchRecomendations: (ids: string[]) => void;
     clearRecomendations: () => void;
     fetchFilters: () => void;
@@ -133,6 +164,8 @@ export interface IActions {
     clearResults: () => void;
 
     sendUserAnswers: (exerciseId: string) => void;
+    setResults: (newResults: ICheckAnswers[]) => void;
+    setVRAnswers: (data: ICheckAnswers[]) => void;
 
     setSelectedPrimaryTopics: (primaryTopics: string[]) => void;
     setSelectedSecondaryTopics: (secondaryTopics: string[]) => void;

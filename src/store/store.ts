@@ -14,6 +14,7 @@ export const initialState: IState = {
     size: 12,
     lessons: [],
     lesson: null,
+    virtualRoom: null,
     userAnswers: [],
     results: [],
     activeTypeOfLesson: 'all',
@@ -91,6 +92,12 @@ export const Store = (
                             }));
                         },
 
+                        setVirtualRoom: async (newVR) => {
+                            set(() => ({
+                                virtualRoom: newVR
+                            }))
+                        },
+
                         fetchFilters: async () => {
                             const data: IFiltersNullable = await getAllFilters();
                             if (data) {
@@ -149,6 +156,14 @@ export const Store = (
                             );
                             set(() => ({
                                 results: newResult
+                            }));
+                        },
+
+                        setResults: (newResult) => set({ results: newResult }),
+
+                        setVRAnswers: async (data) => {
+                            set(() => ({
+                                results: data
                             }));
                         },
 
