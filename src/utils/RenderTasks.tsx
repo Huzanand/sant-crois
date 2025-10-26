@@ -20,9 +20,10 @@ import { ITaskData } from "@/models";
 
 interface renderTaskProps {
     tasks: ITaskData[];
+    readonly?: boolean;
 }
 
-export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
+export const RenderTasks: React.FC<renderTaskProps> = ({ tasks, readonly }) => {
     if (tasks) {
         const resultArr = [] as React.ReactNode[];
         tasks.forEach((task, index) => {
@@ -86,6 +87,7 @@ export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
                                     key={index + task.taskId}
                                     taskData={tasks[index]}
                                     index={index + 1}
+                                    readonly={readonly}
                                 />
                             );
                             resultArr.push(
@@ -101,6 +103,7 @@ export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
                                     key={index + task.taskId}
                                     taskData={tasks[index]}
                                     index={index + 1}
+                                    readonly={readonly}
                                 />
                             );
                             resultArr.push(
@@ -122,6 +125,7 @@ export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
                             key={index + task.taskId}
                             taskData={tasks[index]}
                             index={index + 1}
+                            readonly={readonly}
                         />
                     );
                     resultArr.push(<div className="divider" key={index} />);
@@ -133,6 +137,7 @@ export const RenderTasks: React.FC<renderTaskProps> = ({ tasks }) => {
                             key={index + task.taskId}
                             taskData={tasks[index]}
                             index={index + 1}
+                            readonly={readonly}
                         />
                     );
                     resultArr.push(<div className="divider" key={index} />);
