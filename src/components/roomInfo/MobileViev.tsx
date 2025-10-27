@@ -38,7 +38,7 @@ const MobileViev = () => {
                     </button>
                 </div>
 
-                <p className={`${styles.greetengs} headlines-l`}>
+                <p className={`${styles.mgreetengs} headlines-l`}>
                     {`${t("vr.welcome")}, ${virtualRoom?.challengerName}!`}
                 </p>
             </div>
