@@ -78,6 +78,14 @@
     padding: 10px 24px;
 }
 
+.remaining_time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
 .btn:hover {
     background: var(--Purple-P500);
 }

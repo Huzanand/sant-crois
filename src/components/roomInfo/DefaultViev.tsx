@@ -23,6 +23,26 @@ const DefaultViev = () => {
 
     const { t } = useLanguageSync();
 
+    function showTimer() {
+        if (virtualRoom?.finished) {
+            return (
+                <span className="headlines-s fw500">
+                    {t("timer.lessonCompleted")}
+                </span>
+            );
+        } else if (virtualRoom?.expired) {
+            return (
+                <span className="headlines-s fw500">
+                    {t("timer.lessonFailed")}
+                </span>
+            );
+        } else {
+            return (
+                <TransformeKeepAliveTime time={virtualRoom!.keepAliveTime} />
+            );
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.container__inner}>
@@ -72,18 +92,15 @@ const DefaultViev = () => {
                     </div>
 
                     <div className={`${styles.remaining_time}`}>
-                        <span className="body-m">{t("vr.keepAliweTime")}</span>
-
-                        <span
-                            style={{ whiteSpace: "nowrap" }}
-                            className="headlines-s"
-                        >
-                            {virtualRoom?.keepAliveTime && (
-                                <TransformeKeepAliveTime
-                                    time={virtualRoom.keepAliveTime}
-                                />
-                            )}
+                        <span className="body-m">
+                            {virtualRoom?.expired || virtualRoom?.finished
+                                ? t("timer.status")
+                                : t("timer.keepAliweTime")}
                         </span>
+
+                        <div style={{ whiteSpace: "nowrap" }}>
+                            {showTimer()}
+                        </div>
                     </div>
                 </div>
             </div>
