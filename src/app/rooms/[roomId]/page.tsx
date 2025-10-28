@@ -100,7 +100,7 @@ const Room = () => {
 
     return (
         <div className={styles.wrapper}>
-            <RoomInfo />
+            {virtualRoom && <RoomInfo />}
 
             <div className={styles.container_content}>
                 <div className={styles.content}>
