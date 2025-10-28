@@ -165,3 +165,7 @@ body {
 .ln24 {
     line-height: 24px;
 }
+
+.fw500 {
+    font-weight: 500;
+}
