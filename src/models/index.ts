@@ -63,7 +63,7 @@ export interface IVirtualRoom {
     },
     challengerName: string,
     keepAliveTime: number,
-    isExpired: boolean,
+    expired: boolean,
     finished: boolean
 }
 
