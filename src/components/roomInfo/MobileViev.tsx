@@ -20,6 +20,7 @@ const MobileViev = () => {
     const { t } = useLanguageSync();
 
     function showTimer() {
+        if (!virtualRoom?.keepAliveTime) return;
         if (virtualRoom?.finished) {
             return (
                 <span className="headlines-s fw500">

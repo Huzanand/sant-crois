@@ -24,6 +24,7 @@ const DefaultViev = () => {
     const { t } = useLanguageSync();
 
     function showTimer() {
+        if (!virtualRoom?.keepAliveTime) return;
         if (virtualRoom?.finished) {
             return (
                 <span className="headlines-s fw500">
@@ -37,9 +38,7 @@ const DefaultViev = () => {
                 </span>
             );
         } else {
-            return (
-                <TransformeKeepAliveTime time={virtualRoom!.keepAliveTime} />
-            );
+            return <TransformeKeepAliveTime time={virtualRoom.keepAliveTime} />;
         }
     }
 
