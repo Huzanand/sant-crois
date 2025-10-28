@@ -270,7 +270,16 @@
     },
     "vr": {
         "welcome": "Welcome",
-        "keepAliweTime": "Room has existed: ",
         "seeResults": "View results"
+    },
+    "timer": {
+        "day": "D",
+        "hour": "H",
+        "minute": "M",
+        "expired": "eExpired",
+        "lessonCompleted": "Lesson completed",
+        "lessonFailed": "Lesson failed",
+        "status": "Status: ",
+        "keepAliweTime": "Room has existed: "
     }
 }

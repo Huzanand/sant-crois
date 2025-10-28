@@ -270,7 +270,16 @@
     },
     "vr": {
         "welcome": "Ласкаво просимо",
-        "keepAliweTime": "Кімната існує: ",
         "seeResults": "Переглянути результати"
+    },
+    "timer": {
+        "day": "Д",
+        "hour": "Г",
+        "minute": "Хв",
+        "expired": "Прострочена",
+        "lessonCompleted": "Урок виконано",
+        "lessonFailed": "Урок не пройдено",
+        "keepAliweTime": "Кімната існує: ",
+        "status": "Статус: "
     }
 }

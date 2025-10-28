@@ -269,7 +269,16 @@
     },
     "vr": {
         "welcome": "Willkommen",
-        "keepAliweTime": "Der Raum existiert seit: ",
         "seeResults": "Ergebnisse anzeigen"
+    },
+    "timer": {
+        "day": "T",
+        "hour": "H",
+        "minute": "M",
+        "expired": "Abgelaufen",
+        "lessonCompleted": "Lektion abgeschlossen",
+        "lessonFailed": "Lektion nicht bestanden",
+        "keepAliweTime": "Der Raum existiert seit: ",
+        "status": "Status: "
     }
 }

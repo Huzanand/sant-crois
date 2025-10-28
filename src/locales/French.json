@@ -270,7 +270,16 @@
     },
     "vr": {
         "welcome": "Bienvenue",
-        "keepAliweTime": "La salle existe depuis : ",
         "seeResults": "Voir les résultats"
+    },
+    "timer": {
+        "day": "J",
+        "hour": "H",
+        "minute": "M",
+        "expired": "Expirée",
+        "lessonCompleted": "Leçon terminée",
+        "lessonFailed": "Leçon échouée",
+        "status": "Statut: ",
+        "keepAliweTime": "La salle existe depuis : "
     }
 }
