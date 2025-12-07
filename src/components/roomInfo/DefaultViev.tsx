@@ -25,13 +25,13 @@ const DefaultViev = () => {
 
     function showTimer() {
         if (!virtualRoom?.keepAliveTime) return;
-        if (virtualRoom?.finished) {
+        if (virtualRoom?.isFinished) {
             return (
                 <span className="headlines-s fw500">
                     {t("timer.lessonCompleted")}
                 </span>
             );
-        } else if (virtualRoom?.expired) {
+        } else if (virtualRoom?.isExpired) {
             return (
                 <span className="headlines-s fw500">
                     {t("timer.lessonFailed")}
@@ -92,7 +92,7 @@ const DefaultViev = () => {
 
                     <div className={`${styles.remaining_time}`}>
                         <span className="body-m">
-                            {virtualRoom?.expired || virtualRoom?.finished
+                            {virtualRoom?.isExpired || virtualRoom?.isFinished
                                 ? t("timer.status")
                                 : t("timer.keepAliweTime")}
                         </span>

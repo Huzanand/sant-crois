@@ -31,8 +31,8 @@ const Room = () => {
                 if (!res.ok) throw new Error("Failed to fetch room");
                 const data: IVirtualRoom = await res.json();
                 setVirtualRoom(data);
-                if (data.finished) {
-                    data.roomExerciseDto.tasks.forEach((t) => {
+                if (data.isFinished) {
+                    data.exerciseWithUserResultDto.tasks.forEach((t) => {
                         const newAnswer = {
                             taskId: t.taskId,
                             questions: [] as IQuestion[],
@@ -48,7 +48,7 @@ const Room = () => {
                     });
 
                     const newResults = [] as ICheckAnswers[];
-                    data.roomExerciseDto.tasks.forEach((t) => {
+                    data.exerciseWithUserResultDto.tasks.forEach((t) => {
                         const newResult = {
                             taskId: t.taskId,
                             questions: [],
@@ -79,7 +79,7 @@ const Room = () => {
     const { t } = useLanguageSync();
 
     const handleFinish = async () => {
-        if (virtualRoom?.finished) router.push(`/rooms/${roomId}/results`);
+        if (virtualRoom?.isFinished) router.push(`/rooms/${roomId}/results`);
         else {
             try {
                 const res = await fetch(`/api/rooms/${roomId}/answers`, {
@@ -106,14 +106,14 @@ const Room = () => {
                 <div className={styles.content}>
                     {virtualRoom && (
                         <RenderHeaderOfLesson
-                            lesson={virtualRoom.roomExerciseDto}
+                            lesson={virtualRoom.exerciseWithUserResultDto}
                         />
                     )}
 
-                    {virtualRoom && virtualRoom.roomExerciseDto.tasks && (
+                    {virtualRoom && virtualRoom.exerciseWithUserResultDto.tasks && (
                         <RenderTasks
-                            tasks={virtualRoom.roomExerciseDto.tasks}
-                            readonly={virtualRoom.finished}
+                            tasks={virtualRoom.exerciseWithUserResultDto.tasks}
+                            readonly={virtualRoom.isFinished}
                         />
                     )}
 
@@ -128,7 +128,7 @@ const Room = () => {
                             className={styles.btnSend}
                             onClick={handleFinish}
                         >
-                            {virtualRoom?.finished
+                            {virtualRoom?.isFinished
                                 ? t("vr.seeResults")
                                 : t("finishLesson")}
                         </button>

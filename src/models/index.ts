@@ -42,7 +42,7 @@ export interface ILesson {
 }
 
 export interface IVirtualRoom {
-    roomExerciseDto: {
+    exerciseWithUserResultDto: {
         id: string;
         author?: string;
         primaryTopics: string[];
@@ -63,8 +63,8 @@ export interface IVirtualRoom {
     },
     challengerName: string,
     keepAliveTime: number,
-    expired: boolean,
-    finished: boolean
+    isExpired: boolean,
+    isFinished: boolean
 }
 
 export interface ILessonDescriptions {

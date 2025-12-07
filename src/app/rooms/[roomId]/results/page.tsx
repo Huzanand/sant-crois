@@ -39,8 +39,8 @@ const Results = () => {
                 if (!res.ok) throw new Error("Failed to fetch room");
                 const data: IVirtualRoom = await res.json();
                 setVirtualRoom(data);
-                if (data.finished) {
-                    data.roomExerciseDto.tasks.forEach((t) => {
+                if (data.isFinished) {
+                    data.exerciseWithUserResultDto.tasks.forEach((t) => {
                         const newAnswer = {
                             taskId: t.taskId,
                             questions: [] as IQuestion[],
@@ -56,7 +56,7 @@ const Results = () => {
                     });
 
                     const newResults = [] as ICheckAnswers[];
-                    data.roomExerciseDto.tasks.forEach((t) => {
+                    data.exerciseWithUserResultDto.tasks.forEach((t) => {
                         const newResult = {
                             taskId: t.taskId,
                             questions: [],
@@ -87,7 +87,7 @@ const Results = () => {
         if (virtualRoom) {
             const resultArr = [] as React.ReactNode[];
 
-            virtualRoom.roomExerciseDto.tasks.forEach((task, index) => {
+            virtualRoom.exerciseWithUserResultDto.tasks.forEach((task, index) => {
                 switch (task.taskType) {
                     case "MEDIA_TASK":
                         switch (task.content!.contentType) {
@@ -96,7 +96,7 @@ const Results = () => {
                                     <MultipleCheck
                                         key={index}
                                         taskData={
-                                            virtualRoom.roomExerciseDto.tasks[
+                                            virtualRoom.exerciseWithUserResultDto.tasks[
                                                 index
                                             ]
                                         }
@@ -118,7 +118,7 @@ const Results = () => {
                                     <MultipleCheck
                                         key={index}
                                         taskData={
-                                            virtualRoom.roomExerciseDto.tasks[
+                                            virtualRoom.exerciseWithUserResultDto.tasks[
                                                 index
                                             ]
                                         }
@@ -142,7 +142,7 @@ const Results = () => {
                                 key={index}
                                 type="CHOOSE_ANSWER"
                                 taskData={
-                                    virtualRoom.roomExerciseDto.tasks[index]
+                                    virtualRoom.exerciseWithUserResultDto.tasks[index]
                                 }
                                 index={index + 1}
                                 userAnswers={userAnswers}
@@ -162,7 +162,7 @@ const Results = () => {
                                 key={index}
                                 type="TRUE_FALSE"
                                 taskData={
-                                    virtualRoom.roomExerciseDto.tasks[index]
+                                    virtualRoom.exerciseWithUserResultDto.tasks[index]
                                 }
                                 index={index + 1}
                                 userAnswers={userAnswers}
