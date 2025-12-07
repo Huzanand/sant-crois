@@ -68,11 +68,10 @@ jobs:
 
       # 5️⃣ Deploy to Fly.io
       - name: Build & Deploy to Fly.io
-        # Add required environment variables for your application here
-        env:
-          NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
-          
-        run: flyctl deploy --remote-only # Use remote builder for speed and reliability
-        # OR:
-        # run: flyctl deploy --local-only --image nextapp --app YOUR_FLY_APP_NAME 
-        # You need to specify --app if not using a fly.toml config that already has it.
+        # The FLY_API_TOKEN should be set at the job level (as recommended earlier)
+        # env:
+        #   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }} # (This line is moved to the job level)
+        run: |
+          flyctl deploy \
+            --remote-only \
+            --build-arg NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
