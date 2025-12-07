@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for library-fe on 2025-12-06T21:18:26+01:00
+# fly.toml app configuration file generated for sant-crois on 2025-12-07T13:05:36+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'library-fe'
+app = 'sant-crois'
 primary_region = 'ams'
 
 [build]
