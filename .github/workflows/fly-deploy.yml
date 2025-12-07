@@ -1,3 +1,39 @@
+# name: Fly.io Deploy
+
+# on:
+#   push:
+#     branches:
+#       - main  # deploy when pushing to main
+#   workflow_dispatch: # allows manual trigger
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # 1️⃣ Checkout repo
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+
+#       # 2️⃣ Set up Docker (GitHub Actions already has it, but explicit setup is good)
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v2
+
+#       # 3️⃣ Set up Fly CLI
+#       - name: Install Flyctl
+#         uses: superfly/flyctl-actions/setup-flyctl@v1
+
+#       # 4️⃣ Authenticate Fly.io
+#       - name: Authenticate Fly.io
+#         env:
+#           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+#         run: flyctl auth token $FLY_API_TOKEN
+
+#       # 5️⃣ Deploy locally built image to Fly.io
+#       - name: Build & Deploy to Fly.io
+#         env:
+#           NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
+#         run: flyctl deploy --local-only --image nextapp
+
 name: Fly.io Deploy
 
 on:
@@ -9,27 +45,34 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    # ⚠️ Set the FLY_API_TOKEN as an environment variable for the entire job
+    # This is the correct way for 'flyctl' to automatically authenticate
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      
     steps:
       # 1️⃣ Checkout repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Recommended to use the latest version
 
-      # 2️⃣ Set up Docker (GitHub Actions already has it, but explicit setup is good)
+      # 2️⃣ Set up Docker Buildx (Optional for standard fly deploy, but harmless)
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3 # Recommended to use the latest version
 
       # 3️⃣ Set up Fly CLI
       - name: Install Flyctl
-        uses: superfly/flyctl-actions/setup-flyctl@v1
+        uses: superfly/flyctl-actions/setup-flyctl@v1 # This action is fine
 
-      # 4️⃣ Authenticate Fly.io
-      - name: Authenticate Fly.io
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: flyctl auth token $FLY_API_TOKEN
+      # 4️⃣ ❌ REMOVED: The manual 'flyctl auth token' step is not needed.
 
-      # 5️⃣ Deploy locally built image to Fly.io
+      # 5️⃣ Deploy to Fly.io
       - name: Build & Deploy to Fly.io
+        # Add required environment variables for your application here
         env:
           NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
-        run: flyctl deploy --local-only --image nextapp
+          
+        run: flyctl deploy --remote-only # Use remote builder for speed and reliability
+        # OR:
+        # run: flyctl deploy --local-only --image nextapp --app YOUR_FLY_APP_NAME 
+        # You need to specify --app if not using a fly.toml config that already has it.
