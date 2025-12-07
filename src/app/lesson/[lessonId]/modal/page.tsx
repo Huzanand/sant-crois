@@ -66,7 +66,7 @@ const CreateVRForm = () => {
 
     const handleCopy = async () => {
         await navigator.clipboard.writeText(
-            `sant-crois.vercel.app/rooms/${roomId}`
+            `https://sant-crois.fly.dev/rooms/${roomId}`
         );
     };
 
