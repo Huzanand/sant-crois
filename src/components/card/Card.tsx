@@ -163,7 +163,7 @@ const Card: React.FC<ICard> = ({
                         className={styled.card__image}
                     />
                     {header ? (
-                        <p className={`${styled.card__image_text} headlines-s`}>
+                        <p className={` headlines-s ${styled.card__image_text} `}>
                             {makeFirstLetterUppercase(header)}
                         </p>
                     ) : null}
