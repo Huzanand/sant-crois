@@ -165,7 +165,7 @@ const CreateVRForm = () => {
                                     className={style.input}
                                     type="text"
                                     readOnly
-                                    value={`sant-crois.vercel.app/rooms/${roomId}`}
+                                    value={`https://sant-crois.fly.dev/rooms/${roomId}`}
                                 />
                                 <button
                                     onClick={handleCopy}
