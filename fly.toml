@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'sant-crois'
+app = 'library-fe'
 primary_region = 'ams'
 
 [build]
