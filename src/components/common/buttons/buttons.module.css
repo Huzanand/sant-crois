@@ -1,0 +1,62 @@
+.btn {
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    min-width: 100px;
+    border: none;
+    outline: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.btn:focus-visible {
+    border: none;
+    outline: none;
+}
+
+.buttonPrimary {
+    background-color: var(--Purple-P400);
+    color: var(--Neutral-White);
+}
+
+.buttonPrimary:hover {
+    background-color: var(--Purple-P500);
+}
+
+.buttonPrimary:active {
+    background-color: var(--Purple-P300);
+}
+
+.buttonSecondary {
+    background-color: var(--Neutral-White);
+    border: 2px solid var(--Purple-P400);
+}
+
+.buttonSecondary:hover {
+    border: 2px solid var(--Purple-P500);
+}
+
+.buttonSecondary:active {
+    border: 2px solid var(--Purple-P300);
+}
+
+.buttonText {
+    background-color: transparent;
+    color: var(--Purple-P500);
+}
+
+.buttonText:hover {
+    color: var(--Blue-B500);
+}
+
+.buttonText:active {
+    color: var(--Blue-B400);
+}
+
+.buttonText:disabled {
+    color: var(--Blue-B100);
+}
