@@ -1,0 +1,32 @@
+.optionRadio {
+  position: relative;
+}
+
+.optionRadio label{
+  cursor: pointer;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radioLabel{
+  padding-left: 0.5rem;
+}
+
+.radioCustom {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  margin: 0 auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: var(--Purple-P100) solid 2px;
+  background-color: var(--Neutral_White);
+  cursor: pointer;
+}
