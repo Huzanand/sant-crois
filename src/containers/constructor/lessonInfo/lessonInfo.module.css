@@ -1,0 +1,16 @@
+.wrapper{
+    overflow: hidden;
+    position: relative;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.container_close{
+    display: none;
+}
