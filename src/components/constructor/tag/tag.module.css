@@ -1,0 +1,28 @@
+.container {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5px;
+
+    background-color: var(--Purple-P75);
+    padding: 6px 4.5px;
+    border-radius: 4px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: transparent;
+    border: none;
+}
+
+
+.btn:focus-visible{
+    outline: none;
+}
