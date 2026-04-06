@@ -1,0 +1,23 @@
+.container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding-left: 1.5rem;
+}
+
+.info {
+    width: 279px;
+}
+
+.description {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.input_container {
+    flex: 1;
+}
+

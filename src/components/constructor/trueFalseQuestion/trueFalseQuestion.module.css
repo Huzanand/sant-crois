@@ -1,0 +1,64 @@
+.wrapper{
+    background-color: var(--Purple-P15);
+    padding: 1rem 0.5rem;
+    width: 100%;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.info {
+    width: 303px;
+}
+
+.description {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.addMargin {
+    margin-top: 1.5rem !important;
+}
+
+.input_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.controlBar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.answerContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+}
+
+.newQuestBtn_container {
+    align-self: flex-end;
+}
+
+.newQuestBtn {
+    width: 162px;
+}
