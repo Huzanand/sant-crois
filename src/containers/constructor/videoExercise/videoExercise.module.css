@@ -1,0 +1,30 @@
+.container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.info {
+    width: 303px;
+}
+
+.description {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.input_container {
+    flex: 1;
+}
+
+.input_container__inner {
+    border: 2px solid var(--Purple-P100);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    background: #fdfffe;
+}
