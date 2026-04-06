@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.ico_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+}
+
+.ico {
+    width: 24px;
+    height: 24px;
+}
+
+.trashIco {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    color: #534E79;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trashIco:focus-visible {
+    outline: none;
+}
+
+.trashIco:hover {
+    color: var(--Red-r500);
+    background-color: var(--Rose-R25);
+    border: 1px solid var(--Red-r500);
+    border-radius: 4px;
+}
+
+.trashIco:active {
+    color: var(--Red-600);
+    background-color: var(--Rose-R25);
+    border: 1px solid var(--Red-600);
+    border-radius: 4px;
+}
