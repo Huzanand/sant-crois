@@ -5,7 +5,9 @@
     --neutral-white-10: rgba(255, 255, 255, 0.1);
     --Blue-B500: #231e49;
     --Blue-B400: #3f3a65;
+    --Blue-B100: #6C6698;
     --Rose-R50: #ff7aaa;
+    --Purple-P15: #f7f5ff;
     --Purple-P25: #f3f1ff;
     --Purple-P50: #eae6ff;
     --Purple-P75: #c0b6f2;
@@ -15,9 +17,11 @@
     --Purple-P400: #5243aa;
     --Purple-P500: #403294;
     --Red-r500: #f60000;
-    --Red-r75: #f00000;
+    --Red-600: #ac0000;
     --green-g50: #94f78c;
     --green-g75: #6ccf64;
+    --green-g100: #076200;
+    --Rose-R25: #ffd2de;
 }
 
 .blue-b500 {
@@ -28,8 +32,13 @@
     color: var(--Red-r500) !important;
 }
 
-* {
+.red-r600 {
+    color: var(--Red-600) !important;
+}
+
+*:not(svg):not(path):not(rect):not(circle):not(polyline):not(line) {
     color: var(--Blue-B400);
+    /* color: inherit; */
     font-size: 16px;
     font-family: var(--e-Ukraine);
     margin: 0;
@@ -168,4 +177,16 @@ body {
 
 .fw500 {
     font-weight: 500;
+}
+
+.flex-row {
+    flex-direction: row !important;
+}
+
+.flex-ac {
+    align-items: center !important;
+}
+
+.flex-jcend {
+    justify-content: flex-end !important;;
 }
