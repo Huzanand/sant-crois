@@ -1,7 +1,7 @@
 "use client"
 
 import { getAllLessons, getAllFilters, getLessonById, getRecomendations, postUserAnswers } from "@/api/api"
-import { IAnswer, IData, IFiltersNullable, IState, IStore } from "@/models"
+import { IAnswer, IData, IDraft, IFiltersNullable, IState, IStore } from "@/models"
 import { devtools, persist } from "zustand/middleware"
 import { createStore } from "zustand/vanilla"
 import { getFromLocalStorage, setToLocalStorage } from "./localStorageUtils"
@@ -38,7 +38,25 @@ export const initialState: IState = {
     relatedContents: [],
     homePageContentHeight: 0,
     openInDev: false,
-    resetFiltersIndex: 0
+    resetFiltersIndex: 0,
+
+    // constructor
+
+    draft: {
+        id: crypto.randomUUID(),
+        header: '',
+        author: '',
+        primaryTopics: [],
+        secondaryTopics: [],
+        tags: [],
+        languageLevel: 'A1',
+        targetAgeGroup: 'ADULT',
+        learningLanguage: 'English',
+        coverUrl: null,
+        coverFile: null,
+        exerciseDescriptions: '',
+        tasks: [],
+    },
 }
 
 export const Store = (
@@ -283,8 +301,34 @@ export const Store = (
                             set(() => ({
                                 resetFiltersIndex: resetFiltersIndex + 1
                             }))
-                        }
+                        },
 
+                        // constructor
+
+                        updateConstructorMetadata: (patch) => set((state) => ({
+                            draft: {
+                                ...state.draft,
+                                ...patch
+                            } as IDraft 
+                        })),
+
+                        updateConstructorTask: (taskId, taskPatch) => set((state) => ({
+                            draft: {
+                                ...state.draft,
+                                tasks: state.draft.tasks.map((task) =>
+                                    task.taskId === taskId
+                                        ? { ...task, ...taskPatch }
+                                        : task
+                                )
+                            }
+                        })),
+
+                        addConstructorTask: (newTask) => set((state) => ({
+                            draft: {
+                                ...state.draft,
+                                tasks: [...state.draft.tasks, newTask]
+                            }
+                        })),
 
                     };
                 }, {

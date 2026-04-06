@@ -139,7 +139,10 @@ export interface IState {
     relatedContents: (ICard | null)[],
     homePageContentHeight: number,
     openInDev: boolean,
-    resetFiltersIndex: number
+    resetFiltersIndex: number,
+
+    //costructor
+    draft: IDraft,
 }
 
 export interface IActions {
@@ -181,6 +184,12 @@ export interface IActions {
     clearFilters: () => void;
     setOpenInDev: (newState: boolean) => void,
     resetFilters: () => void;
+
+    //constructor
+
+    updateConstructorMetadata: (patch: Partial<IDraft>) => void;
+    updateConstructorTask: (taskId: string, taskPatch: Partial<IDraftTaskData>) => void;
+    addConstructorTask: (newTask: IDraftTaskData) => void;
 }
 
 export interface IStore extends IState, IActions { }
@@ -219,4 +228,47 @@ export interface ICard {
 export interface IAnswerChoose {
     questionId: string;
     selectedOption: string | null;
+}
+
+
+//constructor
+
+export interface IDraft {
+    id: string,
+    author: string;
+    primaryTopics: string[];
+    secondaryTopics?: string[];
+    tags: string[];
+    languageLevel: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+    targetAgeGroup: 'ADULT' | 'KIDS';
+    learningLanguage: string;
+    coverUrl: string | null;
+    coverFile: File | null;
+    exerciseDescriptions: string;
+    header: string;
+    tasks: IDraftTaskData[];
+
+}
+
+export interface IDraftTaskData {
+    taskId: string;
+    taskType: 'CHOOSE_ANSWER' | 'TRUE_FALSE' | 'MEDIA_TASK';
+    taskDescriptions: ITaskDescriptions;
+    content?: IDraftContent | null;
+    questions?: IDraftQuestion[] | null;
+}
+
+export interface IDraftContent {
+    contentType: 'AUDIO' | 'VIDEO' | 'TEXT' | 'CHOOSE_TEMPLATE' | 'FILL_TEMPLATE';
+    transcription?: string;
+    contentSource: string;
+    contentFile?: File | string | null;
+}
+
+export interface IDraftQuestion {
+    questionId: string;
+    questionText?: string;
+    options?: string[] | null;
+    questionDescription?: string | null;
+    rightAnswers?: string[],
 }
