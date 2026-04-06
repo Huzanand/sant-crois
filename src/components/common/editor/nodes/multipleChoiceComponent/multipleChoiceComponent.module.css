@@ -1,0 +1,25 @@
+.container {
+  display: inline-block;
+  margin: 0 0.25rem;
+  vertical-align: middle;
+}
+
+.button {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--indigo-600, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.studentSelect {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
