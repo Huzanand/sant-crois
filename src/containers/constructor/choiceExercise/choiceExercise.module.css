@@ -1,0 +1,14 @@
+.question_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.newQuestBtn_container {
+    align-self: flex-end;
+}
+
+.newQuestBtn {
+    width: 230px;
+}
