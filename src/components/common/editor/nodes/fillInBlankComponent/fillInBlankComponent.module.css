@@ -1,0 +1,39 @@
+.container {
+  display: inline-block;
+  position: relative;
+  margin: 0 0.25rem;
+  vertical-align: middle;
+}
+
+.container:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.button {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--indigo-600, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--indigo-700, #4338ca);
+}
+
+.studentInput {
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.studentInput:focus {
+  outline: 2px solid var(--indigo-500, #6366f1);
+  border-color: transparent;
+}
