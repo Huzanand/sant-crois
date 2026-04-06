@@ -50,7 +50,7 @@ const TaskOption: React.FC<taskProps> = ({ number, id, title, onDelete }) => {
             <div className={styles.ico_container}>
                 <button
                     className={`${styles.ico} ${styles.trashIco}`}
-                    onPointerDown={(e) => e.stopPropagation()} // Stop drag from taking over
+                    onPointerDown={(e) => e.stopPropagation()} 
                     onClick={(e) => {
                         e.stopPropagation();
                         onDelete(id);
