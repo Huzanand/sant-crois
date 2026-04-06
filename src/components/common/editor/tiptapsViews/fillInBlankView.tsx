@@ -66,7 +66,7 @@ export const FillInBlankView = ({ handleActionBtn, actionBtnActive, resetForm, a
                         <ButtonSecondary><span className='buttons-l blue-b500'>Cancel</span></ButtonSecondary>
                     </div>
                     <div style={{ width: '100px' }} onClick={handleSave}>
-                        <ButtonPrimary title='Save' />
+                        <ButtonPrimary><span className='buttons-l' style={{color: '#fff'}}>Save</span></ButtonPrimary>
                     </div>
                 </div>
             </div>
