@@ -1,0 +1,83 @@
+
+
+.input_wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.input_container {
+    background-color: var(--Neutral-White);
+    border: 2px solid var(--Purple-P75);
+    border-radius: 10px;
+    padding: 12.63px 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex: 1;
+}
+
+.input {
+    flex: 1;
+    border: none;
+}
+
+.input::placeholder {
+    color: var(--Purple-P200);
+}
+
+.input:hover {
+    border: none;
+    background-color: none;
+}
+
+.input:focus {
+    outline: none;
+    border: none;
+}
+
+.input:not(:placeholder-shown) {
+    border: none;
+}
+
+.tagsList_container {
+    position: absolute;
+    z-index: 3;
+    overflow-y: scroll;
+
+    display: none;
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+
+    border-radius: 10px;
+    background-color: var(--Neutral-White);
+    box-shadow: 0 4px 12px 0 rgba(163, 148, 205, 0.34);
+}
+
+.openTagList {
+    display: block;
+}
+
+/* .tagsList {} */
+
+.tagsList_item {
+    padding: 9px 12px;
+}
+
+.listbtn {
+    padding: 8.8px 12px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.listbtn:hover {
+    background-color: var(--Purple-P15);
+}
+
+.listbtn:active {
+    background-color: var(--Purple-P50);
+}
