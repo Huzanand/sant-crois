@@ -1,0 +1,53 @@
+.navBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 168px;
+}
+
+.navBlock_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    border-radius: 4px;
+
+}
+
+.arrowUp {
+    transform: rotate(180deg);
+}
+
+.trashIco {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    color: #534E79;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trashIco:focus-visible {
+    outline: none;
+}
+
+.trashIco:hover {
+    color: var(--Red-r500);
+    background-color: var(--Rose-R25);
+    border: 1px solid var(--Red-r500);
+    border-radius: 4px;
+}
+
+.trashIco:active {
+    color: var(--Red-600);
+    background-color: var(--Rose-R25);
+    border: 1px solid var(--Red-600);
+    border-radius: 4px;
+}
