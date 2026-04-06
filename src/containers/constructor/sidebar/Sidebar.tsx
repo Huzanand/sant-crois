@@ -10,13 +10,13 @@ import TaskList from "../taskList/TaskList"
 const Sidebar = () => (
     <div className={styles.container}>
         <Logo />
-        <div className={styles.btnBack_container}>
+        {/* <div className={styles.btnBack_container}>
             <button className={`buttons-l b-500`}>All my lessons
                 <div style={{ display: "inline-flex", alignItems: 'center', justifyContent: 'center', transform: 'rotate(270deg)' }}>
                     <ArrowDownIco />
                 </div>
             </button>
-        </div>
+        </div> */}
 
         <Divider />
 
@@ -28,7 +28,7 @@ const Sidebar = () => (
 
         <div className={styles.btn_container}>
             <ButtonSecondary ><span className="buttons-l blue-b500">Preview</span></ButtonSecondary>
-            <ButtonSecondary ><span className="buttons-l blue-b500">Save draft</span></ButtonSecondary>
+            {/* <ButtonSecondary ><span className="buttons-l blue-b500">Save draft</span></ButtonSecondary> */}
             <ButtonPrimary><span className='buttons-l' style={{color: '#fff'}}>Publish lesson</span></ButtonPrimary>
         </div>
 
