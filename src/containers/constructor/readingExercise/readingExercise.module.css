@@ -1,0 +1,198 @@
+.container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.info {
+    width: 303px;
+}
+
+.addMargin {
+    margin-top: 1.5rem !important;
+}
+
+.description {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.input_container {
+    flex: 1;
+}
+
+.input_container__inner {
+    border: 2px solid var(--Purple-P100);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    background: #fdfffe;
+}
+
+
+
+.actionBtn_container {
+    width: fit-content;
+}
+
+.actionBtn {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 4px 12px;
+    width: 100%;
+    width: 260px;
+
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P300);
+    background: var(--Neutral-White);
+}
+
+.actionBtn_title {
+    color: var(--Blue-B500);
+    flex: 1;
+    text-align: center;
+}
+
+.arrow_default {
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+
+.arrow_active {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
+
+.actionBtn_expanded {
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+
+    width: 100%;
+    padding: 1rem;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 12px 0 rgba(163, 148, 205, 0.34);
+    background: var(--Neutral-White);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s;
+}
+
+.popover_open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popover_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popover_closeM {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    border: 0;
+    background-color: transparent;
+}
+
+.popover_content p{
+    margin-bottom: 0.5rem;
+}
+
+.popover_btnContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.tooltip {
+    position: relative;
+    width: 100%;
+}
+
+.tooltip_btn {
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    z-index: 10;
+}
+
+.tooltip_expanded {
+    position: absolute;
+    z-index: 9;
+
+    top: -9px;
+    left: -9px;
+
+    padding: 8px 8px 8px 38px;
+    border: 1px solid var(--Purple-P200);
+    border-radius: 10px;
+    background: var(--Purple-P15);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s;
+}
+
+.tooltip_btn:hover+.tooltip_expanded {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.textarea {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+
+    transition: all 0.2s ease;
+    margin: 1rem 0;
+    resize: vertical;
+
+    resize: none;
+    overflow-y: hidden;
+}
+
+.textarea:focus {
+    outline: none;
+    color: var(--Blue-B500);
+    border: none;
+}
+
+.textarea::placeholder {
+    color: var(--Purple-P200);
+}
+
+.textarea:not(:placeholder-shown) {
+    border: none;
+}
