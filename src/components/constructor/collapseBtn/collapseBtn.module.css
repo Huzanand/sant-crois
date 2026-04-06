@@ -1,0 +1,36 @@
+.btn {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 187px;
+    min-width: 187px;
+
+    border-radius: 3px;
+    border: none;
+    background: var(--Neutral-White);
+
+
+}
+
+.btn_title {
+    color: var(--Purple-P500);
+
+    flex: 1;
+    text-align: center;
+}
+
+.arrow_default {
+    color: var(--Purple-P500);
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+
+.arrow_active {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
