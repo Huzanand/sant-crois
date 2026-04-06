@@ -5,7 +5,8 @@
 // SortingIco, ShowAllIco, BageTrueIco, BageFalseIco,
 // IncorrectIco, CorrectIco, LearningLanguageIco, InterfaceLanguageIco,
 // LanguageLevelIco, FilterIco, CaruselArrowRightIco, CaruselArrowLeftIco
-// CloseModalIco, CopyIco
+// CloseModalIco, CopyIco, TrashCanIco, CrossIco, UploadIco, CheckMarkIco
+// FileIco, CrossBorderedIco, RadioBtn, RadioBtnChecked, AddBtnIco, DndIco
 
 export const ArrowDownIco = ({ fill = "#231E49" }) => (
     <svg
@@ -757,3 +758,73 @@ export const CopyIco = ({ className }: { className?: string }) => (
         />
     </svg>
 );
+
+export const TrashCanIco = ({ fill = "currentColor" }) => (
+    <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 3.98732C11.78 3.76732 9.54667 3.65398 7.32 3.65398C6 3.65398 4.68 3.72065 3.36 3.85398L2 3.98732M5.66667 3.31398L5.81333 2.44065C5.92 1.80732 6 1.33398 7.12667 1.33398H8.87333C10 1.33398 10.0867 1.83398 10.1867 2.44732L10.3333 3.31398M12.5667 6.09398L12.1333 12.8073C12.06 13.854 12 14.6673 10.14 14.6673H5.86C4 14.6673 3.94 13.854 3.86667 12.8073L3.43333 6.09398M6.88667 11.0007H9.10667M6.33333 8.33398H9.66667" stroke={fill} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+export const CrossIco = () => (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 10L10 4M10 10L4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+export const UploadIco = ({ fill = '#231E49' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 11.51L12 14.51M12 14.51L15 11.51M12 14.51V6.50998M6 16.51C9.89 17.81 14.11 17.81 18 16.51M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke={fill} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
+
+export const CheckMarkIco = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.75 12L10.58 14.83L16.25 9.17M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
+
+export const FileIco = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 13.4V16.4C17 20.4 15.4 22 11.4 22H7.6C3.6 22 2 20.4 2 16.4V12.6C2 8.6 3.6 7 7.6 7H10.6M17 13.4H13.8C11.4 13.4 10.6 12.6 10.6 10.2V7M17 13.4L10.6 7M11.6 2H15.6M7 5C7 3.34 8.34 2 10 2H12.62M22 8V14.19C22 15.74 20.74 17 19.19 17M22 8H19C16.75 8 16 7.25 16 5V2L22 8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
+
+export const CrossBorderedIco = () => (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.17 13.83L13.83 8.17M13.83 13.83L8.17 8.17M8 21H14C19 21 21 19 21 14V8C21 3 19 1 14 1H8C3 1 1 3 1 8V14C1 19 3 21 8 21Z" stroke="#534E79" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
+
+export const RadioBtnChecked = () => (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="12" height="12" fill="white" fillOpacity="0.01" />
+        <circle cx="6" cy="6" r="6" fill="#8777D9" />
+        <circle cx="5.99944" cy="5.99944" r="1.71429" fill="white" />
+    </svg>
+)
+
+export const RadioBtn = () => (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="11" height="11" stroke="white" strokeOpacity="0.01" />
+        <circle cx="6" cy="6" r="5" stroke="#5243AA" strokeWidth="2" />
+    </svg>
+)
+
+export const AddBtnIco = () => (
+    < svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" >
+        <path d="M6.75 10.75H14.75M10.75 14.75V6.75M7.75 20.75H13.75C18.75 20.75 20.75 18.75 20.75 13.75V7.75C20.75 2.75 18.75 0.75 13.75 0.75H7.75C2.75 0.75 0.75 2.75 0.75 7.75V13.75C0.75 18.75 2.75 20.75 7.75 20.75Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg >
+
+)
+
+
+export const DndIco = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.5 13.5C16.3284 13.5 17 12.8284 17 12C17 11.1716 16.3284 10.5 15.5 10.5C14.6716 10.5 14 11.1716 14 12C14 12.8284 14.6716 13.5 15.5 13.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.5 13.5C9.32843 13.5 10 12.8284 10 12C10 11.1716 9.32843 10.5 8.5 10.5C7.67158 10.5 7 11.1716 7 12C7 12.8284 7.67158 13.5 8.5 13.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15.5 20.5C16.3284 20.5 17 19.8284 17 19C17 18.1716 16.3284 17.5 15.5 17.5C14.6716 17.5 14 18.1716 14 19C14 19.8284 14.6716 20.5 15.5 20.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15.5 6.5C16.3284 6.5 17 5.82843 17 5C17 4.17157 16.3284 3.5 15.5 3.5C14.6716 3.5 14 4.17157 14 5C14 5.82843 14.6716 6.5 15.5 6.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.5 20.5C9.32843 20.5 10 19.8284 10 19C10 18.1716 9.32843 17.5 8.5 17.5C7.67158 17.5 7 18.1716 7 19C7 19.8284 7.67158 20.5 8.5 20.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.5 6.5C9.32843 6.5 10 5.82843 10 5C10 4.17157 9.32843 3.5 8.5 3.5C7.67158 3.5 7 4.17157 7 5C7 5.82843 7.67158 6.5 8.5 6.5Z" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
