@@ -1,0 +1,206 @@
+.editorContainer {
+    position: relative;
+}
+
+.editorContainer :global(.ProseMirror) {
+    min-height: 150px;
+    outline: none;
+}
+
+.editorContainer :global(.ProseMirror p) {
+    color: var(--Blue-B500);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 165%;
+}
+
+.editorContainer :global(.ProseMirror-focused) {
+    border: none;
+}
+
+.actionBtn_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    position: relative;
+}
+
+.actionBtn {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 4px 12px;
+    width: 100%;
+    max-width: 260px;
+
+    border-radius: 10px;
+    border: 2px solid var(--Purple-P300);
+    background: var(--Neutral-White);
+}
+
+.actionBtn_title {
+    color: var(--Blue-B500);
+    flex: 1;
+    text-align: center;
+}
+
+.arrow_default {
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+
+.arrow_active {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
+
+.actionBtn_expanded {
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+
+    width: 100%;
+    padding: 1rem;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 12px 0 rgba(163, 148, 205, 0.34);
+    background: var(--Neutral-White);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s;
+}
+
+.popover_open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popover_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popover_closeM {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    border: 0;
+    background-color: transparent;
+}
+
+.popover_content p {
+    margin-bottom: 0.5rem;
+}
+
+.popover_btnContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.tooltip {
+    position: relative;
+    width: 100%;
+    max-width: 50%;
+}
+
+.tooltip_btn {
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    z-index: 10;
+}
+
+.tooltip_expanded {
+    position: absolute;
+    z-index: 9;
+
+    top: -9px;
+    left: -9px;
+
+    padding: 8px 8px 8px 38px;
+    border: 1px solid var(--Purple-P200);
+    border-radius: 10px;
+    background: var(--Purple-P15);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s;
+}
+
+.tooltip_btn:hover+.tooltip_expanded {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.optionsListStack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.dynamicInputRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.inputFlex {
+    flex: 1;
+}
+
+.deleteIconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.deleteIconButton:hover {
+    opacity: 1;
+    color: #ef4444;
+}
+
+.addMoreWrapper {
+    margin-top: 16px;
+    padding-left: 4px;
+} 
+
+.addMoreWrapper button{
+    text-align: right;
+}
+
