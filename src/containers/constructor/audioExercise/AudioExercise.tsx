@@ -5,28 +5,25 @@ import { useEffect, useState } from 'react';
 import { UploadInputWithBtn } from '../../../components/constructor/uploadInputWithBtn/UploadInputWithBtn';
 import TiptapEditor from '@/components/common/editor/TiptapEditor';
 import { loadPersistedFile, persistFile } from '@/store/fileStorage';
-import { useOwnStore } from '@/store/storeProvider';
 
 
-const AudioExercise = ({ onUpdate, value = '', setValue, initialContent, id, file, setFile }: {
+const AudioExercise = ({ onUpdate, value = '', setValue, initialContent, taskId, draftId, file, setFile }: {
     onUpdate?: (data: any) => void,
     initialContent?: any,
     value?: string,
     setValue?: (val: string) => void,
-    id?: string,
+    taskId: string,
+    draftId: string,
     file?: File,
-    setFile?: (file: File) => void
+    setFile?: (file: File| Blob) => void
 }) => {
 
-    const draft = useOwnStore(state => state.draft)
-
     const [isRehydrated, setIsRehydrated] = useState(false);
-    const fileId = `${draft.id}_${id}`
 
     /// 1. UPDATE
     useEffect(() => {
         const init = async () => {
-            const savedFile = await loadPersistedFile(fileId, 'audio');
+            const savedFile = await loadPersistedFile(draftId, taskId, 'audio');
 
             if (setFile && savedFile) {
                 setFile(savedFile);
@@ -34,16 +31,16 @@ const AudioExercise = ({ onUpdate, value = '', setValue, initialContent, id, fil
             setIsRehydrated(true);
         };
         init();
-    }, [fileId]);
+    }, [taskId]);
 
     // 2. SAVE
     useEffect(() => {
-        if (!isRehydrated || !fileId) return;
+        if (!isRehydrated || !taskId) return;
 
         if (file instanceof File || file === null) {
-            persistFile(fileId, 'audio', file);
+            persistFile(draftId, taskId, 'audio', file);
         }
-    }, [file, fileId, isRehydrated]);
+    }, [file, taskId, isRehydrated]);
 
     // End audio hadlers
 
