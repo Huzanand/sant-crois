@@ -13,7 +13,7 @@ interface props {
 
 export const UploadInputWithBtn = ({ type, url, setUrl, file, setFile }: props) => {
 
-    const inputId = `file-upload-${type}`;
+    const inputId = `file-upload-${type}-${file?.name}`;
 
 
     const isUsingLink = !!(url && url.length > 0 && !file);
