@@ -9,10 +9,10 @@ import TrueFalseQuestion from "@/components/constructor/trueFalseQuestion/TrueFa
 
 interface props {
     type: 'CHOOSE_ANSWER' | 'TRUE_FALSE';
-    id?: string
+    taskId?: string
 }
 
-const ChoiceExercise = ({ type, id: taskId }: props) => {
+const ChoiceExercise = ({ type, taskId }: props) => {
 
 
     const draft = useOwnStore(state => state.draft)
