@@ -33,7 +33,7 @@
 
 .buttonSecondary {
     background-color: var(--Neutral-White);
-    border: 2px solid var(--Purple-P400);
+    border: 2px solid var(--Purple-P400) !important;
 }
 
 .buttonSecondary:hover {
