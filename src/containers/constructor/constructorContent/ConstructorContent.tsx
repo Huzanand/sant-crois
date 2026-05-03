@@ -11,7 +11,7 @@ import ChoiceExercise from "../choiceExercise/ChoiceExercise"
 import { useOwnStore } from "@/store/storeProvider"
 import { useEffect } from "react"
 import { cleanOrphanedFiles } from "@/store/fileStorage"
-import { ITaskData } from "@/models"
+import { IDraftTaskData } from "@/models"
 
 const ConstructorContent = () => {
     const draft = useOwnStore(state => state.draft)
@@ -23,7 +23,7 @@ const ConstructorContent = () => {
     }, []);
 
 
-    const renderTasks = (tasks: ITaskData[]) => {
+    const renderTasks = (tasks: IDraftTaskData[]) => {
         if (!tasks) return null;
 
         return (
@@ -34,31 +34,31 @@ const ConstructorContent = () => {
                             switch (task.content?.contentType) {
                                 case "TEXT":
                                     return (
-                                        <ExersiceContainer title="Reading type" exerciseType="TEXT" id={task.taskId} key={task.taskId}>
+                                        <ExersiceContainer title="Reading type" exerciseType="TEXT" draftId={draft.id} taskId={task.taskId} key={task.taskId}>
                                             <ReadingExercise />
                                         </ExersiceContainer>
                                     );
                                 case "VIDEO":
                                     return (
-                                        <ExersiceContainer title="Video Exercise" exerciseType='VIDEO' id={task.taskId} key={task.taskId}>
+                                        <ExersiceContainer title="Video Exercise" exerciseType='VIDEO' draftId={draft.id} taskId={task.taskId} key={task.taskId}>
                                             <VideoExercise />
                                         </ExersiceContainer>
                                     );
                                 case "AUDIO":
                                     return (
-                                        <ExersiceContainer title="Audio Exercise" exerciseType="AUDIO" id={task.taskId} key={task.taskId}>
-                                            <AudioExercise id={task.taskId} />
+                                        <ExersiceContainer title="Audio Exercise" exerciseType="AUDIO" draftId={draft.id} taskId={task.taskId} key={task.taskId}>
+                                            <AudioExercise draftId={draft.id} taskId={task.taskId} />
                                         </ExersiceContainer>
                                     );
                                 case "FILL_TEMPLATE":
                                     return (
-                                        <ExersiceContainer title="Fill in blancs" exerciseType="FILL_TEMPLATE" id={task.taskId} key={task.taskId}>
+                                        <ExersiceContainer title="Fill in blancs" exerciseType="FILL_TEMPLATE" draftId={draft.id} taskId={task.taskId} key={task.taskId}>
                                             <FillInBlankExercise />
                                         </ExersiceContainer>
                                     );
                                 case "CHOOSE_TEMPLATE":
                                     return (
-                                        <ExersiceContainer title="Select from options" exerciseType="CHOOSE_TEMPLATE" id={task.taskId} key={task.taskId}>
+                                        <ExersiceContainer title="Select from options" exerciseType="CHOOSE_TEMPLATE" draftId={draft.id} taskId={task.taskId} key={task.taskId}>
                                             <MultipleChoiceExercise />
                                         </ExersiceContainer>
                                     );
@@ -68,14 +68,14 @@ const ConstructorContent = () => {
 
                         case "CHOOSE_ANSWER":
                             return (
-                                <ExersiceContainer title="Multiple Choice" exerciseType="CHOOSE_ANSWER" id={task.taskId} key={task.taskId}>
-                                    <ChoiceExercise type="CHOOSE_ANSWER" id={task.taskId} />
+                                <ExersiceContainer title="Multiple Choice" exerciseType="CHOOSE_ANSWER" draftId={draft.id} taskId={task.taskId} key={task.taskId}>
+                                    <ChoiceExercise type="CHOOSE_ANSWER" taskId={task.taskId} />
                                 </ExersiceContainer>
                             );
                         case "TRUE_FALSE":
                             return (
-                                <ExersiceContainer title="True/False Questions" exerciseType='TRUE_FALSE' id={task.taskId} key={task.taskId}>
-                                    <ChoiceExercise type='TRUE_FALSE' id={task.taskId} />
+                                <ExersiceContainer title="True/False Questions" exerciseType='TRUE_FALSE' draftId={draft.id} taskId={task.taskId} key={task.taskId}>
+                                    <ChoiceExercise type='TRUE_FALSE' taskId={task.taskId} />
                                 </ExersiceContainer>
                             );
                         default:
