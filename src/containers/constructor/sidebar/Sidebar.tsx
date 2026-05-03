@@ -6,8 +6,9 @@ import NewExerciseDropdown from "@/components/constructor/newTaskDropdown/NewExe
 import { ButtonPrimary } from "@/components/common/buttons/ButtonPrimary"
 import { ButtonSecondary } from "@/components/common/buttons/ButtonSecondary"
 import TaskList from "../taskList/TaskList"
+import { boolean } from "zod"
 
-const Sidebar = () => (
+const Sidebar = ({ onPreviewToggle, isPreview }: {onPreviewToggle: () => void, isPreview: boolean }) => (
     <div className={styles.container}>
         <Logo />
         {/* <div className={styles.btnBack_container}>
@@ -27,9 +28,13 @@ const Sidebar = () => (
         <Divider margin="2rem 0" />
 
         <div className={styles.btn_container}>
-            <ButtonSecondary ><span className="buttons-l blue-b500">Preview</span></ButtonSecondary>
+            <ButtonSecondary onClick={onPreviewToggle}>
+                <span className="buttons-l blue-b500">
+                    {isPreview ? "Back to Edit" : "Preview"}
+                </span>
+            </ButtonSecondary>
             {/* <ButtonSecondary ><span className="buttons-l blue-b500">Save draft</span></ButtonSecondary> */}
-            <ButtonPrimary><span className='buttons-l' style={{color: '#fff'}}>Publish lesson</span></ButtonPrimary>
+            <ButtonPrimary><span className='buttons-l' style={{ color: '#fff' }}>Publish lesson</span></ButtonPrimary>
         </div>
 
     </div>
