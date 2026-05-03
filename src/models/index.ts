@@ -243,7 +243,7 @@ export interface IDraft {
     targetAgeGroup: 'ADULT' | 'KIDS';
     learningLanguage: string;
     coverUrl: string | null;
-    coverFile: File | null;
+    coverFile: File| Blob | null;
     exerciseDescriptions: string;
     header: string;
     tasks: IDraftTaskData[];
@@ -260,8 +260,8 @@ export interface IDraftTaskData {
 
 export interface IDraftContent {
     contentType: 'AUDIO' | 'VIDEO' | 'TEXT' | 'CHOOSE_TEMPLATE' | 'FILL_TEMPLATE';
-    transcription?: string;
-    contentSource: string;
+    transcription?: JSON | null;
+    contentSource: string | JSON;
     contentFile?: File | string | null;
 }
 
