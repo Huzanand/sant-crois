@@ -1,7 +1,7 @@
 "use client";
 
-import { IAnswer, ITaskData } from "@/models";
 import styles from "./trueFalseTask.module.css";
+import { IAnswer, ITaskData } from "@/models";
 import { useOwnStore } from "@/store/storeProvider";
 import { useEffect } from "react";
 import { useLanguageSync } from "@/utils/useLanguage";
@@ -10,9 +10,10 @@ type propsTypes = {
     taskData: ITaskData;
     index: number;
     readonly?: boolean;
+    isDraftPreview?: boolean
 };
 
-const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
+const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index, readonly, isDraftPreview }) => {
     const { setUserAnswers, userAnswers, selectedInterfaceLanguage } =
         useOwnStore((state) => state);
 
@@ -44,7 +45,7 @@ const TrueFalseTask: React.FC<propsTypes> = ({ taskData, index, readonly }) => {
     };
 
     useEffect(() => {
-        if (!userAnswers.some((answer) => answer.taskId === taskData.taskId))
+        if (!userAnswers.some((answer) => answer.taskId === taskData.taskId) && !isDraftPreview)
             initUserAnswers();
     });
 
