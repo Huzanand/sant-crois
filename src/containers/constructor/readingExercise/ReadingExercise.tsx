@@ -15,7 +15,11 @@ const ReadingExercise = ({ onUpdate, initialContent }: { onUpdate?: (json: any) 
 
             <div className={styles.input_container}>
                 <div className={styles.input_container__inner}>
-                    <TiptapEditor editorMode='TEXT' initialContent={initialContent} onUpdate={(html: string, json: any) => onUpdate?.(json)} />
+                    <TiptapEditor
+                        editorMode='TEXT'
+                        initialContent={initialContent}
+                        onUpdate={(html: string, json: any) => onUpdate?.(json)}
+                    />
                 </div>
             </div>
         </div>
