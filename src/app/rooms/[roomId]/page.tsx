@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { useEffect } from "react";
 import { useOwnStore } from "@/store/storeProvider";
-import { RenderTasks } from "@/utils/RenderTasks";
+import { RenderTasks } from "@/utils/LessonRenderTasks";
 import { RenderHeaderOfLesson } from "@/utils/renderHeaderOfLesson/RenderHeaderOfLesson";
 import { IAnswer, ICheckAnswers, IQuestion, IVirtualRoom } from "@/models";
 import RoomInfo from "@/components/roomInfo/RoomInfo";

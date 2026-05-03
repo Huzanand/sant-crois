@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 import LessonInfo from "@/components/lessonInfo/LessonInfo";
 import { useRouter } from "next/navigation";
 import { useLanguageSync } from "@/utils/useLanguage";
-import { RenderTasks } from "@/utils/RenderTasks";
+import { RenderTasks } from "@/utils/LessonRenderTasks";
 import { RenderHeaderOfLesson } from "@/utils/renderHeaderOfLesson/RenderHeaderOfLesson";
 import InDev from "@/components/inDev/InDev";
 import { interceptorsStore } from "@/store/interceptorsStore";
