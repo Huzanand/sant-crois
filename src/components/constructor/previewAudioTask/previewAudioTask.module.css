@@ -1,0 +1,12 @@
+.audio {
+    width: 100%;
+}
+
+.tiptap_content {
+    line-height: 200%; 
+}
+
+
+.tiptap_content:focus {
+    outline: none;
+}
