@@ -10,7 +10,7 @@ import { Textarea } from "@/components/constructor/textarea/Textarea";
 import { CollapseBtn } from "@/components/constructor/collapseBtn/CollapseBtn";
 import { useEffect, useState } from "react";
 import { useOwnStore } from "@/store/storeProvider";
-import { loadPersistedFile, persistFile } from "@/store/fileStorage";
+import { loadPersistedCover, loadPersistedFile, persistCover, persistFile } from "@/store/fileStorage";
 
 const LessonInfo = () => {
 
@@ -48,13 +48,11 @@ const LessonInfo = () => {
     /// 1. UPDATE
     useEffect(() => {
         const init = async () => {
-            // if (draft.id && !draft.coverFile) {
-            const savedFile = await loadPersistedFile(draft.id, 'cover');
+            const savedFile = await loadPersistedCover(draft.id);
 
             if (savedFile) {
                 updateConstructorMetadata({ coverFile: savedFile });
             }
-            // }
             setIsRehydrated(true);
         };
         init();
@@ -65,7 +63,7 @@ const LessonInfo = () => {
         if (!isRehydrated || !draft.id) return;
 
         if (draft.coverFile instanceof File || draft.coverFile === null) {
-            persistFile(draft.id, 'cover', draft.coverFile);
+            persistCover(draft.id, draft.coverFile);
         }
     }, [draft.coverFile, draft.id, isRehydrated]);
 
@@ -102,7 +100,7 @@ const LessonInfo = () => {
                             type="image"
                             url={draft.coverUrl === null ? '' : draft.coverUrl}
                             setUrl={(url) => updateConstructorMetadata({ coverUrl: url })}
-                            file={draft.coverFile}
+                            file={draft.coverFile as File}
                             setFile={(file) => updateConstructorMetadata({ coverFile: file })}
                         />
                     </div>

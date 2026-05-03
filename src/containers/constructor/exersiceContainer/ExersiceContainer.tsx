@@ -13,10 +13,11 @@ interface props {
     title: string,
     children: React.ReactNode,
     exerciseType: 'TEXT' | 'FILL_TEMPLATE' | 'CHOOSE_TEMPLATE' | 'VIDEO' | 'AUDIO' | 'TRUE_FALSE' | 'CHOOSE_ANSWER';
-    id: string
+    taskId: string;
+    draftId: string
 }
 
-const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, id }) => {
+const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, draftId, taskId }) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const [descriptionText, setDescriptionText] = useState<string>('');
@@ -28,49 +29,53 @@ const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, id 
     const { updateConstructorMetadata } = useOwnStore(state => state)
 
     useEffect(() => {
-        const task = draft.tasks.find((t) => id === t.taskId);
+        const task = draft.tasks.find((t) => taskId === t.taskId);
         if (!task) return;
 
         setDescriptionText(task.taskDescriptions?.["English"] || "");
 
         if (task.taskType === "MEDIA_TASK" && task.content) {
             if (['VIDEO', 'AUDIO'].includes(task.content.contentType)) {
-                setExerciseVal(task.content.contentSource || "");
+                setExerciseVal(task.content.contentSource as string || "");
                 setEditorContent(task.content.transcription || null);
             } else {
-                setEditorContent(task.content.transcription || null);
                 setExerciseVal("");
+                setEditorContent(task.content.contentSource || null);
             }
-        }
-
-        else if (['TRUE_FALSE', 'CHOOSE_ANSWER'].includes(task.taskType)) {
-            setEditorContent(task.content?.transcription || null);
+        } else if (['TRUE_FALSE', 'CHOOSE_ANSWER'].includes(task.taskType)) {
             setExerciseVal("");
+            setEditorContent(task.content?.transcription || null);
         }
 
-    }, [id, draft.tasks]);
+    }, [taskId, draft.tasks]);
 
     const handleOpen = () => {
         setIsOpen(!isOpen);
     }
 
     const handleSaveAll = () => {
+        const task = draft.tasks.find((t) => taskId === t.taskId);
+        if (!task) return;
+
+        const isMediaTask = ['TEXT', 'FILL_TEMPLATE', 'CHOOSE_TEMPLATE', 'VIDEO', 'AUDIO'].includes(exerciseType);
+        const isTextInTranscriptions = ['VIDEO', 'AUDIO'].includes(exerciseType);
+
+        const taskType = isMediaTask ? "MEDIA_TASK" : exerciseType;
+
         const baseTask = {
-            taskId: id,
-            taskType: "MEDIA_TASK" as const,
+            ...task,
+            taskId: taskId,
+            taskType: taskType as any,
             taskDescriptions: {
                 English: descriptionText,
                 German: "",
                 Russian: ""
             },
-            questions: null
         };
 
         let newTask;
 
-        const isMediaTask = ['TEXT', 'FILL_TEMPLATE', 'CHOOSE_TEMPLATE', 'VIDEO', 'AUDIO'].includes(exerciseType);
-
-        if (isMediaTask) {
+        if (isMediaTask && isTextInTranscriptions) {
             newTask = {
                 ...baseTask,
                 content: {
@@ -78,26 +83,30 @@ const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, id 
                     transcription: editorContent,
                     contentSource: exerciseVal,
                     contentFile: exerciseFile ? exerciseFile : null,
-                }
+                },
+            };
+        } else if (isMediaTask && !isTextInTranscriptions) {
+            newTask = {
+                ...baseTask,
+                content: {
+                    contentType: exerciseType as any,
+                    transcription: null,
+                    contentSource: editorContent,
+                    contentFile: null,
+                },
             };
         } else {
             newTask = {
                 ...baseTask,
-                content: null
+                content: task.content ? { ...task.content, transcription: editorContent } : null,
             };
         }
 
-        const existingTasks = [...draft.tasks];
-        const taskIndex = existingTasks.findIndex(t => t.taskId === id);
-
-        const updatedTasks = taskIndex > -1
-            ? existingTasks.map((t, i) => i === taskIndex ? newTask : t)
-            : [...existingTasks, newTask];
+        const updatedTasks = draft.tasks.map(t => t.taskId === taskId ? newTask : t);
 
         updateConstructorMetadata({
             tasks: updatedTasks
         });
-
     };
 
     const childrenWithProps = React.Children.map(children, child => {
@@ -105,7 +114,8 @@ const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, id 
             return React.cloneElement(child as React.ReactElement<any>, {
                 onUpdate: (data: any) => setEditorContent(data),
                 initialContent: editorContent,
-                id: id,
+                draftId: draftId,
+                id: taskId,
                 value: exerciseVal,
                 setValue: setExerciseVal,
                 file: exerciseFile,
@@ -153,7 +163,7 @@ const ExersiceContainer: React.FC<props> = ({ title, children, exerciseType, id 
                                 <CollapseBtn handleClick={handleOpen} open={isOpen} />
                             </div>
                             <div className={styles.buttonContainer} onClick={handleSaveAll}>
-                                <ButtonPrimary><span className='buttons-l' style={{color: '#fff'}}>Save</span></ButtonPrimary>
+                                <ButtonPrimary><span className='buttons-l' style={{ color: '#fff' }}>Save</span></ButtonPrimary>
                             </div>
 
                         </div>
