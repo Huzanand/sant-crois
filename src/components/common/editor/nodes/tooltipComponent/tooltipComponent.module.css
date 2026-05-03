@@ -3,6 +3,7 @@
   position: relative;
   margin: 0 0.25rem;
   vertical-align: middle;
+  vertical-align: baseline;
 }
 
 .container:focus-visible {
@@ -19,6 +20,7 @@
   font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 0.2s;
+  vertical-align: baseline;
 }
 
 .button:hover {

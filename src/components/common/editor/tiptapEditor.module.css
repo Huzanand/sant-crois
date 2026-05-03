@@ -198,6 +198,7 @@
 .addMoreWrapper {
     margin-top: 16px;
     padding-left: 4px;
+    justify-self: flex-end;
 } 
 
 .addMoreWrapper button{
