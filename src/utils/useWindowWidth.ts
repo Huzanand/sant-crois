@@ -9,8 +9,7 @@ export const useWindowWidth = () => {
         const handleResize = () => setWidth(window.innerWidth);
 
         window.addEventListener("resize", handleResize);
-        handleResize(); // Проверяем ширину при монтировании
-
+        handleResize(); 
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
