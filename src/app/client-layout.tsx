@@ -3,7 +3,6 @@
 import Footer from "@/components/footer/Footer";
 import { StoreProvider } from "@/store/storeProvider";
 import { useEffect, useState } from "react";
-import { useOwnStore } from "@/store/storeProvider"; // Используем хук вместо прямого импорта Store
 import dynamic from "next/dynamic";
 import Script from "next/script";
 
@@ -39,26 +38,22 @@ export default function ClientLayout({
 }
 
 function LoadedContent({ children }: { children: React.ReactNode }) {
-    const loadFromLocalStorage = useOwnStore(
-        (state) => state.loadFromLocalStorage
-    );
 
     const [bgUrl, setBgUrl] = useState<string | null>(null);
 
     useEffect(() => {
-        loadFromLocalStorage();
         import("../assets/backgroundMain.png").then((mod) =>
             setBgUrl(mod.default.src)
         );
-    }, [loadFromLocalStorage]);
+    }, []);
     return (
         <I18nWrapper>
             <div
                 style={
                     typeof window !== "undefined"
                         ? {
-                              background: `url(${bgUrl}) center/cover no-repeat`,
-                          }
+                            background: `url(${bgUrl}) center/cover no-repeat`,
+                        }
                         : undefined
                 }
             >
