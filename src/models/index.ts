@@ -1,5 +1,9 @@
 // STORE INTERFACES
 
+import { IConstructorSlice } from "./constructorSlice";
+import { IPersistentSettingsSlice } from "./persistentSettingsSlice";
+import { ISettingsSlice } from "./settingsSlice";
+
 export interface IData {
     metaData: IMetadata;
     lessons: ILesson[];
@@ -119,12 +123,6 @@ export interface IState {
     userAnswers: IAnswer[];
     results: ICheckAnswers[];
     activeTypeOfLesson: "all" | "video" | "audio" | "reading" | "grammar";
-    selectedLanguageLevel: string;
-    languageLevelOptions: string[];
-    selectedInterfaceLanguage: string;
-    interfaceLanguageOptions: string[];
-    selectedLearningLanguage: string;
-    learningLanguageOptions: string[];
     primaryTopics: string[];
     selectedPrimaryTopics: string[];
     secondaryTopics: string[];
@@ -133,20 +131,14 @@ export interface IState {
     selectedTags: string[];
     targetAgeGroups: string[];
     selectedAgeGroup: string[],
-    virtualKeyboard: boolean;
     sortingOptions: string[],
     selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime' | '-views' | '-acceptance' | '-languageLevel' | '-сreationDateTime',
     relatedContents: (ICard | null)[],
     homePageContentHeight: number,
-    openInDev: boolean,
     resetFiltersIndex: number,
-
-    //costructor
-    draft: IDraft,
 }
 
 export interface IActions {
-    loadFromLocalStorage: () => void,
     fetchLessons: (size: number,
         activeTypeOfLesson: string,
         selectedLanguageLevel: string,
@@ -165,34 +157,23 @@ export interface IActions {
     setUserAnswers: (answer: IAnswer) => void;
     clearUserAnswers: () => void;
     clearResults: () => void;
-
     sendUserAnswers: (exerciseId: string) => void;
     setResults: (newResults: ICheckAnswers[]) => void;
     setVRAnswers: (data: ICheckAnswers[]) => void;
-
     setSelectedPrimaryTopics: (primaryTopics: string[]) => void;
     setSelectedSecondaryTopics: (secondaryTopics: string[]) => void;
     setSelectedTags: (tags: string[]) => void;
     setSelectedAgeGroup: (ageGroup: string[]) => void;
     setSize: (inc: number) => void;
     resetSize: () => void;
-    onSelectChange: (selectedLearningLanguage: string, value: string) => void;
     setActiveTypeOfLesson: (newActiveType: "all" | "video" | "audio" | "reading" | "grammar") => void;
     setOffset: (newPage: number) => void;
-    toggleVirtualKeyboard: () => void;
     setHomePageContentHeight: (contentHeight: number) => void;
     clearFilters: () => void;
-    setOpenInDev: (newState: boolean) => void,
     resetFilters: () => void;
-
-    //constructor
-
-    updateConstructorMetadata: (patch: Partial<IDraft>) => void;
-    updateConstructorTask: (taskId: string, taskPatch: Partial<IDraftTaskData>) => void;
-    addConstructorTask: (newTask: IDraftTaskData) => void;
 }
 
-export interface IStore extends IState, IActions { }
+export interface IStore extends IState, IActions, IConstructorSlice,  IPersistentSettingsSlice, ISettingsSlice{ }
 
 export interface IAnswer {
     taskId: string;
