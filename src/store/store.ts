@@ -2,28 +2,52 @@
 
 import { getAllLessons, getAllFilters, getLessonById, getRecomendations, postUserAnswers } from "@/api/api"
 import { IAnswer, IData, IDraft, IFiltersNullable, IState, IStore } from "@/models"
-import { devtools, persist } from "zustand/middleware"
+import { createJSONStorage, devtools, persist } from "zustand/middleware"
 import { createStore } from "zustand/vanilla"
-import { getFromLocalStorage, setToLocalStorage } from "./localStorageUtils"
+import { persistentSettingsSlice } from "./slices/persistentSettingsSlice"
+import { settingsSlice } from "./slices/settingsSlice"
+import { constructorSlice } from "./slices/constructorSlice"
 
 
+const SYNCED_KEYS = ['selectedInterfaceLanguage', 'selectedLearningLanguage', 'selectedLanguageLevel'];
+
+const syncStorages = (state: any) => {
+    if (typeof window === "undefined") return;
+
+    SYNCED_KEYS.forEach((key) => {
+        const valueFromState = state[key] !== undefined ? state[key] : null;
+
+        const localValue = localStorage.getItem(key);
+        const sessionValue = sessionStorage.getItem(key);
+
+        if (localValue) {
+            sessionStorage.setItem(key, localValue);
+        } else if (sessionValue) {
+            localStorage.setItem(key, sessionValue);
+        } else if (valueFromState) {
+            const valStr = JSON.stringify(valueFromState);
+            localStorage.setItem(key, valStr);
+            sessionStorage.setItem(key, valStr);
+        }
+    });
+};
 
 export const initialState: IState = {
     totalCount: 0,
     offset: 0,
     size: 12,
+
     lessons: [],
+
     lesson: null,
-    virtualRoom: null,
+    relatedContents: [],
+
     userAnswers: [],
     results: [],
+
+    virtualRoom: null,
+
     activeTypeOfLesson: 'all',
-    selectedLanguageLevel: 'All',
-    languageLevelOptions: ['All', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-    selectedInterfaceLanguage: "English",
-    interfaceLanguageOptions: ["Ukrainian", "English", "French", "German"],
-    selectedLearningLanguage: 'english',
-    learningLanguageOptions: [],
     primaryTopics: [],
     selectedPrimaryTopics: [],
     secondaryTopics: [],
@@ -32,56 +56,26 @@ export const initialState: IState = {
     selectedTags: [],
     targetAgeGroups: [],
     selectedAgeGroup: [],
-    virtualKeyboard: false,
     sortingOptions: ['rating', 'views', '-views', 'acceptance', '-acceptance', 'languageLevel', '-languageLevel', 'creationDateTime', '-creationDateTime'],
     selectedSorting: 'rating',
-    relatedContents: [],
+
     homePageContentHeight: 0,
-    openInDev: false,
     resetFiltersIndex: 0,
-
-    // constructor
-
-    draft: {
-        id: crypto.randomUUID(),
-        header: '',
-        author: '',
-        primaryTopics: [],
-        secondaryTopics: [],
-        tags: [],
-        languageLevel: 'A1',
-        targetAgeGroup: 'ADULT',
-        learningLanguage: 'English',
-        coverUrl: null,
-        coverFile: null,
-        exerciseDescriptions: '',
-        tasks: [],
-    },
 }
 
 export const Store = (
     initState: IState = initialState,
 ) => {
+    syncStorages({ ...initState });
     return createStore<IStore>()(
         devtools(
             persist(
                 (set, get) => {
-                    const initialStateWithLocalStorage = {
-                        ...initState,
-                    };
-
                     return {
-                        ...initialStateWithLocalStorage,
-
-                        loadFromLocalStorage: () => {
-                            if (typeof window === 'undefined') return;
-                            set({
-                                selectedInterfaceLanguage: getFromLocalStorage('selectedInterfaceLanguage', initState.selectedInterfaceLanguage ? initState.selectedInterfaceLanguage : 'english'),
-                                selectedLearningLanguage: getFromLocalStorage('selectedLearningLanguage', initState.selectedLearningLanguage ? initState.selectedLearningLanguage : 'english'),
-                                selectedLanguageLevel: getFromLocalStorage('selectedLanguageLevel', initState.selectedLanguageLevel ? initState.selectedLanguageLevel : 'en'),
-                                results: getFromLocalStorage('results', initState.results),
-                            });
-                        },
+                        ...initState,
+                        ...persistentSettingsSlice(set, get, {} as any),
+                        ...settingsSlice(set, get, {} as any),
+                        ...constructorSlice(set, get, {} as any),
 
                         fetchLessons: async (size,
                             activeTypeOfLesson,
@@ -209,37 +203,11 @@ export const Store = (
                             }))
                         },
 
-                        onSelectChange: (selectName, value) => {
-
-                            set(() => ({
-                                [selectName]: value,
-                            }));
-
-
-
-                            if (selectName === 'selectedInterfaceLanguage') {
-                                setToLocalStorage('selectedInterfaceLanguage', value)
-                            }
-                            if (selectName === 'selectedLearningLanguage') {
-                                setToLocalStorage('selectedLearningLanguage', value)
-                            }
-                            if (selectName === 'selectedLanguageLevel') {
-                                setToLocalStorage('selectedLanguageLevel', value)
-                            }
-                        },
-
                         setActiveTypeOfLesson: (newActiveType) => {
                             set(() => ({
                                 activeTypeOfLesson: newActiveType
                             }))
                         },
-
-                        toggleVirtualKeyboard: () =>
-                            set((state) => ({
-                                virtualKeyboard: !state.virtualKeyboard,
-                            })),
-
-
 
                         setSize: (inc) => {
                             if (inc === 0) {
@@ -251,7 +219,6 @@ export const Store = (
                                     size: state.size + inc
                                 }))
                             }
-
                         },
 
                         resetSize: () => {
@@ -266,13 +233,6 @@ export const Store = (
                             set(() => ({
                                 offset: newOffset,
                             }));
-                        },
-
-                        rehydrateState: () => {
-                            const storedState = sessionStorage.getItem('lesson-storage');
-                            if (storedState) {
-                                set(JSON.parse(storedState));
-                            }
                         },
 
                         setHomePageContentHeight: (contentHeight) => {
@@ -290,72 +250,30 @@ export const Store = (
                             }))
                         },
 
-                        setOpenInDev: (newState) => {
-                            set(() => ({
-                                openInDev: newState
-                            }))
-                        },
-
                         resetFilters: () => {
                             const { resetFiltersIndex } = get();
                             set(() => ({
                                 resetFiltersIndex: resetFiltersIndex + 1
                             }))
                         },
-
-                        // constructor
-
-                        updateConstructorMetadata: (patch) => set((state) => ({
-                            draft: {
-                                ...state.draft,
-                                ...patch
-                            } as IDraft 
-                        })),
-
-                        updateConstructorTask: (taskId, taskPatch) => set((state) => ({
-                            draft: {
-                                ...state.draft,
-                                tasks: state.draft.tasks.map((task) =>
-                                    task.taskId === taskId
-                                        ? { ...task, ...taskPatch }
-                                        : task
-                                )
-                            }
-                        })),
-
-                        addConstructorTask: (newTask) => set((state) => ({
-                            draft: {
-                                ...state.draft,
-                                tasks: [...state.draft.tasks, newTask]
-                            }
-                        })),
-
                     };
                 }, {
-                name: 'lesson-storage',
-                storage: {
-                    getItem: (key) => {
-                        if (typeof window === 'undefined') return null;
-                        const data = sessionStorage.getItem(key);
-                        if (!data) return null;
-                        const parsed = JSON.parse(data);
-                        return { ...parsed, state: { ...parsed.state, size: parsed.state?.size || 12 } };
-                    },
-                    setItem: (key, value) => {
-                        if (typeof window === 'undefined') return;
-                        const { state, ...rest } = JSON.parse(JSON.stringify(value));
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        const { size, ...persistedState } = state;
-                        sessionStorage.setItem(key, JSON.stringify({ ...rest, state: persistedState }));
-                    },
+                name: 'root-storage',
+                storage: createJSONStorage(() => sessionStorage),
+                partialize: (state) => {
+                    const { size, ...persistedState } = state;
 
-                    removeItem: (key) => {
-                        if (typeof window === 'undefined') return;
-                        sessionStorage.removeItem(key);
-                    },
+                    const stateAny = state as Record<string, any>;
+
+                    Object.keys(stateAny).forEach((key) => {
+                        if (SYNCED_KEYS.includes(key) && stateAny[key]) {
+                            localStorage.setItem(key, JSON.stringify(stateAny[key]));
+                        }
+                    });
+
+                    return persistedState;
                 },
             })
         )
     );
 };
-
