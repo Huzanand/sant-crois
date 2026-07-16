@@ -1,34 +1,55 @@
 // STORE INTERFACES
 
 export interface IData {
-    metaData: IMetadata;
-    lessons: ILesson[];
+  metaData: IMetadata;
+  lessons: ILesson[];
 }
 
 export interface IMetadata {
-    totalCount: number;
-    offset: number;
-    size: number;
+  totalCount: number;
+  offset: number;
+  size: number;
 }
 
 export interface IFilters {
-    primaryTopics: string[];
-    secondaryTopics: string[];
-    tags: string[];
-    learningLanguages: string[];
-    targetAgeGroups: string[];
+  primaryTopics: string[];
+  secondaryTopics: string[];
+  tags: string[];
+  learningLanguages: string[];
+  targetAgeGroups: string[];
 }
 
 export type IFiltersNullable = IFilters | null;
 
 export interface ILesson {
+  id: string;
+  author?: string;
+  primaryTopics: string[];
+  secondaryTopics?: string[];
+  tags?: string[] | null;
+  languageLevel: "All" | "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+  targetAgeGroup?: "ADULT" | "KIDS";
+  learningLanguage: string;
+  views?: number;
+  acceptance?: number;
+  cover?: string;
+  exerciseDescriptions?: ILessonDescriptions;
+  rating?: number;
+  header?: string;
+  tasks: ITaskData[];
+  relatedContents: string[];
+  creationDateTime: Date;
+}
+
+export interface IVirtualRoom {
+  exerciseWithUserResultDto: {
     id: string;
     author?: string;
     primaryTopics: string[];
     secondaryTopics?: string[];
     tags?: string[] | null;
-    languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
-    targetAgeGroup?: 'ADULT' | 'KIDS';
+    languageLevel: "All" | "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+    targetAgeGroup?: "ADULT" | "KIDS";
     learningLanguage: string;
     views?: number;
     acceptance?: number;
@@ -37,186 +58,178 @@ export interface ILesson {
     rating?: number;
     header?: string;
     tasks: ITaskData[];
-    relatedContents: string[],
-    creationDateTime: Date
-}
-
-export interface IVirtualRoom {
-    exerciseWithUserResultDto: {
-        id: string;
-        author?: string;
-        primaryTopics: string[];
-        secondaryTopics?: string[];
-        tags?: string[] | null;
-        languageLevel: 'All' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
-        targetAgeGroup?: 'ADULT' | 'KIDS';
-        learningLanguage: string;
-        views?: number;
-        acceptance?: number;
-        cover?: string;
-        exerciseDescriptions?: ILessonDescriptions;
-        rating?: number;
-        header?: string;
-        tasks: ITaskData[];
-        relatedContents: string[],
-        creationDateTime: Date,
-    },
-    challengerName: string,
-    keepAliveTime: number,
-    isExpired: boolean,
-    isFinished: boolean
+    relatedContents: string[];
+    creationDateTime: Date;
+  };
+  challengerName: string;
+  keepAliveTime: number;
+  isExpired: boolean;
+  isFinished: boolean;
 }
 
 export interface ILessonDescriptions {
-    [selectedLearningLanguage: string]: string;
+  [selectedLearningLanguage: string]: string;
 }
 
 export interface ITaskData {
-    taskId: string;
-    taskType: 'MEDIA_TASK' | 'CHOOSE_ANSWER' | 'TRUE_FALSE';
-    taskDescriptions: ITaskDescriptions;
-    content?: IContent | null;
-    questions?: IQuestion[] | null;
+  taskId: string;
+  taskType: "MEDIA_TASK" | "CHOOSE_ANSWER" | "TRUE_FALSE";
+  taskDescriptions: ITaskDescriptions;
+  content?: IContent | null;
+  questions?: IQuestion[] | null;
 }
 
 export interface ITaskDescriptions {
-    [selectedLearningLanguage: string]: string;
+  [selectedLearningLanguage: string]: string;
 }
 
 export interface IContent {
-    contentType: 'AUDIO' | 'VIDEO' | 'TEXT' | 'CHOOSE_TEMPLATE' | 'FILL_TEMPLATE';
-    transcription?: string;
-    contentSource: string;
+  contentType: "AUDIO" | "VIDEO" | "TEXT" | "CHOOSE_TEMPLATE" | "FILL_TEMPLATE";
+  transcription?: string;
+  contentSource: string;
 }
 
 export interface IQuestion {
-    questionId: string;
-    questionText?: string;
-    options?: string[] | null;
-    questionDescription?: string | null;
-    result?: boolean;
-    rightAnswers?: string[],
-    userAnswer?: string
+  questionId: string;
+  questionText?: string;
+  options?: string[] | null;
+  questionDescription?: string | null;
+  result?: boolean;
+  rightAnswers?: string[];
+  userAnswer?: string;
 }
 
 export interface ICheckAnswers {
-    taskId: string,
-    questions: {
-        questionId: string,
-        questionDescription: string,
-        rightAnswers: string[],
-        result: boolean,
-    }[]
+  taskId: string;
+  questions: {
+    questionId: string;
+    questionDescription: string;
+    rightAnswers: string[];
+    result: boolean;
+  }[];
 }
 
 export interface IState {
-    totalCount: number;
-    offset: number;
-    size: number;
-    lessons: ILesson[];
-    lesson: ILesson | null;
-    virtualRoom: IVirtualRoom | null;
-    userAnswers: IAnswer[];
-    results: ICheckAnswers[];
-    activeTypeOfLesson: "all" | "video" | "audio" | "reading" | "grammar";
-    selectedLanguageLevel: string;
-    languageLevelOptions: string[];
-    selectedInterfaceLanguage: string;
-    interfaceLanguageOptions: string[];
-    selectedLearningLanguage: string;
-    learningLanguageOptions: string[];
-    primaryTopics: string[];
-    selectedPrimaryTopics: string[];
-    secondaryTopics: string[];
-    selectedSecondaryTopics: string[];
-    tags: string[];
-    selectedTags: string[];
-    targetAgeGroups: string[];
-    selectedAgeGroup: string[],
-    virtualKeyboard: boolean;
-    sortingOptions: string[],
-    selectedSorting: 'views' | 'acceptance' | 'rating' | 'languageLevel' | 'сreationDateTime' | '-views' | '-acceptance' | '-languageLevel' | '-сreationDateTime',
-    relatedContents: (ICard | null)[],
-    homePageContentHeight: number,
-    openInDev: boolean,
-    resetFiltersIndex: number
+  totalCount: number;
+  offset: number;
+  size: number;
+  lessons: ILesson[];
+  lesson: ILesson | null;
+  virtualRoom: IVirtualRoom | null;
+  userAnswers: IAnswer[];
+  results: ICheckAnswers[];
+  activeTypeOfLesson: "all" | "video" | "audio" | "reading" | "grammar";
+  selectedLanguageLevel: string;
+  languageLevelOptions: string[];
+  selectedInterfaceLanguage: string;
+  interfaceLanguageOptions: string[];
+  selectedLearningLanguage: string;
+  learningLanguageOptions: string[];
+  primaryTopics: string[];
+  selectedPrimaryTopics: string[];
+  secondaryTopics: string[];
+  selectedSecondaryTopics: string[];
+  tags: string[];
+  selectedTags: string[];
+  targetAgeGroups: string[];
+  selectedAgeGroup: string[];
+  virtualKeyboard: boolean;
+  sortingOptions: string[];
+  selectedSorting:
+    | "views"
+    | "acceptance"
+    | "rating"
+    | "languageLevel"
+    | "сreationDateTime"
+    | "-views"
+    | "-acceptance"
+    | "-languageLevel"
+    | "-сreationDateTime";
+  relatedContents: (ICard | null)[];
+  homePageContentHeight: number;
+  openInDev: boolean;
+  resetFiltersIndex: number;
 }
 
 export interface IActions {
-    loadFromLocalStorage: () => void,
-    fetchLessons: (size: number,
-        activeTypeOfLesson: string,
-        selectedLanguageLevel: string,
-        selectedLearningLanguage: string,
-        selectedPrimaryTopics: string[],
-        selectedSecondaryTopics: string[],
-        selectedTags: string[],
-        selectedAgeGroup: string[],
-        offset: number,
-        selectedSorting: string) => void;
-    fetchLessonById: (id: string) => void;
-    setVirtualRoom: (newVR: IVirtualRoom) => void;
-    fetchRecomendations: (ids: string[]) => void;
-    clearRecomendations: () => void;
-    fetchFilters: () => void;
-    setUserAnswers: (answer: IAnswer) => void;
-    clearUserAnswers: () => void;
-    clearResults: () => void;
+  loadFromLocalStorage: () => void;
+  fetchLessons: (
+    size: number,
+    activeTypeOfLesson: string,
+    selectedLanguageLevel: string,
+    selectedLearningLanguage: string,
+    selectedPrimaryTopics: string[],
+    selectedSecondaryTopics: string[],
+    selectedTags: string[],
+    selectedAgeGroup: string[],
+    selectedSorting: string,
+    offset: number,
+  ) => void;
+  fetchLessonById: (id: string) => void;
+  setVirtualRoom: (newVR: IVirtualRoom) => void;
+  fetchRecomendations: (ids: string[]) => void;
+  clearRecomendations: () => void;
+  fetchFilters: () => void;
+  setUserAnswers: (answer: IAnswer) => void;
+  clearUserAnswers: () => void;
+  clearResults: () => void;
 
-    sendUserAnswers: (exerciseId: string) => void;
-    setResults: (newResults: ICheckAnswers[]) => void;
-    setVRAnswers: (data: ICheckAnswers[]) => void;
+  sendUserAnswers: (exerciseId: string) => void;
+  setResults: (newResults: ICheckAnswers[]) => void;
+  setVRAnswers: (data: ICheckAnswers[]) => void;
 
-    setSelectedPrimaryTopics: (primaryTopics: string[]) => void;
-    setSelectedSecondaryTopics: (secondaryTopics: string[]) => void;
-    setSelectedTags: (tags: string[]) => void;
-    setSelectedAgeGroup: (ageGroup: string[]) => void;
-    setSize: (inc: number) => void;
-    resetSize: () => void;
-    onSelectChange: (selectedLearningLanguage: string, value: string) => void;
-    setActiveTypeOfLesson: (newActiveType: "all" | "video" | "audio" | "reading" | "grammar") => void;
-    setOffset: (newPage: number) => void;
-    toggleVirtualKeyboard: () => void;
-    setHomePageContentHeight: (contentHeight: number) => void;
-    clearFilters: () => void;
-    setOpenInDev: (newState: boolean) => void,
-    resetFilters: () => void;
+  setSelectedPrimaryTopics: (primaryTopics: string[]) => void;
+  setSelectedSecondaryTopics: (secondaryTopics: string[]) => void;
+  setSelectedTags: (tags: string[]) => void;
+  setSelectedAgeGroup: (ageGroup: string[]) => void;
+  setSize: (inc: number) => void;
+  resetSize: () => void;
+  onSelectChange: (selectedLearningLanguage: string, value: string) => void;
+  setActiveTypeOfLesson: (
+    newActiveType: "all" | "video" | "audio" | "reading" | "grammar",
+  ) => void;
+  setOffset: (newPage: number) => void;
+  toggleVirtualKeyboard: () => void;
+  setHomePageContentHeight: (contentHeight: number) => void;
+  clearFilters: () => void;
+  setOpenInDev: (newState: boolean) => void;
+  resetFilters: () => void;
 }
 
-export interface IStore extends IState, IActions { }
+export interface IStore extends IState, IActions {}
 
 export interface IAnswer {
-    taskId: string;
-    questions: IQuestionAnswer[];
+  taskId: string;
+  questions: IQuestionAnswer[];
 }
 
 export interface IQuestionAnswer {
-    questionId: string;
-    userAnswer: string;
+  questionId: string;
+  userAnswer: string;
 }
 
 // CARD (make omit of ILessons) or rebuild for short request cards
 
 export interface ICard {
-    id: string;
-    header?: string;
-    cover: string;
-    primaryTopics: string[];
-    author?: string;
-    secondaryTopics?: string[];
-    learningLanguage: string;
-    languageLevel: string;
-    acceptance?: number;
-    rating?: number;
-    views?: number;
-    customStyles?: Record<string, unknown>;
-    recomendation?: boolean;
-    ageGroup?: "ADULT" | "KIDS";
+  id: string;
+  header?: string;
+  cover: string;
+  primaryTopics: string[];
+  author?: string;
+  secondaryTopics?: string[];
+  learningLanguage: string;
+  languageLevel: string;
+  acceptance?: number;
+  rating?: number;
+  views?: number;
+  customStyles?: Record<string, unknown>;
+  recomendation?: boolean;
+  ageGroup?: "ADULT" | "KIDS";
 }
 
 // ANSWER CHOOSE TASK
 
 export interface IAnswerChoose {
-    questionId: string;
-    selectedOption: string | null;
+  questionId: string;
+  selectedOption: string | null;
 }
