@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  timeout: 1000,
+  timeout: 5000,
 });
 
 axiosInstance.interceptors.request.use(
@@ -39,23 +39,42 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     interceptorsStore.getState().setLoading(false);
-    interceptorsStore.getState().setError(true);
+
+    if (!axios.isCancel(error)) {
+      interceptorsStore.getState().setError(true);
+    }
+
     return Promise.reject(error);
   },
 );
 
-export const getAllLessons = async (
+interface FetchLessonsParams {
+  size?: number;
+  offset?: number;
+  activeTypeOfLesson?: string;
+  selectedLanguageLevel?: string;
+  selectedLearningLanguage?: string;
+  selectedPrimaryTopics?: string[];
+  selectedSecondaryTopics?: string[];
+  selectedTags?: string[];
+  selectedAgeGroup?: string[];
+  selectedSorting?: string;
+  signal?: AbortSignal;
+}
+
+export const getAllLessons = async ({
   size = 12,
-  activeTypeOfLesson: string,
-  selectedLanguageLevel: string,
-  selectedLearningLanguage: string,
-  selectedPrimaryTopics: string[],
-  selectedSecondaryTopics: string[],
-  selectedTags: string[],
-  selectedAgeGroup: string[],
-  selectedSorting: string,
-  offset: number,
-): Promise<IData> => {
+  offset = 0,
+  activeTypeOfLesson = "",
+  selectedLanguageLevel = "",
+  selectedLearningLanguage = "",
+  selectedPrimaryTopics = [],
+  selectedSecondaryTopics = [],
+  selectedTags = [],
+  selectedAgeGroup = [],
+  selectedSorting = "",
+  signal,
+}: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
 
   const queryParams = new URLSearchParams({
@@ -105,24 +124,34 @@ export const getAllLessons = async (
 
   const url = `${endpoint}?${queryParams.toString()}`;
 
-  console.log(`new request url: ${url}`);
-
   try {
-    const response = await axiosInstance.get(url);
+    const response = await axiosInstance.get(url, { signal });
     return { metaData: response.data.metaData, lessons: response.data.content };
   } catch (error) {
+    if (axios.isCancel(error)) {
+      console.log("Request canceled by client:", url);
+      return { metaData: { totalCount: 0, offset: 0, size }, lessons: [] };
+    }
     console.error("Error fetching all lessons:", error);
     return { metaData: { totalCount: 0, offset: 0, size: 12 }, lessons: [] };
   }
 };
 
-export const getLessonById = async (id: string): Promise<ILesson | null> => {
+export const getLessonById = async (
+  id: string,
+  signal?: AbortSignal,
+): Promise<ILesson | null> => {
   try {
     const response = await axiosInstance.get(
       `/exercises/${encodeURIComponent(id)}`,
+      { signal },
     );
     return response.data;
   } catch (error) {
+    if (axios.isCancel(error)) {
+      console.log(`Request for lesson ${id} was canceled.`);
+      return null;
+    }
     console.error(`Error fetching lesson by ID: ${id}`, error);
     return null;
   }
