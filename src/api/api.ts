@@ -50,7 +50,6 @@ axiosInstance.interceptors.response.use(
 
 interface FetchLessonsParams {
   size?: number;
-  offset?: number;
   activeTypeOfLesson?: string;
   selectedLanguageLevel?: string;
   selectedLearningLanguage?: string;
@@ -59,6 +58,7 @@ interface FetchLessonsParams {
   selectedTags?: string[];
   selectedAgeGroup?: string[];
   selectedSorting?: string;
+  offset?: number;
   signal?: AbortSignal;
 }
 
