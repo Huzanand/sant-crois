@@ -101,10 +101,10 @@ export const Store = (initState: IState = initialState) => {
               selectedSecondaryTopics,
               selectedTags,
               selectedAgeGroup,
-              offset,
               selectedSorting,
+              offset,
             ) => {
-              const data: IData = await getAllLessons(
+              const data: IData = await getAllLessons({
                 size,
                 activeTypeOfLesson,
                 selectedLanguageLevel,
@@ -113,9 +113,9 @@ export const Store = (initState: IState = initialState) => {
                 selectedSecondaryTopics,
                 selectedTags,
                 selectedAgeGroup,
-                offset,
                 selectedSorting,
-              );
+                offset,
+              });
               set(() => ({
                 lessons: data.lessons,
                 totalCount: data.metaData.totalCount,
