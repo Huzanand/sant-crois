@@ -59,7 +59,7 @@ interface FetchLessonsParams {
   selectedAgeGroup?: string[];
   selectedSorting?: string;
   offset?: number;
-  signal?: AbortSignal;
+  abortSignal?: AbortSignal;
 }
 
 export const getAllLessons = async ({
@@ -73,7 +73,7 @@ export const getAllLessons = async ({
   selectedTags = [],
   selectedAgeGroup = [],
   selectedSorting = "",
-  signal,
+  abortSignal,
 }: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
 
@@ -124,37 +124,19 @@ export const getAllLessons = async ({
 
   const url = `${endpoint}?${queryParams.toString()}`;
 
-  try {
-    const response = await axiosInstance.get(url, { signal });
-    return { metaData: response.data.metaData, lessons: response.data.content };
-  } catch (error) {
-    if (axios.isCancel(error)) {
-      console.log("Request canceled by client:", url);
-      return { metaData: { totalCount: 0, offset: 0, size }, lessons: [] };
-    }
-    console.error("Error fetching all lessons:", error);
-    return { metaData: { totalCount: 0, offset: 0, size: 12 }, lessons: [] };
-  }
+  const response = await axiosInstance.get(url, { signal: abortSignal });
+  return { metaData: response.data.metaData, lessons: response.data.content };
 };
 
 export const getLessonById = async (
   id: string,
   signal?: AbortSignal,
 ): Promise<ILesson | null> => {
-  try {
-    const response = await axiosInstance.get(
-      `/exercises/${encodeURIComponent(id)}`,
-      { signal },
-    );
-    return response.data;
-  } catch (error) {
-    if (axios.isCancel(error)) {
-      console.log(`Request for lesson ${id} was canceled.`);
-      return null;
-    }
-    console.error(`Error fetching lesson by ID: ${id}`, error);
-    return null;
-  }
+  const response = await axiosInstance.get(
+    `/exercises/${encodeURIComponent(id)}`,
+    { signal },
+  );
+  return response.data;
 };
 
 export const getRecomendations = async (ids: string[]): Promise<ICard[]> => {
