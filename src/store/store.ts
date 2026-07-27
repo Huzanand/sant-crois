@@ -11,6 +11,10 @@ import { IAnswer, IData, IFiltersNullable, IState, IStore } from "@/models";
 import { devtools, persist } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 import { getFromLocalStorage, setToLocalStorage } from "./localStorageUtils";
+import axios from "axios";
+
+let activeGetLessonsAbortController: AbortController | null = null;
+let activeGetLessonByIdAbortController: AbortController | null = null;
 
 export const initialState: IState = {
   totalCount: 0,
@@ -104,23 +108,49 @@ export const Store = (initState: IState = initialState) => {
               selectedSorting,
               offset,
             ) => {
-              const data: IData = await getAllLessons({
-                size,
-                activeTypeOfLesson,
-                selectedLanguageLevel,
-                selectedLearningLanguage,
-                selectedPrimaryTopics,
-                selectedSecondaryTopics,
-                selectedTags,
-                selectedAgeGroup,
-                selectedSorting,
-                offset,
-              });
-              set(() => ({
-                lessons: data.lessons,
-                totalCount: data.metaData.totalCount,
-                offset: data.metaData.offset,
-              }));
+              if (activeGetLessonsAbortController) {
+                activeGetLessonsAbortController.abort();
+              }
+
+              const controller = new AbortController();
+              activeGetLessonsAbortController = controller;
+
+              try {
+                const data: IData = await getAllLessons({
+                  size,
+                  activeTypeOfLesson,
+                  selectedLanguageLevel,
+                  selectedLearningLanguage,
+                  selectedPrimaryTopics,
+                  selectedSecondaryTopics,
+                  selectedTags,
+                  selectedAgeGroup,
+                  selectedSorting,
+                  offset,
+                  abortSignal: controller.signal,
+                });
+
+                if (!controller.signal.aborted) {
+                  set(() => ({
+                    lessons: data.lessons,
+                    totalCount: data.metaData.totalCount,
+                    offset: data.metaData.offset,
+                  }));
+                }
+              } catch (error) {
+                if (
+                  axios.isCancel(error) ||
+                  (error instanceof Error && error.name === "CanceledError")
+                ) {
+                  console.log("Request canceled, state update bypassed.");
+                  return;
+                }
+                console.error("Failed to fetch lessons:", error);
+              } finally {
+                if (activeGetLessonsAbortController === controller) {
+                  activeGetLessonsAbortController = null;
+                }
+              }
             },
 
             setVirtualRoom: async (newVR) => {
@@ -145,8 +175,32 @@ export const Store = (initState: IState = initialState) => {
             },
 
             fetchLessonById: async (id) => {
-              const lesson = await getLessonById(id);
-              set(() => ({ lesson }));
+              if (activeGetLessonByIdAbortController) {
+                activeGetLessonByIdAbortController.abort();
+              }
+
+              const controller = new AbortController();
+              activeGetLessonByIdAbortController = controller;
+
+              try {
+                const lesson = await getLessonById(id, controller.signal);
+                if (!controller.signal.aborted) {
+                  set(() => ({ lesson }));
+                }
+              } catch (error) {
+                if (
+                  axios.isCancel(error) ||
+                  (error instanceof Error && error.name === "CanceledError")
+                ) {
+                  console.log("Request canceled, state update bypassed.");
+                  return;
+                }
+                console.error(`Failed to fetch lesson with id ${id}:`, error);
+              } finally {
+                if (activeGetLessonByIdAbortController === controller) {
+                  activeGetLessonByIdAbortController = null;
+                }
+              }
             },
 
             fetchRecomendations: async (ids) => {
