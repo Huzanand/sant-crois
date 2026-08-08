@@ -101,12 +101,12 @@ export interface IQuestion {
 
 export interface ICheckAnswers {
   taskId: string;
-  questions: {
+  questions: Array<{
     questionId: string;
     questionDescription: string;
     rightAnswers: string[];
     result: boolean;
-  }[];
+  }>;
 }
 
 export interface IState {
@@ -145,7 +145,7 @@ export interface IState {
     | "-acceptance"
     | "-languageLevel"
     | "-сreationDateTime";
-  relatedContents: (ICard | null)[];
+  relatedContents: Array<ICard | null>;
   homePageContentHeight: number;
   openInDev: boolean;
   resetFiltersIndex: number;
@@ -178,22 +178,13 @@ export interface IActions {
   setResults: (newResults: ICheckAnswers[]) => void;
   setVRAnswers: (data: ICheckAnswers[]) => void;
 
-  setSelectedPrimaryTopics: (primaryTopics: string[]) => void;
-  setSelectedSecondaryTopics: (secondaryTopics: string[]) => void;
-  setSelectedTags: (tags: string[]) => void;
-  setSelectedAgeGroup: (ageGroup: string[]) => void;
   setSize: (inc: number) => void;
   resetSize: () => void;
   onSelectChange: (selectedLearningLanguage: string, value: string) => void;
-  setActiveTypeOfLesson: (
-    newActiveType: "all" | "video" | "audio" | "reading" | "grammar",
-  ) => void;
   setOffset: (newPage: number) => void;
   toggleVirtualKeyboard: () => void;
   setHomePageContentHeight: (contentHeight: number) => void;
-  clearFilters: () => void;
   setOpenInDev: (newState: boolean) => void;
-  resetFilters: () => void;
 }
 
 export interface IStore extends IState, IActions {}
