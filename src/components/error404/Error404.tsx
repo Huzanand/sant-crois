@@ -15,8 +15,6 @@ const Error404: React.FC<errorProps> = ({ page }) => {
     selectedLearningLanguage,
     setOffset,
     onSelectChange,
-    setActiveTypeOfLesson,
-    clearFilters,
     resetSize,
   } = useOwnStore((state) => state);
 
@@ -53,8 +51,6 @@ const Error404: React.FC<errorProps> = ({ page }) => {
               );
               setOffset(0);
               onSelectChange("selectedLanguageLevel", "All");
-              setActiveTypeOfLesson("all");
-              clearFilters();
               resetSize();
             }}
           >
