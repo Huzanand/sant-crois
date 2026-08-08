@@ -33,7 +33,7 @@ const CreateVRForm = () => {
     if (!lesson && lessonId) {
       fetchLessonById(lessonId);
     }
-  }, [lesson, lessonId]);
+  }, [fetchLessonById, lesson, lessonId]);
 
   const [stage, setStage] = useState<"stage1" | "stage2" | "stage3">("stage1");
 
