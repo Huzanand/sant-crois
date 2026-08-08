@@ -12,27 +12,28 @@ import Filters from "../filters/Filters";
 import { useMobile } from "@/utils/useMobile";
 import { useLanguageSync } from "@/utils/useLanguage";
 import useTranslatedOptions from "@/utils/useTranslatedOptions";
-import TruncateText from "@/utils/TrankateText";
 import dynamic from "next/dynamic";
+import { useFilterParam } from "@/utils/useFilterParam";
+import TruncateText from "@/utils/TrankateText";
 
 const BurgerMenu = dynamic(() => import("../burgerMenu/BurgerMenu"), {
   ssr: false,
 });
 
 const AppSideBar = () => {
-  const {
-    activeTypeOfLesson,
-    sortingOptions,
-    selectedSorting,
-    onSelectChange,
-    homePageContentHeight,
-  } = useOwnStore((state) => state);
+  const { sortingOptions, homePageContentHeight } = useOwnStore(
+    (state) => state,
+  );
 
   const [settingsIsOpen, setSettingsIsOpen] = useState<boolean>(false);
   const isMobile = useMobile(1012);
   const is425px = useMobile(425);
 
   const { t } = useLanguageSync();
+  const { selectedValue: selectedExerciseType } =
+    useFilterParam("exerciseType");
+  const { selectedValue: selectedSorting, updateParam } =
+    useFilterParam("sort");
 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const settingsRef = useRef<HTMLDivElement | null>(null);
@@ -63,6 +64,10 @@ const AppSideBar = () => {
 
     return () => observer.disconnect();
   }, [homePageContentHeight]);
+
+  const handleChange = (value: string) => {
+    updateParam(value);
+  };
 
   return (
     <div className={styles.sideBar} ref={sidebarRef}>
@@ -99,7 +104,7 @@ const AppSideBar = () => {
                     <ArrowDownIco />
                   </div>
                   <span className="buttons-l ln24">
-                    {t(activeTypeOfLesson)}
+                    {t(selectedExerciseType || "all")}
                   </span>
                 </div>
 
@@ -119,14 +124,17 @@ const AppSideBar = () => {
           <SettingsSelect
             mode={isMobile ? "modal" : "default"}
             options={useTranslatedOptions(sortingOptions, "sortingOptions")}
-            selectedOption={selectedSorting}
+            selectedOption={selectedSorting || "rating"}
             selectedOptionLabel={
               is425px
-                ? TruncateText(t(`selectedSorting.${selectedSorting}`), 15)
-                : t(`selectedSorting.${selectedSorting}`)
+                ? TruncateText(
+                    t(`selectedSorting.${selectedSorting || "rating"}`),
+                    15,
+                  )
+                : t(`selectedSorting.${selectedSorting || "rating"}`)
             }
-            onChangeSelect={onSelectChange}
-            changeField={"selectedSorting"}
+            changeField="sort"
+            onChangeSelect={handleChange}
             ico={<SortingIco />}
             activeIcon={<SortingIco fill={"#fff"} />}
             shadow={isMobile ? false : true}

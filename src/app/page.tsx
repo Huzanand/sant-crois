@@ -14,6 +14,7 @@ import Pagination from "@/components/pagination/Pagination";
 import { interceptorsStore } from "@/store/interceptorsStore";
 import Skeleton from "@/components/skeleton/Skeleton";
 import Error404 from "@/components/error404/Error404";
+import { useSearchParams } from "next/navigation";
 
 const Home = () => {
   const {
@@ -36,14 +37,12 @@ const Home = () => {
     setHomePageContentHeight,
   } = useOwnStore((state) => state);
 
+  const params = useSearchParams().toString();
+
   const loading = interceptorsStore((state) => state.loading);
   const error = interceptorsStore((state) => state.error);
 
   const contentRef = useRef<HTMLDivElement | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [contentHeight, setContentHeight] = useState<number | undefined>(
-    undefined,
-  );
 
   useEffect(() => {
     const contentEl = contentRef.current;
@@ -53,7 +52,6 @@ const Home = () => {
     const resizeObserver = new ResizeObserver((entries) => {
       const height = entries[0].contentRect.height;
 
-      setContentHeight(height);
       setHomePageContentHeight(height);
     });
 
@@ -97,14 +95,15 @@ const Home = () => {
 
     fetchLessons(
       size,
-      activeTypeOfLesson,
+      // activeTypeOfLesson,
       selectedLanguageLevel,
       selectedLearningLanguage,
-      selectedPrimaryTopics,
-      selectedSecondaryTopics,
-      selectedTags,
-      selectedAgeGroup,
-      selectedSorting,
+      params,
+      // selectedPrimaryTopics,
+      // selectedSecondaryTopics,
+      // selectedTags,
+      // selectedAgeGroup,
+      // selectedSorting,
       offset,
     );
   }, [datasetKey, offset, size]);

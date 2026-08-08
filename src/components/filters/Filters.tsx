@@ -8,6 +8,7 @@ import { ArrowDownIco, FilterIco } from "@/assets/svg/icons";
 import { useWindowWidth } from "@/utils/useWindowWidth";
 import { useLanguageSync } from "@/utils/useLanguage";
 import { useFilterParam } from "@/utils/useFilterParam";
+import { useSearchParams } from "next/navigation";
 
 interface IFiltersProps {
   height: number;
@@ -18,16 +19,10 @@ interface IFiltersProps {
 const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const {
     fetchLessons,
-    activeTypeOfLesson,
     selectedLanguageLevel,
     selectedLearningLanguage,
-    selectedPrimaryTopics,
-    selectedSecondaryTopics,
-    selectedTags,
-    selectedAgeGroup,
     offset,
     size,
-    selectedSorting,
     primaryTopics,
     secondaryTopics,
     tags,
@@ -49,6 +44,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const { clearSpecificParams } = useFilterParam();
 
+  const params = useSearchParams().toString();
+
   useEffect(() => {
     if (isOpen && isMobile) {
       const scrollY = window.scrollY;
@@ -58,9 +55,11 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
 
-      if (overlayRef.current) {
-        overlayRef.current.style.opacity = "1";
-        overlayRef.current.style.pointerEvents = "auto";
+      const ref = overlayRef.current;
+
+      if (ref) {
+        ref.style.opacity = "1";
+        ref.style.pointerEvents = "auto";
       }
 
       return () => {
@@ -69,10 +68,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
         document.body.style.width = "";
         document.body.style.overflow = "";
 
-        if (overlayRef.current) {
-          overlayRef.current.style.opacity = "0";
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          overlayRef.current.style.pointerEvents = "none";
+        if (ref) {
+          ref.style.opacity = "0";
+          ref.style.pointerEvents = "none";
         }
       };
     }
@@ -204,14 +202,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                   onClick={() => {
                     fetchLessons(
                       size,
-                      activeTypeOfLesson,
                       selectedLanguageLevel,
                       selectedLearningLanguage,
-                      selectedPrimaryTopics,
-                      selectedSecondaryTopics,
-                      selectedTags,
-                      selectedAgeGroup,
-                      selectedSorting,
+                      params,
                       offset,
                     );
                     toggleDropdown();
