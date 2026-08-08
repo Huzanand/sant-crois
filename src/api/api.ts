@@ -58,6 +58,7 @@ interface FetchLessonsParams {
   selectedTags?: string[];
   selectedAgeGroup?: string[];
   selectedSorting?: string;
+  params?: string;
   offset?: number;
   abortSignal?: AbortSignal;
 }
@@ -65,14 +66,9 @@ interface FetchLessonsParams {
 export const getAllLessons = async ({
   size = 12,
   offset = 0,
-  activeTypeOfLesson = "",
   selectedLanguageLevel = "",
   selectedLearningLanguage = "",
-  selectedPrimaryTopics = [],
-  selectedSecondaryTopics = [],
-  selectedTags = [],
-  selectedAgeGroup = [],
-  selectedSorting = "",
+  params = "",
   abortSignal,
 }: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
@@ -82,27 +78,6 @@ export const getAllLessons = async ({
     size: String(size),
   });
 
-  if (activeTypeOfLesson) {
-    if (activeTypeOfLesson !== "all")
-      queryParams.append("exerciseType", activeTypeOfLesson.toUpperCase());
-  }
-
-  if (selectedPrimaryTopics.length) {
-    selectedPrimaryTopics.forEach((topic) =>
-      queryParams.append("primaryTopics", topic),
-    );
-  }
-
-  if (selectedSecondaryTopics.length) {
-    selectedSecondaryTopics.forEach((topic) =>
-      queryParams.append("secondaryTopics", topic),
-    );
-  }
-
-  if (selectedTags.length) {
-    selectedTags.forEach((tag) => queryParams.append("tags", tag));
-  }
-
   if (selectedLanguageLevel) {
     if (selectedLanguageLevel !== "All") {
       const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
@@ -110,17 +85,13 @@ export const getAllLessons = async ({
     }
   }
 
-  if (selectedAgeGroup.length) {
-    selectedAgeGroup.forEach((ageGroup) =>
-      queryParams.append("targetAgeGroup", ageGroup),
-    );
-  }
-
   if (selectedLearningLanguage) {
     queryParams.append("learningLanguage", selectedLearningLanguage);
   }
 
-  queryParams.append("sort", `${selectedSorting}`);
+  if (params) {
+    queryParams.append("params", params);
+  }
 
   const url = `${endpoint}?${queryParams.toString()}`;
 
