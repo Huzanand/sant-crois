@@ -155,14 +155,9 @@ export interface IActions {
   loadFromLocalStorage: () => void;
   fetchLessons: (
     size: number,
-    activeTypeOfLesson: string,
     selectedLanguageLevel: string,
     selectedLearningLanguage: string,
-    selectedPrimaryTopics: string[],
-    selectedSecondaryTopics: string[],
-    selectedTags: string[],
-    selectedAgeGroup: string[],
-    selectedSorting: string,
+    params: string,
     offset: number,
   ) => void;
   fetchLessonById: (id: string) => void;
