@@ -15,8 +15,6 @@ interface IFiltersProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-// FIX FILTER ITEM PROPS AND TEST SEARCH COMPONENT
-
 const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const {
     fetchLessons,
@@ -30,7 +28,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     offset,
     size,
     selectedSorting,
-    setSelectedAgeGroup,
     primaryTopics,
     secondaryTopics,
     tags,
@@ -50,7 +47,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const { t } = useLanguageSync();
 
-  const { clearAllParams } = useFilterParam();
+  const { clearSpecificParams } = useFilterParam();
 
   useEffect(() => {
     if (isOpen && isMobile) {
@@ -95,9 +92,12 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   };
 
   const handleClearFilters = () => {
-    // clearFilters();
-    // resetFilters();
-    clearAllParams();
+    clearSpecificParams([
+      "primaryTopics",
+      "secondaryTopics",
+      "tags",
+      "targetAgeGroup",
+    ]);
   };
 
   useEffect(() => {}, [resetFiltersIndex]);
@@ -161,14 +161,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
         {isOpen && (
           <>
-            {/* <SearchComponent
-              key={`primary-${resetFiltersIndex}`}
-              label={t("main theme")}
-              arr={primaryTopics}
-              selectedFromArr={selectedPrimaryTopics}
-              setFunc={setSelectedPrimaryTopics}
-            /> */}
-
             <SearchComponent
               key={`primary-${resetFiltersIndex}`}
               label={t("main theme")}
@@ -178,14 +170,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
             <Divider margin="16px 0" />
 
-            {/* <SearchComponent
-              key={`secondary-${resetFiltersIndex}`}
-              label={t("secondary theme")}
-              arr={secondaryTopics}
-              selectedFromArr={selectedSecondaryTopics}
-              setFunc={setSelectedSecondaryTopics}
-            /> */}
-
             <SearchComponent
               key={`secondary-${resetFiltersIndex}`}
               label={t("secondary theme")}
@@ -194,14 +178,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
             />
 
             <Divider margin="16px 0" />
-
-            {/* <SearchComponent
-              key={`tags-${resetFiltersIndex}`}
-              label={t("tags")}
-              arr={tags}
-              selectedFromArr={selectedTags}
-              setFunc={setSelectedTags}
-            /> */}
 
             <SearchComponent
               key={`tags-${resetFiltersIndex}`}
@@ -216,8 +192,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`age-${resetFiltersIndex}`}
               label={t("age group")}
               arr={targetAgeGroups}
-              selectedFromArr={selectedAgeGroup}
-              setFunc={setSelectedAgeGroup}
             />
 
             <div
