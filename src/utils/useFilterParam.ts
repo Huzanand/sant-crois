@@ -8,13 +8,10 @@ export function useFilterParam(paramKey?: string) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Получаем текущее выбранное значение для конкретного ключа из URL
   const selectedValue = paramKey ? (searchParams.get(paramKey) ?? "") : "";
 
-  // Если у вас фильтр с множественным выбором (через запятую)
   const selectedValuesArray = selectedValue ? selectedValue.split(",") : [];
 
-  // Функция для точечного обновления только этого параметра в URL
   const updateParam = useCallback(
     (newValue: string | string[] | null | undefined) => {
       if (!paramKey) return;
@@ -35,13 +32,25 @@ export function useFilterParam(paramKey?: string) {
     [paramKey, searchParams, pathname, router],
   );
 
-  // Clear ONLY this parameter
   const clearParam = useCallback(() => {
     if (!paramKey) return;
     updateParam(null);
   }, [updateParam, paramKey]);
 
-  // Clear ALL search parameters completely
+  const clearSpecificParams = useCallback(
+    (keysToClear: string[]) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      keysToClear.forEach((key) => {
+        params.delete(key);
+      });
+
+      params.set("offset", "0");
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    },
+    [searchParams, pathname, router],
+  );
+
   const clearAllParams = useCallback(() => {
     router.replace(pathname, { scroll: false });
   }, [pathname, router]);
@@ -51,6 +60,7 @@ export function useFilterParam(paramKey?: string) {
     selectedValuesArray,
     updateParam,
     clearParam,
+    clearSpecificParams,
     clearAllParams,
   };
 }
