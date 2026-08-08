@@ -14,6 +14,8 @@ interface IFiltersProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+// FIX FILTER ITEM PROPS AND TEST SEARCH COMPONENT
+
 const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const {
     fetchLessons,
@@ -28,12 +30,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     size,
     selectedSorting,
     setSelectedAgeGroup,
-    setSelectedPrimaryTopics,
     primaryTopics,
     secondaryTopics,
-    setSelectedSecondaryTopics,
     tags,
-    setSelectedTags,
     targetAgeGroups,
     clearFilters,
     resetFilters,
@@ -160,32 +159,53 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
         {isOpen && (
           <>
-            <SearchComponent
+            {/* <SearchComponent
               key={`primary-${resetFiltersIndex}`}
               label={t("main theme")}
               arr={primaryTopics}
               selectedFromArr={selectedPrimaryTopics}
               setFunc={setSelectedPrimaryTopics}
+            /> */}
+
+            <SearchComponent
+              key={`primary-${resetFiltersIndex}`}
+              label={t("main theme")}
+              arr={primaryTopics}
+              paramKey="primaryTopics"
             />
 
             <Divider margin="16px 0" />
 
-            <SearchComponent
+            {/* <SearchComponent
               key={`secondary-${resetFiltersIndex}`}
               label={t("secondary theme")}
               arr={secondaryTopics}
               selectedFromArr={selectedSecondaryTopics}
               setFunc={setSelectedSecondaryTopics}
+            /> */}
+
+            <SearchComponent
+              key={`secondary-${resetFiltersIndex}`}
+              label={t("secondary theme")}
+              arr={secondaryTopics}
+              paramKey="secondaryTopics"
             />
 
             <Divider margin="16px 0" />
 
-            <SearchComponent
+            {/* <SearchComponent
               key={`tags-${resetFiltersIndex}`}
               label={t("tags")}
               arr={tags}
               selectedFromArr={selectedTags}
               setFunc={setSelectedTags}
+            /> */}
+
+            <SearchComponent
+              key={`tags-${resetFiltersIndex}`}
+              label={t("tags")}
+              arr={tags}
+              paramKey="tags"
             />
 
             <Divider margin="16px 0" />
@@ -231,9 +251,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                     handleClearFilters();
                     toggleDropdown();
                   }}
-                  // style={{
-                  //     border: "2px solid #6554c0",
-                  // }}
                 >
                   {t("reset")}
                 </button>
