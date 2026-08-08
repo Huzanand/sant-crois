@@ -110,7 +110,7 @@ const Home = () => {
   }, [datasetKey, offset, size]);
 
   const showContent = () => {
-    if (error || lessons === undefined) return <Error404 page="home" />;
+    if (error) return <Error404 page="home" />;
     if (loading) {
       return (
         <div className={styles.content_box}>
@@ -125,31 +125,29 @@ const Home = () => {
     return (
       <div className={styles.content_box}>
         {lessons.map((item: ILesson) => {
-          if (item) {
-            return (
-              <div key={item.id} className={styles.content__item}>
-                <Link
-                  key={"link" + item.id}
-                  href={`/lesson/${item.id}`}
-                  prefetch={false}
-                >
-                  <Card
-                    id={item.id}
-                    header={item.header}
-                    cover={item.cover as string}
-                    primaryTopics={item.primaryTopics}
-                    secondaryTopics={item.secondaryTopics}
-                    learningLanguage={item.learningLanguage}
-                    languageLevel={item.languageLevel}
-                    acceptance={item.acceptance}
-                    rating={item.rating}
-                    views={item.views}
-                    ageGroup={item.targetAgeGroup}
-                  />
-                </Link>
-              </div>
-            );
-          }
+          return (
+            <div key={item.id} className={styles.content__item}>
+              <Link
+                key={"link" + item.id}
+                href={`/lesson/${item.id}`}
+                prefetch={false}
+              >
+                <Card
+                  id={item.id}
+                  header={item.header}
+                  cover={item.cover as string}
+                  primaryTopics={item.primaryTopics}
+                  secondaryTopics={item.secondaryTopics}
+                  learningLanguage={item.learningLanguage}
+                  languageLevel={item.languageLevel}
+                  acceptance={item.acceptance}
+                  rating={item.rating}
+                  views={item.views}
+                  ageGroup={item.targetAgeGroup}
+                />
+              </Link>
+            </div>
+          );
           return null;
         })}
       </div>
