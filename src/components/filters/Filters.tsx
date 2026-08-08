@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDownIco, FilterIco } from "@/assets/svg/icons";
 import { useWindowWidth } from "@/utils/useWindowWidth";
 import { useLanguageSync } from "@/utils/useLanguage";
+import { useFilterParam } from "@/utils/useFilterParam";
 
 interface IFiltersProps {
   height: number;
@@ -34,8 +35,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     secondaryTopics,
     tags,
     targetAgeGroups,
-    clearFilters,
-    resetFilters,
     resetFiltersIndex,
   } = useOwnStore((state) => state);
 
@@ -50,6 +49,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const titleClass = `buttons-l ${styles.title}`;
 
   const { t } = useLanguageSync();
+
+  const { clearAllParams } = useFilterParam();
 
   useEffect(() => {
     if (isOpen && isMobile) {
@@ -94,8 +95,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   };
 
   const handleClearFilters = () => {
-    clearFilters();
-    resetFilters();
+    // clearFilters();
+    // resetFilters();
+    clearAllParams();
   };
 
   useEffect(() => {}, [resetFiltersIndex]);
