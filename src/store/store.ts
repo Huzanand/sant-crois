@@ -250,30 +250,6 @@ export const Store = (initState: IState = initialState) => {
               }));
             },
 
-            setSelectedPrimaryTopics: (primaryTopics) => {
-              set(() => ({
-                selectedPrimaryTopics: primaryTopics,
-              }));
-            },
-
-            setSelectedSecondaryTopics: (secondaryTopics) => {
-              set(() => ({
-                selectedSecondaryTopics: secondaryTopics,
-              }));
-            },
-
-            setSelectedTags: (tags) => {
-              set(() => ({
-                selectedTags: tags,
-              }));
-            },
-
-            setSelectedAgeGroup: (ageGroup) => {
-              set(() => ({
-                selectedAgeGroup: ageGroup,
-              }));
-            },
-
             onSelectChange: (selectName, value) => {
               set(() => ({
                 [selectName]: value,
@@ -288,12 +264,6 @@ export const Store = (initState: IState = initialState) => {
               if (selectName === "selectedLanguageLevel") {
                 setToLocalStorage("selectedLanguageLevel", value);
               }
-            },
-
-            setActiveTypeOfLesson: (newActiveType) => {
-              set(() => ({
-                activeTypeOfLesson: newActiveType,
-              }));
             },
 
             toggleVirtualKeyboard: () =>
@@ -340,25 +310,9 @@ export const Store = (initState: IState = initialState) => {
               }));
             },
 
-            clearFilters: () => {
-              set(() => ({
-                selectedPrimaryTopics: [],
-                selectedSecondaryTopics: [],
-                selectedTags: [],
-                selectedAgeGroup: [],
-              }));
-            },
-
             setOpenInDev: (newState) => {
               set(() => ({
                 openInDev: newState,
-              }));
-            },
-
-            resetFilters: () => {
-              const { resetFiltersIndex } = get();
-              set(() => ({
-                resetFiltersIndex: resetFiltersIndex + 1,
               }));
             },
           };
