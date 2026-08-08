@@ -37,18 +37,7 @@ const Error404: React.FC<errorProps> = ({ page }) => {
           <button
             className={styles.btn}
             onClick={() => {
-              fetchLessons(
-                12,
-                "all",
-                "All",
-                selectedLearningLanguage,
-                [],
-                [],
-                [],
-                [],
-                "rating",
-                0,
-              );
+              fetchLessons(12, "All", selectedLearningLanguage, "", 0);
               setOffset(0);
               onSelectChange("selectedLanguageLevel", "All");
               resetSize();

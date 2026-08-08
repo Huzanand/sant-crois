@@ -95,15 +95,9 @@ const Home = () => {
 
     fetchLessons(
       size,
-      // activeTypeOfLesson,
       selectedLanguageLevel,
       selectedLearningLanguage,
       params,
-      // selectedPrimaryTopics,
-      // selectedSecondaryTopics,
-      // selectedTags,
-      // selectedAgeGroup,
-      // selectedSorting,
       offset,
     );
   }, [datasetKey, offset, size]);
