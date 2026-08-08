@@ -98,14 +98,9 @@ export const Store = (initState: IState = initialState) => {
 
             fetchLessons: async (
               size,
-              activeTypeOfLesson,
               selectedLanguageLevel,
               selectedLearningLanguage,
-              selectedPrimaryTopics,
-              selectedSecondaryTopics,
-              selectedTags,
-              selectedAgeGroup,
-              selectedSorting,
+              params,
               offset,
             ) => {
               if (activeGetLessonsAbortController) {
@@ -118,14 +113,9 @@ export const Store = (initState: IState = initialState) => {
               try {
                 const data: IData = await getAllLessons({
                   size,
-                  activeTypeOfLesson,
                   selectedLanguageLevel,
                   selectedLearningLanguage,
-                  selectedPrimaryTopics,
-                  selectedSecondaryTopics,
-                  selectedTags,
-                  selectedAgeGroup,
-                  selectedSorting,
+                  params,
                   offset,
                   abortSignal: controller.signal,
                 });
