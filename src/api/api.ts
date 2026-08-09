@@ -78,11 +78,9 @@ export const getAllLessons = async ({
     size: String(size),
   });
 
-  if (selectedLanguageLevel) {
-    if (selectedLanguageLevel !== "All") {
-      const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
-      queryParams.append("languageLevel", languageLevelForBE);
-    }
+  if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
+    const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
+    queryParams.append("languageLevel", languageLevelForBE);
   }
 
   if (selectedLearningLanguage) {
@@ -90,7 +88,10 @@ export const getAllLessons = async ({
   }
 
   if (params) {
-    queryParams.append("params", params);
+    const extraParams = new URLSearchParams(params);
+    extraParams.forEach((value, key) => {
+      queryParams.append(key, value);
+    });
   }
 
   const url = `${endpoint}?${queryParams.toString()}`;
