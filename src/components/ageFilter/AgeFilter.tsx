@@ -1,24 +1,19 @@
 import styles from "./ageFilter.module.css";
 import { CheckedIco, UncheckedIco } from "@/assets/svg/icons";
-import { useFilterParam } from "@/utils/useFilterParam";
 
 type searchComponentProps = {
   label: string;
   arr: string[];
+  selectedValues: string[];
+  onToggle: (value: string) => void;
 };
 
-const AgeFilter: React.FC<searchComponentProps> = ({ label, arr }) => {
-  const { selectedValuesArray, updateParam } = useFilterParam("targetAgeGroup");
-
-  const handleToggle = (value: string) => {
-    const exists = selectedValuesArray.includes(value);
-    const newValues = exists
-      ? selectedValuesArray.filter((v) => v !== value)
-      : [...selectedValuesArray, value];
-
-    updateParam(newValues);
-  };
-
+const AgeFilter: React.FC<searchComponentProps> = ({
+  label,
+  arr,
+  selectedValues,
+  onToggle,
+}) => {
   return (
     <div className={styles.container}>
       <p
@@ -30,19 +25,19 @@ const AgeFilter: React.FC<searchComponentProps> = ({ label, arr }) => {
 
       <ul className={styles.list}>
         {arr.map((option) => {
-          const isChecked = selectedValuesArray.includes(option);
+          const isChecked = selectedValues.includes(option);
           return (
             <li key={option} className={styles.listItem}>
               <div
                 className={styles.checkboxContainer}
-                onClick={() => handleToggle(option)}
+                onClick={() => onToggle(option)}
                 role="checkbox"
                 aria-checked={isChecked}
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    handleToggle(option);
+                    onToggle(option);
                   }
                 }}
               >
