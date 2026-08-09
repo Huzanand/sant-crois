@@ -110,63 +110,71 @@ export const getAllLessons = async ({
 }: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
 
-  // 1. Define the exact sequence your backend expects
-  const PARAM_ORDER = [
-    "offset",
-    "size",
-    "activeTypeOfLesson",
-    "primaryTopics",
-    "secondaryTopics",
-    "tags",
-    "languageLevel",
-    "targetAgeGroup",
-    "learningLanguage",
-    "sort",
-  ];
+  // 1. Parse incoming params string into an array of entries or URLSearchParams
+  const extraParams = new URLSearchParams(params);
 
-  // 2. Collect all raw incoming values into a dictionary
-  const rawData = new Map<string, string>();
+  const queryParams = new URLSearchParams();
 
-  rawData.set("size", String(size));
-  rawData.set("offset", String(offset));
+  // 2. Exact order from your old working commit:
 
-  if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
-    rawData.set("languageLevel", selectedLanguageLevel.slice(0, 2));
+  // Order 1: offset & size
+  queryParams.append("offset", String(offset));
+  queryParams.append("size", String(size));
+
+  // Order 2: activeTypeOfLesson -> exerciseType
+  const exerciseType =
+    extraParams.get("exerciseType") ?? extraParams.get("activeTypeOfLesson");
+  if (exerciseType && exerciseType.toLowerCase() !== "all") {
+    queryParams.append("exerciseType", exerciseType.toUpperCase());
   }
 
-  if (selectedLearningLanguage) {
-    rawData.set("learningLanguage", selectedLearningLanguage);
-  }
-
-  if (params) {
-    const extraParams = new URLSearchParams(params);
-    extraParams.forEach((value, key) => {
-      if (value) {
-        rawData.set(key, value);
-      }
+  // Order 3: primaryTopics
+  const primaryTopics = extraParams.get("primaryTopics");
+  if (primaryTopics) {
+    primaryTopics.split(",").forEach((topic) => {
+      if (topic) queryParams.append("primaryTopics", topic);
     });
   }
 
-  // 3. Build URLSearchParams strictly in the order defined by PARAM_ORDER
-  const queryParams = new URLSearchParams();
+  // Order 4: secondaryTopics
+  const secondaryTopics = extraParams.get("secondaryTopics");
+  if (secondaryTopics) {
+    secondaryTopics.split(",").forEach((topic) => {
+      if (topic) queryParams.append("secondaryTopics", topic);
+    });
+  }
 
-  // Pull keys in PARAM_ORDER sequence
-  PARAM_ORDER.forEach((key) => {
-    if (rawData.has(key)) {
-      const value = rawData.get(key);
-      if (value) {
-        queryParams.append(key, value);
-      }
-      rawData.delete(key); // Remove so we don't repeat it
-    }
-  });
+  // Order 5: tags
+  const tags = extraParams.get("tags");
+  if (tags) {
+    tags.split(",").forEach((tag) => {
+      if (tag) queryParams.append("tags", tag);
+    });
+  }
 
-  // Append any unexpected / extra custom params at the end
-  rawData.forEach((value, key) => {
-    if (value) {
-      queryParams.append(key, value);
-    }
-  });
+  // Order 6: languageLevel
+  if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
+    const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
+    queryParams.append("languageLevel", languageLevelForBE);
+  }
+
+  // Order 7: targetAgeGroup
+  const targetAgeGroup =
+    extraParams.get("targetAgeGroup") ?? extraParams.get("targetAgeGroups");
+  if (targetAgeGroup) {
+    targetAgeGroup.split(",").forEach((ageGroup) => {
+      if (ageGroup) queryParams.append("targetAgeGroup", ageGroup);
+    });
+  }
+
+  // Order 8: learningLanguage
+  if (selectedLearningLanguage) {
+    queryParams.append("learningLanguage", selectedLearningLanguage);
+  }
+
+  // Order 9: sort
+  const sort = extraParams.get("sort") ?? "rating";
+  queryParams.append("sort", sort);
 
   const url = `${endpoint}?${queryParams.toString()}`;
 
