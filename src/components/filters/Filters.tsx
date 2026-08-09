@@ -67,7 +67,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const handleToggle = (key: string, value: string) => {
     setDraftFilters((prev) => {
-      const currentList = prev[key];
+      const currentList = prev[key] || [];
       const updatedList = currentList.includes(value)
         ? currentList.filter((item) => item !== value)
         : [...currentList, value];
@@ -219,7 +219,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`primary-${resetFiltersIndex}`}
               label={t("main theme")}
               arr={primaryTopics}
-              selectedValues={draftFilters["primaryTopics"]}
+              selectedValues={draftFilters["primaryTopics"] || []}
               onToggle={(val) => handleToggle("primaryTopics", val)}
             />
 
@@ -229,7 +229,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`secondary-${resetFiltersIndex}`}
               label={t("secondary theme")}
               arr={secondaryTopics}
-              selectedValues={draftFilters["secondaryTopics"]}
+              selectedValues={draftFilters["secondaryTopics"] || []}
               onToggle={(val) => handleToggle("secondaryTopics", val)}
             />
 
@@ -239,7 +239,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`tags-${resetFiltersIndex}`}
               label={t("tags")}
               arr={tags}
-              selectedValues={draftFilters["tags"]}
+              selectedValues={draftFilters["tags"] || []}
               onToggle={(val) => handleToggle("tags", val)}
             />
 
