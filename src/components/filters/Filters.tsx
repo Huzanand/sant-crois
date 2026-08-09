@@ -7,14 +7,20 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDownIco, FilterIco } from "@/assets/svg/icons";
 import { useWindowWidth } from "@/utils/useWindowWidth";
 import { useLanguageSync } from "@/utils/useLanguage";
-import { useFilterParam } from "@/utils/useFilterParam";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IFiltersProps {
   height: number;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const FILTER_KEYS = [
+  "primaryTopics",
+  "secondaryTopics",
+  "tags",
+  "targetAgeGroup",
+];
 
 const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const {
@@ -42,9 +48,68 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const { t } = useLanguageSync();
 
-  const { clearSpecificParams } = useFilterParam();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const params = useSearchParams().toString();
+  const [draftFilters, setDraftFilters] = useState<Record<string, string[]>>(
+    {},
+  );
+
+  useEffect(() => {
+    const initialDraft: Record<string, string[]> = {};
+    FILTER_KEYS.forEach((key) => {
+      const val = searchParams.get(key);
+      initialDraft[key] = val ? val.split(",") : [];
+    });
+    setDraftFilters(initialDraft);
+  }, [searchParams]);
+
+  const handleToggle = (key: string, value: string) => {
+    setDraftFilters((prev) => {
+      const currentList = prev[key];
+      const updatedList = currentList.includes(value)
+        ? currentList.filter((item) => item !== value)
+        : [...currentList, value];
+
+      return { ...prev, [key]: updatedList };
+    });
+  };
+
+  const handleApply = () => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    Object.entries(draftFilters).forEach(([key, values]) => {
+      if (values.length === 0) {
+        params.delete(key);
+      } else {
+        params.set(key, values.join(","));
+      }
+    });
+
+    params.set("offset", "0");
+
+    const updatedQueryString = params.toString();
+    router.replace(`${pathname}?${updatedQueryString}`, { scroll: false });
+
+    fetchLessons(
+      size,
+      selectedLanguageLevel,
+      selectedLearningLanguage,
+      updatedQueryString,
+      offset,
+    );
+
+    toggleDropdown();
+  };
+
+  const handleClearFilters = () => {
+    const params = new URLSearchParams(searchParams.toString());
+    FILTER_KEYS.forEach((key) => params.delete(key));
+
+    setDraftFilters({});
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   useEffect(() => {
     if (isOpen && isMobile) {
@@ -87,15 +152,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const handleOverlayClick = () => {
     toggleDropdown();
-  };
-
-  const handleClearFilters = () => {
-    clearSpecificParams([
-      "primaryTopics",
-      "secondaryTopics",
-      "tags",
-      "targetAgeGroup",
-    ]);
   };
 
   useEffect(() => {}, [resetFiltersIndex]);
@@ -163,7 +219,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`primary-${resetFiltersIndex}`}
               label={t("main theme")}
               arr={primaryTopics}
-              paramKey="primaryTopics"
+              selectedValues={draftFilters["primaryTopics"]}
+              onToggle={(val) => handleToggle("primaryTopics", val)}
             />
 
             <Divider margin="16px 0" />
@@ -172,7 +229,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`secondary-${resetFiltersIndex}`}
               label={t("secondary theme")}
               arr={secondaryTopics}
-              paramKey="secondaryTopics"
+              selectedValues={draftFilters["secondaryTopics"]}
+              onToggle={(val) => handleToggle("secondaryTopics", val)}
             />
 
             <Divider margin="16px 0" />
@@ -181,7 +239,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`tags-${resetFiltersIndex}`}
               label={t("tags")}
               arr={tags}
-              paramKey="tags"
+              selectedValues={draftFilters["tags"]}
+              onToggle={(val) => handleToggle("tags", val)}
             />
 
             <Divider margin="16px 0" />
@@ -190,6 +249,8 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`age-${resetFiltersIndex}`}
               label={t("age group")}
               arr={targetAgeGroups}
+              selectedValues={draftFilters["targetAgeGroups"]}
+              onToggle={(val: string) => handleToggle("targetAgeGroups", val)}
             />
 
             <div
@@ -200,13 +261,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                 <button
                   className={`buttons-l ${styles.btn} ${styles.btn_apply}`}
                   onClick={() => {
-                    fetchLessons(
-                      size,
-                      selectedLanguageLevel,
-                      selectedLearningLanguage,
-                      params,
-                      offset,
-                    );
+                    handleApply();
                     toggleDropdown();
                   }}
                 >
