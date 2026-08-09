@@ -2,12 +2,12 @@ import { useMemo, useState } from "react";
 import styles from "./searchComponent.module.css";
 import { CheckedIco, SearchIco, UncheckedIco } from "@/assets/svg/icons";
 import { useLanguageSync } from "@/utils/useLanguage";
-import { useFilterParam } from "@/utils/useFilterParam";
 
 type SearchComponentProps = {
   label: string;
   arr: string[];
-  paramKey: string;
+  selectedValues: string[];
+  onToggle: (value: string) => void;
 };
 
 const DEFAULT_OPTIONS_LIMIT = 5;
@@ -15,60 +15,41 @@ const DEFAULT_OPTIONS_LIMIT = 5;
 const SearchComponent: React.FC<SearchComponentProps> = ({
   label,
   arr,
-  paramKey,
+  selectedValues,
+  onToggle,
 }) => {
-  // state of search input
   const [searchTerm, setSearchTerm] = useState("");
 
-  // receive selected items from url and update them
-  const { selectedValuesArray, updateParam } = useFilterParam(paramKey);
-
-  // limit of options to show
   const [numberOfOptions, setNumberOfOptions] = useState<number>(
     DEFAULT_OPTIONS_LIMIT,
   );
 
-  // language sync
   const { t, currentLanguage } = useLanguageSync();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    setNumberOfOptions(DEFAULT_OPTIONS_LIMIT); // Reset pagination when searching
+    setNumberOfOptions(DEFAULT_OPTIONS_LIMIT);
   };
 
-  // filter func to show options based on search input and selected items AND ALPHABETICAL ORDER
   const filteredOptions = useMemo(() => {
     const locale = currentLanguage || "ru";
 
-    // 1. Filter items without mutating original prop
     const filtered = searchTerm.trim()
       ? arr.filter((option) =>
           option.toLowerCase().includes(searchTerm.toLowerCase()),
         )
       : [...arr];
 
-    // 2. Sort by selection status first, then alphabetically
     return filtered.sort((a, b) => {
-      const aSelected = selectedValuesArray.includes(a);
-      const bSelected = selectedValuesArray.includes(b);
+      const aSelected = selectedValues.includes(a);
+      const bSelected = selectedValues.includes(b);
 
       if (aSelected && !bSelected) return -1;
       if (!aSelected && bSelected) return 1;
 
       return a.localeCompare(b, locale);
     });
-  }, [searchTerm, arr, selectedValuesArray, currentLanguage]);
-
-  // update selected items state based on url param
-  // toggle options handler
-  const handleToggle = (value: string) => {
-    const exists = selectedValuesArray.includes(value);
-    const newValues = exists
-      ? selectedValuesArray.filter((v) => v !== value)
-      : [...selectedValuesArray, value];
-
-    updateParam(newValues);
-  };
+  }, [searchTerm, arr, selectedValues, currentLanguage]);
 
   const visibleOptions = filteredOptions.slice(0, numberOfOptions);
   const hasMore = numberOfOptions < filteredOptions.length;
@@ -102,19 +83,19 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
         ) : (
           <>
             {visibleOptions.map((option) => {
-              const isChecked = selectedValuesArray.includes(option);
+              const isChecked = selectedValues.includes(option);
               return (
                 <li key={option} className={styles.listItem}>
                   <div
                     className={styles.checkboxContainer}
-                    onClick={() => handleToggle(option)}
+                    onClick={() => onToggle(option)}
                     role="checkbox"
                     aria-checked={isChecked}
                     tabIndex={0}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
-                        handleToggle(option);
+                        onToggle(option);
                       }
                     }}
                   >
