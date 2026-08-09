@@ -52,9 +52,9 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [draftFilters, setDraftFilters] = useState<Record<string, string[]>>(
-    {},
-  );
+  const [draftFilters, setDraftFilters] = useState<
+    Record<string, string[] | undefined>
+  >({});
 
   useEffect(() => {
     const initialDraft: Record<string, string[]> = {};
@@ -67,7 +67,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
 
   const handleToggle = (key: string, value: string) => {
     setDraftFilters((prev) => {
-      const currentList = prev[key] || [];
+      const currentList = prev[key] ?? [];
       const updatedList = currentList.includes(value)
         ? currentList.filter((item) => item !== value)
         : [...currentList, value];
@@ -80,10 +80,12 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     const params = new URLSearchParams(searchParams.toString());
 
     Object.entries(draftFilters).forEach(([key, values]) => {
-      if (values.length === 0) {
-        params.delete(key);
-      } else {
-        params.set(key, values.join(","));
+      if (values) {
+        if (values.length === 0) {
+          params.delete(key);
+        } else {
+          params.set(key, values.join(","));
+        }
       }
     });
 
@@ -219,7 +221,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`primary-${resetFiltersIndex}`}
               label={t("main theme")}
               arr={primaryTopics}
-              selectedValues={draftFilters["primaryTopics"] || []}
+              selectedValues={draftFilters["primaryTopics"] ?? []}
               onToggle={(val) => handleToggle("primaryTopics", val)}
             />
 
@@ -229,7 +231,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`secondary-${resetFiltersIndex}`}
               label={t("secondary theme")}
               arr={secondaryTopics}
-              selectedValues={draftFilters["secondaryTopics"] || []}
+              selectedValues={draftFilters["secondaryTopics"] ?? []}
               onToggle={(val) => handleToggle("secondaryTopics", val)}
             />
 
@@ -239,7 +241,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`tags-${resetFiltersIndex}`}
               label={t("tags")}
               arr={tags}
-              selectedValues={draftFilters["tags"] || []}
+              selectedValues={draftFilters["tags"] ?? []}
               onToggle={(val) => handleToggle("tags", val)}
             />
 
@@ -249,7 +251,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
               key={`age-${resetFiltersIndex}`}
               label={t("age group")}
               arr={targetAgeGroups}
-              selectedValues={draftFilters["targetAgeGroups"]}
+              selectedValues={draftFilters["targetAgeGroups"] ?? []}
               onToggle={(val: string) => handleToggle("targetAgeGroups", val)}
             />
 
