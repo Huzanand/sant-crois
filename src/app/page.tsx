@@ -37,7 +37,7 @@ const Home = () => {
     setHomePageContentHeight,
   } = useOwnStore((state) => state);
 
-  const params = useSearchParams().toString();
+  const searchParams = useSearchParams();
 
   const loading = interceptorsStore((state) => state.loading);
   const error = interceptorsStore((state) => state.error);
@@ -93,6 +93,8 @@ const Home = () => {
   useEffect(() => {
     if (!datasetKey) return;
 
+    const params = searchParams.toString();
+
     fetchLessons(
       size,
       selectedLanguageLevel,
@@ -100,7 +102,7 @@ const Home = () => {
       params,
       offset,
     );
-  }, [datasetKey, offset, size]);
+  }, [datasetKey, offset, size, searchParams]);
 
   const showContent = () => {
     if (error) return <Error404 page="home" />;
