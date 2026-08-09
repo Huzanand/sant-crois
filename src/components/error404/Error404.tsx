@@ -1,22 +1,17 @@
 import styles from "./error404.module.css";
 import Image from "next/image";
 import maskot from "../../assets/maskot_not_found.png";
-import { useOwnStore } from "@/store/storeProvider";
 import { useLanguageSync } from "@/utils/useLanguage";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 interface errorProps {
   page: "home" | "lesson" | "check";
 }
 
 const Error404: React.FC<errorProps> = ({ page }) => {
-  const {
-    fetchLessons,
-    selectedLearningLanguage,
-    setOffset,
-    onSelectChange,
-    resetSize,
-  } = useOwnStore((state) => state);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const { t } = useLanguageSync();
 
@@ -37,10 +32,9 @@ const Error404: React.FC<errorProps> = ({ page }) => {
           <button
             className={styles.btn}
             onClick={() => {
-              fetchLessons(12, "All", selectedLearningLanguage, "", 0);
-              setOffset(0);
-              onSelectChange("selectedLanguageLevel", "All");
-              resetSize();
+              router.replace(`${pathname}?`, {
+                scroll: false,
+              });
             }}
           >
             <span className="buttons-l">{t("maskot404.resetFilters")}</span>
