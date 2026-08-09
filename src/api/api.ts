@@ -63,43 +63,6 @@ interface FetchLessonsParams {
   abortSignal?: AbortSignal;
 }
 
-// export const getAllLessons = async ({
-//   size = 12,
-//   offset = 0,
-//   selectedLanguageLevel = "",
-//   selectedLearningLanguage = "",
-//   params = "",
-//   abortSignal,
-// }: FetchLessonsParams = {}): Promise<IData> => {
-//   const endpoint = "/exercises";
-
-//   const queryParams = new URLSearchParams({
-//     offset: String(offset),
-//     size: String(size),
-//   });
-
-//   if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
-//     const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
-//     queryParams.append("languageLevel", languageLevelForBE);
-//   }
-
-//   if (selectedLearningLanguage) {
-//     queryParams.append("learningLanguage", selectedLearningLanguage);
-//   }
-
-//   if (params) {
-//     const extraParams = new URLSearchParams(params);
-//     extraParams.forEach((value, key) => {
-//       queryParams.append(key, value);
-//     });
-//   }
-
-//   const url = `${endpoint}?${queryParams.toString()}`;
-
-//   const response = await axiosInstance.get(url, { signal: abortSignal });
-//   return { metaData: response.data.metaData, lessons: response.data.content };
-// };
-
 export const getAllLessons = async ({
   size = 12,
   offset = 0,
@@ -110,25 +73,19 @@ export const getAllLessons = async ({
 }: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
 
-  // 1. Parse incoming params string into an array of entries or URLSearchParams
   const extraParams = new URLSearchParams(params);
 
   const queryParams = new URLSearchParams();
 
-  // 2. Exact order from your old working commit:
-
-  // Order 1: offset & size
   queryParams.append("offset", String(offset));
   queryParams.append("size", String(size));
 
-  // Order 2: activeTypeOfLesson -> exerciseType
   const exerciseType =
     extraParams.get("exerciseType") ?? extraParams.get("activeTypeOfLesson");
   if (exerciseType && exerciseType.toLowerCase() !== "all") {
     queryParams.append("exerciseType", exerciseType.toUpperCase());
   }
 
-  // Order 3: primaryTopics
   const primaryTopics = extraParams.get("primaryTopics");
   if (primaryTopics) {
     primaryTopics.split(",").forEach((topic) => {
@@ -136,7 +93,6 @@ export const getAllLessons = async ({
     });
   }
 
-  // Order 4: secondaryTopics
   const secondaryTopics = extraParams.get("secondaryTopics");
   if (secondaryTopics) {
     secondaryTopics.split(",").forEach((topic) => {
@@ -144,7 +100,6 @@ export const getAllLessons = async ({
     });
   }
 
-  // Order 5: tags
   const tags = extraParams.get("tags");
   if (tags) {
     tags.split(",").forEach((tag) => {
@@ -152,13 +107,11 @@ export const getAllLessons = async ({
     });
   }
 
-  // Order 6: languageLevel
   if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
     const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
     queryParams.append("languageLevel", languageLevelForBE);
   }
 
-  // Order 7: targetAgeGroup
   const targetAgeGroup =
     extraParams.get("targetAgeGroup") ?? extraParams.get("targetAgeGroups");
   if (targetAgeGroup) {
@@ -167,12 +120,10 @@ export const getAllLessons = async ({
     });
   }
 
-  // Order 8: learningLanguage
   if (selectedLearningLanguage) {
     queryParams.append("learningLanguage", selectedLearningLanguage);
   }
 
-  // Order 9: sort
   const sort = extraParams.get("sort") ?? "rating";
   queryParams.append("sort", sort);
 
