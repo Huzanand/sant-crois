@@ -63,6 +63,43 @@ interface FetchLessonsParams {
   abortSignal?: AbortSignal;
 }
 
+// export const getAllLessons = async ({
+//   size = 12,
+//   offset = 0,
+//   selectedLanguageLevel = "",
+//   selectedLearningLanguage = "",
+//   params = "",
+//   abortSignal,
+// }: FetchLessonsParams = {}): Promise<IData> => {
+//   const endpoint = "/exercises";
+
+//   const queryParams = new URLSearchParams({
+//     offset: String(offset),
+//     size: String(size),
+//   });
+
+//   if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
+//     const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
+//     queryParams.append("languageLevel", languageLevelForBE);
+//   }
+
+//   if (selectedLearningLanguage) {
+//     queryParams.append("learningLanguage", selectedLearningLanguage);
+//   }
+
+//   if (params) {
+//     const extraParams = new URLSearchParams(params);
+//     extraParams.forEach((value, key) => {
+//       queryParams.append(key, value);
+//     });
+//   }
+
+//   const url = `${endpoint}?${queryParams.toString()}`;
+
+//   const response = await axiosInstance.get(url, { signal: abortSignal });
+//   return { metaData: response.data.metaData, lessons: response.data.content };
+// };
+
 export const getAllLessons = async ({
   size = 12,
   offset = 0,
@@ -73,26 +110,63 @@ export const getAllLessons = async ({
 }: FetchLessonsParams = {}): Promise<IData> => {
   const endpoint = "/exercises";
 
-  const queryParams = new URLSearchParams({
-    offset: String(offset),
-    size: String(size),
-  });
+  // 1. Define the exact sequence your backend expects
+  const PARAM_ORDER = [
+    "offset",
+    "size",
+    "activeTypeOfLesson",
+    "primaryTopics",
+    "secondaryTopics",
+    "tags",
+    "languageLevel",
+    "targetAgeGroup",
+    "learningLanguage",
+    "sort",
+  ];
+
+  // 2. Collect all raw incoming values into a dictionary
+  const rawData = new Map<string, string>();
+
+  rawData.set("size", String(size));
+  rawData.set("offset", String(offset));
 
   if (selectedLanguageLevel && selectedLanguageLevel !== "All") {
-    const languageLevelForBE = selectedLanguageLevel.slice(0, 2);
-    queryParams.append("languageLevel", languageLevelForBE);
+    rawData.set("languageLevel", selectedLanguageLevel.slice(0, 2));
   }
 
   if (selectedLearningLanguage) {
-    queryParams.append("learningLanguage", selectedLearningLanguage);
+    rawData.set("learningLanguage", selectedLearningLanguage);
   }
 
   if (params) {
     const extraParams = new URLSearchParams(params);
     extraParams.forEach((value, key) => {
-      queryParams.append(key, value);
+      if (value) {
+        rawData.set(key, value);
+      }
     });
   }
+
+  // 3. Build URLSearchParams strictly in the order defined by PARAM_ORDER
+  const queryParams = new URLSearchParams();
+
+  // Pull keys in PARAM_ORDER sequence
+  PARAM_ORDER.forEach((key) => {
+    if (rawData.has(key)) {
+      const value = rawData.get(key);
+      if (value) {
+        queryParams.append(key, value);
+      }
+      rawData.delete(key); // Remove so we don't repeat it
+    }
+  });
+
+  // Append any unexpected / extra custom params at the end
+  rawData.forEach((value, key) => {
+    if (value) {
+      queryParams.append(key, value);
+    }
+  });
 
   const url = `${endpoint}?${queryParams.toString()}`;
 
