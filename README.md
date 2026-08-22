@@ -23,9 +23,9 @@ The public MVP launch reached **100 unique users within its first 24 hours**.
 
 ### Screenshots
 
-**[SCREENSHOT — Lesson Library / Main Screen]**
+![Home Page](public/screenshots/home.png)
 
-*Show the main lesson discovery page with navigation, filters and lesson cards.*
+_Show the main lesson discovery page with navigation, filters and lesson cards._
 
 ---
 
@@ -65,9 +65,9 @@ Lessons can contain different exercise types in any combination and order.
 
 After completing a lesson, students can review their answers with automatic correctness indicators and optional explanations.
 
-**[SCREENSHOT — Interactive Lesson / Exercise]**
+![Interactive Lesson](public/screenshots/lesson.png)
 
-*Show one of the most representative exercises, preferably interactive text, fill-in-the-blank, or another visually distinctive task.*
+_Show one of the most representative exercises, preferably interactive text, fill-in-the-blank, or another visually distinctive task._
 
 ### Lesson Discovery
 
@@ -95,9 +95,9 @@ The workflow:
 5. The teacher can open the same room and review the completed lesson in read-only mode.
 6. The room expires after 7 days.
 
-**[SCREENSHOT — Virtual Room / Student Results]**
+![Virtual Room](public/screenshots/virtual-room.png)
 
-*Show the teacher's read-only review of a completed student's lesson, or the student experience inside a Virtual Room.*
+_Show the teacher's read-only review of a completed student's lesson, or the student experience inside a Virtual Room._
 
 ### Internationalization
 
@@ -127,6 +127,7 @@ src/
 ├── styles/       # Global styles
 └── utils/        # Shared utilities
 ```
+
 The application separates API communication, routing, reusable components, models, client-side state, localization and shared utilities.
 
 ### API Integration
@@ -210,9 +211,9 @@ The frontend implementation was completed, but corresponding backend changes wer
 **Constructor branch:**  
 https://github.com/Huzanand/sant-crois/tree/feature/constructor
 
-**[OPTIONAL SCREENSHOT — Lesson Constructor]**
+![Lesson Constructor](public/screenshots/constructor.png)
 
-*Show the TipTap editor and drag-and-drop lesson construction interface.*
+_Show the TipTap editor and drag-and-drop lesson construction interface._
 
 ---
 
