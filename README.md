@@ -23,9 +23,7 @@ The public MVP launch reached **100 unique users within its first 24 hours**.
 
 ### Screenshots
 
-![Home Page](public/screenshots/home.png)
-
-_Show the main lesson discovery page with navigation, filters and lesson cards._
+![Home Page](public/screenshots/lesson-library.png)
 
 ---
 
@@ -67,8 +65,6 @@ After completing a lesson, students can review their answers with automatic corr
 
 ![Interactive Lesson](public/screenshots/lesson.png)
 
-_Show one of the most representative exercises, preferably interactive text, fill-in-the-blank, or another visually distinctive task._
-
 ### Lesson Discovery
 
 The lesson library includes:
@@ -96,8 +92,6 @@ The workflow:
 6. The room expires after 7 days.
 
 ![Virtual Room](public/screenshots/virtual-room.png)
-
-_Show the teacher's read-only review of a completed student's lesson, or the student experience inside a Virtual Room._
 
 ### Internationalization
 
@@ -212,8 +206,6 @@ The frontend implementation was completed, but corresponding backend changes wer
 https://github.com/Huzanand/sant-crois/tree/feature/constructor
 
 ![Lesson Constructor](public/screenshots/constructor.png)
-
-_Show the TipTap editor and drag-and-drop lesson construction interface._
 
 ---
 
