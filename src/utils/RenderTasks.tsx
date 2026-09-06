@@ -8,146 +8,93 @@ import TrueFalseTask from "@/components/tasks/trueFalse/TrueFalse";
 import WriteTask from "@/components/tasks/write/WriteTask";
 import { ITaskData } from "@/models";
 
-<style jsx>{`
-    .divider {
-        width: 100%;
-        height: 2px;
-        border-radius: 1px;
-        background: var(--Purple-P50);
-        margin: 1.5rem 0;
-    }
-`}</style>;
-
-interface renderTaskProps {
-    tasks: ITaskData[];
-    readonly?: boolean;
+interface RenderTaskProps {
+  tasks: ITaskData[];
+  readonly?: boolean;
 }
 
-export const RenderTasks: React.FC<renderTaskProps> = ({ tasks, readonly }) => {
-    if (tasks) {
-        const resultArr = [] as React.ReactNode[];
-        tasks.forEach((task, index) => {
-            switch (task.taskType) {
-                case "MEDIA_TASK":
-                    switch (task.content?.contentType) {
-                        case "TEXT":
-                            resultArr.push(
-                                <TextTask
-                                    key={index + task.taskId}
-                                    content={
-                                        (
-                                            tasks[index].content as {
-                                                contentSource: string;
-                                            }
-                                        ).contentSource
-                                    }
-                                    index={index + 1}
-                                />
-                            );
-                            resultArr.push(
-                                <div
-                                    className="divider"
-                                    key={"divider-" + index + 1}
-                                />
-                            );
-                            break;
-                        case "VIDEO":
-                            resultArr.push(
-                                <MediaTask
-                                    key={index + task.taskId}
-                                    taskData={tasks[index]}
-                                    index={index + 1}
-                                />
-                            );
-                            resultArr.push(
-                                <div
-                                    className="divider"
-                                    key={"divider-" + index}
-                                />
-                            );
-                            break;
-                        case "AUDIO":
-                            resultArr.push(
-                                <MediaTask
-                                    key={index + task.taskId}
-                                    taskData={tasks[index]}
-                                    index={index + 1}
-                                />
-                            );
-                            resultArr.push(
-                                <div
-                                    className="divider"
-                                    key={"divider-" + index}
-                                />
-                            );
-                            break;
-                        case "FILL_TEMPLATE":
-                            resultArr.push(
-                                <WriteTask
-                                    key={index + task.taskId}
-                                    taskData={tasks[index]}
-                                    index={index + 1}
-                                    readonly={readonly}
-                                />
-                            );
-                            resultArr.push(
-                                <div
-                                    className="divider"
-                                    key={"divider-" + index}
-                                />
-                            );
-                            break;
-                        case "CHOOSE_TEMPLATE":
-                            resultArr.push(
-                                <FillTextTask
-                                    key={index + task.taskId}
-                                    taskData={tasks[index]}
-                                    index={index + 1}
-                                    readonly={readonly}
-                                />
-                            );
-                            resultArr.push(
-                                <div
-                                    className="divider"
-                                    key={"divider-" + index}
-                                />
-                            );
-                            break;
+const RenderTask = ({
+  task,
+  index,
+  readonly,
+}: {
+  task: ITaskData;
+  index: number;
+  readonly?: boolean;
+}) => {
+  switch (task.taskType) {
+    case "MEDIA_TASK":
+      switch (task.content?.contentType) {
+        case "TEXT":
+          return (
+            <TextTask
+              content={
+                (
+                  task.content as {
+                    contentSource: string;
+                  }
+                ).contentSource
+              }
+              index={index + 1}
+            />
+          );
 
-                        default:
-                            break;
-                    }
-                    break;
+        case "VIDEO":
+        case "AUDIO":
+          return <MediaTask taskData={task} index={index + 1} />;
 
-                case "TRUE_FALSE":
-                    resultArr.push(
-                        <TrueFalseTask
-                            key={index + task.taskId}
-                            taskData={tasks[index]}
-                            index={index + 1}
-                            readonly={readonly}
-                        />
-                    );
-                    resultArr.push(<div className="divider" key={index} />);
-                    break;
+        case "FILL_TEMPLATE":
+          return (
+            <WriteTask taskData={task} index={index + 1} readonly={readonly} />
+          );
 
-                case "CHOOSE_ANSWER":
-                    resultArr.push(
-                        <ChooseTask
-                            key={index + task.taskId}
-                            taskData={tasks[index]}
-                            index={index + 1}
-                            readonly={readonly}
-                        />
-                    );
-                    resultArr.push(<div className="divider" key={index} />);
-                    break;
+        case "CHOOSE_TEMPLATE":
+          return (
+            <FillTextTask
+              taskData={task}
+              index={index + 1}
+              readonly={readonly}
+            />
+          );
 
-                default:
-                    break;
-            }
-        });
+        default:
+          return null;
+      }
 
-        return <div>{resultArr}</div>;
-    } else return undefined;
+    case "TRUE_FALSE":
+      return (
+        <TrueFalseTask taskData={task} index={index + 1} readonly={readonly} />
+      );
+
+    case "CHOOSE_ANSWER":
+      return (
+        <ChooseTask taskData={task} index={index + 1} readonly={readonly} />
+      );
+
+    default:
+      return null;
+  }
+};
+
+export const RenderTasks: React.FC<RenderTaskProps> = ({ tasks, readonly }) => {
+  return (
+    <div>
+      {tasks.map((task, index) => (
+        <div key={task.taskId}>
+          <RenderTask task={task} index={index} readonly={readonly} />
+
+          <div
+            className="divider"
+            style={{
+              width: "100%",
+              height: "2px",
+              borderRadius: "1px",
+              background: "var(--Purple-P50)",
+              margin: "1.5rem 0",
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
