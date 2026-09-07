@@ -5,7 +5,7 @@ import { useOwnStore } from "@/store/storeProvider";
 import { useParams, useRouter } from "next/navigation";
 import Recomendations from "@/components/recomendations/Recomandations";
 import ResultsHeader from "@/components/settingsSelect/resultsHeader/ResultsHeader";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { interceptorsStore } from "@/store/interceptorsStore";
 import MultipleCheck from "@/components/checkAnswers/multipleCheck/MultipleCheck";
 import SingleCheck from "@/components/checkAnswers/singleCheck/SingleCheck";
@@ -15,170 +15,151 @@ import { useLanguageSync } from "@/utils/useLanguage";
 import Error404 from "@/components/error404/Error404";
 
 const Results = () => {
-    const {
-        lesson,
-        relatedContents,
-        clearRecomendations,
-        userAnswers,
-        sendUserAnswers,
-        clearUserAnswers,
-        results,
-        clearResults,
-    } = useOwnStore((store) => store);
+  const {
+    lesson,
+    relatedContents,
+    clearRecomendations,
+    userAnswers,
+    sendUserAnswers,
+    clearUserAnswers,
+    results,
+    clearResults,
+  } = useOwnStore((store) => store);
 
-    const { loading, error } = interceptorsStore((state) => state);
-    const router = useRouter();
-    const { lessonId } = useParams();
-    const { t } = useLanguageSync();
+  const { loading, error } = interceptorsStore((state) => state);
+  const router = useRouter();
+  const { lessonId } = useParams();
+  const { t } = useLanguageSync();
 
-    useEffect(() => {
-        if (lessonId) {
-            sendUserAnswers(lessonId as string);
+  useEffect(() => {
+    if (lessonId) {
+      sendUserAnswers(lessonId as string);
+    }
+  }, [lessonId, sendUserAnswers]);
+
+  const renderTask = (task: ILesson["tasks"][number], index: number) => {
+    switch (task.taskType) {
+      case "MEDIA_TASK":
+        switch (task.content?.contentType) {
+          case "CHOOSE_TEMPLATE":
+            return (
+              <MultipleCheck
+                taskData={task}
+                index={index + 1}
+                userAnswers={userAnswers}
+                results={results}
+                withOptions
+              />
+            );
+
+          case "FILL_TEMPLATE":
+            return (
+              <MultipleCheck
+                taskData={task}
+                index={index + 1}
+                userAnswers={userAnswers}
+                results={results}
+              />
+            );
+
+          default:
+            return null;
         }
-    }, [lessonId, sendUserAnswers]);
 
-    const renderTasks = (lesson: ILesson) => {
-        if (lesson) {
-            const resultArr = [] as React.ReactNode[];
+      case "CHOOSE_ANSWER":
+        return (
+          <SingleCheck
+            type="CHOOSE_ANSWER"
+            taskData={task}
+            index={index + 1}
+            userAnswers={userAnswers}
+            results={results}
+          />
+        );
 
-            lesson.tasks.forEach((task, index) => {
-                switch (task.taskType) {
-                    case "MEDIA_TASK":
-                        switch (task.content!.contentType) {
-                            case "CHOOSE_TEMPLATE":
-                                resultArr.push(
-                                    <MultipleCheck
-                                        key={index}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                        userAnswers={userAnswers}
-                                        results={results}
-                                        withOptions
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        key={"divider-" + index}
-                                        className={styles.divider}
-                                    />
-                                );
-                                break;
-                            case "FILL_TEMPLATE":
-                                resultArr.push(
-                                    <MultipleCheck
-                                        key={index}
-                                        taskData={lesson.tasks[index]}
-                                        index={index + 1}
-                                        userAnswers={userAnswers}
-                                        results={results}
-                                    />
-                                );
-                                resultArr.push(
-                                    <div
-                                        key={"divider-" + index}
-                                        className={styles.divider}
-                                    />
-                                );
-                                break;
-                        }
-                        break;
-                    case "CHOOSE_ANSWER":
-                        resultArr.push(
-                            <SingleCheck
-                                key={index}
-                                type="CHOOSE_ANSWER"
-                                taskData={lesson.tasks[index]}
-                                index={index + 1}
-                                userAnswers={userAnswers}
-                                results={results}
-                            />
-                        );
-                        resultArr.push(
-                            <div
-                                key={"divider-" + index}
-                                className={styles.divider}
-                            />
-                        );
-                        break;
-                    case "TRUE_FALSE":
-                        resultArr.push(
-                            <SingleCheck
-                                key={index}
-                                type="TRUE_FALSE"
-                                taskData={lesson.tasks[index]}
-                                index={index + 1}
-                                userAnswers={userAnswers}
-                                results={results}
-                            />
-                        );
-                        resultArr.push(
-                            <div
-                                key={"divider-" + index}
-                                className={styles.divider}
-                            />
-                        );
-                        break;
+      case "TRUE_FALSE":
+        return (
+          <SingleCheck
+            type="TRUE_FALSE"
+            taskData={task}
+            index={index + 1}
+            userAnswers={userAnswers}
+            results={results}
+          />
+        );
 
-                    default:
-                        break;
-                }
-            });
+      default:
+        return null;
+    }
+  };
 
-            return <div>{resultArr}</div>;
-        } else return undefined;
-    };
-
+  const renderTasks = (lesson: ILesson) => {
     return (
-        <div className={styles.wrapper}>
-            {!lesson ? (
-                <Error404 page="check" />
-            ) : (
-                <>
-                    {loading && !error && <Loader />}
+      <div>
+        {lesson.tasks.map((task, index) => {
+          const renderedTask = renderTask(task, index);
 
-                    {!loading && !error && (
-                        <div>
-                            <ResultsHeader />
+          if (!renderedTask) {
+            return null;
+          }
 
-                            <div className={styles.container}>
-                                {lesson && renderTasks(lesson)}
+          return (
+            <Fragment key={task.taskId}>
+              {renderedTask}
 
-                                {relatedContents &&
-                                    relatedContents.length > 0 && (
-                                        <Recomendations
-                                            content={relatedContents as []}
-                                        />
-                                    )}
-
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        marginTop: "3rem",
-                                    }}
-                                >
-                                    <button
-                                        className={`${styles.btnHome}`}
-                                        onClick={() => {
-                                            clearRecomendations();
-                                            clearUserAnswers();
-                                            clearResults();
-                                            setTimeout(
-                                                () => router.replace(`/`),
-                                                0
-                                            );
-                                        }}
-                                    >
-                                        {t("btnBack")}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </>
-            )}
-        </div>
+              <div className={styles.divider} />
+            </Fragment>
+          );
+        })}
+      </div>
     );
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      {!lesson ? (
+        <Error404 page="check" />
+      ) : (
+        <>
+          {loading && !error && <Loader />}
+
+          {!loading && !error && (
+            <div>
+              <ResultsHeader />
+
+              <div className={styles.container}>
+                {renderTasks(lesson)}
+
+                {relatedContents.length > 0 && (
+                  <Recomendations content={relatedContents as []} />
+                )}
+
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "3rem",
+                  }}
+                >
+                  <button
+                    className={styles.btnHome}
+                    onClick={() => {
+                      clearRecomendations();
+                      clearUserAnswers();
+                      clearResults();
+                      setTimeout(() => router.replace(`/`), 0);
+                    }}
+                  >
+                    {t("btnBack")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Results;
