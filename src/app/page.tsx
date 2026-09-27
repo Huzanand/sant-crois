@@ -143,7 +143,6 @@ const Home = () => {
               </Link>
             </div>
           );
-          return null;
         })}
       </div>
     );
@@ -171,7 +170,7 @@ const Home = () => {
         />
         <Pagination
           totalCount={totalCount}
-          initialSize={12}
+          initialSize={10}
           size={size}
           offset={offset}
           setOffset={setOffset}
