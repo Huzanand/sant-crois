@@ -162,6 +162,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
     <div className={styles.container}>
       {isMobile && (
         <div
+          data-testid="filters-overlay"
           ref={overlayRef}
           className={styles.overlay}
           onClick={handleOverlayClick}
@@ -211,6 +212,7 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
             <button className={styles.back_button}>
               <ArrowDownIco />
             </button>
+            {/* add translation */}
             <h3 className={styles.modal_title}>Сортировать по</h3>
           </div>
         )}
@@ -264,7 +266,6 @@ const Filters: React.FC<IFiltersProps> = ({ height, isOpen, setIsOpen }) => {
                   className={`buttons-l ${styles.btn} ${styles.btn_apply}`}
                   onClick={() => {
                     handleApply();
-                    toggleDropdown();
                   }}
                 >
                   {t("apply")}
